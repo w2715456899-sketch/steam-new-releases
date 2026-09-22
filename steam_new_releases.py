@@ -396,26 +396,52 @@ h2.section { font-size: 0.85rem; color: #8894a3; margin: 24px 0 8px; text-transf
 .disc-final.unknown { color: #8894a3; font-weight: 400; font-size: 0.85rem; }
 .discount-end { color: #66c0f4; font-size: 0.78rem; margin-top: 3px; }
 .open-modal-backdrop {
-  display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.6);
-  align-items: center; justify-content: center; z-index: 100; padding: 16px;
+  display: none; position: fixed; inset: 0; background: rgba(8, 10, 14, 0.72);
+  backdrop-filter: blur(3px); align-items: center; justify-content: center; z-index: 100; padding: 16px;
 }
 .open-modal {
-  background: #171d26; border: 1px solid #232b37; border-radius: 12px; padding: 20px;
-  width: min(320px, 100%); display: flex; flex-direction: column; gap: 14px;
+  position: relative; background: linear-gradient(180deg, #1c2330, #171d26);
+  border: 1px solid #2a3346; border-radius: 16px; padding: 30px 22px 22px;
+  width: min(340px, 100%); display: flex; flex-direction: column; gap: 18px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55); animation: openModalIn 0.15s ease;
 }
-.open-modal-title { font-size: 1rem; font-weight: 600; }
-.open-modal-actions { display: flex; gap: 8px; }
-.open-modal-actions button {
-  flex: 1; padding: 10px; border-radius: 8px; border: 1px solid #2a3346;
-  background: #1c2330; color: #e7ecf2; font-size: 0.9rem; cursor: pointer;
+@keyframes openModalIn {
+  from { opacity: 0; transform: translateY(8px) scale(0.97); }
+  to { opacity: 1; transform: none; }
 }
-.open-modal-actions button:hover { background: #232b3d; border-color: #3a4460; }
-.open-modal-remember { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: #8894a3; }
-.open-modal-close {
-  align-self: flex-end; background: none; border: none; color: #6b7686;
-  cursor: pointer; font-size: 0.8rem; padding: 0;
+.open-modal-x {
+  position: absolute; top: 10px; right: 10px; width: 28px; height: 28px; border-radius: 8px;
+  background: none; border: none; color: #6b7686; font-size: 1rem; cursor: pointer; line-height: 1;
 }
-.open-modal-close:hover { color: #9db4d1; }
+.open-modal-x:hover { background: #232b3d; color: #e7ecf2; }
+.open-modal-title { font-size: 1.05rem; font-weight: 600; text-align: center; }
+.open-modal-options { display: flex; gap: 12px; }
+.open-modal-option {
+  flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px;
+  padding: 18px 10px; border-radius: 12px; border: 1px solid #2a3346; background: #10141a;
+  color: #e7ecf2; cursor: pointer; transition: border-color 0.15s, transform 0.15s, background 0.15s;
+}
+.open-modal-option:hover { transform: translateY(-2px); }
+.open-modal-option[data-choice="web"]:hover { border-color: #4c6b22; background: rgba(76, 107, 34, 0.12); }
+.open-modal-option[data-choice="steam"]:hover { border-color: #66c0f4; background: rgba(102, 192, 244, 0.1); }
+.open-modal-icon {
+  width: 1.9rem; height: 1.9rem; font-size: 1.9rem; line-height: 1; color: #9db4d1;
+  display: flex; align-items: center; justify-content: center;
+}
+.open-modal-icon svg { width: 100%; height: 100%; display: block; }
+.open-modal-option[data-choice="web"]:hover .open-modal-icon { color: #a4d007; }
+.open-modal-option[data-choice="steam"]:hover .open-modal-icon { color: #66c0f4; }
+.open-modal-label { font-size: 0.85rem; color: #9db4d1; }
+.open-modal-remember { display: flex; align-items: center; justify-content: space-between; font-size: 0.85rem; color: #8894a3; }
+.switch { position: relative; width: 36px; height: 20px; display: inline-block; cursor: pointer; }
+.switch input { position: absolute; opacity: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+.switch-track { position: absolute; inset: 0; background: #2a3346; border-radius: 999px; transition: background 0.15s; }
+.switch-track::after {
+  content: ""; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px;
+  background: #e7ecf2; border-radius: 50%; transition: transform 0.15s;
+}
+.switch input:checked ~ .switch-track { background: #4c6b22; }
+.switch input:checked ~ .switch-track::after { transform: translateX(16px); }
 .tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 7px; }
 .tag {
   font-size: 0.78rem; padding: 3px 10px; border-radius: 999px; background: #241a33;
@@ -437,7 +463,7 @@ h2.section { font-size: 0.85rem; color: #8894a3; margin: 24px 0 8px; text-transf
   .row img.cap { width: 110px; height: 52px; }
   .row .name { font-size: 1rem; }
 }
-.badge { flex: none; font-size: 0.72rem; padding: 3px 8px; border-radius: 999px; white-space: nowrap; }
+.badge { flex: none; font-size: 0.92rem; font-weight: 600; padding: 6px 12px; border-radius: 999px; white-space: nowrap; }
 .badge.live { background: #16331f; color: #5fd58a; }
 .badge.upcoming { background: #33291a; color: #e0b25f; }
 .empty { color: #8894a3; padding: 40px 0; text-align: center; }
@@ -477,13 +503,25 @@ PAGE_SHELL = """<!doctype html>
 
 <div class="open-modal-backdrop" id="openModalBackdrop">
   <div class="open-modal">
-    <div class="open-modal-title">要怎麼開啟這款遊戲？</div>
-    <div class="open-modal-actions">
-      <button type="button" data-choice="web">🌐 網頁開啟</button>
-      <button type="button" data-choice="steam">💠 Steam 開啟</button>
+    <button type="button" class="open-modal-x" id="openModalCancel" aria-label="關閉">✕</button>
+    <div class="open-modal-title">要用什麼開啟？</div>
+    <div class="open-modal-options">
+      <button type="button" class="open-modal-option" data-choice="web">
+        <span class="open-modal-icon">🌐</span>
+        <span class="open-modal-label">網頁</span>
+      </button>
+      <button type="button" class="open-modal-option" data-choice="steam">
+        <span class="open-modal-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.606 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.454 1.012H7.54zm11.415-9.303c0-1.662-1.353-3.015-3.015-3.015-1.665 0-3.015 1.353-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.253 0-2.265-1.014-2.265-2.265z"/></svg></span>
+        <span class="open-modal-label">Steam</span>
+      </button>
     </div>
-    <label class="open-modal-remember"><input type="checkbox" id="openModalRemember" checked> 記住我的選擇</label>
-    <button type="button" class="open-modal-close" id="openModalCancel">取消</button>
+    <div class="open-modal-remember">
+      <span>記住我的選擇</span>
+      <label class="switch">
+        <input type="checkbox" id="openModalRemember" checked>
+        <span class="switch-track"></span>
+      </label>
+    </div>
   </div>
 </div>
 <script>
@@ -620,7 +658,7 @@ def render_price(g: dict) -> str:
 
 def render_row(g: dict, base: str, show_date: bool = False) -> str:
     if g["status"] == "live":
-        badge = '<span class="badge live">✅ 已上架</span>'
+        badge = '<span class="badge live">已上架</span>'
     else:
         epoch = g.get("release_epoch")
         if epoch:
@@ -667,7 +705,7 @@ def render_date_body(date_str: str, games: list[dict], base: str) -> str:
     body = f"<h1>{esc(date_str)}</h1>"
     if not games:
         return body + '<div class="empty">當天沒有資料</div>'
-    body += render_games_section("✅ 已上架", live, base)
+    body += render_games_section("已上架", live, base)
     body += render_games_section("⏳ 預計上架", upcoming, base)
     return body
 
