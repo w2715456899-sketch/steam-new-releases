@@ -1,11 +1,10 @@
 {
   "webhook_url": "https://discord.com/api/webhooks/xxxxx/yyyyy",
+  "steam_api_key": "your Steam Web API key from https://steamcommunity.com/dev/apikey",
   "language": "tchinese",
   "country": "tw",
-  "max_pages": 10,
   "retention_days": 30,
   "backfill_days": 30,
-  "backfill_max_pages": 40,
   "site_url": "https://your-username.github.io/steam-new-releases/",
   "git_auto_push": true
 }

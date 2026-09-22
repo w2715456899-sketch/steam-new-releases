@@ -10,27 +10,28 @@ import subprocess
 import sys
 import time
 from dataclasses import dataclass, field
-from datetime import date, datetime, timedelta
+from datetime import date, datetime, timedelta, timezone
 from html import escape as esc
 from pathlib import Path
 from typing import Iterable
+from zoneinfo import ZoneInfo
 
 import requests
-from bs4 import BeautifulSoup
-from dateutil import parser as dateparser
 
 BASE_DIR = Path(__file__).resolve().parent
-SEARCH_URL = "https://store.steampowered.com/search/results/"
-APP_PAGE_URL = "https://store.steampowered.com/app/{appid}/"
-HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) steam-new-releases-bot/1.0",
-    "Accept-Language": "en-US,en;q=0.9",
-}
-AGE_GATE_COOKIES = {"birthtime": "0", "wants_mature_content": "1", "lastagecheckage": "1-January-1970"}
-STALE_STREAK = 5  # consecutive out-of-window rows before we stop paging
+STEAM_API_BASE = "https://api.steampowered.com"
+ASSET_BASE = "https://shared.fastly.steamstatic.com/store_item_assets/"
+HEADERS = {"User-Agent": "steam-new-releases-bot/2.0"}
 STATE_RETENTION_DAYS = 14
 DEFAULT_RETENTION_DAYS = 30
 DEFAULT_BACKFILL_DAYS = 30
+STEAM_TZ = ZoneInfo("America/Los_Angeles")  # Steam stamps "release date" using Pacific time, not
+# the viewer's timezone - bucketing (or windowing queries) by Taipei time instead could show a
+# game as releasing a full day later than what its own Steam store page says (e.g. a release at
+# 21:26 PDT is already 12:26 the *next* day in Taipei). The query window and the date each item
+# gets filed under both use this same timezone so they stay self-consistent - "today" on this
+# site means "today" on Steam's own release-date calendar, not the machine's local calendar day.
+MAX_QUERY_PAGES = 50  # safety cap (5000 items) so a pagination bug can't loop forever
 
 log = logging.getLogger("steam_new_releases")
 
@@ -49,7 +50,7 @@ class Game:
     release_epoch: int | None = field(default=None)  # exact unlock time, only meaningful for "upcoming"
     tags: list[str] = field(default_factory=list)
     header_image: str | None = field(default=None)  # higher-res image for the hover zoom
-    discount_end: str | None = field(default=None)  # e.g. "10 月 6 日截止", only from the app's own page
+    discount_end: int | None = field(default=None)  # unix epoch, or None if not currently discounted
 
 
 def load_config(path: Path) -> dict:
@@ -59,6 +60,9 @@ def load_config(path: Path) -> dict:
     config = json.loads(path.read_text(encoding="utf-8"))
     if not config.get("webhook_url"):
         log.error("config.json is missing 'webhook_url'")
+        sys.exit(1)
+    if not config.get("steam_api_key"):
+        log.error("config.json is missing 'steam_api_key' (get one at https://steamcommunity.com/dev/apikey)")
         sys.exit(1)
     return config
 
@@ -88,8 +92,11 @@ def save_history(path: Path, history: dict, retention_days: int) -> None:
 
 
 def upsert_history(history: dict, games: Iterable[Game]) -> None:
+    # Every field always comes straight from a fresh, successful API response (unlike the
+    # old HTML-scraping version, there's no "maybe this selector didn't match" case to guard
+    # against), so it's safe to just overwrite everything rather than sticky-merge with what
+    # was there before.
     for g in games:
-        existing = history["games"].get(g.appid, {})
         history["games"][g.appid] = {
             "appid": g.appid,
             "name": g.name,
@@ -97,248 +104,178 @@ def upsert_history(history: dict, games: Iterable[Game]) -> None:
             "release_date": g.release_date.isoformat(),
             "image": g.image,
             "status": g.status,
-            # Always overwrite (not sticky like tags/etc below): the search listing that
-            # produced this Game always came from a fresh, successful fetch, so a None
-            # here genuinely means "no price right now" (still TBD), not a failed request.
             "price_pct": g.price_pct,
             "price_original": g.price_original,
             "price_final": g.price_final,
-            "release_epoch": g.release_epoch if g.release_epoch is not None else existing.get("release_epoch"),
-            "tags": g.tags if g.tags else existing.get("tags", []),
-            "header_image": g.header_image or existing.get("header_image"),
-            "discount_end": g.discount_end or existing.get("discount_end"),
+            "release_epoch": g.release_epoch,
+            "tags": g.tags,
+            "header_image": g.header_image,
+            "discount_end": g.discount_end,
         }
 
 
-def fetch_page(start: int, count: int, language: str, country: str, coming_soon: bool) -> dict:
-    params = {
-        "query": "",
-        "start": start,
-        "count": count,
-        "dynamic_data": "",
-        "sort_by": "Released_ASC" if coming_soon else "Released_DESC",
-        "category1": "998",  # Games only (excludes DLC/soundtracks/software)
-        "supportedlang": language,
-        "l": language,  # supportedlang alone filters results but doesn't localize names/tags
-        "cc": country,
-        "infinite": 1,
-    }
-    if coming_soon:
-        params["filter"] = "comingsoon"
-    cookies = {**AGE_GATE_COOKIES, "Steam_Language": language}
-    resp = requests.get(SEARCH_URL, params=params, headers=HEADERS, cookies=cookies, timeout=20)
+# ---------------------------------------------------------------------------
+# Steam Web API (IStoreQueryService / IStoreBrowseService / IStoreService) -
+# undocumented but real endpoints used by Steam's own store frontend. Unlike
+# the public /search/results/ HTML page, these don't apply the account-level
+# "Adult Only Sexual Content" search-visibility filter, and they return
+# structured JSON (real epochs, real price fields) instead of scraped HTML.
+# ---------------------------------------------------------------------------
+
+
+def steam_api_get(interface: str, method: str, key: str, **params) -> dict:
+    url = f"{STEAM_API_BASE}/{interface}/{method}/v1/"
+    resp = requests.get(url, params={"key": key, **params}, headers=HEADERS, timeout=20)
     resp.raise_for_status()
-    return resp.json()
+    return resp.json()["response"]
 
 
-@dataclass
-class GameDetails:
-    epoch: int | None = None
-    tags: list[str] = field(default_factory=list)
-    header_image: str | None = None
-    discount_end: str | None = None
-    price_pct: str | None = None
-    price_original: str | None = None
-    price_final: str | None = None
+def fetch_tag_names(key: str, language: str) -> dict[int, str]:
+    resp = steam_api_get("IStoreService", "GetTagList", key, language=language)
+    return {t["tagid"]: t["name"] for t in resp.get("tags", [])}
 
 
-def fetch_game_details(appid: str, language: str) -> GameDetails:
-    """Best-effort scrape of the exact unlock timestamp, tags, header image, and sale countdown.
+def _asset_url(assets: dict, filename_key: str) -> str:
+    fmt = assets.get("asset_url_format")
+    filename = assets.get(filename_key)
+    if not fmt or not filename:
+        return ""
+    return ASSET_BASE + fmt.replace("${FILENAME}", filename)
 
-    The search listing only gives a day-level date, the small capsule image, no tags, and no
-    discount end date. Individual app pages embed an absolute unix-epoch release time inside a
-    JSON blob used by an unrelated widget (not a documented API), so the epoch part is fragile
-    and silently returns None if Steam changes that markup - callers must treat it as optional.
-    The header image has a different content hash than the capsule image for the same appid
-    (they're separately-uploaded files), so it can't be derived by editing the capsule URL - it
-    has to be read off the page. Same for the discount countdown text ("新品優惠！10 月 6 日截
-    止") - the search listing's price block has no expiry info at all.
-    """
-    cookies = {**AGE_GATE_COOKIES, "Steam_Language": language}
-    try:
-        resp = requests.get(
-            APP_PAGE_URL.format(appid=appid), params={"l": language}, headers=HEADERS, cookies=cookies, timeout=15
-        )
-        resp.raise_for_status()
-    except requests.RequestException:
-        return GameDetails()
 
-    html_text = resp.text
-    epoch = None
-    pattern = (
-        r"release_date&quot;:&quot;(\d+)&quot;,&quot;appname&quot;:&quot;.*?&quot;,"
-        rf"&quot;steamworks_appid&quot;:{re.escape(appid)}\b"
-    )
-    match = re.search(pattern, html_text)
-    if match:
-        epoch = int(match.group(1))
+def _item_to_game(item: dict, tag_names: dict[int, str]) -> Game | None:
+    if not item.get("success") or not item.get("visible", True):
+        return None
+    release = item.get("release") or {}
+    epoch = release.get("steam_release_date")
+    if not epoch:
+        return None  # no confirmed date yet - nothing meaningful to show
 
-    soup = BeautifulSoup(html_text, "html.parser")
-    tags: list[str] = []
-    tag_block = soup.select_one(".glance_tags.popular_tags")
-    if tag_block:
-        tags = [a.get_text(strip=True) for a in tag_block.select("a.app_tag")]
-
-    header_image = None
-    img_el = soup.select_one("img.game_header_image_full") or soup.select_one(".game_header_image_ctn img")
-    if img_el and img_el.get("src"):
-        header_image = img_el["src"]
-
+    assets = item.get("assets") or {}
+    purchase = item.get("best_purchase_option")
+    price_pct = price_original = price_final = None
     discount_end = None
-    countdown_el = soup.select_one(".game_purchase_discount_countdown")
-    if countdown_el:
-        discount_end = countdown_el.get_text(strip=True)
+    if purchase:
+        price_final = purchase.get("formatted_final_price")
+        if purchase.get("discount_pct"):
+            price_pct = f"-{purchase['discount_pct']}%"
+            price_original = purchase.get("formatted_original_price")
+        active = purchase.get("active_discounts") or []
+        if active:
+            discount_end = active[0].get("discount_end_date")
 
-    price_pct, price_original, price_final = _extract_price(
-        soup.select_one(".game_purchase_discount") or soup.select_one("#game_area_purchase .discount_block")
-    )
+    tagids = item.get("tagids") or []
+    tags = [tag_names[t] for t in tagids if t in tag_names]
+    appid = str(item["appid"])
 
-    return GameDetails(
-        epoch=epoch,
-        tags=tags,
-        header_image=header_image,
-        discount_end=discount_end,
+    return Game(
+        appid=appid,
+        name=item.get("name", "Unknown"),
+        url=f"https://store.steampowered.com/app/{appid}/",
+        release_date=datetime.fromtimestamp(epoch, tz=STEAM_TZ).date(),
+        image=_asset_url(assets, "small_capsule"),
+        status="upcoming" if release.get("is_coming_soon") else "live",
         price_pct=price_pct,
         price_original=price_original,
         price_final=price_final,
+        release_epoch=epoch,
+        tags=tags,
+        header_image=_asset_url(assets, "header"),
+        discount_end=discount_end,
     )
 
 
-CJK_DATE_RE = re.compile(r"(\d{4})\s*年\s*(\d{1,2})\s*月\s*(\d{1,2})\s*日")
-DISCOUNT_END_RE = re.compile(r"(\d{1,2})\s*月\s*(\d{1,2})\s*日")
-
-
-def parse_discount_end(text: str, year: int) -> date | None:
-    """"新品優惠！10 月 6 日截止" has no year - assume it's the given (current) year."""
-    m = DISCOUNT_END_RE.search(text)
-    if not m:
-        return None
-    try:
-        return date(year, int(m.group(1)), int(m.group(2)))
-    except ValueError:
-        return None
-
-
-def parse_release_date(text: str) -> date | None:
-    text = text.strip()
-    if not text:
-        return None
-    # "2026年9月12日" is unambiguous once we read the 年/月/日 markers ourselves - dateutil's
-    # fuzzy mode drops those CJK characters and is left guessing day-vs-month order from three
-    # bare numbers, which silently swaps them for any day <= 12 (e.g. "9月12日" -> Dec 9th).
-    m = CJK_DATE_RE.search(text)
-    if m:
-        try:
-            return date(int(m.group(1)), int(m.group(2)), int(m.group(3)))
-        except ValueError:
-            return None
-    try:
-        return dateparser.parse(text, fuzzy=True).date()
-    except (ValueError, OverflowError):
-        return None
-
-
-def _extract_price(container) -> tuple[str | None, str | None, str | None]:
-    """Returns (discount_pct, original_price, final_price) from a .discount_block-shaped
-    container; all None means unknown/TBD (or the container wasn't found at all)."""
-    if container is None:
-        return None, None, None
-    final_el = container.select_one(".discount_final_price")
-    if not final_el:
-        return None, None, None
-    final_text = final_el.get_text(strip=True)
-    pct_el = container.select_one(".discount_pct")
-    orig_el = container.select_one(".discount_original_price")
-    if pct_el and orig_el:
-        return pct_el.get_text(strip=True), orig_el.get_text(strip=True), final_text
-    return None, None, final_text
-
-
-def parse_price(row) -> tuple[str | None, str | None, str | None]:
-    # Steam's markup here has changed over time (it's no longer a plain ".search_price"
-    # element) - the price now lives in ".search_price_discount_combined", and is only
-    # populated once Steam actually has a price for the app (still empty for most
-    # not-yet-released games, which is a real "unknown", not a scraping failure).
-    return _extract_price(row.select_one(".search_price_discount_combined"))
-
-
-def parse_rows(html_text: str, status: str) -> Iterable[Game]:
-    soup = BeautifulSoup(html_text, "html.parser")
-    for row in soup.select("a.search_result_row"):
-        appid = row.get("data-ds-appid")
-        if not appid:
-            continue  # bundles / packages have no single appid
-        name_el = row.select_one(".title")
-        release_el = row.select_one(".search_released")
-        img_el = row.select_one("img")
-        release_date = parse_release_date(release_el.get_text() if release_el else "")
-        if release_date is None:
-            continue
-        pct, original, final = parse_price(row)
-        yield Game(
-            appid=appid.split(",")[0],
-            name=name_el.get_text(strip=True) if name_el else "Unknown",
-            url=row.get("href", "").split("?")[0],
-            release_date=release_date,
-            image=img_el.get("src", "") if img_el else "",
-            status=status,
-            price_pct=pct,
-            price_original=original,
-            price_final=final,
-        )
-
-
-def _collect(start: date, end: date, language: str, country: str, max_pages: int, coming_soon: bool) -> list[Game]:
-    """Page through Steam search results, keeping rows whose release date falls in [start, end].
-
-    coming_soon=False walks already-released games newest-first (Released_DESC) and stops
-    once dates fall below `start`. coming_soon=True walks not-yet-released games
-    soonest-first (Released_ASC) and stops once dates rise above `end`.
-    """
-    games: list[Game] = []
-    streak = 0
-    count = 50
-    for page in range(max_pages):
-        page_start = page * count
-        log.debug("Fetching %s page %d (start=%d)", "upcoming" if coming_soon else "live", page, page_start)
-        data = fetch_page(page_start, count, language, country, coming_soon)
-        html_text = data.get("results_html", "")
-        if not html_text or "search_result_row" not in html_text:
+def query_items_by_date_range(key: str, start_date: date, end_date: date, language: str, country: str) -> list[dict]:
+    start_epoch = int(datetime.combine(start_date, datetime.min.time(), tzinfo=STEAM_TZ).timestamp())
+    end_epoch = int(datetime.combine(end_date + timedelta(days=1), datetime.min.time(), tzinfo=STEAM_TZ).timestamp())
+    items: list[dict] = []
+    start = 0
+    for _ in range(MAX_QUERY_PAGES):
+        input_json = {
+            "query": {
+                "start": start,
+                "count": 100,
+                "filters": {
+                    "type_filters": {"include_games": True},
+                    "release_date_filter": {
+                        "release_date_type": 1,
+                        "start_date": start_epoch,
+                        "end_date": end_epoch,
+                    },
+                },
+            },
+            "context": {"language": language, "country_code": country, "steam_realm": 1},
+            "data_request": {
+                "include_assets": True,
+                "include_release": True,
+                "include_basic_info": True,
+                "include_best_purchase_option": True,
+                "include_tag_count": 20,
+            },
+        }
+        resp = steam_api_get("IStoreQueryService", "Query", key, input_json=json.dumps(input_json))
+        batch = resp.get("store_items", [])
+        items.extend(batch)
+        total = resp.get("metadata", {}).get("total_matching_records", len(items))
+        start += len(batch)
+        if not batch or start >= total:
             break
-        rows = list(parse_rows(html_text, "upcoming" if coming_soon else "live"))
-        if not rows:
-            break
-        for game in rows:
-            d = game.release_date
-            if start <= d <= end:
-                games.append(game)
-                streak = 0
-                continue
-            if coming_soon:
-                if d < start:
-                    continue  # backlog before our window; keep scanning ascending
-                streak += 1  # d > end, moved past the window
-            else:
-                if d > end:
-                    continue  # rare future straggler ahead of a descending sort
-                streak += 1  # d < start, moved past the window
-        if streak >= STALE_STREAK:
-            break
-        time.sleep(0.5)  # be polite to Steam's servers
+        time.sleep(0.3)
+    return items
+
+
+def find_releases_in_range(
+    key: str, start_date: date, end_date: date, language: str, country: str, tag_names: dict[int, str]
+) -> list[Game]:
+    items = query_items_by_date_range(key, start_date, end_date, language, country)
+    games = [g for item in items if (g := _item_to_game(item, tag_names))]
     return games
 
 
-def find_todays_releases(target: date, language: str, country: str, max_pages: int) -> list[Game]:
-    live = _collect(target, target, language, country, max_pages, coming_soon=False)
-    upcoming = _collect(target, target, language, country, max_pages, coming_soon=True)
-    seen = {g.appid for g in live}
-    return live + [g for g in upcoming if g.appid not in seen]
+def refresh_stale_discounts(
+    history: dict, key: str, language: str, country: str, tag_names: dict[int, str], now_epoch: int
+) -> int:
+    """Re-check any tracked game whose recorded discount_end has already passed.
 
+    upsert_history() only ever refreshes "today's" games, so a discount found a week ago
+    would otherwise show as active on the site forever, past its actual end date. Batches
+    up to 50 appids per GetItems call instead of one request per game.
+    """
+    stale = [aid for aid, g in history["games"].items() if g.get("discount_end") and g["discount_end"] < now_epoch]
+    if not stale:
+        return 0
 
-def find_backfill_releases(days: int, language: str, country: str, max_pages: int) -> list[Game]:
-    end = date.today()
-    start = end - timedelta(days=days - 1)
-    return _collect(start, end, language, country, max_pages, coming_soon=False)
+    refreshed = 0
+    for i in range(0, len(stale), 50):
+        batch_ids = stale[i : i + 50]
+        input_json = {
+            "ids": [{"appid": int(a)} for a in batch_ids],
+            "context": {"language": language, "country_code": country, "steam_realm": 1},
+            "data_request": {
+                "include_assets": True,
+                "include_release": True,
+                "include_basic_info": True,
+                "include_best_purchase_option": True,
+                "include_tag_count": 20,
+            },
+        }
+        resp = steam_api_get("IStoreBrowseService", "GetItems", key, input_json=json.dumps(input_json))
+        for item in resp.get("store_items", []):
+            g = _item_to_game(item, tag_names)
+            existing = history["games"].get(str(item.get("appid")))
+            if not g or not existing:
+                continue
+            existing["price_pct"] = g.price_pct
+            existing["price_original"] = g.price_original
+            existing["price_final"] = g.price_final
+            existing["discount_end"] = g.discount_end
+            if g.tags:
+                existing["tags"] = g.tags
+            if g.header_image:
+                existing["header_image"] = g.header_image
+            refreshed += 1
+        time.sleep(0.3)
+    return refreshed
 
 
 def send_discord(webhook_url: str, today: date, games: list[Game], dry_run: bool, site_url: str) -> None:
@@ -664,8 +601,8 @@ def render_tags(appid: str, tags: list[str], base: str) -> str:
     if not rest:
         return f'<div class="tags">{visible}</div>'
 
-    # Tags are already in Steam's own popularity order (scraped in DOM order from the
-    # page's popular-tags widget), so the first N are already the "priority" ones.
+    # Tags come back from the API already sorted by weight (Steam's own popularity order),
+    # so the first N are already the "priority" ones.
     uid = f"tagexp-{esc(appid)}"
     extra = "".join(chip(t) for t in rest)
     return (
@@ -699,7 +636,8 @@ def render_price(g: dict) -> str:
 
     end = g.get("discount_end")
     if end:
-        html += f'<div class="discount-end">{esc(end)}</div>'
+        dt = datetime.fromtimestamp(end).astimezone()
+        html += f'<div class="discount-end">優惠至 {dt.strftime("%m/%d")} 截止</div>'
     return html
 
 
@@ -935,74 +873,6 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int) -> None:
     (docs_dir / "search.html").write_text(search_page, encoding="utf-8")
 
 
-def verify_image(url: str | None, attempts: int = 2) -> bool:
-    if not url:
-        return False
-    for i in range(attempts):
-        try:
-            resp = requests.head(url, headers=HEADERS, timeout=6, allow_redirects=True)
-            if resp.status_code == 200:
-                return True
-        except requests.RequestException:
-            pass
-        if i + 1 < attempts:
-            time.sleep(1)
-    return False
-
-
-def enrich_with_details(games: list[Game], language: str) -> None:
-    for g in games:
-        details = fetch_game_details(g.appid, language)
-        if g.status == "upcoming":
-            g.release_epoch = details.epoch
-        g.tags = details.tags
-        g.discount_end = details.discount_end
-        # Verify the header image actually loads (with one retry) before trusting it - if
-        # it doesn't, leave header_image unset so rendering falls back to the small capsule
-        # image (always sourced straight from the search listing, effectively always good).
-        if details.header_image and verify_image(details.header_image):
-            g.header_image = details.header_image
-        else:
-            if details.header_image:
-                log.debug("Header image failed to verify for %s, falling back to capsule", g.appid)
-            g.header_image = None
-        time.sleep(0.2)
-
-
-def refresh_stale_discounts(history: dict, language: str, today: date) -> int:
-    """Re-check games whose recorded discount_end date has already passed.
-
-    upsert_history() only ever refreshes "today's" games, so a game found 10 days ago
-    with a sale ending 3 days ago would otherwise show that stale discount forever. Only
-    overwrite price/discount_end when the re-fetch actually finds a `.discount_final_price`
-    element (confirms the purchase block parsed correctly this time, so an absent pct/
-    original genuinely means "no longer discounted") - if the block isn't found at all
-    (e.g. multi-edition games whose purchase area doesn't match this selector), leave the
-    existing data alone rather than overwrite good data with nothing.
-    """
-    refreshed = 0
-    for appid, g in history["games"].items():
-        end_text = g.get("discount_end")
-        if not end_text:
-            continue
-        end_date = parse_discount_end(end_text, today.year)
-        if end_date is None or end_date >= today:
-            continue
-        details = fetch_game_details(appid, language)
-        if details.price_final is not None:
-            g["price_pct"] = details.price_pct
-            g["price_original"] = details.price_original
-            g["price_final"] = details.price_final
-            g["discount_end"] = details.discount_end
-            refreshed += 1
-        if details.tags:
-            g["tags"] = details.tags
-        if details.header_image:
-            g["header_image"] = details.header_image
-        time.sleep(0.2)
-    return refreshed
-
-
 def git_publish(base_dir: Path, docs_dir: Path, message: str) -> None:
     """Best-effort: commit and push the docs dir so GitHub Pages picks up the new site."""
     if not (base_dir / ".git").exists():
@@ -1043,29 +913,31 @@ def main() -> None:
     )
 
     config = load_config(args.config)
+    api_key = config["steam_api_key"]
     language = config.get("language", "english")
     country = config.get("country", "us")
-    max_pages = int(config.get("max_pages", 10))
     retention_days = int(config.get("retention_days", DEFAULT_RETENTION_DAYS))
     backfill_days = int(config.get("backfill_days", DEFAULT_BACKFILL_DAYS))
-    backfill_max_pages = int(config.get("backfill_max_pages", 40))
     today = date.today()
 
     history = load_history(args.history)
     should_backfill = args.backfill is not None or (not history["games"] and not args.no_backfill)
+
+    tag_names = fetch_tag_names(api_key, language)
+
     if should_backfill:
         days = args.backfill if args.backfill and args.backfill > 0 else backfill_days
-        log.info("Backfilling the last %d day(s) (fetching tags/prices per game, this takes a while)...", days)
-        backfill_games = find_backfill_releases(days, language, country, backfill_max_pages)
-        enrich_with_details(backfill_games, language)
+        start = today - timedelta(days=days - 1)
+        log.info("Backfilling %s to %s...", start.isoformat(), today.isoformat())
+        backfill_games = find_releases_in_range(api_key, start, today, language, country, tag_names)
         upsert_history(history, backfill_games)
         log.info("Backfill added/updated %d release(s)", len(backfill_games))
 
-    games = find_todays_releases(target=today, language=language, country=country, max_pages=max_pages)
-    enrich_with_details(games, language)
+    games = find_releases_in_range(api_key, today, today, language, country, tag_names)
     upsert_history(history, games)
 
-    refreshed = refresh_stale_discounts(history, language, today)
+    now_epoch = int(datetime.now(tz=timezone.utc).timestamp())
+    refreshed = refresh_stale_discounts(history, api_key, language, country, tag_names, now_epoch)
     if refreshed:
         log.info("Refreshed %d game(s) whose discount had expired", refreshed)
 

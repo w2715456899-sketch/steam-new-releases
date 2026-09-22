@@ -28,14 +28,16 @@ python -m pip install -r requirements.txt
 
 ## 設定
 
-1. 複製 `config.example.json` 為 `config.json`（這個檔案含 webhook，已加入 `.gitignore`，
-   不會被推到公開 repo）。
+1. 複製 `config.example.json` 為 `config.json`（這個檔案含 webhook 跟 API 金鑰，已加入
+   `.gitignore`，不會被推到公開 repo）。
 2. `webhook_url`：Discord 頻道「編輯頻道 → 整合 → Webhook」取得。
-3. `site_url`：你的 GitHub Pages 網址，會放進 Discord 通知裡。
-4. `language` / `country`：Steam 商店語言與地區（連遊戲名稱、標籤翻譯都會跟著變）。
-5. `retention_days`：網站保留幾天的歷史紀錄（預設 30）。
-6. `backfill_days` / `backfill_max_pages`：第一次執行時回填過去幾天的已上架清單。
-7. `git_auto_push`：`true` 時每次執行後自動 `git commit + push` 更新公開網站；不想自動推的話
+3. `steam_api_key`：去 https://steamcommunity.com/dev/apikey 用你的 Steam 帳號申請一組（免費，
+   網域名稱欄位隨便填）。抓資料用的是 Steam 官方 Web API，這組金鑰是必填的。
+4. `site_url`：你的 GitHub Pages 網址，會放進 Discord 通知裡。
+5. `language` / `country`：Steam 商店語言與地區（連遊戲名稱、標籤翻譯都會跟著變）。
+6. `retention_days`：網站保留幾天的歷史紀錄（預設 30）。
+7. `backfill_days`：第一次執行時回填過去幾天的清單（預設 30）。
+8. `git_auto_push`：`true` 時每次執行後自動 `git commit + push` 更新公開網站；不想自動推的話
    設 `false`，改成自己手動 `git push`。
 
 ## 測試
@@ -70,19 +72,29 @@ schtasks /delete /tn "SteamNewReleases" /f  # 移除排程
 
 ## 運作方式
 
-每次執行會合併兩份清單，湊出「今天」完整的新遊戲名單：
+資料來源是 Steam 官方但沒公開文件化的 Web API（`IStoreQueryService`、`IStoreBrowseService`、
+`IStoreService`，用 [xPaw 的整理文件](https://steamapi.xpaw.me/) 找到的），不是爬網頁 HTML：
 
-1. **已上架**：`sort_by=Released_DESC`（新到舊）+ `category1=998`（僅遊戲），抓已經正式
-   上架、日期為今天的遊戲。
-2. **預計今天上架**：`filter=comingsoon` + `sort_by=Released_ASC`（舊到新），抓 Steam 頁面
-   已排定日期、但還沒正式解鎖的遊戲，篩出日期等於今天的部分。額外多抓一次每款遊戲自己的商店
-   頁面，取得精確解鎖時間（非官方欄位，抓不到就顯示「預計上架」，不影響其他功能）與熱門標籤。
+1. `IStoreService/GetTagList` 先抓一次完整的標籤 ID → 名稱對照表。
+2. `IStoreQueryService/Query` 用 `release_date_filter` 直接查某個日期範圍內、`steam_release_date`
+   落在裡面的所有遊戲，一次拿到名稱、圖片、價格、折扣、標籤、上架時間（都是結構化欄位，不用
+   再解析文字或猜格式）。日期用**美國西岸時間**認定（Steam 自己判定「上架日」就是用這個時區，
+   跟你商店頁面看到的日期一致，不是用你電腦的時區）。
+3. 每次執行都會順便檢查「記錄裡特價已經過期」的遊戲，用 `IStoreBrowseService/GetItems`（一次最
+   多查 50 款）重新確認目前狀態，過期就更新回正常價格。
 
-兩份清單依 App ID 去重合併後：
+這個 API 不會套用 Steam 網頁搜尋那層「僅限成人內容需要登入帳號才看得到」的過濾，所以連那類分級
+的遊戲也抓得到（前提是你知道要查哪個日期範圍——這個 API 本身沒有這層限制，跟帳號登入無關）。
+
+已知小狀況：這個 API 是未公開文件化的，分頁在筆數剛好卡在頁尾（第 100 筆左右）時偶爾會不穩定，
+極少數情況下重跑會抓到、下次不一定抓得到同一款遊戲。目前沒有完美解法，如果發現某天的清單好像
+少了一款，重新跑一次 `--backfill` 通常就會補上。
+
+處理完的清單：
 
 - 寫入 `history.json`（本機，不進版控），保留 `retention_days` 天。
-- 用 `docs/` 重新產生整個靜態網站（首頁、每日頁面、標籤頁面），並自動 push 到 GitHub 讓
-  GitHub Pages 更新。
+- 用 `docs/` 重新產生整個靜態網站（首頁、每日頁面、標籤頁面、搜尋頁），並自動 push 到 GitHub
+  讓 GitHub Pages 更新。
 - 對照 `state.json` 找出「這次新出現、之前沒通知過的遊戲」，有的話才發 Discord 訊息。
 
 ## 檔案說明
