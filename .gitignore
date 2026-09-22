@@ -1,6 +1,4 @@
 config.json
-state.json
-history.json
 *.log
 __pycache__/
 *.pyc

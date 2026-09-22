@@ -904,6 +904,13 @@ def main() -> None:
     parser.add_argument("--dry-run", action="store_true", help="Print results instead of posting to Discord")
     parser.add_argument("--no-backfill", action="store_true", help="Skip automatic first-run backfill")
     parser.add_argument("--backfill", type=int, nargs="?", const=-1, help="Force a (re)backfill of N days")
+    parser.add_argument(
+        "--skip-notify",
+        action="store_true",
+        help="Update data/site as normal but don't post to Discord or mark anything as notified "
+        "(for frequent silent runs that just keep the site fresh; a later run without this flag "
+        "sends everything that piled up since the last real notification)",
+    )
     parser.add_argument("--debug", action="store_true")
     args = parser.parse_args()
 
@@ -952,6 +959,10 @@ def main() -> None:
     notified = state["notified"]
     new_games = [g for g in games if g.appid not in notified]
     log.info("Found %d release(s) today, %d not yet notified", len(games), len(new_games))
+
+    if args.skip_notify:
+        log.info("--skip-notify: leaving Discord and state.json alone this run")
+        return
 
     site_url = config.get("site_url") or f"file:///{(args.docs / 'index.html').resolve().as_posix()}"
     send_discord(config["webhook_url"], today, new_games, args.dry_run, site_url)

@@ -1,0 +1,67 @@
+name: Update Steam new releases
+
+on:
+  schedule:
+    - cron: "0 * * * *"  # every hour, on the hour (UTC)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Write config.json from secrets
+        run: |
+          cat > config.json <<CONFIGEOF
+          {
+            "webhook_url": "${{ secrets.DISCORD_WEBHOOK_URL }}",
+            "steam_api_key": "${{ secrets.STEAM_API_KEY }}",
+            "language": "tchinese",
+            "country": "tw",
+            "retention_days": 30,
+            "backfill_days": 30,
+            "site_url": "https://w2715456899-sketch.github.io/steam-new-releases/",
+            "git_auto_push": false
+          }
+          CONFIGEOF
+
+      # 06:00 Taipei (UTC+8) = 22:00 UTC the previous day - only that hourly run actually
+      # pings Discord, so friends get one summary a day instead of an hourly ping. Every
+      # other run still refreshes history.json/state.json/docs/ silently.
+      - name: Decide whether this is the once-a-day notify run
+        id: when
+        run: |
+          if [ "$(date -u +%H)" = "22" ]; then
+            echo "notify=1" >> "$GITHUB_OUTPUT"
+          else
+            echo "notify=0" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Run update (notify)
+        if: steps.when.outputs.notify == '1'
+        run: python steam_new_releases.py --no-backfill
+
+      - name: Run update (silent)
+        if: steps.when.outputs.notify == '0'
+        run: python steam_new_releases.py --no-backfill --skip-notify
+
+      - name: Commit and push data + site
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs history.json state.json
+          git diff --cached --quiet || git commit -m "Update site $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git push

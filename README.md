@@ -1,7 +1,8 @@
 # Steam 新遊戲每日通知
 
-每天自動抓取 Steam 當天新上架 / 預計上架的遊戲，發一則 Discord 通知，並維護一個可公開瀏覽的
-歷史紀錄網站（GitHub Pages）。
+每小時自動抓取 Steam 當天新上架 / 預計上架的遊戲、更新一個可公開瀏覽的歷史紀錄網站
+（GitHub Pages），每天早上 6:00（台北時間）彙整當天累積的新遊戲發一則 Discord 通知。
+全部跑在 GitHub Actions 上，不需要你的電腦開機。
 
 - 公開網站：https://w2715456899-sketch.github.io/steam-new-releases/
 - 原始碼／自動化腳本：https://github.com/w2715456899-sketch/steam-new-releases
@@ -13,62 +14,43 @@
 - **看某個標籤的遊戲**：點任何一款遊戲下面的標籤（例如「Rogue」），會列出目前紀錄裡所有有這個
   標籤的遊戲，不限日期。
 - **分享給朋友**：把上面那個網站網址傳給他們就好，不需要帳號、不需要裝東西。
-- **Discord 通知**：每天有新遊戲時會收到一則「📅 日期 新遊戲來了 🫠」+ 網站連結；當天沒有新
-  遊戲就不會發訊息（安靜不打擾）。
-- **自動更新**：每天早上 6:00 電腦會自動跑一次（Windows 工作排程器 `SteamNewReleases`），
-  抓資料 → 更新網站 → 自動 commit + push 到 GitHub → 觸發 Discord 通知，全程不用手動做任何事。
-  電腦當天沒開機/沒跑，就是少那一天的資料，之後開機重新跑一次 `python steam_new_releases.py`
-  即可補上（沒抓到的日子不會自動回溯，只有第一次的 30 天回填是例外）。
+- **Discord 通知**：每天早上 6:00（台北時間）收到一則「日期 新遊戲來了 🫠」+ 網站連結，內容是
+  當天累積到目前為止的新遊戲；當天沒有新遊戲就不會發訊息（安靜不打擾）。
+- **自動更新**：GitHub Actions 每小時執行一次（`.github/workflows/update.yml`），抓資料 →
+  更新網站 → commit + push——但只有早上 6:00 那次會真的發 Discord，其他 23 次都是安靜更新
+  網站內容，讓朋友隨時開網站看到的都是新的。全程在 GitHub 的伺服器上跑，你的電腦不用開機、
+  不用裝任何東西。
 
-## 安裝（僅供你自己維護用，日常不需要）
+## GitHub Actions 設定（自動排程用，已經設定好，這節是給以後想改的時候看）
+
+排程設定在 `.github/workflows/update.yml`，執行時所需的密鑰放在 repo 的 GitHub Secrets：
+
+1. GitHub repo 頁面 → **Settings → Secrets and variables → Actions → New repository secret**
+2. 新增 `STEAM_API_KEY`：你的 Steam Web API 金鑰
+   （https://steamcommunity.com/dev/apikey 申請）。
+3. 新增 `DISCORD_WEBHOOK_URL`：Discord 頻道「編輯頻道 → 整合 → Webhook」取得的網址。
+4. 存好之後不用做任何事，`update.yml` 每小時會自動觸發（`cron: "0 * * * *"`），也可以到
+   repo 的 **Actions** 分頁手動點 **Run workflow** 立即測試一次。
+5. `language`、`country`、`site_url`、`retention_days` 等其他設定值直接寫在 `update.yml`
+   裡（不是密碼，不需要放 Secrets），要改就直接編輯那個檔案。
+
+## 本機測試（不影響正式排程，僅供除錯用）
 
 ```
 python -m pip install -r requirements.txt
 ```
 
-## 設定
-
-1. 複製 `config.example.json` 為 `config.json`（這個檔案含 webhook 跟 API 金鑰，已加入
-   `.gitignore`，不會被推到公開 repo）。
-2. `webhook_url`：Discord 頻道「編輯頻道 → 整合 → Webhook」取得。
-3. `steam_api_key`：去 https://steamcommunity.com/dev/apikey 用你的 Steam 帳號申請一組（免費，
-   網域名稱欄位隨便填）。抓資料用的是 Steam 官方 Web API，這組金鑰是必填的。
-4. `site_url`：你的 GitHub Pages 網址，會放進 Discord 通知裡。
-5. `language` / `country`：Steam 商店語言與地區（連遊戲名稱、標籤翻譯都會跟著變）。
-6. `retention_days`：網站保留幾天的歷史紀錄（預設 30）。
-7. `backfill_days`：第一次執行時回填過去幾天的清單（預設 30）。
-8. `git_auto_push`：`true` 時每次執行後自動 `git commit + push` 更新公開網站；不想自動推的話
-   設 `false`，改成自己手動 `git push`。
-
-## 測試
+複製 `config.example.json` 為 `config.json`，填入 `webhook_url` 跟 `steam_api_key`（這個檔案
+已加入 `.gitignore`，不會被推到公開 repo），然後：
 
 ```
 python steam_new_releases.py --dry-run --debug
 ```
 
-不會真的發 Discord、不會寫入任何檔案，只印出這次會抓到什麼。確認沒問題後直接執行：
-
-```
-python steam_new_releases.py
-```
-
-## Windows 工作排程器
-
-已建立每天 06:00 自動執行的排程，指令參考：
-
-```
-schtasks /create /tn "SteamNewReleases" ^
-  /tr "\"C:\Users\Kuro\AppData\Local\Python\bin\python.exe\" \"C:\Users\Kuro\Downloads\stock_ai\Steam_search\steam_new_releases.py\"" ^
-  /sc daily /st 06:00
-```
-
-常用指令：
-
-```
-schtasks /run /tn "SteamNewReleases"      # 手動立即跑一次排程
-schtasks /query /tn "SteamNewReleases"    # 查看排程狀態
-schtasks /delete /tn "SteamNewReleases" /f  # 移除排程
-```
+不會真的發 Discord、不會寫入任何檔案，只印出這次會抓到什麼。確認沒問題後可以直接執行
+`python steam_new_releases.py` 跑一次真的（會發 Discord、push 到 GitHub）；加
+`--skip-notify` 則會更新資料跟網站但不發 Discord、不標記已通知（跟 GitHub Actions 的
+「安靜更新」那幾次行為一樣）。
 
 ## 運作方式
 
@@ -78,8 +60,9 @@ schtasks /delete /tn "SteamNewReleases" /f  # 移除排程
 1. `IStoreService/GetTagList` 先抓一次完整的標籤 ID → 名稱對照表。
 2. `IStoreQueryService/Query` 用 `release_date_filter` 直接查某個日期範圍內、`steam_release_date`
    落在裡面的所有遊戲，一次拿到名稱、圖片、價格、折扣、標籤、上架時間（都是結構化欄位，不用
-   再解析文字或猜格式）。日期用**美國西岸時間**認定（Steam 自己判定「上架日」就是用這個時區，
-   跟你商店頁面看到的日期一致，不是用你電腦的時區）。
+   再解析文字或猜格式）。日期統一用**台北時間**認定，跟預計上架的倒數徽章時間一致；Steam 自己
+   商店頁面顯示的日期是用美國西岸時間算的，兩者在美西／台北換日的那 15-16 小時之間可能會差一
+   天——這是刻意的取捨（網站內部一致優先於跟 Steam 官方頁面逐字對齊）。
 3. 每次執行都會順便檢查「記錄裡特價已經過期」的遊戲，用 `IStoreBrowseService/GetItems`（一次最
    多查 50 款）重新確認目前狀態，過期就更新回正常價格。
 
@@ -92,15 +75,19 @@ schtasks /delete /tn "SteamNewReleases" /f  # 移除排程
 
 處理完的清單：
 
-- 寫入 `history.json`（本機，不進版控），保留 `retention_days` 天。
-- 用 `docs/` 重新產生整個靜態網站（首頁、每日頁面、標籤頁面、搜尋頁），並自動 push 到 GitHub
-  讓 GitHub Pages 更新。
-- 對照 `state.json` 找出「這次新出現、之前沒通知過的遊戲」，有的話才發 Discord 訊息。
+- 寫入 `history.json`，保留 `retention_days` 天。
+- 用 `docs/` 重新產生整個靜態網站（首頁、每日頁面、標籤頁面、搜尋頁）。
+- 對照 `state.json` 找出「這次新出現、之前沒通知過的遊戲」；只有早上 6:00 那次執行（沒帶
+  `--skip-notify`）才會真的發 Discord、把這些標記成已通知——平常每小時的安靜更新只會更新
+  `history.json`/網站，不動 `state.json`，所以累積一整天的新遊戲都會在早上那次一次發出。
+- GitHub Actions 每次執行完會把 `history.json`、`state.json`、`docs/` 一起 commit + push。
 
 ## 檔案說明
 
 - `steam_new_releases.py` — 主程式
-- `config.json` — 你的私人設定（webhook、語言…），**不進版控**
-- `history.json` — 歷史資料快取，**不進版控**（網站內容從這裡產生）
-- `state.json` — 已通知過的 App ID 記錄，避免重複推播，**不進版控**
+- `.github/workflows/update.yml` — GitHub Actions 排程設定
+- `config.json` — 本機測試用的私人設定（webhook、API 金鑰…），**不進版控**；正式排程的密鑰放
+  在 GitHub Secrets，不是這個檔案
+- `history.json` — 歷史資料，**會進版控**（只是遊戲清單，沒有敏感資訊）
+- `state.json` — 已通知過的 App ID 記錄，避免重複推播，**會進版控**
 - `docs/` — 產生出來的靜態網站，**會進版控**，GitHub Pages 直接從這個資料夾發布
