@@ -40,12 +40,15 @@ class Game:
     name: str
     url: str
     release_date: date
-    price_text: str
     image: str
     status: str  # "live" (already on the store) or "upcoming" (scheduled, may still slip)
+    price_pct: str | None = field(default=None)  # e.g. "-12%", only set when discounted
+    price_original: str | None = field(default=None)  # struck-through price, only set when discounted
+    price_final: str | None = field(default=None)  # the price to actually pay, or "免費"; None = unknown/TBD
     release_epoch: int | None = field(default=None)  # exact unlock time, only meaningful for "upcoming"
     tags: list[str] = field(default_factory=list)
     header_image: str | None = field(default=None)  # higher-res image for the hover zoom
+    discount_end: str | None = field(default=None)  # e.g. "10 月 6 日截止", only from the app's own page
 
 
 def load_config(path: Path) -> dict:
@@ -91,12 +94,18 @@ def upsert_history(history: dict, games: Iterable[Game]) -> None:
             "name": g.name,
             "url": g.url,
             "release_date": g.release_date.isoformat(),
-            "price_text": g.price_text,
             "image": g.image,
             "status": g.status,
+            # Always overwrite (not sticky like tags/etc below): the search listing that
+            # produced this Game always came from a fresh, successful fetch, so a None
+            # here genuinely means "no price right now" (still TBD), not a failed request.
+            "price_pct": g.price_pct,
+            "price_original": g.price_original,
+            "price_final": g.price_final,
             "release_epoch": g.release_epoch if g.release_epoch is not None else existing.get("release_epoch"),
             "tags": g.tags if g.tags else existing.get("tags", []),
             "header_image": g.header_image or existing.get("header_image"),
+            "discount_end": g.discount_end or existing.get("discount_end"),
         }
 
 
@@ -121,16 +130,25 @@ def fetch_page(start: int, count: int, language: str, country: str, coming_soon:
     return resp.json()
 
 
-def fetch_game_details(appid: str, language: str) -> tuple[int | None, list[str], str | None]:
-    """Best-effort scrape of the exact unlock timestamp, popular tags, and header image.
+@dataclass
+class GameDetails:
+    epoch: int | None = None
+    tags: list[str] = field(default_factory=list)
+    header_image: str | None = None
+    discount_end: str | None = None
 
-    The search listing only gives a day-level date, the small capsule image, and no tags.
-    Individual app pages embed an absolute unix-epoch release time inside a JSON blob used
-    by an unrelated widget (not a documented API), so the epoch part is fragile and
-    silently returns None if Steam changes that markup - callers must treat it as optional.
-    The header image has a different content hash than the capsule image for the same
-    appid (they're separately-uploaded files), so it can't be derived by editing the
-    capsule URL - it has to be read off the page.
+
+def fetch_game_details(appid: str, language: str) -> GameDetails:
+    """Best-effort scrape of the exact unlock timestamp, tags, header image, and sale countdown.
+
+    The search listing only gives a day-level date, the small capsule image, no tags, and no
+    discount end date. Individual app pages embed an absolute unix-epoch release time inside a
+    JSON blob used by an unrelated widget (not a documented API), so the epoch part is fragile
+    and silently returns None if Steam changes that markup - callers must treat it as optional.
+    The header image has a different content hash than the capsule image for the same appid
+    (they're separately-uploaded files), so it can't be derived by editing the capsule URL - it
+    has to be read off the page. Same for the discount countdown text ("新品優惠！10 月 6 日截
+    止") - the search listing's price block has no expiry info at all.
     """
     cookies = {**AGE_GATE_COOKIES, "Steam_Language": language}
     try:
@@ -139,7 +157,7 @@ def fetch_game_details(appid: str, language: str) -> tuple[int | None, list[str]
         )
         resp.raise_for_status()
     except requests.RequestException:
-        return None, [], None
+        return GameDetails()
 
     html_text = resp.text
     epoch = None
@@ -162,7 +180,12 @@ def fetch_game_details(appid: str, language: str) -> tuple[int | None, list[str]
     if img_el and img_el.get("src"):
         header_image = img_el["src"]
 
-    return epoch, tags, header_image
+    discount_end = None
+    countdown_el = soup.select_one(".game_purchase_discount_countdown")
+    if countdown_el:
+        discount_end = countdown_el.get_text(strip=True)
+
+    return GameDetails(epoch=epoch, tags=tags, header_image=header_image, discount_end=discount_end)
 
 
 CJK_DATE_RE = re.compile(r"(\d{4})\s*年\s*(\d{1,2})\s*月\s*(\d{1,2})\s*日")
@@ -187,23 +210,24 @@ def parse_release_date(text: str) -> date | None:
         return None
 
 
-def parse_price(row) -> str:
+def parse_price(row) -> tuple[str | None, str | None, str | None]:
+    """Returns (discount_pct, original_price, final_price); all None means unknown/TBD."""
     # Steam's markup here has changed over time (it's no longer a plain ".search_price"
     # element) - the price now lives in ".search_price_discount_combined", and is only
     # populated once Steam actually has a price for the app (still empty for most
     # not-yet-released games, which is a real "unknown", not a scraping failure).
     container = row.select_one(".search_price_discount_combined")
     if not container:
-        return ""
+        return None, None, None
     final_el = container.select_one(".discount_final_price")
     if not final_el:
-        return ""
+        return None, None, None
     final_text = final_el.get_text(strip=True)
     pct_el = container.select_one(".discount_pct")
     orig_el = container.select_one(".discount_original_price")
     if pct_el and orig_el:
-        return f"{pct_el.get_text(strip=True)} {orig_el.get_text(strip=True)} → {final_text}"
-    return final_text
+        return pct_el.get_text(strip=True), orig_el.get_text(strip=True), final_text
+    return None, None, final_text
 
 
 def parse_rows(html_text: str, status: str) -> Iterable[Game]:
@@ -218,14 +242,17 @@ def parse_rows(html_text: str, status: str) -> Iterable[Game]:
         release_date = parse_release_date(release_el.get_text() if release_el else "")
         if release_date is None:
             continue
+        pct, original, final = parse_price(row)
         yield Game(
             appid=appid.split(",")[0],
             name=name_el.get_text(strip=True) if name_el else "Unknown",
             url=row.get("href", "").split("?")[0],
             release_date=release_date,
-            price_text=parse_price(row),
             image=img_el.get("src", "") if img_el else "",
             status=status,
+            price_pct=pct,
+            price_original=original,
+            price_final=final,
         )
 
 
@@ -352,7 +379,21 @@ h2.section { font-size: 0.85rem; color: #8894a3; margin: 24px 0 8px; text-transf
   text-decoration: none; color: inherit;
 }
 .row .name:hover { text-decoration: underline; }
-.row .price { color: #8894a3; font-size: 0.85rem; margin-top: 3px; }
+.row .date-line { color: #8894a3; font-size: 0.8rem; margin-top: 3px; }
+.price-line { display: flex; align-items: stretch; margin-top: 4px; }
+.disc-pct {
+  background: #4c6b22; color: #a4d007; font-weight: 700; font-size: 0.78rem;
+  padding: 4px 6px; border-radius: 2px 0 0 2px; display: flex; align-items: center;
+}
+.disc-prices {
+  background: rgba(0, 0, 0, 0.5); display: flex; align-items: center; gap: 6px;
+  padding: 4px 8px; border-radius: 0 2px 2px 0;
+}
+.disc-orig { color: #8894a3; text-decoration: line-through; font-size: 0.78rem; }
+.disc-final { color: #a4d007; font-weight: 700; font-size: 0.9rem; }
+.disc-final.plain { color: #e7ecf2; font-weight: 600; }
+.disc-final.unknown { color: #8894a3; font-weight: 400; font-size: 0.85rem; }
+.discount-end { color: #66c0f4; font-size: 0.78rem; margin-top: 3px; }
 .tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 7px; }
 .tag {
   font-size: 0.78rem; padding: 3px 10px; border-radius: 999px; background: #241a33;
@@ -461,6 +502,31 @@ def render_tags(appid: str, tags: list[str], base: str) -> str:
     )
 
 
+def render_price(g: dict) -> str:
+    final = g.get("price_final")
+    if not final:
+        return '<div class="price-line"><span class="disc-final unknown">價格未知</span></div>'
+
+    final_class = "disc-final free" if final == "免費" else "disc-final"
+    pct, original = g.get("price_pct"), g.get("price_original")
+    if pct and original:
+        html = (
+            '<div class="price-line">'
+            f'<span class="disc-pct">{esc(pct)}</span>'
+            '<span class="disc-prices">'
+            f'<span class="disc-orig">{esc(original)}</span>'
+            f'<span class="{final_class}">{esc(final)}</span>'
+            "</span></div>"
+        )
+    else:
+        html = f'<div class="price-line"><span class="{final_class} plain">{esc(final)}</span></div>'
+
+    end = g.get("discount_end")
+    if end:
+        html += f'<div class="discount-end">{esc(end)}</div>'
+    return html
+
+
 def render_row(g: dict, base: str, show_date: bool = False) -> str:
     if g["status"] == "live":
         badge = '<span class="badge live">✅ 已上架</span>'
@@ -473,8 +539,7 @@ def render_row(g: dict, base: str, show_date: bool = False) -> str:
             label = "預計上架"
         badge = f'<span class="badge upcoming">⏳ {esc(label)}</span>'
 
-    price = esc(g.get("price_text") or "價格未知")
-    sub = f'{esc(g["release_date"])} · {price}' if show_date else price
+    date_html = f'<div class="date-line">{esc(g["release_date"])}</div>' if show_date else ""
     tags_html = render_tags(g["appid"], g.get("tags", []), base)
     zoom_image = g.get("header_image") or g.get("image") or ""
 
@@ -484,7 +549,7 @@ def render_row(g: dict, base: str, show_date: bool = False) -> str:
         f'<img class="cap" src="{esc(zoom_image)}" loading="lazy" alt=""></a>'
         '<div class="info">'
         f'<a class="name" href="{esc(g["url"])}" target="_blank" rel="noopener">{esc(g["name"])}</a>'
-        f'<div class="price">{sub}</div>'
+        f"{date_html}{render_price(g)}"
         f"{tags_html}</div>"
         f"{badge}</div>"
     )
@@ -623,6 +688,17 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int) -> None:
             f.unlink()
 
 
+def enrich_with_details(games: list[Game], language: str) -> None:
+    for g in games:
+        details = fetch_game_details(g.appid, language)
+        if g.status == "upcoming":
+            g.release_epoch = details.epoch
+        g.tags = details.tags
+        g.header_image = details.header_image
+        g.discount_end = details.discount_end
+        time.sleep(0.2)
+
+
 def git_publish(base_dir: Path, docs_dir: Path, message: str) -> None:
     """Best-effort: commit and push the docs dir so GitHub Pages picks up the new site."""
     if not (base_dir / ".git").exists():
@@ -675,20 +751,14 @@ def main() -> None:
     should_backfill = args.backfill is not None or (not history["games"] and not args.no_backfill)
     if should_backfill:
         days = args.backfill if args.backfill and args.backfill > 0 else backfill_days
-        log.info("Backfilling the last %d day(s) of already-released games (no tags/exact time)...", days)
+        log.info("Backfilling the last %d day(s) (fetching tags/prices per game, this takes a while)...", days)
         backfill_games = find_backfill_releases(days, language, country, backfill_max_pages)
+        enrich_with_details(backfill_games, language)
         upsert_history(history, backfill_games)
         log.info("Backfill added/updated %d release(s)", len(backfill_games))
 
     games = find_todays_releases(target=today, language=language, country=country, max_pages=max_pages)
-    for g in games:
-        epoch, tags, header_image = fetch_game_details(g.appid, language)
-        if g.status == "upcoming":
-            g.release_epoch = epoch
-        g.tags = tags
-        g.header_image = header_image
-        time.sleep(0.3)
-
+    enrich_with_details(games, language)
     upsert_history(history, games)
     if not args.dry_run or should_backfill:
         save_history(args.history, history, retention_days)
