@@ -134,15 +134,28 @@ h2.section { font-size: 0.85rem; color: #8894a3; margin: 24px 0 8px; text-transf
 .badge.live { background: #16331f; color: #5fd58a; }
 .badge.upcoming { background: #33291a; color: #e0b25f; }
 .empty { color: #8894a3; padding: 40px 0; text-align: center; }
-.datelist { display: flex; flex-direction: column; gap: 6px; }
-.datelist a {
-  display: flex; justify-content: space-between; padding: 10px 14px; background: #171d26;
-  border: 1px solid #232b37; border-radius: 8px; text-decoration: none; color: inherit;
+.date-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+.date-card {
+  background: #171d26; border: 1px solid #232b37; border-radius: 12px; padding: 14px;
+  display: flex; flex-direction: column; gap: 10px; text-decoration: none; color: inherit;
+  transition: border-color 0.15s, transform 0.15s;
 }
-.datelist a:hover { background: #1c2330; }
-.datelist .count { color: #8894a3; font-size: 0.85rem; }
+.date-card:hover { border-color: #4a5b7a; transform: translateY(-2px); }
+.date-card.weekend { background: #1a1620; border-color: #2e2438; }
+.date-card-top { display: flex; flex-direction: column; gap: 2px; }
+.date-card-day { font-size: 1.6rem; font-weight: 700; line-height: 1; }
+.date-card-md { font-size: 0.72rem; color: #8894a3; }
+.date-card-count { font-size: 1rem; font-weight: 600; color: #5fd58a; }
+.date-card-count span { font-size: 0.7rem; color: #8894a3; font-weight: 400; }
+.date-month-divider {
+  grid-column: 1 / -1; font-size: 0.85rem; color: #8894a3; font-weight: 600;
+  margin-top: 10px; padding-top: 14px; border-top: 1px solid #232b37;
+}
+.date-month-divider:first-child { margin-top: 0; padding-top: 0; border-top: none; }
 .search-box {
   width: 100%; padding: 10px 14px; border-radius: 8px; border: 1px solid #2a3346;
   background: #171d26; color: #e7ecf2; font-size: 0.95rem; margin-bottom: 8px;
 }
 .search-box:focus { outline: none; border-color: #4a5b7a; }
+.global-search { margin-bottom: 20px; }
+.global-search .search-box { margin-bottom: 0; }

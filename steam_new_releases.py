@@ -467,18 +467,31 @@ h2.section { font-size: 0.85rem; color: #8894a3; margin: 24px 0 8px; text-transf
 .badge.live { background: #16331f; color: #5fd58a; }
 .badge.upcoming { background: #33291a; color: #e0b25f; }
 .empty { color: #8894a3; padding: 40px 0; text-align: center; }
-.datelist { display: flex; flex-direction: column; gap: 6px; }
-.datelist a {
-  display: flex; justify-content: space-between; padding: 10px 14px; background: #171d26;
-  border: 1px solid #232b37; border-radius: 8px; text-decoration: none; color: inherit;
+.date-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+.date-card {
+  background: #171d26; border: 1px solid #232b37; border-radius: 12px; padding: 14px;
+  display: flex; flex-direction: column; gap: 10px; text-decoration: none; color: inherit;
+  transition: border-color 0.15s, transform 0.15s;
 }
-.datelist a:hover { background: #1c2330; }
-.datelist .count { color: #8894a3; font-size: 0.85rem; }
+.date-card:hover { border-color: #4a5b7a; transform: translateY(-2px); }
+.date-card.weekend { background: #1a1620; border-color: #2e2438; }
+.date-card-top { display: flex; flex-direction: column; gap: 2px; }
+.date-card-day { font-size: 1.6rem; font-weight: 700; line-height: 1; }
+.date-card-md { font-size: 0.72rem; color: #8894a3; }
+.date-card-count { font-size: 1rem; font-weight: 600; color: #5fd58a; }
+.date-card-count span { font-size: 0.7rem; color: #8894a3; font-weight: 400; }
+.date-month-divider {
+  grid-column: 1 / -1; font-size: 0.85rem; color: #8894a3; font-weight: 600;
+  margin-top: 10px; padding-top: 14px; border-top: 1px solid #232b37;
+}
+.date-month-divider:first-child { margin-top: 0; padding-top: 0; border-top: none; }
 .search-box {
   width: 100%; padding: 10px 14px; border-radius: 8px; border: 1px solid #2a3346;
   background: #171d26; color: #e7ecf2; font-size: 0.95rem; margin-bottom: 8px;
 }
 .search-box:focus { outline: none; border-color: #4a5b7a; }
+.global-search { margin-bottom: 20px; }
+.global-search .search-box { margin-bottom: 0; }
 """
 
 STYLE_HASH = hashlib.md5(STYLE_CSS.encode("utf-8")).hexdigest()[:8]
@@ -498,6 +511,9 @@ PAGE_SHELL = """<!doctype html>
     <div class="nav">__NAV__</div>
   </div>
   <div class="meta">__META__</div>
+  <form class="global-search" action="__ASSET_BASE__search.html" method="get">
+    <input type="text" name="q" id="globalSearch" class="search-box" placeholder="搜尋名稱…" autocomplete="off">
+  </form>
   __BODY__
 </div>
 
@@ -753,20 +769,38 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int) -> None:
         )
         (dates_dir / f"{d}.html").write_text(page, encoding="utf-8")
 
-    dates_index_rows = (
-        "".join(
-            f'<a href="../dates/{d}.html"><span>{esc(d)}</span><span class="count">{counts[d]} 款</span></a>'
-            for d in dates_desc
+    WEEKDAY_ZH = ["一", "二", "三", "四", "五", "六", "日"]
+
+    def date_card(d: str) -> str:
+        dt = datetime.strptime(d, "%Y-%m-%d")
+        weekend = " weekend" if dt.weekday() >= 5 else ""
+        return (
+            f'<a class="date-card{weekend}" href="../dates/{d}.html">'
+            f'<div class="date-card-top"><span class="date-card-day">{dt.day}</span>'
+            f'<span class="date-card-md">{dt.month}月 · 週{WEEKDAY_ZH[dt.weekday()]}</span></div>'
+            f'<div class="date-card-count">{counts[d]} <span>款</span></div>'
+            "</a>"
         )
-        if dates_desc
-        else '<div class="empty">尚無資料</div>'
-    )
+
+    if dates_desc:
+        parts = []
+        current_month = None
+        for d in dates_desc:
+            dt = datetime.strptime(d, "%Y-%m-%d")
+            month_key = (dt.year, dt.month)
+            if month_key != current_month:
+                current_month = month_key
+                parts.append(f'<div class="date-month-divider">{dt.year} 年 {dt.month} 月</div>')
+            parts.append(date_card(d))
+        dates_index_rows = "".join(parts)
+    else:
+        dates_index_rows = '<div class="empty">尚無資料</div>'
     dates_index_page = render_page(
         title="所有日期 - Steam 新遊戲紀錄",
         base="../",
         nav_html='<a href="../index.html">← 回首頁</a>',
         meta=meta,
-        body_html=f'<h1>所有日期</h1><div class="datelist">{dates_index_rows}</div>',
+        body_html=f'<h1>所有日期</h1><div class="date-grid">{dates_index_rows}</div>',
     )
     (dates_dir / "index.html").write_text(dates_index_page, encoding="utf-8")
 
@@ -827,7 +861,8 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int) -> None:
     search_rows = "".join(render_row(g, "", show_date=True) for g in all_games_sorted)
     search_script = """<script>
 (function () {
-  var box = document.getElementById("searchBox");
+  var box = document.getElementById("globalSearch");
+  var form = box.closest("form");
   var rows = Array.prototype.slice.call(document.querySelectorAll("#searchResults .row"));
   var countEl = document.getElementById("searchCount");
   function apply() {
@@ -840,15 +875,21 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int) -> None:
       r.style.display = match ? "" : "none";
       if (match) shown++;
     });
-    countEl.textContent = q ? "符合 " + shown + " / " + rows.length + " 款" : "共 " + rows.length + " 款";
+    countEl.textContent = shown === rows.length ? "共 " + rows.length + " 款" : "符合 " + shown + " / " + rows.length + " 款";
   }
+  // Arriving here via the search box on another page submits ?q=... as a normal GET -
+  // pick that up and run the live filter instead of relying on another round trip.
+  var params = new URLSearchParams(location.search);
+  if (params.get("q")) box.value = params.get("q");
+  form.addEventListener("submit", function (e) { e.preventDefault(); apply(); });
   box.addEventListener("input", apply);
+  apply();
   box.focus();
+  box.setSelectionRange(box.value.length, box.value.length);
 })();
 </script>"""
     search_body = (
         "<h1>搜尋遊戲</h1>"
-        '<input type="text" id="searchBox" class="search-box" placeholder="輸入遊戲名稱關鍵字…" autocomplete="off">'
         f'<div class="meta" id="searchCount">共 {len(all_games_sorted)} 款</div>'
         f'<div class="card" id="searchResults">{search_rows}</div>'
         f"{search_script}"
