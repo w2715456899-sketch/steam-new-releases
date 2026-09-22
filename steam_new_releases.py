@@ -51,6 +51,7 @@ class Game:
     tags: list[str] = field(default_factory=list)
     header_image: str | None = field(default=None)  # higher-res image for the hover zoom
     discount_end: int | None = field(default=None)  # unix epoch, or None if not currently discounted
+    is_adult: bool = field(default=False)  # Steam's own "Adult Only Sexual Content" descriptor (id 3)
 
 
 def load_config(path: Path) -> dict:
@@ -111,6 +112,7 @@ def upsert_history(history: dict, games: Iterable[Game]) -> None:
             "tags": g.tags,
             "header_image": g.header_image,
             "discount_end": g.discount_end,
+            "is_adult": g.is_adult,
         }
 
 
@@ -167,6 +169,7 @@ def _item_to_game(item: dict, tag_names: dict[int, str]) -> Game | None:
     tagids = item.get("tagids") or []
     tags = [tag_names[t] for t in tagids if t in tag_names]
     appid = str(item["appid"])
+    is_adult = 3 in (item.get("content_descriptorids") or [])  # 3 = AdultOnlySexualContent
 
     return Game(
         appid=appid,
@@ -182,6 +185,7 @@ def _item_to_game(item: dict, tag_names: dict[int, str]) -> Game | None:
         tags=tags,
         header_image=_asset_url(assets, "header"),
         discount_end=discount_end,
+        is_adult=is_adult,
     )
 
 
@@ -321,7 +325,20 @@ body {
 .nav a:hover { background: #1c2330; }
 .nav .disabled { color: #4a5361; }
 .meta { color: #8894a3; font-size: 0.8rem; margin-bottom: 20px; }
-h1 { font-size: 1.3rem; margin: 4px 0 16px; }
+h1 { font-size: 1.3rem; margin: 0; }
+.date-heading {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  flex-wrap: wrap; margin: 4px 0 16px;
+}
+.adult-toggle {
+  display: flex; align-items: center; gap: 6px; font-size: 0.82rem; color: #9db4d1;
+  cursor: pointer; user-select: none;
+}
+.adult-toggle-input { accent-color: #7c5cbf; cursor: pointer; }
+.hidden-count { color: #6b7686; }
+body.show-adult .hidden-count { display: none; }
+.row[data-adult="1"] { display: none; }
+body.show-adult .row[data-adult="1"] { display: flex; }
 h2.section { font-size: 0.85rem; color: #8894a3; margin: 24px 0 8px; text-transform: uppercase; letter-spacing: 0.04em; }
 .card { background: #171d26; border: 1px solid #232b37; border-radius: 10px; overflow: visible; }
 .row {
@@ -473,6 +490,7 @@ PAGE_SHELL = """<!doctype html>
 <link rel="stylesheet" href="__ASSET_BASE__assets/style.css?v=__CSS_VER__">
 </head>
 <body>
+<script>try { if (localStorage.getItem("showAdultContent") === "1") document.body.className = "show-adult"; } catch (e) {}</script>
 <div class="wrap">
   <div class="topbar">
     <a class="brand" href="__HOME_HREF__"><img src="__ASSET_BASE__assets/logo.png" alt="Steam 新遊戲紀錄"></a>
@@ -518,6 +536,20 @@ function imgFallback(el) {
     el.style.visibility = "hidden";
   }
 }
+(function () {
+  var KEY = "showAdultContent";
+  var boxes = document.querySelectorAll(".adult-toggle-input");
+  var showing = document.body.classList.contains("show-adult");
+  boxes.forEach(function (cb) {
+    cb.checked = showing;
+    cb.addEventListener("change", function () {
+      document.body.classList.toggle("show-adult", cb.checked);
+      boxes.forEach(function (other) { other.checked = cb.checked; });
+      try { localStorage.setItem(KEY, cb.checked ? "1" : "0"); } catch (e) {}
+      document.dispatchEvent(new Event("adulttoggle"));
+    });
+  });
+})();
 (function () {
   var KEY = "steamOpenPref";
   function getPref() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
@@ -660,9 +692,10 @@ def render_row(g: dict, base: str, show_date: bool = False) -> str:
     web_url = esc(g["url"])
     steam_url = f"steam://store/{esc(g['appid'])}"
     open_attrs = f'data-web="{web_url}" data-steam="{steam_url}"'
+    adult_attr = ' data-adult="1"' if g.get("is_adult") else ""
 
     return (
-        '<div class="row">'
+        f'<div class="row"{adult_attr}>'
         f'<a class="media" href="{web_url}" {open_attrs}>'
         f'<img class="cap" src="{esc(zoom_image)}" data-fallback="{esc(fallback_image)}" '
         f'onerror="imgFallback(this)" loading="lazy" alt=""></a>'
@@ -687,7 +720,15 @@ def render_date_body(date_str: str, games: list[dict], base: str) -> str:
         [g for g in games if g["status"] == "upcoming"],
         key=lambda g: (g.get("release_epoch") is None, g.get("release_epoch") or 0, g["name"]),
     )
-    body = f"<h1>{esc(date_str)}</h1>"
+    adult_count = sum(1 for g in games if g.get("is_adult"))
+    adult_toggle = (
+        '<label class="adult-toggle">'
+        '<input type="checkbox" class="adult-toggle-input">'
+        "顯示成人內容"
+        f'<span class="hidden-count">（已隱藏 {adult_count} 款）</span>'
+        "</label>"
+    ) if adult_count else ""
+    body = f'<div class="date-heading"><h1>{esc(date_str)}</h1>{adult_toggle}</div>'
     if not games:
         return body + '<div class="empty">當天沒有資料</div>'
     body += render_games_section("已上架", live, base)
@@ -836,11 +877,14 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int) -> None:
   var countEl = document.getElementById("searchCount");
   function apply() {
     var q = box.value.trim().toLowerCase();
+    var showAdult = document.body.classList.contains("show-adult");
     var shown = 0;
     rows.forEach(function (r) {
       var nameEl = r.querySelector(".name");
       var name = nameEl ? nameEl.textContent.toLowerCase() : "";
-      var match = !q || name.indexOf(q) !== -1;
+      var nameMatch = !q || name.indexOf(q) !== -1;
+      var adultOk = r.getAttribute("data-adult") !== "1" || showAdult;
+      var match = nameMatch && adultOk;
       r.style.display = match ? "" : "none";
       if (match) shown++;
     });
@@ -852,6 +896,7 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int) -> None:
   if (params.get("q")) box.value = params.get("q");
   form.addEventListener("submit", function (e) { e.preventDefault(); apply(); });
   box.addEventListener("input", apply);
+  document.addEventListener("adulttoggle", apply);
   apply();
   box.focus();
   box.setSelectionRange(box.value.length, box.value.length);
