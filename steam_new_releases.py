@@ -248,7 +248,7 @@ def send_discord(webhook_url: str, today: date, games: list[Game], dry_run: bool
         log.info("No new releases today - skipping Discord ping")
         return
 
-    content = f"📅 {today.isoformat()} 新遊戲來了 🫠\n{site_url}"
+    content = f"{today.isoformat()} 新遊戲來了 🫠\n{site_url}"
     if dry_run:
         log.info(content)
         for game in games:
