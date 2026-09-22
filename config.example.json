@@ -1,0 +1,9 @@
+{
+  "webhook_url": "https://discord.com/api/webhooks/xxxxx/yyyyy",
+  "language": "tchinese",
+  "country": "tw",
+  "max_pages": 10,
+  "retention_days": 30,
+  "backfill_days": 30,
+  "backfill_max_pages": 40
+}
