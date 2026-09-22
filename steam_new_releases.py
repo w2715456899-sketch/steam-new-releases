@@ -25,12 +25,12 @@ HEADERS = {"User-Agent": "steam-new-releases-bot/2.0"}
 STATE_RETENTION_DAYS = 14
 DEFAULT_RETENTION_DAYS = 30
 DEFAULT_BACKFILL_DAYS = 30
-STEAM_TZ = ZoneInfo("America/Los_Angeles")  # Steam stamps "release date" using Pacific time, not
-# the viewer's timezone - bucketing (or windowing queries) by Taipei time instead could show a
-# game as releasing a full day later than what its own Steam store page says (e.g. a release at
-# 21:26 PDT is already 12:26 the *next* day in Taipei). The query window and the date each item
-# gets filed under both use this same timezone so they stay self-consistent - "today" on this
-# site means "today" on Steam's own release-date calendar, not the machine's local calendar day.
+LOCAL_TZ = ZoneInfo("Asia/Taipei")  # Both the query window and the date each item gets filed
+# under use this timezone, so the site is internally consistent with itself (and with the
+# countdown time shown for upcoming games). Steam's own store page dates use Pacific time
+# instead, so this site's date for a given game can differ by a day from what its Steam page
+# says for anything released in the ~15-16h gap between the two timezones' day boundaries -
+# a known, accepted trade-off in favor of everything on this site agreeing with itself.
 MAX_QUERY_PAGES = 50  # safety cap (5000 items) so a pagination bug can't loop forever
 
 log = logging.getLogger("steam_new_releases")
@@ -172,7 +172,7 @@ def _item_to_game(item: dict, tag_names: dict[int, str]) -> Game | None:
         appid=appid,
         name=item.get("name", "Unknown"),
         url=f"https://store.steampowered.com/app/{appid}/",
-        release_date=datetime.fromtimestamp(epoch, tz=STEAM_TZ).date(),
+        release_date=datetime.fromtimestamp(epoch, tz=LOCAL_TZ).date(),
         image=_asset_url(assets, "small_capsule"),
         status="upcoming" if release.get("is_coming_soon") else "live",
         price_pct=price_pct,
@@ -186,8 +186,8 @@ def _item_to_game(item: dict, tag_names: dict[int, str]) -> Game | None:
 
 
 def query_items_by_date_range(key: str, start_date: date, end_date: date, language: str, country: str) -> list[dict]:
-    start_epoch = int(datetime.combine(start_date, datetime.min.time(), tzinfo=STEAM_TZ).timestamp())
-    end_epoch = int(datetime.combine(end_date + timedelta(days=1), datetime.min.time(), tzinfo=STEAM_TZ).timestamp())
+    start_epoch = int(datetime.combine(start_date, datetime.min.time(), tzinfo=LOCAL_TZ).timestamp())
+    end_epoch = int(datetime.combine(end_date + timedelta(days=1), datetime.min.time(), tzinfo=LOCAL_TZ).timestamp())
     items: list[dict] = []
     start = 0
     for _ in range(MAX_QUERY_PAGES):
