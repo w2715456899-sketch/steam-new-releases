@@ -20,7 +20,20 @@ body {
 .nav a:hover { background: #1c2330; }
 .nav .disabled { color: #4a5361; }
 .meta { color: #8894a3; font-size: 0.8rem; margin-bottom: 20px; }
-h1 { font-size: 1.3rem; margin: 4px 0 16px; }
+h1 { font-size: 1.3rem; margin: 0; }
+.date-heading {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  flex-wrap: wrap; margin: 4px 0 16px;
+}
+.adult-toggle {
+  display: flex; align-items: center; gap: 6px; font-size: 0.82rem; color: #9db4d1;
+  cursor: pointer; user-select: none;
+}
+.adult-toggle-input { accent-color: #7c5cbf; cursor: pointer; }
+.hidden-count { color: #6b7686; }
+body.show-adult .hidden-count { display: none; }
+.row[data-adult="1"] { display: none; }
+body.show-adult .row[data-adult="1"] { display: flex; }
 h2.section { font-size: 0.85rem; color: #8894a3; margin: 24px 0 8px; text-transform: uppercase; letter-spacing: 0.04em; }
 .card { background: #171d26; border: 1px solid #232b37; border-radius: 10px; overflow: visible; }
 .row {
