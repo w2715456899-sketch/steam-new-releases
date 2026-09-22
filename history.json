@@ -6138,7 +6138,8 @@
         "單人"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3664670/963a6a634dd79a319852aa2286eef1ac48a4c66e/header.jpg?t=1790020982",
-      "discount_end": null
+      "discount_end": null,
+      "is_adult": false
     },
     "3665870": {
       "appid": "3665870",
@@ -7382,7 +7383,8 @@
         "解謎"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4488970/a1b81302d8c7315586d16e727a1900e604cc1be0/header.jpg?t=1790053484",
-      "discount_end": null
+      "discount_end": null,
+      "is_adult": false
     },
     "4489570": {
       "appid": "4489570",
@@ -7717,7 +7719,8 @@
         "單人"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4503420/f667d602c1e579e16f884c985ecbca1396e4eba1/header.jpg?t=1790083184",
-      "discount_end": null
+      "discount_end": null,
+      "is_adult": false
     },
     "4503490": {
       "appid": "4503490",
@@ -11647,7 +11650,8 @@
         "調查"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3807690/f35f5e8e75853b550aaf5eca93eaa8883225fceb/header.jpg?t=1790082999",
-      "discount_end": 1791306005
+      "discount_end": 1791306005,
+      "is_adult": false
     },
     "3828500": {
       "appid": "3828500",
@@ -12229,7 +12233,8 @@
         "2D"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3872650/60060c12ce43248396699a2f6e249fee1fa16a99/header.jpg?t=1790074677",
-      "discount_end": 1791306049
+      "discount_end": 1791306049,
+      "is_adult": false
     },
     "3874130": {
       "appid": "3874130",
@@ -12265,7 +12270,8 @@
         "歡樂"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3874130/46e55d2274ba95ed2fd79fd309a073356eea1b08/header.jpg?t=1790013271",
-      "discount_end": 1790614815
+      "discount_end": 1790614815,
+      "is_adult": false
     },
     "3874890": {
       "appid": "3874890",
@@ -12337,7 +12343,8 @@
         "3D"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3882630/038844b1a6e399c1071cc93c421e337b98cb9cf6/header.jpg?t=1790085611",
-      "discount_end": 1790701208
+      "discount_end": 1790701208,
+      "is_adult": false
     },
     "3884200": {
       "appid": "3884200",
@@ -12510,7 +12517,8 @@
         "搶先體驗"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3891030/258a1555a7c3d6476d3f88f3713d59d261c6c16f/header.jpg?t=1790008953",
-      "discount_end": 1790614832
+      "discount_end": 1790614832,
+      "is_adult": false
     },
     "3891400": {
       "appid": "3891400",
@@ -12992,7 +13000,8 @@
         "動作"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3926990/c7cbde144b54d7d3360fc5118bc38290f21b715d/header.jpg?t=1790084274",
-      "discount_end": 1791306034
+      "discount_end": 1791306034,
+      "is_adult": false
     },
     "3930950": {
       "appid": "3930950",
@@ -13028,7 +13037,8 @@
         "動作冒險"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3930950/601635b8002f7a43f1c887fffb3576bbf10a67e2/header.jpg?t=1790090577",
-      "discount_end": null
+      "discount_end": null,
+      "is_adult": false
     },
     "3936270": {
       "appid": "3936270",
@@ -19071,7 +19081,8 @@
         "第一人稱視角"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3640740/9d7649ca9d36d9808000a8dd1477b51e85e7845b/header.jpg?t=1790092725",
-      "discount_end": null
+      "discount_end": null,
+      "is_adult": false
     },
     "3649690": {
       "appid": "3649690",
@@ -32681,7 +32692,8 @@
         "多人"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4414070/79e9ad30c8da98cf18ce2f4dc6bcd366dd0a945f/header.jpg?t=1790080917",
-      "discount_end": null
+      "discount_end": null,
+      "is_adult": false
     },
     "4415040": {
       "appid": "4415040",
@@ -33583,7 +33595,8 @@
         "手繪"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4458500/561278cdec3acc0eb7909290794a8de810aa09ba/header.jpg?t=1790082447",
-      "discount_end": 1791306026
+      "discount_end": 1791306026,
+      "is_adult": false
     },
     "4459610": {
       "appid": "4459610",
@@ -55150,7 +55163,8 @@
         "搶先體驗"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4951360/86cbfa4e2804c90ab24b40cf3f6dc58db3c5bc82/header.jpg?t=1790010650",
-      "discount_end": null
+      "discount_end": null,
+      "is_adult": false
     },
     "4951500": {
       "appid": "4951500",
@@ -57074,7 +57088,8 @@
         "硬體"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5109060/d748de1486d12e8466bad1520640cf7fa83384a4/header.jpg?t=1790010968",
-      "discount_end": 1791219600
+      "discount_end": 1791219600,
+      "is_adult": false
     },
     "5109380": {
       "appid": "5109380",
@@ -57110,7 +57125,8 @@
         "免費遊玩"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5109380/18845e8f365c923845a579586150025af5a2b30e/header.jpg?t=1790038177",
-      "discount_end": null
+      "discount_end": null,
+      "is_adult": false
     },
     "5109420": {
       "appid": "5109420",
@@ -69577,7 +69593,8 @@
         "2D"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5139950/0edfd3c2182f744d4891d7ead1f296656fce981f/header.jpg?t=1790089693",
-      "discount_end": 1791306012
+      "discount_end": 1791306012,
+      "is_adult": false
     },
     "5140820": {
       "appid": "5140820",
@@ -69774,7 +69791,8 @@
         "未來"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5142990/03f66d215dd8d831f0511cb32f4adb9539b5bfd6/header.jpg?t=1790053723",
-      "discount_end": null
+      "discount_end": null,
+      "is_adult": false
     },
     "5143310": {
       "appid": "5143310",
@@ -69979,7 +69997,8 @@
         "單人"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5144700/c2daa0e548bc69411686af5c8c059f5cba228b20/header.jpg?t=1790066697",
-      "discount_end": 1790701245
+      "discount_end": 1790701245,
+      "is_adult": false
     },
     "5145450": {
       "appid": "5145450",
@@ -70112,7 +70131,8 @@
         "物理"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5145800/f02595afc072979a90497442a3a6a41fe9a5aa99/header.jpg?t=1790007338",
-      "discount_end": 1791219637
+      "discount_end": 1791219637,
+      "is_adult": false
     },
     "5145860": {
       "appid": "5145860",
@@ -96165,6 +96185,182 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5099430/d47822c5c52e8d1c0fa2d53c1c5adbfee077cca4/header.jpg?t=1789899195",
       "discount_end": null,
+      "is_adult": false
+    },
+    "3008700": {
+      "appid": "3008700",
+      "name": "Eagle Knight Paradox",
+      "url": "https://store.steampowered.com/app/3008700/",
+      "release_date": "2026-09-22",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3008700/8231e66196bfe0cfcfbfef6196d2d47f942a9e92/capsule_231x87.jpg?t=1790033394",
+      "status": "live",
+      "price_pct": "-10%",
+      "price_original": "NT$ 216.00",
+      "price_final": "NT$ 194.00",
+      "release_epoch": 1790033395,
+      "tags": [
+        "像素風格",
+        "劇情豐富",
+        "機甲",
+        "動作",
+        "電馭叛客",
+        "視覺小說",
+        "選擇導向",
+        "動作冒險",
+        "2D 平台",
+        "精確平台",
+        "冒險",
+        "哲理",
+        "生活模擬",
+        "科幻",
+        "單人",
+        "太空",
+        "平台",
+        "橫向捲軸",
+        "對話導向",
+        "未來"
+      ],
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3008700/c1ea4b2f96a10e0b28d89e98e33a3fde6752a4f2/header.jpg?t=1790033394",
+      "discount_end": 1790614853,
+      "is_adult": false
+    },
+    "4842290": {
+      "appid": "4842290",
+      "name": "BloodVeil:Cursed Blood",
+      "url": "https://store.steampowered.com/app/4842290/",
+      "release_date": "2026-09-22",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4842290/ae33dcf9fc40aa42448da186520b83806f7abf92/capsule_231x87.jpg?t=1790037771",
+      "status": "live",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 125.00",
+      "release_epoch": 1790037772,
+      "tags": [
+        "動作",
+        "休閒",
+        "動作冒險",
+        "砍殺",
+        "3D",
+        "第三人稱視角",
+        "俯視視角",
+        "黑暗奇幻",
+        "魔法",
+        "生存",
+        "獨立",
+        "戰鬥",
+        "資源管理",
+        "單人"
+      ],
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4842290/01c3409f8ce9a3d01c28621d207e46707aff17bd/header.jpg?t=1790037771",
+      "discount_end": null,
+      "is_adult": false
+    },
+    "4996800": {
+      "appid": "4996800",
+      "name": "穿越異世界做霸主 ——請不要為我爭風吃醋",
+      "url": "https://store.steampowered.com/app/4996800/",
+      "release_date": "2026-09-22",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4996800/80f64b76c99efb6ff82f77aba17c3acfb60d75e0/capsule_231x87_tchinese.jpg?t=1790065180",
+      "status": "live",
+      "price_pct": "-12%",
+      "price_original": "NT$ 25.00",
+      "price_final": "NT$ 22.00",
+      "release_epoch": 1790065181,
+      "tags": [
+        "角色扮演",
+        "像素風格",
+        "2D",
+        "俯視視角",
+        "戀愛模擬",
+        "互動小說",
+        "奇幻",
+        "仙俠",
+        "感性",
+        "自選冒險體驗",
+        "電腦角色扮演",
+        "策略角色扮演",
+        "回合制策略",
+        "卡通風格",
+        "政治模擬",
+        "80 年代",
+        "獨立",
+        "休閒",
+        "策略",
+        "冒險"
+      ],
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4996800/79fb7c29d1c12cff817509fa66406d01c3e84759/header_tchinese.jpg?t=1790065180",
+      "discount_end": 1791306032,
+      "is_adult": false
+    },
+    "4980100": {
+      "appid": "4980100",
+      "name": "Slayer Queen",
+      "url": "https://store.steampowered.com/app/4980100/",
+      "release_date": "2026-09-22",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4980100/271905f3ea228fec105953bf851e07b68c8df136/capsule_231x87.jpg?t=1790008223",
+      "status": "live",
+      "price_pct": "-31%",
+      "price_original": "NT$ 51.00",
+      "price_final": "NT$ 35.00",
+      "release_epoch": 1790008225,
+      "tags": [
+        "砍殺",
+        "逆彈幕",
+        "輕度 Rogue",
+        "動作",
+        "塔防",
+        "休閒",
+        "射擊",
+        "街機",
+        "自訂角色",
+        "3D",
+        "第三人稱視角",
+        "槍械改造",
+        "卡通風格",
+        "色彩鮮艷",
+        "獨立",
+        "惡魔",
+        "黑暗奇幻",
+        "哥德",
+        "生存",
+        "黑暗"
+      ],
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4980100/e40c56b587f7ab2136899899bab641636ac73968/header.jpg?t=1790008223",
+      "discount_end": 1790614822,
+      "is_adult": false
+    },
+    "4983250": {
+      "appid": "4983250",
+      "name": "Whispers in Clay",
+      "url": "https://store.steampowered.com/app/4983250/",
+      "release_date": "2026-09-22",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4983250/3dddd35a9f68fb022d6c70a9df3434c4364469d1/capsule_231x87.jpg?t=1790010052",
+      "status": "live",
+      "price_pct": "-20%",
+      "price_original": "NT$ 85.00",
+      "price_final": "NT$ 68.00",
+      "release_epoch": 1790010054,
+      "tags": [
+        "休閒",
+        "邏輯",
+        "解謎",
+        "放鬆",
+        "極簡主義",
+        "手繪",
+        "氛圍",
+        "闔家",
+        "單人",
+        "控制器",
+        "三消",
+        "2D",
+        "可愛",
+        "愜意",
+        "色彩鮮艷",
+        "風格化",
+        "網格導向動作"
+      ],
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4983250/6c0050673d221c5ca0d817f38562883ee17b0578/header.jpg?t=1790010052",
+      "discount_end": 1791219650,
       "is_adult": false
     }
   }
