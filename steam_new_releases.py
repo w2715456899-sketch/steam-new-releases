@@ -45,6 +45,7 @@ class Game:
     status: str  # "live" (already on the store) or "upcoming" (scheduled, may still slip)
     release_epoch: int | None = field(default=None)  # exact unlock time, only meaningful for "upcoming"
     tags: list[str] = field(default_factory=list)
+    header_image: str | None = field(default=None)  # higher-res image for the hover zoom
 
 
 def load_config(path: Path) -> dict:
@@ -95,6 +96,7 @@ def upsert_history(history: dict, games: Iterable[Game]) -> None:
             "status": g.status,
             "release_epoch": g.release_epoch if g.release_epoch is not None else existing.get("release_epoch"),
             "tags": g.tags if g.tags else existing.get("tags", []),
+            "header_image": g.header_image or existing.get("header_image"),
         }
 
 
@@ -119,13 +121,16 @@ def fetch_page(start: int, count: int, language: str, country: str, coming_soon:
     return resp.json()
 
 
-def fetch_game_details(appid: str, language: str) -> tuple[int | None, list[str]]:
-    """Best-effort scrape of the exact unlock timestamp and popular tags from the app page.
+def fetch_game_details(appid: str, language: str) -> tuple[int | None, list[str], str | None]:
+    """Best-effort scrape of the exact unlock timestamp, popular tags, and header image.
 
-    The search listing only gives a day-level date and no tags. Individual app pages
-    embed an absolute unix-epoch release time inside a JSON blob used by an unrelated
-    widget (not a documented API), so the epoch part is fragile and silently returns
-    None if Steam changes that markup - callers must treat it as optional.
+    The search listing only gives a day-level date, the small capsule image, and no tags.
+    Individual app pages embed an absolute unix-epoch release time inside a JSON blob used
+    by an unrelated widget (not a documented API), so the epoch part is fragile and
+    silently returns None if Steam changes that markup - callers must treat it as optional.
+    The header image has a different content hash than the capsule image for the same
+    appid (they're separately-uploaded files), so it can't be derived by editing the
+    capsule URL - it has to be read off the page.
     """
     cookies = {**AGE_GATE_COOKIES, "Steam_Language": language}
     try:
@@ -134,7 +139,7 @@ def fetch_game_details(appid: str, language: str) -> tuple[int | None, list[str]
         )
         resp.raise_for_status()
     except requests.RequestException:
-        return None, []
+        return None, [], None
 
     html_text = resp.text
     epoch = None
@@ -146,12 +151,18 @@ def fetch_game_details(appid: str, language: str) -> tuple[int | None, list[str]
     if match:
         epoch = int(match.group(1))
 
-    tags: list[str] = []
     soup = BeautifulSoup(html_text, "html.parser")
+    tags: list[str] = []
     tag_block = soup.select_one(".glance_tags.popular_tags")
     if tag_block:
         tags = [a.get_text(strip=True) for a in tag_block.select("a.app_tag")]
-    return epoch, tags
+
+    header_image = None
+    img_el = soup.select_one("img.game_header_image_full") or soup.select_one(".game_header_image_ctn img")
+    if img_el and img_el.get("src"):
+        header_image = img_el["src"]
+
+    return epoch, tags, header_image
 
 
 CJK_DATE_RE = re.compile(r"(\d{4})\s*年\s*(\d{1,2})\s*月\s*(\d{1,2})\s*日")
@@ -176,6 +187,25 @@ def parse_release_date(text: str) -> date | None:
         return None
 
 
+def parse_price(row) -> str:
+    # Steam's markup here has changed over time (it's no longer a plain ".search_price"
+    # element) - the price now lives in ".search_price_discount_combined", and is only
+    # populated once Steam actually has a price for the app (still empty for most
+    # not-yet-released games, which is a real "unknown", not a scraping failure).
+    container = row.select_one(".search_price_discount_combined")
+    if not container:
+        return ""
+    final_el = container.select_one(".discount_final_price")
+    if not final_el:
+        return ""
+    final_text = final_el.get_text(strip=True)
+    pct_el = container.select_one(".discount_pct")
+    orig_el = container.select_one(".discount_original_price")
+    if pct_el and orig_el:
+        return f"{pct_el.get_text(strip=True)} {orig_el.get_text(strip=True)} → {final_text}"
+    return final_text
+
+
 def parse_rows(html_text: str, status: str) -> Iterable[Game]:
     soup = BeautifulSoup(html_text, "html.parser")
     for row in soup.select("a.search_result_row"):
@@ -184,7 +214,6 @@ def parse_rows(html_text: str, status: str) -> Iterable[Game]:
             continue  # bundles / packages have no single appid
         name_el = row.select_one(".title")
         release_el = row.select_one(".search_released")
-        price_el = row.select_one(".search_price")
         img_el = row.select_one("img")
         release_date = parse_release_date(release_el.get_text() if release_el else "")
         if release_date is None:
@@ -194,7 +223,7 @@ def parse_rows(html_text: str, status: str) -> Iterable[Game]:
             name=name_el.get_text(strip=True) if name_el else "Unknown",
             url=row.get("href", "").split("?")[0],
             release_date=release_date,
-            price_text=re.sub(r"\s+", " ", price_el.get_text(" ", strip=True)) if price_el else "",
+            price_text=parse_price(row),
             image=img_el.get("src", "") if img_el else "",
             status=status,
         )
@@ -298,15 +327,24 @@ body {
 .meta { color: #8894a3; font-size: 0.8rem; margin-bottom: 20px; }
 h1 { font-size: 1.3rem; margin: 4px 0 16px; }
 h2.section { font-size: 0.85rem; color: #8894a3; margin: 24px 0 8px; text-transform: uppercase; letter-spacing: 0.04em; }
-.card { background: #171d26; border: 1px solid #232b37; border-radius: 10px; overflow: hidden; }
+.card { background: #171d26; border: 1px solid #232b37; border-radius: 10px; overflow: visible; }
 .row {
   display: flex; gap: 14px; padding: 12px 14px; align-items: center;
   border-bottom: 1px solid #1c2330;
 }
-.row:last-child { border-bottom: none; }
-.row:hover { background: #1c2330; }
-.row .media { flex: none; display: block; }
-.row img.cap { width: 160px; height: 75px; object-fit: cover; border-radius: 6px; background: #232b37; }
+.row:first-child { border-top-left-radius: 10px; border-top-right-radius: 10px; }
+.row:last-child { border-bottom: none; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; }
+.row:hover { background: #1c2330; position: relative; z-index: 20; }
+.row .media { flex: none; display: block; position: relative; }
+.row img.cap {
+  width: 160px; height: 75px; object-fit: cover; border-radius: 6px; background: #232b37;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.row:hover img.cap {
+  position: absolute; top: 50%; right: 100%; margin-right: 10px;
+  transform: translateY(-50%) scale(2.1); transform-origin: right center;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6); z-index: 30;
+}
 .row .info { min-width: 0; flex: 1; }
 .row .name {
   display: block; font-size: 1.15rem; font-weight: 600; line-height: 1.3;
@@ -317,10 +355,21 @@ h2.section { font-size: 0.85rem; color: #8894a3; margin: 24px 0 8px; text-transf
 .row .price { color: #8894a3; font-size: 0.85rem; margin-top: 3px; }
 .tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 7px; }
 .tag {
-  font-size: 0.65rem; padding: 1px 7px; border-radius: 999px; background: #1a2028;
-  color: #6b7686; text-decoration: none;
+  font-size: 0.78rem; padding: 3px 10px; border-radius: 999px; background: #241a33;
+  color: #b79aef; text-decoration: none;
 }
-.tag:hover { background: #2a3550; color: #c7d6ec; }
+.tag:hover { background: #3a2a4f; color: #d3c1fb; }
+.tag-toggle { display: none; }
+.tag-extra { display: none; }
+.tag-toggle:checked ~ .tag-extra { display: contents; }
+.tag-more {
+  font-size: 0.78rem; padding: 3px 10px; border-radius: 999px; cursor: pointer;
+  background: transparent; color: #6b7686; border: 1px dashed #3a4152;
+}
+.tag-more:hover { color: #9db4d1; border-color: #5a6478; }
+.tag-more-close { display: none; }
+.tag-toggle:checked ~ .tag-more-open { display: none; }
+.tag-toggle:checked ~ .tag-more-close { display: inline-block; }
 @media (max-width: 480px) {
   .row img.cap { width: 110px; height: 52px; }
   .row .name { font-size: 1rem; }
@@ -383,6 +432,35 @@ def tag_slug(tag: str) -> str:
     return safe or "tag"
 
 
+TAGS_VISIBLE = 6
+
+
+def render_tags(appid: str, tags: list[str], base: str) -> str:
+    if not tags:
+        return ""
+
+    def chip(t: str) -> str:
+        return f'<a class="tag" href="{base}tags/{tag_slug(t)}.html">{esc(t)}</a>'
+
+    visible = "".join(chip(t) for t in tags[:TAGS_VISIBLE])
+    rest = tags[TAGS_VISIBLE:]
+    if not rest:
+        return f'<div class="tags">{visible}</div>'
+
+    # Tags are already in Steam's own popularity order (scraped in DOM order from the
+    # page's popular-tags widget), so the first N are already the "priority" ones.
+    uid = f"tagexp-{esc(appid)}"
+    extra = "".join(chip(t) for t in rest)
+    return (
+        f'<div class="tags">{visible}'
+        f'<input type="checkbox" id="{uid}" class="tag-toggle">'
+        f'<span class="tag-extra">{extra}</span>'
+        f'<label for="{uid}" class="tag-more tag-more-open">+{len(rest)}</label>'
+        f'<label for="{uid}" class="tag-more tag-more-close">收起</label>'
+        f"</div>"
+    )
+
+
 def render_row(g: dict, base: str, show_date: bool = False) -> str:
     if g["status"] == "live":
         badge = '<span class="badge live">✅ 已上架</span>'
@@ -397,15 +475,13 @@ def render_row(g: dict, base: str, show_date: bool = False) -> str:
 
     price = esc(g.get("price_text") or "價格未知")
     sub = f'{esc(g["release_date"])} · {price}' if show_date else price
-    tag_links = "".join(
-        f'<a class="tag" href="{base}tags/{tag_slug(t)}.html">{esc(t)}</a>' for t in g.get("tags", [])
-    )
-    tags_html = f'<div class="tags">{tag_links}</div>' if tag_links else ""
+    tags_html = render_tags(g["appid"], g.get("tags", []), base)
+    zoom_image = g.get("header_image") or g.get("image") or ""
 
     return (
         '<div class="row">'
         f'<a class="media" href="{esc(g["url"])}" target="_blank" rel="noopener">'
-        f'<img class="cap" src="{esc(g.get("image") or "")}" loading="lazy" alt=""></a>'
+        f'<img class="cap" src="{esc(zoom_image)}" loading="lazy" alt=""></a>'
         '<div class="info">'
         f'<a class="name" href="{esc(g["url"])}" target="_blank" rel="noopener">{esc(g["name"])}</a>'
         f'<div class="price">{sub}</div>'
@@ -606,10 +682,11 @@ def main() -> None:
 
     games = find_todays_releases(target=today, language=language, country=country, max_pages=max_pages)
     for g in games:
-        epoch, tags = fetch_game_details(g.appid, language)
+        epoch, tags, header_image = fetch_game_details(g.appid, language)
         if g.status == "upcoming":
             g.release_epoch = epoch
         g.tags = tags
+        g.header_image = header_image
         time.sleep(0.3)
 
     upsert_history(history, games)
