@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import logging
 import re
@@ -394,6 +395,27 @@ h2.section { font-size: 0.85rem; color: #8894a3; margin: 24px 0 8px; text-transf
 .disc-final.plain { color: #e7ecf2; font-weight: 600; }
 .disc-final.unknown { color: #8894a3; font-weight: 400; font-size: 0.85rem; }
 .discount-end { color: #66c0f4; font-size: 0.78rem; margin-top: 3px; }
+.open-modal-backdrop {
+  display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.6);
+  align-items: center; justify-content: center; z-index: 100; padding: 16px;
+}
+.open-modal {
+  background: #171d26; border: 1px solid #232b37; border-radius: 12px; padding: 20px;
+  width: min(320px, 100%); display: flex; flex-direction: column; gap: 14px;
+}
+.open-modal-title { font-size: 1rem; font-weight: 600; }
+.open-modal-actions { display: flex; gap: 8px; }
+.open-modal-actions button {
+  flex: 1; padding: 10px; border-radius: 8px; border: 1px solid #2a3346;
+  background: #1c2330; color: #e7ecf2; font-size: 0.9rem; cursor: pointer;
+}
+.open-modal-actions button:hover { background: #232b3d; border-color: #3a4460; }
+.open-modal-remember { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: #8894a3; }
+.open-modal-close {
+  align-self: flex-end; background: none; border: none; color: #6b7686;
+  cursor: pointer; font-size: 0.8rem; padding: 0;
+}
+.open-modal-close:hover { color: #9db4d1; }
 .tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 7px; }
 .tag {
   font-size: 0.78rem; padding: 3px 10px; border-radius: 999px; background: #241a33;
@@ -426,7 +448,14 @@ h2.section { font-size: 0.85rem; color: #8894a3; margin: 24px 0 8px; text-transf
 }
 .datelist a:hover { background: #1c2330; }
 .datelist .count { color: #8894a3; font-size: 0.85rem; }
+.search-box {
+  width: 100%; padding: 10px 14px; border-radius: 8px; border: 1px solid #2a3346;
+  background: #171d26; color: #e7ecf2; font-size: 0.95rem; margin-bottom: 8px;
+}
+.search-box:focus { outline: none; border-color: #4a5b7a; }
 """
+
+STYLE_HASH = hashlib.md5(STYLE_CSS.encode("utf-8")).hexdigest()[:8]
 
 PAGE_SHELL = """<!doctype html>
 <html lang="zh-Hant">
@@ -434,7 +463,7 @@ PAGE_SHELL = """<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>__TITLE__</title>
-<link rel="stylesheet" href="__ASSET_BASE__assets/style.css">
+<link rel="stylesheet" href="__ASSET_BASE__assets/style.css?v=__CSS_VER__">
 </head>
 <body>
 <div class="wrap">
@@ -445,6 +474,67 @@ PAGE_SHELL = """<!doctype html>
   <div class="meta">__META__</div>
   __BODY__
 </div>
+
+<div class="open-modal-backdrop" id="openModalBackdrop">
+  <div class="open-modal">
+    <div class="open-modal-title">要怎麼開啟這款遊戲？</div>
+    <div class="open-modal-actions">
+      <button type="button" data-choice="web">🌐 網頁開啟</button>
+      <button type="button" data-choice="steam">💠 Steam 開啟</button>
+    </div>
+    <label class="open-modal-remember"><input type="checkbox" id="openModalRemember" checked> 記住我的選擇</label>
+    <button type="button" class="open-modal-close" id="openModalCancel">取消</button>
+  </div>
+</div>
+<script>
+function imgFallback(el) {
+  var fb = el.getAttribute("data-fallback");
+  if (fb && el.src !== fb) {
+    el.onerror = function () { this.style.visibility = "hidden"; this.onerror = null; };
+    el.src = fb;
+  } else {
+    el.style.visibility = "hidden";
+  }
+}
+(function () {
+  var KEY = "steamOpenPref";
+  function getPref() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+  function setPref(v) { try { if (v) { localStorage.setItem(KEY, v); } else { localStorage.removeItem(KEY); } } catch (e) {} }
+
+  var backdrop = document.getElementById("openModalBackdrop");
+  var remember = document.getElementById("openModalRemember");
+  var pending = null;
+
+  function closeModal() { backdrop.style.display = "none"; pending = null; }
+  function openWith(choice) {
+    if (!pending) return;
+    var url = choice === "steam" ? pending.steam : pending.web;
+    if (choice === "steam") { window.location.href = url; } else { window.open(url, "_blank", "noopener"); }
+  }
+
+  backdrop.addEventListener("click", function (e) { if (e.target === backdrop) closeModal(); });
+  document.getElementById("openModalCancel").addEventListener("click", closeModal);
+  backdrop.querySelectorAll("[data-choice]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var choice = btn.getAttribute("data-choice");
+      if (remember.checked) setPref(choice);
+      openWith(choice);
+      closeModal();
+    });
+  });
+
+  document.addEventListener("click", function (e) {
+    if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    var el = e.target.closest("[data-web][data-steam]");
+    if (!el) return;
+    e.preventDefault();
+    pending = { web: el.getAttribute("data-web"), steam: el.getAttribute("data-steam") };
+    var pref = getPref();
+    if (pref) { openWith(pref); pending = null; return; }
+    backdrop.style.display = "flex";
+  });
+})();
+</script>
 </body>
 </html>
 """
@@ -454,6 +544,7 @@ def render_page(title: str, base: str, nav_html: str, meta: str, body_html: str)
     return (
         PAGE_SHELL.replace("__TITLE__", esc(title))
         .replace("__ASSET_BASE__", base)
+        .replace("__CSS_VER__", STYLE_HASH)
         .replace("__HOME_HREF__", f"{base}index.html")
         .replace("__NAV__", nav_html)
         .replace("__META__", meta)
@@ -541,14 +632,19 @@ def render_row(g: dict, base: str, show_date: bool = False) -> str:
 
     date_html = f'<div class="date-line">{esc(g["release_date"])}</div>' if show_date else ""
     tags_html = render_tags(g["appid"], g.get("tags", []), base)
-    zoom_image = g.get("header_image") or g.get("image") or ""
+    fallback_image = g.get("image") or ""
+    zoom_image = g.get("header_image") or fallback_image
+    web_url = esc(g["url"])
+    steam_url = f"steam://store/{esc(g['appid'])}"
+    open_attrs = f'data-web="{web_url}" data-steam="{steam_url}"'
 
     return (
         '<div class="row">'
-        f'<a class="media" href="{esc(g["url"])}" target="_blank" rel="noopener">'
-        f'<img class="cap" src="{esc(zoom_image)}" loading="lazy" alt=""></a>'
+        f'<a class="media" href="{web_url}" {open_attrs}>'
+        f'<img class="cap" src="{esc(zoom_image)}" data-fallback="{esc(fallback_image)}" '
+        f'onerror="imgFallback(this)" loading="lazy" alt=""></a>'
         '<div class="info">'
-        f'<a class="name" href="{esc(g["url"])}" target="_blank" rel="noopener">{esc(g["name"])}</a>'
+        f'<a class="name" href="{web_url}" {open_attrs}>{esc(g["name"])}</a>'
         f"{date_html}{render_price(g)}"
         f"{tags_html}</div>"
         f"{badge}</div>"
@@ -686,6 +782,47 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int) -> None:
     for f in tags_dir.glob("*.html"):
         if f.stem not in slug_to_tag:
             f.unlink()
+
+    all_games_sorted = sorted(
+        history["games"].values(), key=lambda g: (g["release_date"], g["name"]), reverse=True
+    )
+    search_rows = "".join(render_row(g, "", show_date=True) for g in all_games_sorted)
+    search_script = """<script>
+(function () {
+  var box = document.getElementById("searchBox");
+  var rows = Array.prototype.slice.call(document.querySelectorAll("#searchResults .row"));
+  var countEl = document.getElementById("searchCount");
+  function apply() {
+    var q = box.value.trim().toLowerCase();
+    var shown = 0;
+    rows.forEach(function (r) {
+      var nameEl = r.querySelector(".name");
+      var name = nameEl ? nameEl.textContent.toLowerCase() : "";
+      var match = !q || name.indexOf(q) !== -1;
+      r.style.display = match ? "" : "none";
+      if (match) shown++;
+    });
+    countEl.textContent = q ? "符合 " + shown + " / " + rows.length + " 款" : "共 " + rows.length + " 款";
+  }
+  box.addEventListener("input", apply);
+  box.focus();
+})();
+</script>"""
+    search_body = (
+        "<h1>搜尋遊戲</h1>"
+        '<input type="text" id="searchBox" class="search-box" placeholder="輸入遊戲名稱關鍵字…" autocomplete="off">'
+        f'<div class="meta" id="searchCount">共 {len(all_games_sorted)} 款</div>'
+        f'<div class="card" id="searchResults">{search_rows}</div>'
+        f"{search_script}"
+    )
+    search_page = render_page(
+        title="搜尋 - Steam 新遊戲紀錄",
+        base="",
+        nav_html='<a href="index.html">← 回首頁</a>',
+        meta=meta,
+        body_html=search_body,
+    )
+    (docs_dir / "search.html").write_text(search_page, encoding="utf-8")
 
 
 def enrich_with_details(games: list[Game], language: str) -> None:

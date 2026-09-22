@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>所有日期 - Steam 新遊戲紀錄</title>
-<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/style.css?v=fa530022">
 </head>
 <body>
 <div class="wrap">
@@ -12,8 +12,69 @@
     <a class="brand" href="../index.html"><img src="../assets/logo.png" alt="Steam 新遊戲紀錄"></a>
     <div class="nav"><a href="../index.html">← 回首頁</a></div>
   </div>
-  <div class="meta">更新於 2026-09-22 19:03 · 保留最近 30 天</div>
+  <div class="meta">更新於 2026-09-22 19:20 · 保留最近 30 天</div>
   <h1>所有日期</h1><div class="datelist"><a href="../dates/2026-09-22.html"><span>2026-09-22</span><span class="count">16 款</span></a><a href="../dates/2026-09-21.html"><span>2026-09-21</span><span class="count">14 款</span></a><a href="../dates/2026-09-20.html"><span>2026-09-20</span><span class="count">7 款</span></a><a href="../dates/2026-09-19.html"><span>2026-09-19</span><span class="count">6 款</span></a><a href="../dates/2026-09-18.html"><span>2026-09-18</span><span class="count">19 款</span></a><a href="../dates/2026-09-17.html"><span>2026-09-17</span><span class="count">18 款</span></a><a href="../dates/2026-09-16.html"><span>2026-09-16</span><span class="count">28 款</span></a><a href="../dates/2026-09-15.html"><span>2026-09-15</span><span class="count">18 款</span></a><a href="../dates/2026-09-14.html"><span>2026-09-14</span><span class="count">55 款</span></a><a href="../dates/2026-09-13.html"><span>2026-09-13</span><span class="count">12 款</span></a><a href="../dates/2026-09-12.html"><span>2026-09-12</span><span class="count">5 款</span></a><a href="../dates/2026-09-11.html"><span>2026-09-11</span><span class="count">25 款</span></a><a href="../dates/2026-09-10.html"><span>2026-09-10</span><span class="count">39 款</span></a><a href="../dates/2026-09-09.html"><span>2026-09-09</span><span class="count">37 款</span></a><a href="../dates/2026-09-08.html"><span>2026-09-08</span><span class="count">29 款</span></a><a href="../dates/2026-09-07.html"><span>2026-09-07</span><span class="count">25 款</span></a><a href="../dates/2026-09-06.html"><span>2026-09-06</span><span class="count">4 款</span></a><a href="../dates/2026-09-05.html"><span>2026-09-05</span><span class="count">6 款</span></a><a href="../dates/2026-09-04.html"><span>2026-09-04</span><span class="count">19 款</span></a><a href="../dates/2026-09-03.html"><span>2026-09-03</span><span class="count">35 款</span></a><a href="../dates/2026-09-02.html"><span>2026-09-02</span><span class="count">22 款</span></a><a href="../dates/2026-09-01.html"><span>2026-09-01</span><span class="count">22 款</span></a><a href="../dates/2026-08-31.html"><span>2026-08-31</span><span class="count">25 款</span></a><a href="../dates/2026-08-30.html"><span>2026-08-30</span><span class="count">8 款</span></a><a href="../dates/2026-08-29.html"><span>2026-08-29</span><span class="count">5 款</span></a><a href="../dates/2026-08-28.html"><span>2026-08-28</span><span class="count">31 款</span></a><a href="../dates/2026-08-27.html"><span>2026-08-27</span><span class="count">40 款</span></a><a href="../dates/2026-08-26.html"><span>2026-08-26</span><span class="count">32 款</span></a><a href="../dates/2026-08-25.html"><span>2026-08-25</span><span class="count">15 款</span></a><a href="../dates/2026-08-24.html"><span>2026-08-24</span><span class="count">13 款</span></a></div>
 </div>
+
+<div class="open-modal-backdrop" id="openModalBackdrop">
+  <div class="open-modal">
+    <div class="open-modal-title">要怎麼開啟這款遊戲？</div>
+    <div class="open-modal-actions">
+      <button type="button" data-choice="web">🌐 網頁開啟</button>
+      <button type="button" data-choice="steam">💠 Steam 開啟</button>
+    </div>
+    <label class="open-modal-remember"><input type="checkbox" id="openModalRemember" checked> 記住我的選擇</label>
+    <button type="button" class="open-modal-close" id="openModalCancel">取消</button>
+  </div>
+</div>
+<script>
+function imgFallback(el) {
+  var fb = el.getAttribute("data-fallback");
+  if (fb && el.src !== fb) {
+    el.onerror = function () { this.style.visibility = "hidden"; this.onerror = null; };
+    el.src = fb;
+  } else {
+    el.style.visibility = "hidden";
+  }
+}
+(function () {
+  var KEY = "steamOpenPref";
+  function getPref() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+  function setPref(v) { try { if (v) { localStorage.setItem(KEY, v); } else { localStorage.removeItem(KEY); } } catch (e) {} }
+
+  var backdrop = document.getElementById("openModalBackdrop");
+  var remember = document.getElementById("openModalRemember");
+  var pending = null;
+
+  function closeModal() { backdrop.style.display = "none"; pending = null; }
+  function openWith(choice) {
+    if (!pending) return;
+    var url = choice === "steam" ? pending.steam : pending.web;
+    if (choice === "steam") { window.location.href = url; } else { window.open(url, "_blank", "noopener"); }
+  }
+
+  backdrop.addEventListener("click", function (e) { if (e.target === backdrop) closeModal(); });
+  document.getElementById("openModalCancel").addEventListener("click", closeModal);
+  backdrop.querySelectorAll("[data-choice]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var choice = btn.getAttribute("data-choice");
+      if (remember.checked) setPref(choice);
+      openWith(choice);
+      closeModal();
+    });
+  });
+
+  document.addEventListener("click", function (e) {
+    if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    var el = e.target.closest("[data-web][data-steam]");
+    if (!el) return;
+    e.preventDefault();
+    pending = { web: el.getAttribute("data-web"), steam: el.getAttribute("data-steam") };
+    var pref = getPref();
+    if (pref) { openWith(pref); pending = null; return; }
+    backdrop.style.display = "flex";
+  });
+})();
+</script>
 </body>
 </html>
