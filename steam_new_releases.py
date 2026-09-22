@@ -366,12 +366,12 @@ h2.section { font-size: 0.85rem; color: #8894a3; margin: 24px 0 8px; text-transf
 .row .media { flex: none; display: block; position: relative; }
 .row img.cap {
   width: 160px; height: 75px; object-fit: cover; border-radius: 6px; background: #232b37;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  transition: transform 0.18s ease, box-shadow 0.18s ease; transform-origin: right center;
 }
 .row:hover img.cap {
-  position: absolute; top: 50%; right: 100%; margin-right: 10px;
-  transform: translateY(-50%) scale(2.1); transform-origin: right center;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6); z-index: 30;
+  transform: scale(2.1);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+  position: relative; z-index: 30;
 }
 .row .info { min-width: 0; flex: 1; }
 .row .name {
