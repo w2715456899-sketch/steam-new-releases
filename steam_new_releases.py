@@ -13,7 +13,6 @@ from datetime import date, datetime, timedelta
 from html import escape as esc
 from pathlib import Path
 from typing import Iterable
-from urllib.parse import quote
 
 import requests
 from bs4 import BeautifulSoup
@@ -31,7 +30,6 @@ STALE_STREAK = 5  # consecutive out-of-window rows before we stop paging
 STATE_RETENTION_DAYS = 14
 DEFAULT_RETENTION_DAYS = 30
 DEFAULT_BACKFILL_DAYS = 30
-TAG_LIMIT = 6
 
 log = logging.getLogger("steam_new_releases")
 
@@ -115,7 +113,7 @@ def fetch_page(start: int, count: int, language: str, country: str, coming_soon:
     }
     if coming_soon:
         params["filter"] = "comingsoon"
-    cookies = {"Steam_Language": language}
+    cookies = {**AGE_GATE_COOKIES, "Steam_Language": language}
     resp = requests.get(SEARCH_URL, params=params, headers=HEADERS, cookies=cookies, timeout=20)
     resp.raise_for_status()
     return resp.json()
@@ -152,7 +150,7 @@ def fetch_game_details(appid: str, language: str) -> tuple[int | None, list[str]
     soup = BeautifulSoup(html_text, "html.parser")
     tag_block = soup.select_one(".glance_tags.popular_tags")
     if tag_block:
-        tags = [a.get_text(strip=True) for a in tag_block.select("a.app_tag")][:TAG_LIMIT]
+        tags = [a.get_text(strip=True) for a in tag_block.select("a.app_tag")]
     return epoch, tags
 
 
@@ -368,8 +366,16 @@ def render_page(title: str, base: str, nav_html: str, meta: str, body_html: str)
     )
 
 
+_UNSAFE_FILENAME_CHARS = re.compile(r'[<>:"/\\|?*\x00-\x1f]')
+
+
 def tag_slug(tag: str) -> str:
-    return quote(tag, safe="")
+    # Keep the human-readable (including CJK) tag text as the filename itself - GitHub
+    # Pages/most static hosts URL-decode the request path to match the file on disk, so a
+    # pre-percent-encoded filename (e.g. "%E4%B8%AD...html") never matches and 404s. Only
+    # characters Windows can't put in a filename get swapped out.
+    safe = _UNSAFE_FILENAME_CHARS.sub("-", tag).strip()
+    return safe or "tag"
 
 
 def render_row(g: dict, base: str, show_date: bool = False) -> str:
