@@ -825,14 +825,37 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int) -> None:
     (docs_dir / "search.html").write_text(search_page, encoding="utf-8")
 
 
+def verify_image(url: str | None, attempts: int = 2) -> bool:
+    if not url:
+        return False
+    for i in range(attempts):
+        try:
+            resp = requests.head(url, headers=HEADERS, timeout=6, allow_redirects=True)
+            if resp.status_code == 200:
+                return True
+        except requests.RequestException:
+            pass
+        if i + 1 < attempts:
+            time.sleep(1)
+    return False
+
+
 def enrich_with_details(games: list[Game], language: str) -> None:
     for g in games:
         details = fetch_game_details(g.appid, language)
         if g.status == "upcoming":
             g.release_epoch = details.epoch
         g.tags = details.tags
-        g.header_image = details.header_image
         g.discount_end = details.discount_end
+        # Verify the header image actually loads (with one retry) before trusting it - if
+        # it doesn't, leave header_image unset so rendering falls back to the small capsule
+        # image (always sourced straight from the search listing, effectively always good).
+        if details.header_image and verify_image(details.header_image):
+            g.header_image = details.header_image
+        else:
+            if details.header_image:
+                log.debug("Header image failed to verify for %s, falling back to capsule", g.appid)
+            g.header_image = None
         time.sleep(0.2)
 
 
