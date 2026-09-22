@@ -165,6 +165,10 @@ def _item_to_game(item: dict, tag_names: dict[int, str]) -> Game | None:
         active = purchase.get("active_discounts") or []
         if active:
             discount_end = active[0].get("discount_end_date")
+    elif item.get("is_free"):
+        # Free games have no purchase option at all (nothing to buy), so this is the
+        # only signal for them - without it they'd wrongly show as "price unknown".
+        price_final = "免費"
 
     tagids = item.get("tagids") or []
     tags = [tag_names[t] for t in tagids if t in tag_names]
