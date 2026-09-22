@@ -5,5 +5,7 @@
   "max_pages": 10,
   "retention_days": 30,
   "backfill_days": 30,
-  "backfill_max_pages": 40
+  "backfill_max_pages": 40,
+  "site_url": "https://your-username.github.io/steam-new-releases/",
+  "git_auto_push": true
 }

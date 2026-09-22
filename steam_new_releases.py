@@ -5,6 +5,7 @@ import argparse
 import json
 import logging
 import re
+import subprocess
 import sys
 import time
 from dataclasses import dataclass, field
@@ -242,56 +243,19 @@ def find_backfill_releases(days: int, language: str, country: str, max_pages: in
     return _collect(start, end, language, country, max_pages, coming_soon=False)
 
 
-def format_footer(game: Game) -> str:
-    if game.status == "live":
-        return "✅ 已上架"
-    if game.release_epoch:
-        dt = datetime.fromtimestamp(game.release_epoch).astimezone()
-        return f"⏳ 預計 {dt.strftime('%m/%d %H:%M')} 上架（可能延期）"
-    return "⏳ 預計今天上架（可能延期）"
-
-
-def build_embeds(games: list[Game]) -> list[list[dict]]:
-    embeds = [
-        {
-            "title": game.name,
-            "url": game.url,
-            "description": game.price_text or "價格未知",
-            "thumbnail": {"url": game.image} if game.image else None,
-            "footer": {"text": format_footer(game)},
-        }
-        for game in games
-    ]
-    for embed in embeds:
-        if embed["thumbnail"] is None:
-            del embed["thumbnail"]
-    return [embeds[i : i + 10] for i in range(0, len(embeds), 10)]  # Discord caps 10 embeds/message
-
-
-def send_discord(webhook_url: str, games: list[Game], dry_run: bool, report_note: str) -> None:
+def send_discord(webhook_url: str, today: date, games: list[Game], dry_run: bool, site_url: str) -> None:
     if not games:
-        content = "今天沒有發現新上架的 Steam 遊戲。"
-        if dry_run:
-            log.info(content)
-            return
-        requests.post(webhook_url, json={"content": content}, timeout=20).raise_for_status()
+        log.info("No new releases today - skipping Discord ping")
         return
 
-    header = f"🎮 今天新上架 {len(games)} 款 Steam 遊戲！\n{report_note}"
-    batches = build_embeds(games)
+    content = f"📅 {today.isoformat()} 新遊戲來了 🫠\n{site_url}"
     if dry_run:
-        log.info(header)
+        log.info(content)
         for game in games:
             log.info(" - %s (%s) %s", game.name, game.release_date, game.url)
         return
 
-    for i, batch in enumerate(batches):
-        payload = {"embeds": batch}
-        if i == 0:
-            payload["content"] = header
-        resp = requests.post(webhook_url, json=payload, timeout=20)
-        resp.raise_for_status()
-        time.sleep(1)  # avoid Discord rate limits between batches
+    requests.post(webhook_url, json={"content": content}, timeout=20).raise_for_status()
 
 
 # ---------------------------------------------------------------------------
@@ -560,6 +524,24 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int) -> None:
             f.unlink()
 
 
+def git_publish(base_dir: Path, docs_dir: Path, message: str) -> None:
+    """Best-effort: commit and push the docs dir so GitHub Pages picks up the new site."""
+    if not (base_dir / ".git").exists():
+        return
+    try:
+        subprocess.run(["git", "-C", str(base_dir), "add", str(docs_dir)], check=True, capture_output=True)
+        staged = subprocess.run(["git", "-C", str(base_dir), "diff", "--cached", "--quiet"])
+        if staged.returncode == 0:
+            log.info("No site changes to publish")
+            return
+        subprocess.run(["git", "-C", str(base_dir), "commit", "-m", message], check=True, capture_output=True)
+        subprocess.run(["git", "-C", str(base_dir), "push"], check=True, capture_output=True, timeout=60)
+        log.info("Pushed site update to GitHub")
+    except (subprocess.CalledProcessError, subprocess.TimeoutExpired) as e:
+        stderr = e.stderr.decode(errors="ignore") if getattr(e, "stderr", None) else str(e)
+        log.warning("git publish failed, site stayed local-only: %s", stderr.strip())
+
+
 def main() -> None:
     for stream in (sys.stdout, sys.stderr):
         if hasattr(stream, "reconfigure"):
@@ -612,14 +594,16 @@ def main() -> None:
         save_history(args.history, history, retention_days)
         generate_site(history, args.docs, retention_days)
         log.info("Site updated: %s", args.docs / "index.html")
+        if not args.dry_run and config.get("git_auto_push", True):
+            git_publish(BASE_DIR, args.docs, f"Update site {today.isoformat()}")
 
     state = load_state(args.state)
     notified = state["notified"]
     new_games = [g for g in games if g.appid not in notified]
     log.info("Found %d release(s) today, %d not yet notified", len(games), len(new_games))
 
-    report_note = f"📄 完整紀錄：{args.docs / 'index.html'}"
-    send_discord(config["webhook_url"], new_games, args.dry_run, report_note)
+    site_url = config.get("site_url") or f"file:///{(args.docs / 'index.html').resolve().as_posix()}"
+    send_discord(config["webhook_url"], today, new_games, args.dry_run, site_url)
 
     if not args.dry_run:
         for game in new_games:
