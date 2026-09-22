@@ -156,12 +156,24 @@ def fetch_game_details(appid: str, language: str) -> tuple[int | None, list[str]
     return epoch, tags
 
 
+CJK_DATE_RE = re.compile(r"(\d{4})\s*年\s*(\d{1,2})\s*月\s*(\d{1,2})\s*日")
+
+
 def parse_release_date(text: str) -> date | None:
     text = text.strip()
     if not text:
         return None
+    # "2026年9月12日" is unambiguous once we read the 年/月/日 markers ourselves - dateutil's
+    # fuzzy mode drops those CJK characters and is left guessing day-vs-month order from three
+    # bare numbers, which silently swaps them for any day <= 12 (e.g. "9月12日" -> Dec 9th).
+    m = CJK_DATE_RE.search(text)
+    if m:
+        try:
+            return date(int(m.group(1)), int(m.group(2)), int(m.group(3)))
+        except ValueError:
+            return None
     try:
-        return dateparser.parse(text, dayfirst=True, fuzzy=True).date()
+        return dateparser.parse(text, fuzzy=True).date()
     except (ValueError, OverflowError):
         return None
 
