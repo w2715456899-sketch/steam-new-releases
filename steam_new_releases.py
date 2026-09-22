@@ -36,6 +36,15 @@ MAX_QUERY_PAGES = 50  # safety cap (5000 items) so a pagination bug can't loop f
 log = logging.getLogger("steam_new_releases")
 
 
+def local_today() -> date:
+    # Plain date.today() reads the machine's own system clock/timezone - fine on this
+    # Taipei-configured Windows box, but GitHub Actions runners default to UTC, which is
+    # up to 8 hours behind Taipei's calendar date (00:00-08:00 Taipei is still "yesterday"
+    # in UTC). Always resolving "today" through LOCAL_TZ keeps this consistent regardless
+    # of which machine runs the script.
+    return datetime.now(tz=LOCAL_TZ).date()
+
+
 @dataclass
 class Game:
     appid: str
@@ -75,7 +84,7 @@ def load_state(path: Path) -> dict:
 
 
 def save_state(path: Path, state: dict) -> None:
-    cutoff = (date.today() - timedelta(days=STATE_RETENTION_DAYS)).isoformat()
+    cutoff = (local_today() - timedelta(days=STATE_RETENTION_DAYS)).isoformat()
     state["notified"] = {k: v for k, v in state["notified"].items() if v >= cutoff}
     path.write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
 
@@ -87,7 +96,7 @@ def load_history(path: Path) -> dict:
 
 
 def save_history(path: Path, history: dict, retention_days: int) -> None:
-    cutoff = (date.today() - timedelta(days=retention_days)).isoformat()
+    cutoff = (local_today() - timedelta(days=retention_days)).isoformat()
     history["games"] = {aid: g for aid, g in history["games"].items() if g["release_date"] >= cutoff}
     path.write_text(json.dumps(history, ensure_ascii=False, indent=2), encoding="utf-8")
 
@@ -672,7 +681,7 @@ def render_price(g: dict) -> str:
 
     end = g.get("discount_end")
     if end:
-        dt = datetime.fromtimestamp(end).astimezone()
+        dt = datetime.fromtimestamp(end, tz=LOCAL_TZ)
         html += f'<div class="discount-end">優惠至 {dt.strftime("%m/%d")} 截止</div>'
     return html
 
@@ -683,7 +692,7 @@ def render_row(g: dict, base: str, show_date: bool = False) -> str:
     else:
         epoch = g.get("release_epoch")
         if epoch:
-            dt = datetime.fromtimestamp(epoch).astimezone()
+            dt = datetime.fromtimestamp(epoch, tz=LOCAL_TZ)
             label = dt.strftime("%m/%d %H:%M")
         else:
             label = "預計上架"
@@ -763,7 +772,7 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int) -> None:
         by_date.setdefault(g["release_date"], []).append(g)
     dates_desc = sorted(by_date, reverse=True)
     counts = {d: len(by_date[d]) for d in dates_desc}
-    generated_at = datetime.now().astimezone().strftime("%Y-%m-%d %H:%M")
+    generated_at = datetime.now(tz=LOCAL_TZ).strftime("%Y-%m-%d %H:%M")
     meta = f"更新於 {esc(generated_at)} · 保留最近 {retention_days} 天"
 
     dates_dir = docs_dir / "dates"
@@ -974,7 +983,7 @@ def main() -> None:
     country = config.get("country", "us")
     retention_days = int(config.get("retention_days", DEFAULT_RETENTION_DAYS))
     backfill_days = int(config.get("backfill_days", DEFAULT_BACKFILL_DAYS))
-    today = date.today()
+    today = local_today()
 
     history = load_history(args.history)
     should_backfill = args.backfill is not None or (not history["games"] and not args.no_backfill)
