@@ -24,26 +24,31 @@ h1 { font-size: 1.3rem; margin: 4px 0 16px; }
 h2.section { font-size: 0.85rem; color: #8894a3; margin: 24px 0 8px; text-transform: uppercase; letter-spacing: 0.04em; }
 .card { background: #171d26; border: 1px solid #232b37; border-radius: 10px; overflow: hidden; }
 .row {
-  display: flex; gap: 12px; padding: 10px 14px; align-items: center;
+  display: flex; gap: 14px; padding: 12px 14px; align-items: center;
   border-bottom: 1px solid #1c2330;
 }
 .row:last-child { border-bottom: none; }
 .row:hover { background: #1c2330; }
 .row .media { flex: none; display: block; }
-.row img.cap { width: 92px; height: 43px; object-fit: cover; border-radius: 4px; background: #232b37; }
+.row img.cap { width: 160px; height: 75px; object-fit: cover; border-radius: 6px; background: #232b37; }
 .row .info { min-width: 0; flex: 1; }
 .row .name {
-  display: block; font-size: 0.95rem; overflow: hidden; text-overflow: ellipsis;
-  white-space: nowrap; text-decoration: none; color: inherit;
+  display: block; font-size: 1.15rem; font-weight: 600; line-height: 1.3;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  text-decoration: none; color: inherit;
 }
 .row .name:hover { text-decoration: underline; }
-.row .price { color: #8894a3; font-size: 0.8rem; margin-top: 2px; }
-.tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 5px; }
+.row .price { color: #8894a3; font-size: 0.85rem; margin-top: 3px; }
+.tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 7px; }
 .tag {
-  font-size: 0.68rem; padding: 1px 7px; border-radius: 999px; background: #20293a;
-  color: #9db4d1; text-decoration: none;
+  font-size: 0.65rem; padding: 1px 7px; border-radius: 999px; background: #1a2028;
+  color: #6b7686; text-decoration: none;
 }
 .tag:hover { background: #2a3550; color: #c7d6ec; }
+@media (max-width: 480px) {
+  .row img.cap { width: 110px; height: 52px; }
+  .row .name { font-size: 1rem; }
+}
 .badge { flex: none; font-size: 0.72rem; padding: 3px 8px; border-radius: 999px; white-space: nowrap; }
 .badge.live { background: #16331f; color: #5fd58a; }
 .badge.upcoming { background: #33291a; color: #e0b25f; }
