@@ -137,6 +137,9 @@ class GameDetails:
     tags: list[str] = field(default_factory=list)
     header_image: str | None = None
     discount_end: str | None = None
+    price_pct: str | None = None
+    price_original: str | None = None
+    price_final: str | None = None
 
 
 def fetch_game_details(appid: str, language: str) -> GameDetails:
@@ -186,10 +189,34 @@ def fetch_game_details(appid: str, language: str) -> GameDetails:
     if countdown_el:
         discount_end = countdown_el.get_text(strip=True)
 
-    return GameDetails(epoch=epoch, tags=tags, header_image=header_image, discount_end=discount_end)
+    price_pct, price_original, price_final = _extract_price(
+        soup.select_one(".game_purchase_discount") or soup.select_one("#game_area_purchase .discount_block")
+    )
+
+    return GameDetails(
+        epoch=epoch,
+        tags=tags,
+        header_image=header_image,
+        discount_end=discount_end,
+        price_pct=price_pct,
+        price_original=price_original,
+        price_final=price_final,
+    )
 
 
 CJK_DATE_RE = re.compile(r"(\d{4})\s*年\s*(\d{1,2})\s*月\s*(\d{1,2})\s*日")
+DISCOUNT_END_RE = re.compile(r"(\d{1,2})\s*月\s*(\d{1,2})\s*日")
+
+
+def parse_discount_end(text: str, year: int) -> date | None:
+    """"新品優惠！10 月 6 日截止" has no year - assume it's the given (current) year."""
+    m = DISCOUNT_END_RE.search(text)
+    if not m:
+        return None
+    try:
+        return date(year, int(m.group(1)), int(m.group(2)))
+    except ValueError:
+        return None
 
 
 def parse_release_date(text: str) -> date | None:
@@ -211,14 +238,10 @@ def parse_release_date(text: str) -> date | None:
         return None
 
 
-def parse_price(row) -> tuple[str | None, str | None, str | None]:
-    """Returns (discount_pct, original_price, final_price); all None means unknown/TBD."""
-    # Steam's markup here has changed over time (it's no longer a plain ".search_price"
-    # element) - the price now lives in ".search_price_discount_combined", and is only
-    # populated once Steam actually has a price for the app (still empty for most
-    # not-yet-released games, which is a real "unknown", not a scraping failure).
-    container = row.select_one(".search_price_discount_combined")
-    if not container:
+def _extract_price(container) -> tuple[str | None, str | None, str | None]:
+    """Returns (discount_pct, original_price, final_price) from a .discount_block-shaped
+    container; all None means unknown/TBD (or the container wasn't found at all)."""
+    if container is None:
         return None, None, None
     final_el = container.select_one(".discount_final_price")
     if not final_el:
@@ -229,6 +252,14 @@ def parse_price(row) -> tuple[str | None, str | None, str | None]:
     if pct_el and orig_el:
         return pct_el.get_text(strip=True), orig_el.get_text(strip=True), final_text
     return None, None, final_text
+
+
+def parse_price(row) -> tuple[str | None, str | None, str | None]:
+    # Steam's markup here has changed over time (it's no longer a plain ".search_price"
+    # element) - the price now lives in ".search_price_discount_combined", and is only
+    # populated once Steam actually has a price for the app (still empty for most
+    # not-yet-released games, which is a real "unknown", not a scraping failure).
+    return _extract_price(row.select_one(".search_price_discount_combined"))
 
 
 def parse_rows(html_text: str, status: str) -> Iterable[Game]:
@@ -938,6 +969,40 @@ def enrich_with_details(games: list[Game], language: str) -> None:
         time.sleep(0.2)
 
 
+def refresh_stale_discounts(history: dict, language: str, today: date) -> int:
+    """Re-check games whose recorded discount_end date has already passed.
+
+    upsert_history() only ever refreshes "today's" games, so a game found 10 days ago
+    with a sale ending 3 days ago would otherwise show that stale discount forever. Only
+    overwrite price/discount_end when the re-fetch actually finds a `.discount_final_price`
+    element (confirms the purchase block parsed correctly this time, so an absent pct/
+    original genuinely means "no longer discounted") - if the block isn't found at all
+    (e.g. multi-edition games whose purchase area doesn't match this selector), leave the
+    existing data alone rather than overwrite good data with nothing.
+    """
+    refreshed = 0
+    for appid, g in history["games"].items():
+        end_text = g.get("discount_end")
+        if not end_text:
+            continue
+        end_date = parse_discount_end(end_text, today.year)
+        if end_date is None or end_date >= today:
+            continue
+        details = fetch_game_details(appid, language)
+        if details.price_final is not None:
+            g["price_pct"] = details.price_pct
+            g["price_original"] = details.price_original
+            g["price_final"] = details.price_final
+            g["discount_end"] = details.discount_end
+            refreshed += 1
+        if details.tags:
+            g["tags"] = details.tags
+        if details.header_image:
+            g["header_image"] = details.header_image
+        time.sleep(0.2)
+    return refreshed
+
+
 def git_publish(base_dir: Path, docs_dir: Path, message: str) -> None:
     """Best-effort: commit and push the docs dir so GitHub Pages picks up the new site."""
     if not (base_dir / ".git").exists():
@@ -999,6 +1064,11 @@ def main() -> None:
     games = find_todays_releases(target=today, language=language, country=country, max_pages=max_pages)
     enrich_with_details(games, language)
     upsert_history(history, games)
+
+    refreshed = refresh_stale_discounts(history, language, today)
+    if refreshed:
+        log.info("Refreshed %d game(s) whose discount had expired", refreshed)
+
     if not args.dry_run or should_backfill:
         save_history(args.history, history, retention_days)
         generate_site(history, args.docs, retention_days)
