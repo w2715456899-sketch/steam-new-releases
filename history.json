@@ -9068,7 +9068,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790143200,
+      "release_epoch": null,
       "tags": [
         "2D 平台",
         "手繪",
@@ -10882,7 +10882,7 @@
       "name": "無人島NTR求生記 SS",
       "url": "https://store.steampowered.com/app/3192240/",
       "release_date": "2026-09-23",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3192240/5aa0286c3c13b8f6c41ab421416205999c1101b2/capsule_231x87_tchinese.jpg?t=1790129009",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3192240/5aa0286c3c13b8f6c41ab421416205999c1101b2/capsule_231x87_tchinese.jpg?t=1790141325",
       "status": "live",
       "price_pct": "-10%",
       "price_original": "NT$ 159.00",
@@ -10910,7 +10910,7 @@
         "多結局",
         "狩獵"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3192240/9ca1e329865c337b486469d53b486cadbe5b0458/header_tchinese.jpg?t=1790129009",
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3192240/9ca1e329865c337b486469d53b486cadbe5b0458/header_tchinese.jpg?t=1790141325",
       "discount_end": 1791306028,
       "is_adult": true
     },
@@ -41052,12 +41052,12 @@
       "name": "披薩革命 | Pizza Revolution",
       "url": "https://store.steampowered.com/app/4786960/",
       "release_date": "2026-09-23",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4786960/57c7d1cb0daad899a697527dfae62f00672a773e/capsule_231x87.jpg?t=1790140211",
-      "status": "upcoming",
-      "price_pct": null,
-      "price_original": null,
-      "price_final": null,
-      "release_epoch": 1790143200,
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4786960/57c7d1cb0daad899a697527dfae62f00672a773e/capsule_231x87.jpg?t=1790143264",
+      "status": "live",
+      "price_pct": "-20%",
+      "price_original": "NT$ 95.00",
+      "price_final": "NT$ 76.00",
+      "release_epoch": 1790143265,
       "tags": [
         "模擬",
         "生活模擬",
@@ -41071,8 +41071,8 @@
         "單人",
         "工作模擬"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4786960/f34ee71bbfebee4cafb498904497c69ae88efb6c/header.jpg?t=1790140211",
-      "discount_end": null,
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4786960/f34ee71bbfebee4cafb498904497c69ae88efb6c/header.jpg?t=1790143264",
+      "discount_end": 1791306001,
       "is_adult": false
     },
     "5008480": {
@@ -69858,7 +69858,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790142720,
+      "release_epoch": null,
       "tags": [
         "放置",
         "遞增",
@@ -74068,7 +74068,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790143200,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "角色扮演",
@@ -104063,9 +104063,9 @@
         "氛圍",
         "2D",
         "色彩鮮艷",
-        "冒險",
         "獨立",
         "搶先體驗",
+        "冒險",
         "未來",
         "懸疑",
         "類 Rogue"
@@ -104260,6 +104260,32 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5130010/a5ed4d479eab12c0614266da63bccaaa2f9f76bd/header.jpg?t=1790139581",
       "discount_end": 1790701240,
+      "is_adult": false
+    },
+    "5127970": {
+      "appid": "5127970",
+      "name": "SuperStore Simulator",
+      "url": "https://store.steampowered.com/app/5127970/",
+      "release_date": "2026-09-23",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5127970/cd7f9df929efed302e914fa64d919600091f86ba/capsule_231x87.jpg?t=1790141031",
+      "status": "live",
+      "price_pct": "-10%",
+      "price_original": "NT$ 136.00",
+      "price_final": "NT$ 122.00",
+      "release_epoch": 1790141033,
+      "tags": [
+        "商店經營",
+        "模擬",
+        "工藝",
+        "經濟",
+        "教學",
+        "生活模擬",
+        "3D",
+        "單人",
+        "搶先體驗"
+      ],
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5127970/b9e3cb179c3bf1b4e47f95006230563710933d96/header.jpg?t=1790141031",
+      "discount_end": 1790960449,
       "is_adult": false
     }
   }
