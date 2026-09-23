@@ -9063,7 +9063,7 @@
       "name": "Noir",
       "url": "https://store.steampowered.com/app/3851170/",
       "release_date": "2026-09-23",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3851170/0c1bd0e1f7372920c0be021b25b282c1f7233a57/capsule_231x87.jpg?t=1790147638",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3851170/0c1bd0e1f7372920c0be021b25b282c1f7233a57/capsule_231x87.jpg?t=1790154551",
       "status": "live",
       "price_pct": "-40%",
       "price_original": "NT$ 285.00",
@@ -9087,7 +9087,7 @@
         "時間競速",
         "物理"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3851170/a153a588783ce576e9cd05c0d83fb32630cb5d58/header.jpg?t=1790147638",
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3851170/a153a588783ce576e9cd05c0d83fb32630cb5d58/header.jpg?t=1790154551",
       "discount_end": 1791392457,
       "is_adult": false
     },
@@ -13938,7 +13938,7 @@
       "name": "新世界：暗影成双",
       "url": "https://store.steampowered.com/app/3319700/",
       "release_date": "2026-09-23",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3319700/0c992e6044ab7d0361d3f54d31bba439da203e4a/capsule_231x87.jpg?t=1790129917",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3319700/0c992e6044ab7d0361d3f54d31bba439da203e4a/capsule_231x87.jpg?t=1790154520",
       "status": "live",
       "price_pct": "-19%",
       "price_original": "NT$ 218.00",
@@ -13966,7 +13966,7 @@
         "推理",
         "休閒"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3319700/71833548c0118e89eae809524f5a6b6a79dfe91c/header.jpg?t=1790129917",
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3319700/71833548c0118e89eae809524f5a6b6a79dfe91c/header.jpg?t=1790154520",
       "discount_end": 1791306025,
       "is_adult": false
     },
@@ -55127,7 +55127,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790152200,
+      "release_epoch": null,
       "tags": [
         "街機",
         "競速",
@@ -74063,12 +74063,12 @@
       "name": "Slime Kingdom: The Tale of the Slime That Became a Hero",
       "url": "https://store.steampowered.com/app/5187820/",
       "release_date": "2026-09-23",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5187820/a1da659e5772843668dde0d1dd409a696beda72b/capsule_231x87.jpg?t=1789951947",
-      "status": "upcoming",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5187820/a1da659e5772843668dde0d1dd409a696beda72b/capsule_231x87.jpg?t=1790151866",
+      "status": "live",
       "price_pct": null,
       "price_original": null,
-      "price_final": null,
-      "release_epoch": null,
+      "price_final": "NT$ 275.00",
+      "release_epoch": 1790151868,
       "tags": [
         "休閒",
         "角色扮演",
@@ -74089,7 +74089,7 @@
         "回合制戰鬥",
         "單人"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5187820/55faf4dd81f04ba2537302504a9dd1d68f6eda0f/header.jpg?t=1789951947",
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5187820/55faf4dd81f04ba2537302504a9dd1d68f6eda0f/header.jpg?t=1790151866",
       "discount_end": null,
       "is_adult": false
     },
@@ -74980,7 +74980,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790154000,
+      "release_epoch": null,
       "tags": [
         "逆彈幕",
         "動作",
@@ -104571,6 +104571,66 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5222960/07a29940ecb82623e623d3722e8841705716601b/header.jpg?t=1790149250",
       "discount_end": 1790787648,
+      "is_adult": false
+    },
+    "5220360": {
+      "appid": "5220360",
+      "name": "HemoSim",
+      "url": "https://store.steampowered.com/app/5220360/",
+      "release_date": "2026-09-23",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5220360/4e7d0f021af61683cb20c267f77efb382e313535/capsule_231x87.jpg?t=1790152972",
+      "status": "live",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "免費",
+      "release_epoch": 1790152971,
+      "tags": [
+        "動作",
+        "策略",
+        "模擬",
+        "街機",
+        "醫療模擬",
+        "色彩鮮艷",
+        "搞笑",
+        "資源管理",
+        "免費遊玩",
+        "獨立",
+        "單人"
+      ],
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5220360/7fd9c88cc37089bdf04445dc022f0ea18f8313a6/header.jpg?t=1790152972",
+      "discount_end": null,
+      "is_adult": false
+    },
+    "3993880": {
+      "appid": "3993880",
+      "name": "戰國殺",
+      "url": "https://store.steampowered.com/app/3993880/",
+      "release_date": "2026-09-23",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3993880/9ded2d5e854ff3e35099ce81be19e431cd585471/capsule_231x87_tchinese.jpg?t=1790152746",
+      "status": "live",
+      "price_pct": "-10%",
+      "price_original": "NT$ 117.00",
+      "price_final": "NT$ 105.00",
+      "release_epoch": 1790152747,
+      "tags": [
+        "卡牌對戰",
+        "策略",
+        "接龍",
+        "輕度 Rogue",
+        "卡牌遊戲",
+        "類 Rogue",
+        "角色扮演",
+        "2D",
+        "歷史",
+        "回合制戰鬥",
+        "獨立",
+        "休閒",
+        "牌組製作",
+        "戰爭",
+        "單人"
+      ],
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3993880/34a221947fe4f315d0f8c89a68768e44d61a383a/header_tchinese.jpg?t=1790152746",
+      "discount_end": 1791392404,
       "is_adult": false
     }
   }
