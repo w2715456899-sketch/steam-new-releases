@@ -103937,6 +103937,68 @@
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4980790/c0531cc28a7299b8febd92f72c66651e01484aee/header.jpg?t=1790122597",
       "discount_end": null,
       "is_adult": false
+    },
+    "4277000": {
+      "appid": "4277000",
+      "name": "大凶 (The Doomed Draw)",
+      "url": "https://store.steampowered.com/app/4277000/",
+      "release_date": "2026-09-23",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4277000/6e2099f201d0c0ca90cc4971c5b9f39e39d8b3b2/capsule_231x87.jpg?t=1790123356",
+      "status": "live",
+      "price_pct": "-20%",
+      "price_original": "NT$ 25.00",
+      "price_final": "NT$ 20.00",
+      "release_epoch": 1790123358,
+      "tags": [
+        "桌面夥伴",
+        "可愛",
+        "心理",
+        "放置",
+        "休閒",
+        "女主人翁",
+        "工具",
+        "單人",
+        "線上合作",
+        "獨立"
+      ],
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4277000/d1a823342604445591123086c2bfa86b7ae77b9b/header.jpg?t=1790123356",
+      "discount_end": 1791306015,
+      "is_adult": false
+    },
+    "4521300": {
+      "appid": "4521300",
+      "name": "在宇宙 打魚 頭好暈",
+      "url": "https://store.steampowered.com/app/4521300/",
+      "release_date": "2026-09-23",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4521300/b6b504917eead079838949aac6c3dae72cc3d188/capsule_231x87_tchinese.jpg?t=1790125444",
+      "status": "live",
+      "price_pct": "-10%",
+      "price_original": "NT$ 67.00",
+      "price_final": "NT$ 60.00",
+      "release_epoch": 1790124649,
+      "tags": [
+        "街機",
+        "俯視視角射擊",
+        "控制器",
+        "飛行",
+        "休閒",
+        "動作",
+        "遞增",
+        "輕度 Rogue",
+        "太空",
+        "太空模擬",
+        "類 Rogue",
+        "2D",
+        "線性",
+        "極簡主義",
+        "單人",
+        "獨立",
+        "釣魚",
+        "風格化"
+      ],
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4521300/19956f36571213ed48b8c395dd9a69a12adf1f94/header_tchinese.jpg?t=1790125444",
+      "discount_end": 1790960440,
+      "is_adult": false
     }
   }
 }
