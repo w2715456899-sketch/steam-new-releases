@@ -295,6 +295,73 @@ def refresh_stale_discounts(
     return refreshed
 
 
+def refresh_stale_upcoming(
+    history: dict, key: str, language: str, country: str, tag_names: dict[int, str], now_epoch: int
+) -> int:
+    """Re-check any tracked "upcoming" game whose countdown has already passed.
+
+    A delayed/postponed game loses its steam_release_date entirely on Steam's side (it falls
+    back to a dateless "即將推出" state), which makes it fail the release_date_filter used by
+    the normal daily/hourly fetch - it simply stops appearing in those results, so nothing
+    else in this pipeline can ever notice or update it, and it'd sit on the site forever with
+    a countdown that's already in the past. Looked up by ID instead, which doesn't depend on
+    having a date to filter on. If it actually went live or got a new date, this also just
+    updates it normally; if it's dateless now, the countdown is cleared so the badge falls
+    back to a plain "預計上架" instead of a stale, already-elapsed time.
+    """
+    stale = [
+        aid
+        for aid, g in history["games"].items()
+        if g.get("status") == "upcoming" and g.get("release_epoch") and g["release_epoch"] < now_epoch
+    ]
+    if not stale:
+        return 0
+
+    refreshed = 0
+    for i in range(0, len(stale), 50):
+        batch_ids = stale[i : i + 50]
+        input_json = {
+            "ids": [{"appid": int(a)} for a in batch_ids],
+            "context": {"language": language, "country_code": country, "steam_realm": 1},
+            "data_request": {
+                "include_assets": True,
+                "include_release": True,
+                "include_basic_info": True,
+                "include_best_purchase_option": True,
+                "include_tag_count": 20,
+            },
+        }
+        resp = steam_api_get("IStoreBrowseService", "GetItems", key, input_json=json.dumps(input_json))
+        for item in resp.get("store_items", []):
+            appid = str(item.get("appid"))
+            existing = history["games"].get(appid)
+            if not existing:
+                continue
+            g = _item_to_game(item, tag_names)
+            if g:
+                # went live, or got a fresh date (same field either way)
+                existing.update(
+                    {
+                        "status": g.status,
+                        "release_epoch": g.release_epoch,
+                        "price_pct": g.price_pct,
+                        "price_original": g.price_original,
+                        "price_final": g.price_final,
+                        "discount_end": g.discount_end,
+                        "image": g.image or existing.get("image"),
+                        "header_image": g.header_image or existing.get("header_image"),
+                        "tags": g.tags or existing.get("tags", []),
+                        "is_adult": g.is_adult,
+                    }
+                )
+            elif not (item.get("release") or {}).get("steam_release_date"):
+                # postponed with no replacement date - drop the stale countdown
+                existing["release_epoch"] = None
+            refreshed += 1
+        time.sleep(0.3)
+    return refreshed
+
+
 def send_discord(webhook_url: str, today: date, games: list[Game], dry_run: bool, site_url: str) -> None:
     if not games:
         log.info("No new releases today - skipping Discord ping")
@@ -766,10 +833,12 @@ def build_nav(dates_desc: list[str], current: str, base: str) -> str:
     )
 
 
-def generate_site(history: dict, docs_dir: Path, retention_days: int) -> None:
+def generate_site(history: dict, docs_dir: Path, retention_days: int, today: date) -> None:
     by_date: dict[str, list[dict]] = {}
     for g in history["games"].values():
         by_date.setdefault(g["release_date"], []).append(g)
+    today_str = today.isoformat()
+    by_date.setdefault(today_str, [])  # today always gets a page, even before any data exists for it
     dates_desc = sorted(by_date, reverse=True)
     counts = {d: len(by_date[d]) for d in dates_desc}
     generated_at = datetime.now(tz=LOCAL_TZ).strftime("%Y-%m-%d %H:%M")
@@ -828,13 +897,15 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int) -> None:
     (dates_dir / "index.html").write_text(dates_index_page, encoding="utf-8")
 
     if dates_desc:
-        latest = dates_desc[0]
+        # Home is always "today", not just whatever date happens to have the most recent
+        # data - a stray game or two already filed under tomorrow (normal near midnight)
+        # shouldn't make the homepage jump ahead of the actual current day.
         home_page = render_page(
             title="Steam 新遊戲紀錄",
             base="",
-            nav_html=build_nav(dates_desc, latest, ""),
+            nav_html=build_nav(dates_desc, today_str, ""),
             meta=meta,
-            body_html=render_date_body(latest, by_date[latest], ""),
+            body_html=render_date_body(today_str, by_date[today_str], ""),
         )
     else:
         home_page = render_page(
@@ -1006,9 +1077,13 @@ def main() -> None:
     if refreshed:
         log.info("Refreshed %d game(s) whose discount had expired", refreshed)
 
+    refreshed_upcoming = refresh_stale_upcoming(history, api_key, language, country, tag_names, now_epoch)
+    if refreshed_upcoming:
+        log.info("Refreshed %d game(s) whose upcoming countdown had already passed", refreshed_upcoming)
+
     if not args.dry_run or should_backfill:
         save_history(args.history, history, retention_days)
-        generate_site(history, args.docs, retention_days)
+        generate_site(history, args.docs, retention_days, today)
         log.info("Site updated: %s", args.docs / "index.html")
         if not args.dry_run and config.get("git_auto_push", True):
             git_publish(BASE_DIR, args.docs, f"Update site {today.isoformat()}")

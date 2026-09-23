@@ -47562,8 +47562,8 @@
         "建造",
         "資本主義",
         "農業",
-        "休閒",
         "中世紀",
+        "休閒",
         "工藝",
         "自動化",
         "像素風格",
@@ -54458,7 +54458,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790110800,
+      "release_epoch": null,
       "tags": [
         "放鬆",
         "休閒",
@@ -69719,7 +69719,7 @@
       "name": "Foole's World",
       "url": "https://store.steampowered.com/app/5134970/",
       "release_date": "2026-09-24",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5134970/d503be8ff5429fc49aa8f7bcb913d5035e46d173/capsule_231x87.jpg?t=1790034010",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5134970/d503be8ff5429fc49aa8f7bcb913d5035e46d173/capsule_231x87.jpg?t=1790127153",
       "status": "upcoming",
       "price_pct": null,
       "price_original": null,
@@ -69745,7 +69745,7 @@
         "單人",
         "2D"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5134970/e36050157da2d77ed513df37e452410832bd63f4/header.jpg?t=1790034010",
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5134970/e36050157da2d77ed513df37e452410832bd63f4/header.jpg?t=1790127153",
       "discount_end": null,
       "is_adult": false
     },
@@ -73835,12 +73835,12 @@
       "name": "疾風雀",
       "url": "https://store.steampowered.com/app/5183080/",
       "release_date": "2026-09-23",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5183080/7163d91a13325c5e2a4d30c0e61ac557fcbcc09a/capsule_231x87.jpg?t=1788918717",
-      "status": "upcoming",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5183080/7163d91a13325c5e2a4d30c0e61ac557fcbcc09a/capsule_231x87.jpg?t=1790126354",
+      "status": "live",
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790126340,
+      "release_epoch": 1790126353,
       "tags": [
         "時間管理",
         "策略",
@@ -73858,7 +73858,7 @@
         "多人",
         "大型多人"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5183080/49db4d0412c2f38f6ba8ce2b9c3bfabdeaa2e816/header.jpg?t=1788918717",
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5183080/49db4d0412c2f38f6ba8ce2b9c3bfabdeaa2e816/header.jpg?t=1790126354",
       "discount_end": null,
       "is_adult": false
     },
@@ -74660,7 +74660,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790096400,
+      "release_epoch": null,
       "tags": [
         "第一人稱射擊",
         "射擊",
@@ -74872,7 +74872,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790116200,
+      "release_epoch": null,
       "tags": [
         "動作",
         "冒險",
@@ -103998,6 +103998,43 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4521300/19956f36571213ed48b8c395dd9a69a12adf1f94/header_tchinese.jpg?t=1790125444",
       "discount_end": 1790960440,
+      "is_adult": false
+    },
+    "5167200": {
+      "appid": "5167200",
+      "name": "ALGO ARMS",
+      "url": "https://store.steampowered.com/app/5167200/",
+      "release_date": "2026-09-23",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5167200/932eaa1610548f4c957b5cb19ced7ab14281d055/capsule_231x87.jpg?t=1790126911",
+      "status": "live",
+      "price_pct": "-15%",
+      "price_original": "NT$ 216.00",
+      "price_final": "NT$ 183.00",
+      "release_epoch": 1790126912,
+      "tags": [
+        "程式設計",
+        "機甲",
+        "自動對戰",
+        "自動化",
+        "動作",
+        "機器人",
+        "戰術",
+        "3D",
+        "俯視視角",
+        "科幻",
+        "戰鬥",
+        "模擬",
+        "軍事",
+        "獨立",
+        "搶先體驗",
+        "玩家合作",
+        "控制器",
+        "單人",
+        "多人",
+        "異步多人"
+      ],
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5167200/031a623869cef8d7e7c15683982d2862989e8530/header.jpg?t=1790126911",
+      "discount_end": 1791306030,
       "is_adult": false
     }
   }
