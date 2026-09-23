@@ -18737,7 +18737,7 @@
       "name": "DEVIL'S WAY: BOHEMIAN",
       "url": "https://store.steampowered.com/app/3419120/",
       "release_date": "2026-09-23",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3419120/dae0589e5cd4c92460a6a3843dcfb0ad0d9ace0c/capsule_231x87.jpg?t=1789679146",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3419120/dae0589e5cd4c92460a6a3843dcfb0ad0d9ace0c/capsule_231x87.jpg?t=1790159188",
       "status": "upcoming",
       "price_pct": null,
       "price_original": null,
@@ -18765,7 +18765,7 @@
         "恐怖",
         "邏輯"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3419120/874eb32023c47dee4aa0003b03f8456839c806e4/header.jpg?t=1789679146",
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3419120/874eb32023c47dee4aa0003b03f8456839c806e4/header.jpg?t=1790159188",
       "discount_end": null,
       "is_adult": false
     },
@@ -45685,7 +45685,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790159100,
+      "release_epoch": null,
       "tags": [
         "動作",
         "2D 平台",
@@ -47574,9 +47574,9 @@
         "末日之後",
         "冒險",
         "角色扮演",
+        "人工智慧",
         "喪屍",
         "奇幻",
-        "人工智慧",
         "農場模擬"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4358690/77b3cff49c45431ec507e6da5e41383050362c35/header_alt_assets_1.jpg?t=1790131843",
@@ -48627,7 +48627,7 @@
       "name": "黎明門前的吹笛人",
       "url": "https://store.steampowered.com/app/3804370/",
       "release_date": "2026-09-23",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3804370/1a08ce11b885eb25d6da917a84cbe030c3dd72c6/capsule_231x87_tchinese.jpg?t=1790145629",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3804370/1a08ce11b885eb25d6da917a84cbe030c3dd72c6/capsule_231x87_tchinese.jpg?t=1790158627",
       "status": "live",
       "price_pct": "-10%",
       "price_original": "NT$ 218.00",
@@ -48655,7 +48655,7 @@
         "卡通",
         "模擬"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3804370/ebbfd7ac9f496469bb0cb42650df2e95098f38cd/header_tchinese.jpg?t=1790145629",
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3804370/ebbfd7ac9f496469bb0cb42650df2e95098f38cd/header_tchinese.jpg?t=1790158627",
       "discount_end": 1791306017,
       "is_adult": false
     },
@@ -74867,12 +74867,12 @@
       "name": "Dash Dot Die",
       "url": "https://store.steampowered.com/app/3738450/",
       "release_date": "2026-09-23",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3738450/307e20835e29cc8f7f6838957c5381401009f26a/capsule_231x87.jpg?t=1788114254",
-      "status": "upcoming",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3738450/307e20835e29cc8f7f6838957c5381401009f26a/capsule_231x87.jpg?t=1790159877",
+      "status": "live",
       "price_pct": null,
       "price_original": null,
-      "price_final": null,
-      "release_epoch": null,
+      "price_final": "NT$ 159.00",
+      "release_epoch": 1790159879,
       "tags": [
         "動作",
         "冒險",
@@ -74895,7 +74895,7 @@
         "調查",
         "沉浸模擬"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3738450/aef784f766efac3027efe31d5ceddf5aa708a363/header.jpg?t=1788114254",
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3738450/aef784f766efac3027efe31d5ceddf5aa708a363/header.jpg?t=1790159877",
       "discount_end": null,
       "is_adult": false
     },
@@ -104079,7 +104079,7 @@
       "name": "Birthday",
       "url": "https://store.steampowered.com/app/4696240/",
       "release_date": "2026-09-23",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4696240/72109f24074d160da3266d33358b2f3224507e85/capsule_231x87.jpg?t=1790132436",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4696240/72109f24074d160da3266d33358b2f3224507e85/capsule_231x87.jpg?t=1790159624",
       "status": "live",
       "price_pct": null,
       "price_original": null,
@@ -104096,7 +104096,7 @@
         "獨立",
         "單人"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4696240/cb887a6a3d827c2c7eeb2a64b917ba1346fde027/header.jpg?t=1790132436",
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4696240/cb887a6a3d827c2c7eeb2a64b917ba1346fde027/header.jpg?t=1790159624",
       "discount_end": null,
       "is_adult": false
     },
@@ -104236,7 +104236,7 @@
       "name": "AIGENROBO",
       "url": "https://store.steampowered.com/app/5130010/",
       "release_date": "2026-09-23",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5130010/987619b8b7a16f056a71ba218395826bef04b30e/capsule_231x87.jpg?t=1790155612",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5130010/987619b8b7a16f056a71ba218395826bef04b30e/capsule_231x87.jpg?t=1790159945",
       "status": "live",
       "price_pct": "-10%",
       "price_original": "NT$ 216.00",
@@ -104258,7 +104258,7 @@
         "競分",
         "單人"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5130010/a5ed4d479eab12c0614266da63bccaaa2f9f76bd/header.jpg?t=1790155612",
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5130010/a5ed4d479eab12c0614266da63bccaaa2f9f76bd/header.jpg?t=1790159945",
       "discount_end": 1790701240,
       "is_adult": false
     },
