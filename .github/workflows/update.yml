@@ -65,3 +65,14 @@ jobs:
           git add docs history.json state.json
           git diff --cached --quiet || git commit -m "Update site $(date -u +'%Y-%m-%d %H:%M UTC')"
           git push
+
+      # Runs only if an earlier step in this job failed (bad API response, crash, push
+      # conflict, ...) - without this, a broken hourly run fails silently and the site
+      # just quietly stops updating until someone happens to check the Actions tab.
+      - name: Alert on failure
+        if: failure()
+        run: |
+          MSG="⚠️ Steam 新遊戲更新失敗（$(date -u +'%Y-%m-%d %H:%M UTC')）
+          ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          PAYLOAD=$(jq -n --arg content "$MSG" '{content: $content}')
+          curl -sf -X POST -H "Content-Type: application/json" -d "$PAYLOAD" "${{ secrets.DISCORD_WEBHOOK_URL }}"

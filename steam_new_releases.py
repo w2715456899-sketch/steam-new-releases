@@ -362,12 +362,17 @@ def refresh_stale_upcoming(
     return refreshed
 
 
+DISCORD_EMBED_BATCH = 10  # Discord hard-caps a single message at 10 embeds
+DISCORD_COLOR_LIVE = 0x2ECC71
+DISCORD_COLOR_UPCOMING = 0x5865F2
+
+
 def send_discord(webhook_url: str, today: date, games: list[Game], dry_run: bool, site_url: str) -> None:
     if not games:
         log.info("No new releases today - skipping Discord ping")
         return
 
-    content = f"{today.isoformat()} 新遊戲來了 🫠\n{site_url}"
+    content = f"{today.isoformat()} 新遊戲來了 🫠 共 {len(games)} 款\n{site_url}"
     if dry_run:
         log.info(content)
         for game in games:
@@ -375,6 +380,25 @@ def send_discord(webhook_url: str, today: date, games: list[Game], dry_run: bool
         return
 
     requests.post(webhook_url, json={"content": content}, timeout=20).raise_for_status()
+
+    for i in range(0, len(games), DISCORD_EMBED_BATCH):
+        batch = games[i : i + DISCORD_EMBED_BATCH]
+        embeds = []
+        for g in batch:
+            status_label = "已上架" if g.status == "live" else "預計上架"
+            price = g.price_final or "價格未知"
+            embed = {
+                "title": g.name[:256],
+                "url": g.url,
+                "description": f"{status_label} · {price}",
+                "color": DISCORD_COLOR_LIVE if g.status == "live" else DISCORD_COLOR_UPCOMING,
+            }
+            image = g.header_image or g.image
+            if image:
+                embed["thumbnail"] = {"url": image}
+            embeds.append(embed)
+        requests.post(webhook_url, json={"embeds": embeds}, timeout=20).raise_for_status()
+        time.sleep(0.3)
 
 
 # ---------------------------------------------------------------------------
