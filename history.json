@@ -106407,7 +106407,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790204400,
+      "release_epoch": null,
       "tags": [
         "冒險",
         "馬匹",
@@ -108001,7 +108001,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790202000,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "獨立",
@@ -109125,6 +109125,43 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5097070/edac628ad34427cadafb5c53b96b6561e1c91dbd/header.jpg?t=1790200999",
       "discount_end": null,
+      "is_adult": false
+    },
+    "5019920": {
+      "appid": "5019920",
+      "name": "Tasty Chef",
+      "url": "https://store.steampowered.com/app/5019920/",
+      "release_date": "2026-09-24",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5019920/e1805480be637466087c7a6f244a796f229488f3/capsule_231x87.jpg?t=1790204769",
+      "status": "live",
+      "price_pct": "-33%",
+      "price_original": "NT$ 299.00",
+      "price_final": "NT$ 200.00",
+      "release_epoch": 1790202766,
+      "tags": [
+        "烹飪",
+        "模擬",
+        "沉浸模擬",
+        "工藝",
+        "俯視視角",
+        "休閒",
+        "管理",
+        "愜意",
+        "單人",
+        "線上合作",
+        "可愛",
+        "合作",
+        "多人",
+        "搞笑",
+        "風格化",
+        "生活模擬",
+        "卡通",
+        "放鬆",
+        "庫存管理",
+        "3D"
+      ],
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5019920/f68a77dcee43b69d9f3403e92dbe45de8f3e9c7b/header.jpg?t=1790204769",
+      "discount_end": 1791392444,
       "is_adult": false
     }
   }
