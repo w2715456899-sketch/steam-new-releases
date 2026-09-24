@@ -163,6 +163,16 @@ def _asset_url(assets: dict, filename_key: str) -> str:
     return ASSET_BASE + fmt.replace("${FILENAME}", filename)
 
 
+def _parse_reviews(item: dict) -> tuple[int | None, str | None, int | None, int | None]:
+    # summary_filtered (not summary_language_specific) matches what Steam's own store page
+    # shows by default - all-language review count, just excluding review-bombs/off-topic.
+    reviews = (item.get("reviews") or {}).get("summary_filtered") or {}
+    count = reviews.get("review_count") or None
+    if not count:
+        return None, None, None, None
+    return reviews.get("review_score"), reviews.get("review_score_label"), reviews.get("percent_positive"), count
+
+
 def _item_to_game(item: dict, tag_names: dict[int, str]) -> Game | None:
     if not item.get("success") or not item.get("visible", True):
         return None
@@ -193,13 +203,7 @@ def _item_to_game(item: dict, tag_names: dict[int, str]) -> Game | None:
     appid = str(item["appid"])
     is_adult = 3 in (item.get("content_descriptorids") or [])  # 3 = AdultOnlySexualContent
 
-    # summary_filtered (not summary_language_specific) matches what Steam's own store page
-    # shows by default - all-language review count, just excluding review-bombs/off-topic.
-    reviews = (item.get("reviews") or {}).get("summary_filtered") or {}
-    review_count = reviews.get("review_count") or None
-    review_score = reviews.get("review_score") if review_count else None
-    review_score_label = reviews.get("review_score_label") if review_count else None
-    review_percent = reviews.get("percent_positive") if review_count else None
+    review_score, review_score_label, review_percent, review_count = _parse_reviews(item)
 
     return Game(
         appid=appid,
@@ -394,6 +398,44 @@ def refresh_stale_upcoming(
     return refreshed
 
 
+def refresh_review_scores(history: dict, key: str, language: str, country: str) -> int:
+    """Refresh Steam's review score/percent/count for every tracked game.
+
+    Unlike price/discount or the upcoming countdown, a review score has no natural "this is
+    now stale" signal to gate a refresh on - it just slowly accumulates as more people review
+    a game, and a brand-new release often has none yet. So this scans the whole catalog every
+    run rather than a filtered subset. That's cheap in practice: retention_days caps the
+    catalog at roughly one month of releases, so the cost stays flat run to run instead of
+    growing over time. Only touches the review_* fields - price/tags/etc are the other
+    refreshers' job.
+    """
+    ids = list(history["games"].keys())
+    if not ids:
+        return 0
+
+    refreshed = 0
+    for i in range(0, len(ids), 50):
+        batch_ids = ids[i : i + 50]
+        input_json = {
+            "ids": [{"appid": int(a)} for a in batch_ids],
+            "context": {"language": language, "country_code": country, "steam_realm": 1},
+            "data_request": {"include_reviews": True},
+        }
+        resp = steam_api_get("IStoreBrowseService", "GetItems", key, input_json=json.dumps(input_json))
+        for item in resp.get("store_items", []):
+            existing = history["games"].get(str(item.get("appid")))
+            if not existing:
+                continue
+            score, label, percent, count = _parse_reviews(item)
+            existing["review_score"] = score
+            existing["review_score_label"] = label
+            existing["review_percent"] = percent
+            existing["review_count"] = count
+            refreshed += 1
+        time.sleep(0.3)
+    return refreshed
+
+
 DISCORD_EMBED_BATCH = 10  # Discord hard-caps a single message at 10 embeds
 DISCORD_COLOR_LIVE = 0x2ECC71
 DISCORD_COLOR_UPCOMING = 0x5865F2
@@ -453,13 +495,18 @@ body {
 }
 .brand { display: flex; align-items: center; text-decoration: none; }
 .brand img { height: 44px; width: auto; display: block; }
-.nav { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; flex-wrap: wrap; }
-.nav a, .nav .disabled {
-  color: #9db4d1; text-decoration: none; padding: 6px 10px; border-radius: 6px;
-  background: #171d26; border: 1px solid #232b37;
+.nav { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.nav-arrow {
+  width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  background: #171d26; border: 1px solid #232b37; color: #9db4d1; text-decoration: none; font-size: 1rem;
 }
-.nav a:hover { background: #1c2330; }
-.nav .disabled { color: #4a5361; }
+.nav-arrow:hover { background: #1c2330; color: #e7ecf2; border-color: #3a4152; }
+.nav-arrow.disabled { color: #3f4756; }
+.nav-mid {
+  color: #b79aef; text-decoration: none; font-size: 0.85rem; font-weight: 600;
+  padding: 8px 16px; border-radius: 999px; background: #241a33; border: 1px solid #3a2a4f;
+}
+.nav-mid:hover { background: #2d2140; }
 .meta { color: #8894a3; font-size: 0.8rem; margin-bottom: 20px; }
 h1 { font-size: 1.3rem; margin: 0; }
 .date-heading {
@@ -947,15 +994,15 @@ def build_nav(dates_desc: list[str], current: str, base: str) -> str:
     older = dates_desc[idx + 1] if idx + 1 < len(dates_desc) else None
     newer = dates_desc[idx - 1] if idx > 0 else None
 
-    def link(label: str, target: str | None) -> str:
+    def arrow(symbol: str, label: str, target: str | None) -> str:
         if target is None:
-            return f'<span class="disabled">{esc(label)}</span>'
-        return f'<a href="{base}dates/{target}.html">{esc(label)}</a>'
+            return f'<span class="nav-arrow disabled" aria-label="{esc(label)}">{symbol}</span>'
+        return f'<a class="nav-arrow" href="{base}dates/{target}.html" aria-label="{esc(label)}">{symbol}</a>'
 
     return (
-        link("← 前一天", older)
-        + f'<a href="{base}dates/index.html">所有日期</a>'
-        + link("後一天 →", newer)
+        arrow("←", "前一天", older)
+        + f'<a class="nav-mid" href="{base}dates/index.html">所有日期</a>'
+        + arrow("→", "後一天", newer)
     )
 
 
@@ -1025,7 +1072,7 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int, today: dat
     dates_index_page = render_page(
         title="所有日期 - Steam 新遊戲紀錄",
         base="../",
-        nav_html='<a href="../index.html">← 回首頁</a>',
+        nav_html='<a class="nav-mid" href="../index.html">← 回首頁</a>',
         meta=meta,
         body_html=f'<h1>所有日期</h1><div class="date-grid">{dates_index_rows}</div>',
         og_description=f"瀏覽最近 {retention_days} 天內每日上架的新遊戲",
@@ -1081,7 +1128,7 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int, today: dat
         page = render_page(
             title=f"#{tag} - Steam 新遊戲紀錄",
             base="../",
-            nav_html='<a href="../index.html">← 回首頁</a>',
+            nav_html='<a class="nav-mid" href="../index.html">← 回首頁</a>',
             meta=meta,
             body_html=f'<h1>#{esc(tag)}</h1><div class="card">'
             + "".join(render_row(g, "../", show_date=True) for g in glist_sorted)
@@ -1142,7 +1189,7 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int, today: dat
     search_page = render_page(
         title="搜尋 - Steam 新遊戲紀錄",
         base="",
-        nav_html='<a href="index.html">← 回首頁</a>',
+        nav_html='<a class="nav-mid" href="index.html">← 回首頁</a>',
         meta=meta,
         body_html=search_body,
         og_description="搜尋所有已收錄的新上架 Steam 遊戲",
@@ -1232,6 +1279,10 @@ def main() -> None:
     refreshed_upcoming = refresh_stale_upcoming(history, api_key, language, country, tag_names, now_epoch)
     if refreshed_upcoming:
         log.info("Refreshed %d game(s) whose upcoming countdown had already passed", refreshed_upcoming)
+
+    refreshed_reviews = refresh_review_scores(history, api_key, language, country)
+    if refreshed_reviews:
+        log.info("Refreshed review scores for %d game(s)", refreshed_reviews)
 
     if not args.dry_run or should_backfill:
         save_history(args.history, history, retention_days)
