@@ -637,6 +637,11 @@ h2.section { font-size: 0.85rem; color: #8894a3; margin: 24px 0 8px; text-transf
 .wish-star svg { width: 16px; height: 16px; display: block; }
 .wish-star svg path { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linejoin: round; }
 .wish-star.filled svg path { fill: currentColor; stroke: none; }
+/* Wishlist page rows have no tags/review line to give them height, so at the default row
+   height the vertically-centered badge sits close enough to the top-right star to overlap
+   it. Other pages' rows are already tall enough from their own content that this never
+   comes up, so this stays scoped to wishlist rows instead of changing .row everywhere. */
+.wishlist-row { min-height: 118px; }
 .row .media { flex: none; display: block; position: relative; }
 .row img.cap {
   width: 160px; height: 75px; object-fit: cover; border-radius: 6px; background: #232b37;
@@ -803,7 +808,7 @@ __OG__
     <span class="drawer-title">選單</span>
     <button type="button" class="drawer-close" id="drawerClose" aria-label="關閉">✕</button>
   </div>
-  <a class="drawer-item" href="__HOME_HREF__">🏠 首頁</a>
+  <a class="drawer-item" href="__HOME_HREF__">回首頁</a>
   <a class="drawer-item" href="__ASSET_BASE__wishlist.html">★ 願望清單</a>
 </nav>
 <div class="wrap">
@@ -1445,7 +1450,7 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int, today: dat
       var steamUrl = "steam://store/" + encodeURIComponent(g.appid);
       var openAttrs = 'data-web="' + esc(g.web) + '" data-steam="' + esc(steamUrl) + '"';
       return (
-        '<div class="row">' +
+        '<div class="row wishlist-row">' +
         '<a class="media" href="' + esc(g.web) + '" ' + openAttrs + '>' +
         '<img class="cap" src="' + esc(g.image) + '" loading="lazy" alt=""></a>' +
         '<button type="button" class="wish-star filled" data-appid="' + esc(g.appid) +
