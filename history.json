@@ -105713,7 +105713,7 @@
       "name": "CoLane",
       "url": "https://store.steampowered.com/app/4773520/",
       "release_date": "2026-09-24",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4773520/d42feab65bf2b9aa5047a2bbbceef634d298b527/capsule_231x87.jpg?t=1789805479",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4773520/d42feab65bf2b9aa5047a2bbbceef634d298b527/capsule_231x87.jpg?t=1790211999",
       "status": "upcoming",
       "price_pct": null,
       "price_original": null,
@@ -105734,7 +105734,7 @@
         "單人",
         "教學"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4773520/116996954473dc063d06306ca7012f3be21f1444/header.jpg?t=1789805479",
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4773520/116996954473dc063d06306ca7012f3be21f1444/header.jpg?t=1790211999",
       "discount_end": null,
       "is_adult": false
     },
@@ -106201,12 +106201,12 @@
       "name": "魔宮冒險譚",
       "url": "https://store.steampowered.com/app/3410670/",
       "release_date": "2026-09-24",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3410670/d0522b15a3065fd3396fb5b2cd2f9303fb7af0fd/capsule_231x87_tchinese.jpg?t=1785718834",
-      "status": "upcoming",
-      "price_pct": null,
-      "price_original": null,
-      "price_final": null,
-      "release_epoch": 1790211600,
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3410670/d0522b15a3065fd3396fb5b2cd2f9303fb7af0fd/capsule_231x87_tchinese.jpg?t=1790211567",
+      "status": "live",
+      "price_pct": "-20%",
+      "price_original": "NT$ 268.00",
+      "price_final": "NT$ 214.00",
+      "release_epoch": 1790211568,
       "tags": [
         "視覺小說",
         "日系角色扮演",
@@ -106226,8 +106226,8 @@
         "動作冒險",
         "色彩鮮艷"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3410670/header_tchinese.jpg?t=1785718834",
-      "discount_end": null,
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3410670/header_tchinese.jpg?t=1790211567",
+      "discount_end": 1791392423,
       "is_adult": false
     },
     "3480840": {
@@ -107135,12 +107135,12 @@
       "name": "神貌之樹逆卡巴拉",
       "url": "https://store.steampowered.com/app/3882410/",
       "release_date": "2026-09-24",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3882410/8b9aa7b096e3862d06ed7790f26c3b3893b4d071/capsule_231x87_tchinese.jpg?t=1788764886",
-      "status": "upcoming",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3882410/8b9aa7b096e3862d06ed7790f26c3b3893b4d071/capsule_231x87_tchinese.jpg?t=1790211878",
+      "status": "live",
       "price_pct": null,
       "price_original": null,
       "price_final": "NT$ 550.00",
-      "release_epoch": 1790211600,
+      "release_epoch": 1790211879,
       "tags": [
         "角色扮演",
         "動作",
@@ -107157,7 +107157,7 @@
         "教學",
         "單人"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3882410/cda6555168fa9f3149fa17ef940331829469d870/header_tchinese.jpg?t=1788764886",
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3882410/cda6555168fa9f3149fa17ef940331829469d870/header_tchinese.jpg?t=1790211878",
       "discount_end": null,
       "is_adult": false
     },
@@ -107448,12 +107448,12 @@
       "name": "我只是想讓她們都幸福",
       "url": "https://store.steampowered.com/app/4553130/",
       "release_date": "2026-09-24",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4553130/a217812aa6e1f96ab386a8dae191e01edc0cd1f5/capsule_231x87_tchinese.jpg?t=1788169849",
-      "status": "upcoming",
-      "price_pct": null,
-      "price_original": null,
-      "price_final": null,
-      "release_epoch": 1790211600,
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4553130/a217812aa6e1f96ab386a8dae191e01edc0cd1f5/capsule_231x87_tchinese.jpg?t=1790210286",
+      "status": "live",
+      "price_pct": "-20%",
+      "price_original": "NT$ 216.00",
+      "price_final": "NT$ 172.00",
+      "release_epoch": 1790210287,
       "tags": [
         "色情內容",
         "戀愛模擬",
@@ -107476,8 +107476,8 @@
         "現代",
         "劇情豐富"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4553130/d463d2ce02a85bc0f853a3fb355d74262281c895/header_tchinese.jpg?t=1788169849",
-      "discount_end": null,
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4553130/d463d2ce02a85bc0f853a3fb355d74262281c895/header_tchinese.jpg?t=1790210286",
+      "discount_end": 1791392404,
       "is_adult": false
     },
     "4595860": {
