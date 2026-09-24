@@ -545,6 +545,46 @@ body {
   padding: 8px 16px; border-radius: 999px; background: #241a33; border: 1px solid #3a2a4f;
 }
 .nav-mid:hover { background: #2d2140; }
+.drawer-toggle {
+  position: fixed; left: 0; top: 50%; transform: translateY(-50%);
+  width: 26px; height: 56px; border-radius: 0 10px 10px 0;
+  background: #171d26; border: 1px solid #232b37; border-left: none;
+  color: #9db4d1; font-size: 1.1rem; cursor: pointer; z-index: 60; padding: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.drawer-toggle:hover { background: #1c2330; color: #e7ecf2; }
+.drawer-backdrop {
+  position: fixed; inset: 0; background: rgba(8, 10, 14, 0.6); z-index: 65; display: none;
+}
+.drawer-backdrop.open { display: block; }
+.drawer {
+  position: fixed; left: 0; top: 0; bottom: 0; width: min(260px, 80vw);
+  background: #171d26; border-right: 1px solid #232b37; z-index: 70;
+  transform: translateX(-100%); transition: transform 0.2s ease;
+  padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px);
+  display: flex; flex-direction: column;
+}
+.drawer.open { transform: translateX(0); }
+.drawer-head { display: flex; align-items: center; justify-content: space-between; padding: 18px 10px 8px 18px; }
+.drawer-title { font-size: 0.78rem; color: #6b7686; text-transform: uppercase; letter-spacing: 0.06em; }
+.drawer-close {
+  width: 28px; height: 28px; border-radius: 8px; background: none; border: none;
+  color: #6b7686; font-size: 1rem; cursor: pointer; line-height: 1;
+}
+.drawer-close:hover { background: #232b3d; color: #e7ecf2; }
+.drawer-item {
+  display: flex; align-items: center; gap: 8px; padding: 12px 18px; color: #e7ecf2;
+  text-decoration: none; font-size: 0.95rem;
+}
+.drawer-item:hover { background: #1c2330; }
+.toast {
+  position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  transform: translateX(-50%) translateY(12px); background: #1c2330; color: #e7ecf2;
+  border: 1px solid #2a3346; padding: 10px 18px; border-radius: 999px; font-size: 0.85rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4); opacity: 0; transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 200; pointer-events: none; max-width: calc(100vw - 32px); text-align: center;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 .meta { color: #8894a3; font-size: 0.8rem; margin-bottom: 20px; }
 h1 { font-size: 1.3rem; margin: 0; }
 .date-heading {
@@ -571,11 +611,20 @@ h2.section { font-size: 0.85rem; color: #8894a3; margin: 24px 0 8px; text-transf
 .card { background: #171d26; border: 1px solid #232b37; border-radius: 10px; overflow: visible; }
 .row {
   display: flex; gap: 14px; padding: 12px 14px; align-items: center;
-  border-bottom: 1px solid #1c2330;
+  border-bottom: 1px solid #1c2330; position: relative;
 }
 .row:first-child { border-top-left-radius: 10px; border-top-right-radius: 10px; }
 .row:last-child { border-bottom: none; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; }
-.row:hover { background: #1c2330; position: relative; z-index: 20; }
+.row:hover { background: #1c2330; z-index: 20; }
+.wish-star {
+  position: absolute; top: 8px; right: 8px; z-index: 5;
+  width: 30px; height: 30px; border-radius: 50%; border: 1px solid #2a3346;
+  background: rgba(16, 20, 26, 0.75); backdrop-filter: blur(2px);
+  color: #9db4d1; font-size: 1.05rem; line-height: 1; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; padding: 0;
+}
+.wish-star:hover { border-color: #7c5cbf; color: #d3c1fb; }
+.wish-star.filled { color: #f0c419; border-color: #a3841a; background: rgba(48, 40, 10, 0.55); }
 .row .media { flex: none; display: block; position: relative; }
 .row img.cap {
   width: 160px; height: 75px; object-fit: cover; border-radius: 6px; background: #232b37;
@@ -735,6 +784,15 @@ __OG__
 </head>
 <body>
 <script>try { if (localStorage.getItem("showAdultContent") === "1") document.body.className = "show-adult"; } catch (e) {}</script>
+<button type="button" class="drawer-toggle" id="drawerToggle" aria-label="選單">›</button>
+<div class="drawer-backdrop" id="drawerBackdrop"></div>
+<nav class="drawer" id="drawer">
+  <div class="drawer-head">
+    <span class="drawer-title">選單</span>
+    <button type="button" class="drawer-close" id="drawerClose" aria-label="關閉">✕</button>
+  </div>
+  <a class="drawer-item" href="__ASSET_BASE__wishlist.html">★ 願望清單</a>
+</nav>
 <div class="wrap">
   <div class="topbar">
     <a class="brand" href="__HOME_HREF__"><img src="__ASSET_BASE__assets/logo.png" alt="Steam 新遊戲紀錄"></a>
@@ -780,6 +838,83 @@ function imgFallback(el) {
     el.style.visibility = "hidden";
   }
 }
+function showToast(text) {
+  var el = document.getElementById("wishToast");
+  if (!el) {
+    el = document.createElement("div");
+    el.id = "wishToast";
+    el.className = "toast";
+    document.body.appendChild(el);
+  }
+  el.textContent = text;
+  el.classList.remove("show");
+  void el.offsetWidth; // restart the transition even if a toast is already showing
+  el.classList.add("show");
+  clearTimeout(el._hideTimer);
+  el._hideTimer = setTimeout(function () { el.classList.remove("show"); }, 2200);
+}
+(function () {
+  var toggle = document.getElementById("drawerToggle");
+  var drawer = document.getElementById("drawer");
+  var backdrop = document.getElementById("drawerBackdrop");
+  function openDrawer() { drawer.classList.add("open"); backdrop.classList.add("open"); }
+  function closeDrawer() { drawer.classList.remove("open"); backdrop.classList.remove("open"); }
+  toggle.addEventListener("click", function () {
+    if (drawer.classList.contains("open")) { closeDrawer(); } else { openDrawer(); }
+  });
+  backdrop.addEventListener("click", closeDrawer);
+  document.getElementById("drawerClose").addEventListener("click", closeDrawer);
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeDrawer(); });
+})();
+(function () {
+  // Wishlist lives entirely in localStorage (no account, no backend) - each star button
+  // carries enough data-* attributes to reconstruct its own row, so the wishlist page can
+  // render fully client-side without ever needing to fetch history.json.
+  var KEY = "wishlist";
+  function getWishlist() {
+    try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) { return {}; }
+  }
+  function setWishlist(w) {
+    try { localStorage.setItem(KEY, JSON.stringify(w)); } catch (e) {}
+  }
+  function syncStars() {
+    var w = getWishlist();
+    document.querySelectorAll(".wish-star").forEach(function (btn) {
+      var on = !!w[btn.getAttribute("data-appid")];
+      btn.classList.toggle("filled", on);
+      btn.textContent = on ? "★" : "☆";
+      btn.setAttribute("aria-label", on ? "移除願望清單" : "加入願望清單");
+    });
+  }
+  document.addEventListener("click", function (e) {
+    var btn = e.target.closest(".wish-star");
+    if (!btn) return;
+    e.preventDefault();
+    var w = getWishlist();
+    var appid = btn.getAttribute("data-appid");
+    var name = btn.getAttribute("data-name");
+    if (w[appid]) {
+      delete w[appid];
+      setWishlist(w);
+      showToast("已將「" + name + "」移除願望清單");
+    } else {
+      w[appid] = {
+        name: name,
+        web: btn.getAttribute("data-web"),
+        image: btn.getAttribute("data-image"),
+        status: btn.getAttribute("data-status"),
+        badge: btn.getAttribute("data-badge"),
+        price: btn.getAttribute("data-price"),
+        addedAt: Date.now()
+      };
+      setWishlist(w);
+      showToast("已將「" + name + "」加入願望清單");
+    }
+    syncStars();
+    document.dispatchEvent(new Event("wishlistchange"));
+  });
+  syncStars();
+})();
 (function () {
   var KEY = "showAdultContent";
   var boxes = document.querySelectorAll(".adult-toggle-input");
@@ -967,15 +1102,16 @@ def render_review(g: dict) -> str:
 
 def render_row(g: dict, base: str, show_date: bool = False) -> str:
     if g["status"] == "live":
-        badge = '<span class="badge live">已上架</span>'
+        badge_label = "已上架"
+        badge = f'<span class="badge live">{badge_label}</span>'
     else:
         epoch = g.get("release_epoch")
         if epoch:
             dt = datetime.fromtimestamp(epoch, tz=LOCAL_TZ)
-            label = dt.strftime("%m/%d %H:%M")
+            badge_label = dt.strftime("%m/%d %H:%M")
         else:
-            label = "預計上架"
-        badge = f'<span class="badge upcoming">⏳ {esc(label)}</span>'
+            badge_label = "預計上架"
+        badge = f'<span class="badge upcoming">⏳ {esc(badge_label)}</span>'
 
     date_html = f'<div class="date-line">{esc(g["release_date"])}</div>' if show_date else ""
     review_html = render_review(g)
@@ -987,11 +1123,23 @@ def render_row(g: dict, base: str, show_date: bool = False) -> str:
     open_attrs = f'data-web="{web_url}" data-steam="{steam_url}"'
     adult_attr = ' data-adult="1"' if g.get("is_adult") else ""
 
+    # data-* here carries everything the wishlist page needs to render this card entirely
+    # client-side from localStorage - it has no access to history.json, so this is the only
+    # copy of the game's display info it will ever have (a snapshot as of when starred).
+    price_text = esc(g.get("price_final") or "價格未知")
+    star_attrs = (
+        f'data-appid="{esc(g["appid"])}" data-name="{esc(g["name"])}" data-web="{web_url}" '
+        f'data-image="{esc(zoom_image)}" data-status="{esc(g["status"])}" '
+        f'data-badge="{esc(badge_label)}" data-price="{price_text}"'
+    )
+    star_html = f'<button type="button" class="wish-star" {star_attrs} aria-label="加入願望清單">☆</button>'
+
     return (
         f'<div class="row"{adult_attr}>'
         f'<a class="media" href="{web_url}" {open_attrs}>'
         f'<img class="cap" src="{esc(zoom_image)}" data-fallback="{esc(fallback_image)}" '
         f'onerror="imgFallback(this)" loading="lazy" alt=""></a>'
+        f"{star_html}"
         '<div class="info">'
         f'<a class="name" href="{web_url}" {open_attrs}>{esc(g["name"])}</a>'
         f"{date_html}{render_price(g)}{review_html}"
@@ -1252,6 +1400,69 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int, today: dat
         canonical_url=f"{site_url}search.html",
     )
     (docs_dir / "search.html").write_text(search_page, encoding="utf-8")
+
+    # Entirely client-rendered: this page ships no game data of its own, it just reads
+    # localStorage (written by the ☆ buttons on every other page) and builds rows from it.
+    wishlist_script = """<script>
+(function () {
+  var container = document.getElementById("wishlistList");
+  if (!container) return;
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+  function render() {
+    var w;
+    try { w = JSON.parse(localStorage.getItem("wishlist") || "{}"); } catch (e) { w = {}; }
+    var entries = Object.keys(w).map(function (id) {
+      var g = Object.assign({}, w[id]);
+      g.appid = id;
+      return g;
+    });
+    entries.sort(function (a, b) { return (b.addedAt || 0) - (a.addedAt || 0); });
+    if (!entries.length) {
+      container.className = "empty";
+      container.textContent = "還沒有加入任何願望清單，點遊戲卡片右上角的 ☆ 就可以加入";
+      return;
+    }
+    container.className = "card";
+    container.innerHTML = entries.map(function (g) {
+      var badgeClass = g.status === "live" ? "badge live" : "badge upcoming";
+      var badgeText = g.status === "live" ? esc(g.badge || "已上架") : ("⏳ " + esc(g.badge || ""));
+      var steamUrl = "steam://store/" + encodeURIComponent(g.appid);
+      var openAttrs = 'data-web="' + esc(g.web) + '" data-steam="' + esc(steamUrl) + '"';
+      return (
+        '<div class="row">' +
+        '<a class="media" href="' + esc(g.web) + '" ' + openAttrs + '>' +
+        '<img class="cap" src="' + esc(g.image) + '" loading="lazy" alt=""></a>' +
+        '<button type="button" class="wish-star filled" data-appid="' + esc(g.appid) +
+        '" data-name="' + esc(g.name) + '" data-web="' + esc(g.web) + '" data-image="' + esc(g.image) +
+        '" data-status="' + esc(g.status) + '" data-badge="' + esc(g.badge) + '" data-price="' + esc(g.price) +
+        '" aria-label="移除願望清單">★</button>' +
+        '<div class="info"><a class="name" href="' + esc(g.web) + '" ' + openAttrs + '>' + esc(g.name) + '</a>' +
+        '<div class="price-line"><span class="disc-final plain">' + esc(g.price || "價格未知") + '</span></div></div>' +
+        '<span class="' + badgeClass + '">' + badgeText + '</span>' +
+        '</div>'
+      );
+    }).join("");
+  }
+  render();
+  document.addEventListener("wishlistchange", render);
+})();
+</script>"""
+    wishlist_body = '<h1>願望清單</h1><div class="card" id="wishlistList"></div>' + wishlist_script
+    wishlist_page = render_page(
+        title="願望清單 - Steam 新遊戲紀錄",
+        base="",
+        nav_html='<a class="nav-mid" href="index.html">← 回首頁</a>',
+        meta=meta,
+        body_html=wishlist_body,
+        og_description="我收藏的 Steam 新遊戲願望清單",
+        og_image=f"{site_url}assets/logo.png",
+        canonical_url=f"{site_url}wishlist.html",
+    )
+    (docs_dir / "wishlist.html").write_text(wishlist_page, encoding="utf-8")
 
 
 def git_publish(base_dir: Path, docs_dir: Path, message: str) -> None:

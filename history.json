@@ -44171,9 +44171,9 @@
       "discount_end": null,
       "is_adult": false,
       "review_score": 0,
-      "review_score_label": "3 篇使用者評論",
-      "review_percent": 33,
-      "review_count": 3
+      "review_score_label": "4 篇使用者評論",
+      "review_percent": 25,
+      "review_count": 4
     },
     "5010200": {
       "appid": "5010200",
@@ -102679,9 +102679,9 @@
       "discount_end": null,
       "is_adult": false,
       "review_score": 0,
-      "review_score_label": "2 篇使用者評論",
+      "review_score_label": "3 篇使用者評論",
       "review_percent": 100,
-      "review_count": 2
+      "review_count": 3
     },
     "5105480": {
       "appid": "5105480",
@@ -124902,6 +124902,36 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4776020/545908f942d93068d509f3e8df7b38d4952112bc/header.jpg?t=1790284111",
       "discount_end": 1790874030,
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
+    },
+    "5198760": {
+      "appid": "5198760",
+      "name": "跑得快",
+      "url": "https://store.steampowered.com/app/5198760/",
+      "release_date": "2026-09-25",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5198760/0f6c4c6fb6072d7db6607c1865cc8d028ec9dcb3/capsule_231x87.jpg?t=1790284899",
+      "status": "live",
+      "price_pct": "-41%",
+      "price_original": "NT$ 105.00",
+      "price_final": "NT$ 62.00",
+      "release_epoch": 1790284901,
+      "tags": [
+        "休閒",
+        "策略",
+        "卡牌遊戲",
+        "玩家對戰",
+        "多人",
+        "單人",
+        "2D",
+        "卡牌對戰",
+        "奇幻"
+      ],
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5198760/9188cb5b6a8d761f2e4861853c9f24c82477aff7/header.jpg?t=1790284899",
+      "discount_end": 1791478838,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
