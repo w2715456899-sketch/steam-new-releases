@@ -32,6 +32,10 @@ LOCAL_TZ = ZoneInfo("Asia/Taipei")  # Both the query window and the date each it
 # says for anything released in the ~15-16h gap between the two timezones' day boundaries -
 # a known, accepted trade-off in favor of everything on this site agreeing with itself.
 MAX_QUERY_PAGES = 50  # safety cap (5000 items) so a pagination bug can't loop forever
+SITE_NAME = "Steam美食家"  # the site's own name: page <title>s, topbar brand, README
+OG_SITE_NAME = "Steam新遊戲通知"  # shown instead of SITE_NAME specifically in link-preview
+# cards (Discord/LINE/etc, via og:site_name and og:title) - a deliberately different name
+# from the site's own, chosen by the user for how a shared link should introduce itself.
 WEEKDAY_ZH = ["一", "二", "三", "四", "五", "六", "日"]
 # An inline SVG star, not the ☆/★ characters - those glyphs render noticeably off-center
 # inside a small circular button on iOS Safari (font-metric quirk, not a layout bug), while
@@ -483,17 +487,12 @@ def refresh_review_scores(history: dict, key: str, language: str, country: str) 
     return refreshed
 
 
-DISCORD_EMBED_BATCH = 10  # Discord hard-caps a single message at 10 embeds
-DISCORD_COLOR_LIVE = 0x2ECC71
-DISCORD_COLOR_UPCOMING = 0x5865F2
-
-
 def send_discord(webhook_url: str, today: date, games: list[Game], dry_run: bool, site_url: str) -> None:
     if not games:
         log.info("No new releases today - skipping Discord ping")
         return
 
-    content = f"{today.isoformat()} 新遊戲來了 🫠 共 {len(games)} 款\n{site_url}"
+    content = f"{today.isoformat()} 新遊戲更新了 共 {len(games)} 款\n{site_url}"
     if dry_run:
         log.info(content)
         for game in games:
@@ -501,25 +500,6 @@ def send_discord(webhook_url: str, today: date, games: list[Game], dry_run: bool
         return
 
     requests.post(webhook_url, json={"content": content}, timeout=20).raise_for_status()
-
-    for i in range(0, len(games), DISCORD_EMBED_BATCH):
-        batch = games[i : i + DISCORD_EMBED_BATCH]
-        embeds = []
-        for g in batch:
-            status_label = "已上架" if g.status == "live" else "預計上架"
-            price = g.price_final or "價格未知"
-            embed = {
-                "title": g.name[:256],
-                "url": g.url,
-                "description": f"{status_label} · {price}",
-                "color": DISCORD_COLOR_LIVE if g.status == "live" else DISCORD_COLOR_UPCOMING,
-            }
-            image = g.header_image or g.image
-            if image:
-                embed["thumbnail"] = {"url": image}
-            embeds.append(embed)
-        requests.post(webhook_url, json={"embeds": embeds}, timeout=20).raise_for_status()
-        time.sleep(0.3)
 
 
 # ---------------------------------------------------------------------------
@@ -813,7 +793,7 @@ __OG__
 </nav>
 <div class="wrap">
   <div class="topbar">
-    <a class="brand" href="__HOME_HREF__"><img src="__ASSET_BASE__assets/logo.png" alt="Steam 新遊戲紀錄"></a>
+    <a class="brand" href="__HOME_HREF__"><img src="__ASSET_BASE__assets/logo.png" alt="__SITE_NAME__"></a>
     <div class="nav">__NAV__</div>
   </div>
   <div class="meta">__META__</div>
@@ -1013,10 +993,11 @@ def render_page(
 ) -> str:
     og_html = ""
     if canonical_url:
+        og_title = title.replace(SITE_NAME, OG_SITE_NAME)
         og_html = (
             '<meta property="og:type" content="website">\n'
-            '<meta property="og:site_name" content="Steam 新遊戲紀錄">\n'
-            f'<meta property="og:title" content="{esc(title)}">\n'
+            f'<meta property="og:site_name" content="{esc(OG_SITE_NAME)}">\n'
+            f'<meta property="og:title" content="{esc(og_title)}">\n'
             f'<meta property="og:description" content="{esc(og_description)}">\n'
             f'<meta property="og:url" content="{esc(canonical_url)}">\n'
             f'<meta property="og:image" content="{esc(og_image)}">\n'
@@ -1024,6 +1005,7 @@ def render_page(
         )
     return (
         PAGE_SHELL.replace("__TITLE__", esc(title))
+        .replace("__SITE_NAME__", esc(SITE_NAME))
         .replace("__ASSET_BASE__", base)
         .replace("__CSS_VER__", STYLE_HASH)
         .replace("__HOME_HREF__", f"{base}index.html")
@@ -1254,7 +1236,7 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int, today: dat
 
     for d in dates_desc:
         page = render_page(
-            title=f"{d} 新遊戲 - Steam 新遊戲紀錄",
+            title=f"{d} 新遊戲 - {SITE_NAME}",
             base="../",
             nav_html=build_nav(dates_desc, d, "../"),
             meta=meta,
@@ -1290,7 +1272,7 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int, today: dat
     else:
         dates_index_rows = '<div class="empty">尚無資料</div>'
     dates_index_page = render_page(
-        title="所有日期 - Steam 新遊戲紀錄",
+        title=f"所有日期 - {SITE_NAME}",
         base="../",
         nav_html='<a class="nav-mid" href="../index.html">← 回首頁</a>',
         meta=meta,
@@ -1306,7 +1288,7 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int, today: dat
         # data - a stray game or two already filed under tomorrow (normal near midnight)
         # shouldn't make the homepage jump ahead of the actual current day.
         home_page = render_page(
-            title="Steam 新遊戲紀錄",
+            title=SITE_NAME,
             base="",
             nav_html=build_nav(dates_desc, today_str, ""),
             meta=meta,
@@ -1317,11 +1299,11 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int, today: dat
         )
     else:
         home_page = render_page(
-            title="Steam 新遊戲紀錄",
+            title=SITE_NAME,
             base="",
             nav_html="",
             meta=meta,
-            body_html='<h1>Steam 新遊戲紀錄</h1><div class="empty">尚無資料</div>',
+            body_html=f'<h1>{esc(SITE_NAME)}</h1><div class="empty">尚無資料</div>',
             og_description="每日追蹤 Steam 新上架遊戲",
             og_image=f"{site_url}assets/logo.png",
             canonical_url=site_url,
@@ -1346,7 +1328,7 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int, today: dat
         slug_to_tag[slug] = tag
         glist_sorted = sorted(glist, key=lambda g: g["release_date"], reverse=True)
         page = render_page(
-            title=f"#{tag} - Steam 新遊戲紀錄",
+            title=f"#{tag} - {SITE_NAME}",
             base="../",
             nav_html='<a class="nav-mid" href="../index.html">← 回首頁</a>',
             meta=meta,
@@ -1407,7 +1389,7 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int, today: dat
         f"{search_script}"
     )
     search_page = render_page(
-        title="搜尋 - Steam 新遊戲紀錄",
+        title=f"搜尋 - {SITE_NAME}",
         base="",
         nav_html='<a class="nav-mid" href="index.html">← 回首頁</a>',
         meta=meta,
@@ -1471,7 +1453,7 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int, today: dat
     wishlist_script = wishlist_script.replace("__WISH_STAR_SVG__", WISH_STAR_SVG)
     wishlist_body = '<h1>願望清單</h1><div class="card" id="wishlistList"></div>' + wishlist_script
     wishlist_page = render_page(
-        title="願望清單 - Steam 新遊戲紀錄",
+        title=f"願望清單 - {SITE_NAME}",
         base="",
         nav_html='<a class="nav-mid" href="index.html">← 回首頁</a>',
         meta=meta,

@@ -125017,6 +125017,40 @@
       "review_score_label": null,
       "review_percent": null,
       "review_count": null
+    },
+    "5222590": {
+      "appid": "5222590",
+      "name": "Forest Explorer",
+      "url": "https://store.steampowered.com/app/5222590/",
+      "release_date": "2026-09-25",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5222590/a21467f45c6490a9e411aeee733f48b86b27aa00/capsule_231x87.jpg?t=1790288413",
+      "status": "live",
+      "price_pct": "-16%",
+      "price_original": "NT$ 95.00",
+      "price_final": "NT$ 80.00",
+      "release_epoch": 1790288414,
+      "tags": [
+        "策略",
+        "卡牌遊戲",
+        "回合制策略",
+        "類 Rogue",
+        "輕度 Rogue",
+        "卡牌對戰",
+        "3D",
+        "俯視視角",
+        "奇幻",
+        "牌組製作",
+        "程序生成",
+        "資源管理",
+        "單人"
+      ],
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5222590/ba1b143ec30a2586921f850ba0d77ecfec6845ee/header.jpg?t=1790288413",
+      "discount_end": 1790874009,
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     }
   }
 }
