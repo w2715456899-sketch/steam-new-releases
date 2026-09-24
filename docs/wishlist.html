@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>願望清單 - Steam 新遊戲紀錄</title>
 <link rel="icon" href="assets/logo.png">
-<link rel="stylesheet" href="assets/style.css?v=ff5a8da9">
+<link rel="stylesheet" href="assets/style.css?v=3312d820">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Steam 新遊戲紀錄">
 <meta property="og:title" content="願望清單 - Steam 新遊戲紀錄">
@@ -23,6 +23,7 @@
     <span class="drawer-title">選單</span>
     <button type="button" class="drawer-close" id="drawerClose" aria-label="關閉">✕</button>
   </div>
+  <a class="drawer-item" href="index.html">🏠 首頁</a>
   <a class="drawer-item" href="wishlist.html">★ 願望清單</a>
 </nav>
 <div class="wrap">
@@ -30,7 +31,7 @@
     <a class="brand" href="index.html"><img src="assets/logo.png" alt="Steam 新遊戲紀錄"></a>
     <div class="nav"><a class="nav-mid" href="index.html">← 回首頁</a></div>
   </div>
-  <div class="meta">Last synced 2026-09-25 05:23 · Showing the last 30 days</div>
+  <div class="meta">Last synced 2026-09-25 05:39 · Showing the last 30 days</div>
   <form class="global-search" action="search.html" method="get">
     <input type="text" name="q" id="globalSearch" class="search-box" placeholder="搜尋名稱…" autocomplete="off">
   </form>
@@ -70,7 +71,7 @@
         '<button type="button" class="wish-star filled" data-appid="' + esc(g.appid) +
         '" data-name="' + esc(g.name) + '" data-web="' + esc(g.web) + '" data-image="' + esc(g.image) +
         '" data-status="' + esc(g.status) + '" data-badge="' + esc(g.badge) + '" data-price="' + esc(g.price) +
-        '" aria-label="移除願望清單">★</button>' +
+        '" aria-label="移除願望清單"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></button>' +
         '<div class="info"><a class="name" href="' + esc(g.web) + '" ' + openAttrs + '>' + esc(g.name) + '</a>' +
         '<div class="price-line"><span class="disc-final plain">' + esc(g.price || "價格未知") + '</span></div></div>' +
         '<span class="' + badgeClass + '">' + badgeText + '</span>' +
@@ -161,7 +162,6 @@ function showToast(text) {
     document.querySelectorAll(".wish-star").forEach(function (btn) {
       var on = !!w[btn.getAttribute("data-appid")];
       btn.classList.toggle("filled", on);
-      btn.textContent = on ? "★" : "☆";
       btn.setAttribute("aria-label", on ? "移除願望清單" : "加入願望清單");
     });
   }

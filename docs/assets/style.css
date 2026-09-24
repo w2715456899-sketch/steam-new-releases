@@ -104,6 +104,9 @@ h2.section { font-size: 0.85rem; color: #8894a3; margin: 24px 0 8px; text-transf
 }
 .wish-star:hover { border-color: #7c5cbf; color: #d3c1fb; }
 .wish-star.filled { color: #f0c419; border-color: #a3841a; background: rgba(48, 40, 10, 0.55); }
+.wish-star svg { width: 16px; height: 16px; display: block; }
+.wish-star svg path { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linejoin: round; }
+.wish-star.filled svg path { fill: currentColor; stroke: none; }
 .row .media { flex: none; display: block; position: relative; }
 .row img.cap {
   width: 160px; height: 75px; object-fit: cover; border-radius: 6px; background: #232b37;
