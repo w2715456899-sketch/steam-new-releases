@@ -18793,7 +18793,7 @@
       "review_score": 6,
       "review_score_label": "大多好評",
       "review_percent": 76,
-      "review_count": 207
+      "review_count": 208
     },
     "2929040": {
       "appid": "2929040",
@@ -31090,8 +31090,8 @@
       "is_adult": false,
       "review_score": 8,
       "review_score_label": "極度好評",
-      "review_percent": 89,
-      "review_count": 697
+      "review_percent": 88,
+      "review_count": 720
     },
     "4341260": {
       "appid": "4341260",
@@ -86743,7 +86743,7 @@
       "review_score": 7,
       "review_score_label": "好評",
       "review_percent": 100,
-      "review_count": 17
+      "review_count": 19
     },
     "4300470": {
       "appid": "4300470",
@@ -88440,7 +88440,7 @@
       "review_score": 5,
       "review_score_label": "褒貶不一",
       "review_percent": 63,
-      "review_count": 168
+      "review_count": 170
     },
     "5035220": {
       "appid": "5035220",
@@ -116803,8 +116803,8 @@
       "is_adult": false,
       "review_score": 8,
       "review_score_label": "極度好評",
-      "review_percent": 86,
-      "review_count": 668
+      "review_percent": 85,
+      "review_count": 774
     },
     "3861710": {
       "appid": "3861710",
@@ -117327,9 +117327,9 @@
       "discount_end": null,
       "is_adult": false,
       "review_score": 0,
-      "review_score_label": "1 篇使用者評論",
+      "review_score_label": "2 篇使用者評論",
       "review_percent": 100,
-      "review_count": 1
+      "review_count": 2
     },
     "5183380": {
       "appid": "5183380",
@@ -120404,7 +120404,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790290800,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "競速",
@@ -124458,12 +124458,12 @@
       "name": "EA SPORTS FC™ 27",
       "url": "https://store.steampowered.com/app/4080220/",
       "release_date": "2026-09-25",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4080220/b2e806003c348d3348774cddb10e5b31cd787ecf/capsule_231x87.jpg?t=1788235145",
-      "status": "upcoming",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4080220/b2e806003c348d3348774cddb10e5b31cd787ecf/capsule_231x87.jpg?t=1790290779",
+      "status": "live",
       "price_pct": null,
       "price_original": null,
       "price_final": "NT$ 2,099.00",
-      "release_epoch": 1790290800,
+      "release_epoch": 1790290781,
       "tags": [
         "運動",
         "足球",
@@ -124482,13 +124482,13 @@
         "心理恐怖",
         "色情內容"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4080220/05d419a45653a1299ce46d13dbff4533fa076c1c/header.jpg?t=1788235145",
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4080220/05d419a45653a1299ce46d13dbff4533fa076c1c/header.jpg?t=1790290779",
       "discount_end": null,
       "is_adult": false,
       "review_score": 5,
       "review_score_label": "褒貶不一",
       "review_percent": 58,
-      "review_count": 2204
+      "review_count": 2266
     },
     "5227310": {
       "appid": "5227310",
@@ -124500,7 +124500,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790290800,
+      "release_epoch": null,
       "tags": [
         "動作",
         "模擬",
@@ -124758,7 +124758,7 @@
         "駕駛",
         "經濟",
         "冒險",
-        "色情內容"
+        "多人"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3834340/f15b73ffab574ceaf3c400f5aea0a8fbee8cd19a/header.jpg?t=1790289510",
       "discount_end": 1791478816,
