@@ -993,11 +993,13 @@ def render_page(
 ) -> str:
     og_html = ""
     if canonical_url:
-        og_title = title.replace(SITE_NAME, OG_SITE_NAME)
+        # These are deliberately different: og:site_name is the small line Discord/LINE
+        # show above the link (OG_SITE_NAME), og:title is the bold clickable title below it
+        # and matches the page's own title (SITE_NAME already baked into `title`).
         og_html = (
             '<meta property="og:type" content="website">\n'
             f'<meta property="og:site_name" content="{esc(OG_SITE_NAME)}">\n'
-            f'<meta property="og:title" content="{esc(og_title)}">\n'
+            f'<meta property="og:title" content="{esc(title)}">\n'
             f'<meta property="og:description" content="{esc(og_description)}">\n'
             f'<meta property="og:url" content="{esc(canonical_url)}">\n'
             f'<meta property="og:image" content="{esc(og_image)}">\n'
