@@ -33,6 +33,15 @@ LOCAL_TZ = ZoneInfo("Asia/Taipei")  # Both the query window and the date each it
 # a known, accepted trade-off in favor of everything on this site agreeing with itself.
 MAX_QUERY_PAGES = 50  # safety cap (5000 items) so a pagination bug can't loop forever
 WEEKDAY_ZH = ["一", "二", "三", "四", "五", "六", "日"]
+# An inline SVG star, not the ☆/★ characters - those glyphs render noticeably off-center
+# inside a small circular button on iOS Safari (font-metric quirk, not a layout bug), while
+# an SVG centers exactly the same everywhere since it's sized/positioned as a real shape,
+# not text. .filled toggles fill vs. outline-only via CSS (see .wish-star.filled svg path).
+WISH_STAR_SVG = (
+    '<svg viewBox="0 0 24 24" aria-hidden="true">'
+    '<path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>'
+    "</svg>"
+)
 
 log = logging.getLogger("steam_new_releases")
 
@@ -625,6 +634,9 @@ h2.section { font-size: 0.85rem; color: #8894a3; margin: 24px 0 8px; text-transf
 }
 .wish-star:hover { border-color: #7c5cbf; color: #d3c1fb; }
 .wish-star.filled { color: #f0c419; border-color: #a3841a; background: rgba(48, 40, 10, 0.55); }
+.wish-star svg { width: 16px; height: 16px; display: block; }
+.wish-star svg path { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linejoin: round; }
+.wish-star.filled svg path { fill: currentColor; stroke: none; }
 .row .media { flex: none; display: block; position: relative; }
 .row img.cap {
   width: 160px; height: 75px; object-fit: cover; border-radius: 6px; background: #232b37;
@@ -791,6 +803,7 @@ __OG__
     <span class="drawer-title">選單</span>
     <button type="button" class="drawer-close" id="drawerClose" aria-label="關閉">✕</button>
   </div>
+  <a class="drawer-item" href="__HOME_HREF__">🏠 首頁</a>
   <a class="drawer-item" href="__ASSET_BASE__wishlist.html">★ 願望清單</a>
 </nav>
 <div class="wrap">
@@ -882,7 +895,6 @@ function showToast(text) {
     document.querySelectorAll(".wish-star").forEach(function (btn) {
       var on = !!w[btn.getAttribute("data-appid")];
       btn.classList.toggle("filled", on);
-      btn.textContent = on ? "★" : "☆";
       btn.setAttribute("aria-label", on ? "移除願望清單" : "加入願望清單");
     });
   }
@@ -1132,7 +1144,7 @@ def render_row(g: dict, base: str, show_date: bool = False) -> str:
         f'data-image="{esc(zoom_image)}" data-status="{esc(g["status"])}" '
         f'data-badge="{esc(badge_label)}" data-price="{price_text}"'
     )
-    star_html = f'<button type="button" class="wish-star" {star_attrs} aria-label="加入願望清單">☆</button>'
+    star_html = f'<button type="button" class="wish-star" {star_attrs} aria-label="加入願望清單">{WISH_STAR_SVG}</button>'
 
     return (
         f'<div class="row"{adult_attr}>'
@@ -1439,7 +1451,7 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int, today: dat
         '<button type="button" class="wish-star filled" data-appid="' + esc(g.appid) +
         '" data-name="' + esc(g.name) + '" data-web="' + esc(g.web) + '" data-image="' + esc(g.image) +
         '" data-status="' + esc(g.status) + '" data-badge="' + esc(g.badge) + '" data-price="' + esc(g.price) +
-        '" aria-label="移除願望清單">★</button>' +
+        '" aria-label="移除願望清單">__WISH_STAR_SVG__</button>' +
         '<div class="info"><a class="name" href="' + esc(g.web) + '" ' + openAttrs + '>' + esc(g.name) + '</a>' +
         '<div class="price-line"><span class="disc-final plain">' + esc(g.price || "價格未知") + '</span></div></div>' +
         '<span class="' + badgeClass + '">' + badgeText + '</span>' +
@@ -1451,6 +1463,7 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int, today: dat
   document.addEventListener("wishlistchange", render);
 })();
 </script>"""
+    wishlist_script = wishlist_script.replace("__WISH_STAR_SVG__", WISH_STAR_SVG)
     wishlist_body = '<h1>願望清單</h1><div class="card" id="wishlistList"></div>' + wishlist_script
     wishlist_page = render_page(
         title="願望清單 - Steam 新遊戲紀錄",
