@@ -62,6 +62,10 @@ class Game:
     header_image: str | None = field(default=None)  # higher-res image for the hover zoom
     discount_end: int | None = field(default=None)  # unix epoch, or None if not currently discounted
     is_adult: bool = field(default=False)  # Steam's own "Adult Only Sexual Content" descriptor (id 3)
+    review_score: int | None = field(default=None)  # Steam's 1-9 bucket, or None if too few reviews yet
+    review_score_label: str | None = field(default=None)  # e.g. "壓倒性好評", already localized by the API
+    review_percent: int | None = field(default=None)  # 0-100
+    review_count: int | None = field(default=None)
 
 
 def load_config(path: Path) -> dict:
@@ -123,6 +127,10 @@ def upsert_history(history: dict, games: Iterable[Game]) -> None:
             "header_image": g.header_image,
             "discount_end": g.discount_end,
             "is_adult": g.is_adult,
+            "review_score": g.review_score,
+            "review_score_label": g.review_score_label,
+            "review_percent": g.review_percent,
+            "review_count": g.review_count,
         }
 
 
@@ -185,6 +193,14 @@ def _item_to_game(item: dict, tag_names: dict[int, str]) -> Game | None:
     appid = str(item["appid"])
     is_adult = 3 in (item.get("content_descriptorids") or [])  # 3 = AdultOnlySexualContent
 
+    # summary_filtered (not summary_language_specific) matches what Steam's own store page
+    # shows by default - all-language review count, just excluding review-bombs/off-topic.
+    reviews = (item.get("reviews") or {}).get("summary_filtered") or {}
+    review_count = reviews.get("review_count") or None
+    review_score = reviews.get("review_score") if review_count else None
+    review_score_label = reviews.get("review_score_label") if review_count else None
+    review_percent = reviews.get("percent_positive") if review_count else None
+
     return Game(
         appid=appid,
         name=item.get("name", "Unknown"),
@@ -200,6 +216,10 @@ def _item_to_game(item: dict, tag_names: dict[int, str]) -> Game | None:
         header_image=_asset_url(assets, "header"),
         discount_end=discount_end,
         is_adult=is_adult,
+        review_score=review_score,
+        review_score_label=review_score_label,
+        review_percent=review_percent,
+        review_count=review_count,
     )
 
 
@@ -229,6 +249,7 @@ def query_items_by_date_range(key: str, start_date: date, end_date: date, langua
                 "include_basic_info": True,
                 "include_best_purchase_option": True,
                 "include_tag_count": 20,
+                "include_reviews": True,
             },
         }
         resp = steam_api_get("IStoreQueryService", "Query", key, input_json=json.dumps(input_json))
@@ -275,6 +296,7 @@ def refresh_stale_discounts(
                 "include_basic_info": True,
                 "include_best_purchase_option": True,
                 "include_tag_count": 20,
+                "include_reviews": True,
             },
         }
         resp = steam_api_get("IStoreBrowseService", "GetItems", key, input_json=json.dumps(input_json))
@@ -287,6 +309,10 @@ def refresh_stale_discounts(
             existing["price_original"] = g.price_original
             existing["price_final"] = g.price_final
             existing["discount_end"] = g.discount_end
+            existing["review_score"] = g.review_score
+            existing["review_score_label"] = g.review_score_label
+            existing["review_percent"] = g.review_percent
+            existing["review_count"] = g.review_count
             if g.tags:
                 existing["tags"] = g.tags
             if g.header_image:
@@ -330,6 +356,7 @@ def refresh_stale_upcoming(
                 "include_basic_info": True,
                 "include_best_purchase_option": True,
                 "include_tag_count": 20,
+                "include_reviews": True,
             },
         }
         resp = steam_api_get("IStoreBrowseService", "GetItems", key, input_json=json.dumps(input_json))
@@ -353,6 +380,10 @@ def refresh_stale_upcoming(
                         "header_image": g.header_image or existing.get("header_image"),
                         "tags": g.tags or existing.get("tags", []),
                         "is_adult": g.is_adult,
+                        "review_score": g.review_score,
+                        "review_score_label": g.review_score_label,
+                        "review_percent": g.review_percent,
+                        "review_count": g.review_count,
                     }
                 )
             elif not (item.get("release") or {}).get("steam_release_date"):
@@ -494,6 +525,12 @@ h2.section { font-size: 0.85rem; color: #8894a3; margin: 24px 0 8px; text-transf
 .disc-final.plain { color: #e7ecf2; font-weight: 600; }
 .disc-final.unknown { color: #8894a3; font-weight: 400; font-size: 0.85rem; }
 .discount-end { color: #66c0f4; font-size: 0.78rem; margin-top: 3px; }
+.review-line { font-size: 0.78rem; margin-top: 4px; }
+.review-score { font-weight: 600; }
+.review-score.pos { color: #5fd58a; }
+.review-score.mixed { color: #d4b95f; }
+.review-score.neg { color: #e2685f; }
+.review-count { color: #6b7686; margin-left: 5px; }
 .open-modal-backdrop {
   display: none; position: fixed; inset: 0; background: rgba(8, 10, 14, 0.72);
   backdrop-filter: blur(3px); align-items: center; justify-content: center; z-index: 100; padding: 16px;
@@ -607,7 +644,9 @@ PAGE_SHELL = """<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>__TITLE__</title>
+<link rel="icon" href="__ASSET_BASE__assets/logo.png">
 <link rel="stylesheet" href="__ASSET_BASE__assets/style.css?v=__CSS_VER__">
+__OG__
 </head>
 <body>
 <script>try { if (localStorage.getItem("showAdultContent") === "1") document.body.className = "show-adult"; } catch (e) {}</script>
@@ -714,7 +753,27 @@ function imgFallback(el) {
 """
 
 
-def render_page(title: str, base: str, nav_html: str, meta: str, body_html: str) -> str:
+def render_page(
+    title: str,
+    base: str,
+    nav_html: str,
+    meta: str,
+    body_html: str,
+    og_description: str = "",
+    og_image: str = "",
+    canonical_url: str = "",
+) -> str:
+    og_html = ""
+    if canonical_url:
+        og_html = (
+            '<meta property="og:type" content="website">\n'
+            '<meta property="og:site_name" content="Steam 新遊戲紀錄">\n'
+            f'<meta property="og:title" content="{esc(title)}">\n'
+            f'<meta property="og:description" content="{esc(og_description)}">\n'
+            f'<meta property="og:url" content="{esc(canonical_url)}">\n'
+            f'<meta property="og:image" content="{esc(og_image)}">\n'
+            '<meta name="twitter:card" content="summary_large_image">'
+        )
     return (
         PAGE_SHELL.replace("__TITLE__", esc(title))
         .replace("__ASSET_BASE__", base)
@@ -723,6 +782,7 @@ def render_page(title: str, base: str, nav_html: str, meta: str, body_html: str)
         .replace("__NAV__", nav_html)
         .replace("__META__", meta)
         .replace("__BODY__", body_html)
+        .replace("__OG__", og_html)
     )
 
 
@@ -793,6 +853,22 @@ def render_price(g: dict) -> str:
     return html
 
 
+def render_review(g: dict) -> str:
+    score, count = g.get("review_score"), g.get("review_count")
+    if not score or not count:
+        return ""  # too few reviews yet for Steam to have scored it - nothing worth showing
+    # Steam's 9 buckets aren't evenly split around "mixed" - only score 5 is actually
+    # Mixed; 6 (Mostly Positive) and 4 (Mostly Negative) already lean to one side.
+    tier = "pos" if score >= 6 else "neg" if score <= 4 else "mixed"
+    label = g.get("review_score_label") or ""
+    pct = g.get("review_percent")
+    pct_html = f"（{pct}%）" if pct is not None else ""
+    return (
+        f'<div class="review-line"><span class="review-score {tier}">{esc(label)}{pct_html}</span>'
+        f'<span class="review-count">{count:,} 篇評論</span></div>'
+    )
+
+
 def render_row(g: dict, base: str, show_date: bool = False) -> str:
     if g["status"] == "live":
         badge = '<span class="badge live">已上架</span>'
@@ -806,6 +882,7 @@ def render_row(g: dict, base: str, show_date: bool = False) -> str:
         badge = f'<span class="badge upcoming">⏳ {esc(label)}</span>'
 
     date_html = f'<div class="date-line">{esc(g["release_date"])}</div>' if show_date else ""
+    review_html = render_review(g)
     tags_html = render_tags(g["appid"], g.get("tags", []), base)
     fallback_image = g.get("image") or ""
     zoom_image = g.get("header_image") or fallback_image
@@ -821,7 +898,7 @@ def render_row(g: dict, base: str, show_date: bool = False) -> str:
         f'onerror="imgFallback(this)" loading="lazy" alt=""></a>'
         '<div class="info">'
         f'<a class="name" href="{web_url}" {open_attrs}>{esc(g["name"])}</a>'
-        f"{date_html}{render_price(g)}"
+        f"{date_html}{render_price(g)}{review_html}"
         f"{tags_html}</div>"
         f"{badge}</div>"
     )
@@ -882,7 +959,15 @@ def build_nav(dates_desc: list[str], current: str, base: str) -> str:
     )
 
 
-def generate_site(history: dict, docs_dir: Path, retention_days: int, today: date) -> None:
+def _hero_image(games: list[dict], site_url: str) -> str:
+    for g in games:
+        img = g.get("header_image") or g.get("image")
+        if img:
+            return img
+    return site_url + "assets/logo.png"
+
+
+def generate_site(history: dict, docs_dir: Path, retention_days: int, today: date, site_url: str) -> None:
     by_date: dict[str, list[dict]] = {}
     for g in history["games"].values():
         by_date.setdefault(g["release_date"], []).append(g)
@@ -891,7 +976,7 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int, today: dat
     dates_desc = sorted(by_date, reverse=True)
     counts = {d: len(by_date[d]) for d in dates_desc}
     generated_at = datetime.now(tz=LOCAL_TZ).strftime("%Y-%m-%d %H:%M")
-    meta = f"更新於 {esc(generated_at)} · 保留最近 {retention_days} 天"
+    meta = f"Last synced {esc(generated_at)} · Showing the last {retention_days} days"
 
     dates_dir = docs_dir / "dates"
     dates_dir.mkdir(parents=True, exist_ok=True)
@@ -907,6 +992,9 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int, today: dat
             nav_html=build_nav(dates_desc, d, "../"),
             meta=meta,
             body_html=render_date_body(d, by_date[d], "../"),
+            og_description=f"{d} 新上架 Steam 遊戲，共 {counts[d]} 款",
+            og_image=_hero_image(by_date[d], site_url),
+            canonical_url=f"{site_url}dates/{d}.html",
         )
         (dates_dir / f"{d}.html").write_text(page, encoding="utf-8")
 
@@ -940,6 +1028,9 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int, today: dat
         nav_html='<a href="../index.html">← 回首頁</a>',
         meta=meta,
         body_html=f'<h1>所有日期</h1><div class="date-grid">{dates_index_rows}</div>',
+        og_description=f"瀏覽最近 {retention_days} 天內每日上架的新遊戲",
+        og_image=f"{site_url}assets/logo.png",
+        canonical_url=f"{site_url}dates/index.html",
     )
     (dates_dir / "index.html").write_text(dates_index_page, encoding="utf-8")
 
@@ -953,6 +1044,9 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int, today: dat
             nav_html=build_nav(dates_desc, today_str, ""),
             meta=meta,
             body_html=render_date_body(today_str, by_date[today_str], ""),
+            og_description=f"{today_str} 新上架 Steam 遊戲，共 {counts[today_str]} 款",
+            og_image=_hero_image(by_date[today_str], site_url),
+            canonical_url=site_url,
         )
     else:
         home_page = render_page(
@@ -961,6 +1055,9 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int, today: dat
             nav_html="",
             meta=meta,
             body_html='<h1>Steam 新遊戲紀錄</h1><div class="empty">尚無資料</div>',
+            og_description="每日追蹤 Steam 新上架遊戲",
+            og_image=f"{site_url}assets/logo.png",
+            canonical_url=site_url,
         )
     (docs_dir / "index.html").write_text(home_page, encoding="utf-8")
 
@@ -989,6 +1086,9 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int, today: dat
             body_html=f'<h1>#{esc(tag)}</h1><div class="card">'
             + "".join(render_row(g, "../", show_date=True) for g in glist_sorted)
             + "</div>",
+            og_description=f"「{tag}」相關的 Steam 新遊戲，共 {len(glist_sorted)} 款",
+            og_image=_hero_image(glist_sorted, site_url),
+            canonical_url=f"{site_url}tags/{slug}.html",
         )
         (tags_dir / f"{slug}.html").write_text(page, encoding="utf-8")
 
@@ -1045,6 +1145,9 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int, today: dat
         nav_html='<a href="index.html">← 回首頁</a>',
         meta=meta,
         body_html=search_body,
+        og_description="搜尋所有已收錄的新上架 Steam 遊戲",
+        og_image=f"{site_url}assets/logo.png",
+        canonical_url=f"{site_url}search.html",
     )
     (docs_dir / "search.html").write_text(search_page, encoding="utf-8")
 
@@ -1102,6 +1205,8 @@ def main() -> None:
     retention_days = int(config.get("retention_days", DEFAULT_RETENTION_DAYS))
     backfill_days = int(config.get("backfill_days", DEFAULT_BACKFILL_DAYS))
     today = local_today()
+    site_url = config.get("site_url") or f"file:///{(args.docs / 'index.html').resolve().as_posix()}"
+    site_base = site_url if site_url.endswith("/") else site_url.rsplit("/", 1)[0] + "/"
 
     history = load_history(args.history)
     should_backfill = args.backfill is not None or (not history["games"] and not args.no_backfill)
@@ -1130,7 +1235,7 @@ def main() -> None:
 
     if not args.dry_run or should_backfill:
         save_history(args.history, history, retention_days)
-        generate_site(history, args.docs, retention_days, today)
+        generate_site(history, args.docs, retention_days, today, site_base)
         log.info("Site updated: %s", args.docs / "index.html")
         if not args.dry_run and config.get("git_auto_push", True):
             git_publish(BASE_DIR, args.docs, f"Update site {today.isoformat()}")
@@ -1144,7 +1249,6 @@ def main() -> None:
         log.info("--skip-notify: leaving Discord and state.json alone this run")
         return
 
-    site_url = config.get("site_url") or f"file:///{(args.docs / 'index.html').resolve().as_posix()}"
     send_discord(config["webhook_url"], today, new_games, args.dry_run, site_url)
 
     if not args.dry_run:

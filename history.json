@@ -13452,7 +13452,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2713120/225e9ad013f84d04995c21b7866413e7c5a2a6d3/header.jpg?t=1790212791",
       "discount_end": 1791392450,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": 0,
+      "review_score_label": "1 篇使用者評論",
+      "review_percent": 100,
+      "review_count": 1
     },
     "2725040": {
       "appid": "2725040",
@@ -16400,7 +16404,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3978120/fb1b4f9b95bae46edf9edbf65d7361c4ffc83f47/header.jpg?t=1790182423",
       "discount_end": 1791392441,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": 0,
+      "review_score_label": "2 篇使用者評論",
+      "review_percent": 50,
+      "review_count": 2
     },
     "3978240": {
       "appid": "3978240",
@@ -18981,7 +18989,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3612630/3c391fdd01a20ded1e18b01c0b1e1813c3d6e5f6/header.jpg?t=1790179598",
       "discount_end": 1790787601,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "3613960": {
       "appid": "3613960",
@@ -26108,7 +26120,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4246520/1d5d77babcc06a77c2d256cd671fbd54dc547f09/header.jpg?t=1790219155",
       "discount_end": 1791392454,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4246710": {
       "appid": "4246710",
@@ -32400,7 +32416,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4395950/0bf04b0203970991fcda849b6e799877b2776fc1/header.jpg?t=1790188459",
       "discount_end": 1791392417,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": 0,
+      "review_score_label": "2 篇使用者評論",
+      "review_percent": 100,
+      "review_count": 2
     },
     "4396050": {
       "appid": "4396050",
@@ -45710,7 +45730,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4897270/ce889a637c88a6dbe68bbb7504eae94e4c150d78/header.jpg?t=1790183299",
       "discount_end": 1791392418,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4897880": {
       "appid": "4897880",
@@ -52146,7 +52170,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5045560/ff079af163122451d6ac91104cf86786370ee82b/header.jpg?t=1790179335",
       "discount_end": 1791392403,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "5045700": {
       "appid": "5045700",
@@ -74612,7 +74640,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3056390/2823d607398cc24b1c5c4abc4e950358b8256545/header.jpg?t=1790183669",
       "discount_end": 1791392405,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4788400": {
       "appid": "4788400",
@@ -74686,7 +74718,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/783550/41445c1114bebc79fc71d82d313b39f9e871c730/header.jpg?t=1790181929",
       "discount_end": 1791392421,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4218310": {
       "appid": "4218310",
@@ -74999,7 +75035,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5070850/077db007384c707b73d8175a9eb1998edadfec95/header.jpg?t=1790222338",
       "discount_end": 1791392457,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "5043000": {
       "appid": "5043000",
@@ -105304,7 +105344,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2626560/d399cf0bfa10c0e3496cc25c47fb0d7de1f48890/header.jpg?t=1790218934",
       "discount_end": 1790787612,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "3122470": {
       "appid": "3122470",
@@ -105341,7 +105385,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3122470/e3098a261934ca6c0a00fdcb505b537dbcdaa779/header.jpg?t=1787926068",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4326520": {
       "appid": "4326520",
@@ -105377,7 +105425,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4326520/1f009ba7adb99e0d3dafeaaaed18840cf8367d2a/header.jpg?t=1787914893",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4216770": {
       "appid": "4216770",
@@ -105414,7 +105466,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4216770/cc8f4cfcba89ca777a80aac173b85e518d3b6e5f/header_tchinese.jpg?t=1790216087",
       "discount_end": 1791392446,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "3911760": {
       "appid": "3911760",
@@ -105451,7 +105507,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3911760/df0490cf3e2cb04a7f001cb179053c61cff091b7/header.jpg?t=1788329179",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "3515630": {
       "appid": "3515630",
@@ -105488,7 +105548,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3515630/7937717daa1e97de3fcc2affa4d8430d96cdbde0/header.jpg?t=1790182668",
       "discount_end": 1790787646,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4369580": {
       "appid": "4369580",
@@ -105515,7 +105579,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4369580/1ce2446376e095654a49270585f61c318259916d/header_tchinese.jpg?t=1788478952",
       "discount_end": null,
-      "is_adult": true
+      "is_adult": true,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "5011720": {
       "appid": "5011720",
@@ -105549,7 +105617,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5011720/679320e81015d5a77683941c3e5703e41ebbefa5/header.jpg?t=1788514301",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4885500": {
       "appid": "4885500",
@@ -105581,7 +105653,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4885500/917d0b09d7f69931fd32364b38c297caca740f0b/header.jpg?t=1790230082",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4667330": {
       "appid": "4667330",
@@ -105608,7 +105684,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4667330/a6ddb22bebd3ec18180b33ed649821763eb3bbaf/header.jpg?t=1789962003",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4906820": {
       "appid": "4906820",
@@ -105632,7 +105712,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4906820/5231f389e2e32ef9ae0ad545db923d7a801060e5/header.jpg?t=1788415661",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4918200": {
       "appid": "4918200",
@@ -105669,7 +105753,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4918200/bcf434fc8c9974a8d1a5d77ab18eec7bf8c6daf9/header.jpg?t=1790208136",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "5136120": {
       "appid": "5136120",
@@ -105706,7 +105794,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5136120/31152d2f37a1fbc4b479a9bce06f501c03f8bdba/header.jpg?t=1790215315",
       "discount_end": 1791392453,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4773520": {
       "appid": "4773520",
@@ -105736,7 +105828,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4773520/116996954473dc063d06306ca7012f3be21f1444/header.jpg?t=1790211999",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4844270": {
       "appid": "4844270",
@@ -105773,7 +105869,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4844270/9cb62e0fa34a6558afb1cf50d107be08994d01aa/header.jpg?t=1790162572",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4963760": {
       "appid": "4963760",
@@ -105810,7 +105910,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4963760/8965e417670df860f7439911ce2a35489203d76c/header.jpg?t=1790182106",
       "discount_end": 1790787625,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "5206440": {
       "appid": "5206440",
@@ -105938,14 +106042,18 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5172380/8867c240facbb35ac0160c69737ee5cafa104090/header.jpg?t=1790214988",
       "discount_end": 1791392426,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "1611690": {
       "appid": "1611690",
       "name": "五行遊",
       "url": "https://store.steampowered.com/app/1611690/",
       "release_date": "2026-09-24",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1611690/b8a4fd28dfa80edfb9e924de9d580792b09def36/capsule_231x87_tchinese.jpg?t=1790223294",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1611690/b8a4fd28dfa80edfb9e924de9d580792b09def36/capsule_231x87_tchinese.jpg?t=1790231742",
       "status": "upcoming",
       "price_pct": null,
       "price_original": null,
@@ -105973,9 +106081,13 @@
         "老式",
         "玩家對戰"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1611690/ccf6da4065dba7dbf80d9e551dfa895466bc4057/header_tchinese.jpg?t=1790223294",
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1611690/ccf6da4065dba7dbf80d9e551dfa895466bc4057/header_tchinese.jpg?t=1790231742",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "3789080": {
       "appid": "3789080",
@@ -106012,7 +106124,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3789080/bab4541e6bfb127d97480081b2fe566458d4dd80/header.jpg?t=1790016054",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "3158820": {
       "appid": "3158820",
@@ -106048,7 +106164,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3158820/e344d3d0514147e82f1fee043f7439523feffba6/header.jpg?t=1786356226",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "3179120": {
       "appid": "3179120",
@@ -106085,7 +106205,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3179120/cdc60046c2fcc2426b21947549b2375a108c4582/header.jpg?t=1790153227",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "3192250": {
       "appid": "3192250",
@@ -106120,7 +106244,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3192250/142fbf89b892cea1e83003408fcb3ef587b1de8f/header_tchinese.jpg?t=1790215205",
       "discount_end": 1791392403,
-      "is_adult": true
+      "is_adult": true,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "3594090": {
       "appid": "3594090",
@@ -106157,7 +106285,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3594090/135efe85bbccaaccdfbbe570b13b605aa1c861d5/header_tchinese.jpg?t=1787047630",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "3602640": {
       "appid": "3602640",
@@ -106194,7 +106326,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3602640/61c396fac5d265dde4a3d7abc4b1b548e239f18a/header.jpg?t=1790107874",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "3410670": {
       "appid": "3410670",
@@ -106228,7 +106364,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3410670/header_tchinese.jpg?t=1790211567",
       "discount_end": 1791392423,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "3480840": {
       "appid": "3480840",
@@ -106252,7 +106392,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3480840/header.jpg?t=1789544542",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "1833080": {
       "appid": "1833080",
@@ -106289,7 +106433,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1833080/6f4949f864d335baec859d18f0b60eaf79fcedd4/header.jpg?t=1788875546",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "2796640": {
       "appid": "2796640",
@@ -106326,7 +106474,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2796640/1c9b203ae7005cc7009569fcc90ae1bc4d6efa33/header.jpg?t=1790227801",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "2845430": {
       "appid": "2845430",
@@ -106363,7 +106515,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2845430/5446b2ca6869b0ab7cf9712065b5f1c43e26b91b/header.jpg?t=1789375028",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "2390160": {
       "appid": "2390160",
@@ -106395,7 +106551,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2390160/header.jpg?t=1789647430",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "3969340": {
       "appid": "3969340",
@@ -106464,19 +106624,23 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3997000/41ab631de5d6ae36776963d23aec1adbab96444f/header_tchinese.jpg?t=1790217810",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "5094050": {
       "appid": "5094050",
       "name": "Ridge Hold",
       "url": "https://store.steampowered.com/app/5094050/",
       "release_date": "2026-09-24",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5094050/dcec73991890ffd7841a4942a9864e2d25c4100f/capsule_231x87.jpg?t=1790107465",
-      "status": "upcoming",
-      "price_pct": null,
-      "price_original": null,
-      "price_final": null,
-      "release_epoch": 1790233200,
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5094050/dcec73991890ffd7841a4942a9864e2d25c4100f/capsule_231x87.jpg?t=1790232358",
+      "status": "live",
+      "price_pct": "-18%",
+      "price_original": "NT$ 136.00",
+      "price_final": "NT$ 111.00",
+      "release_epoch": 1790232358,
       "tags": [
         "策略",
         "塔防",
@@ -106493,9 +106657,13 @@
         "單人",
         "即時"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5094050/2d434279cce46ae85c464512bbf3695f780b8c28/header.jpg?t=1790107465",
-      "discount_end": null,
-      "is_adult": false
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5094050/2d434279cce46ae85c464512bbf3695f780b8c28/header.jpg?t=1790232358",
+      "discount_end": 1790787656,
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4449990": {
       "appid": "4449990",
@@ -106532,7 +106700,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4449990/c5b382c0ab6742720b84835c626312927d1305ea/header.jpg?t=1790127641",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4290530": {
       "appid": "4290530",
@@ -106569,7 +106741,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4290530/cc3e34f84667cc89607c90e43f1cc7be87feadc7/header.jpg?t=1786812315",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "5251330": {
       "appid": "5251330",
@@ -106601,7 +106777,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5251330/ac4f9b52ed444be0eb1c081ab2ddd5c989874571/header.jpg?t=1789784867",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4934240": {
       "appid": "4934240",
@@ -106635,7 +106815,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4934240/36a1198ed803f3418d34cf7b0b6788387608a37f/header.jpg?t=1790182813",
       "discount_end": 1790787610,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "5036050": {
       "appid": "5036050",
@@ -106666,7 +106850,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5036050/994fa2050fe3ddb78824c1789143c5eac568ef41/header.jpg?t=1789951601",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4636620": {
       "appid": "4636620",
@@ -106703,7 +106891,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4636620/78cdcecb0f4b56e14175aa44b562fd5c98de9e09/header.jpg?t=1789408900",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4559470": {
       "appid": "4559470",
@@ -106734,7 +106926,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4559470/580af04ec4c3d8eaf2eeb3006c6158db7e2f4bf6/header.jpg?t=1789380350",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4798740": {
       "appid": "4798740",
@@ -106771,7 +106967,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4798740/92ad79429940e283d4225cc81ca54ba0aff19d23/header.jpg?t=1789753922",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "2698960": {
       "appid": "2698960",
@@ -106805,7 +107005,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2698960/e85dae7ec465a4d8ed5d6942037131f79b046326/header.jpg?t=1790214330",
       "discount_end": 1791392428,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "2438180": {
       "appid": "2438180",
@@ -106842,7 +107046,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2438180/460727ca564c53e2982c03604b4a73ffe3d31074/header.jpg?t=1790066338",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "2555000": {
       "appid": "2555000",
@@ -106879,7 +107087,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2555000/4fc0c47a28df6776150ba0b05a84e05e1a319e69/header.jpg?t=1790182554",
       "discount_end": 1791046853,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "3951360": {
       "appid": "3951360",
@@ -106916,7 +107128,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3951360/6e92a1e00467516312aa30c861ee7e7115572a3e/header.jpg?t=1790169038",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "3954380": {
       "appid": "3954380",
@@ -106950,7 +107166,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3954380/b39faf6cd12aa88ce982cae3da03d39a556c9894/header.jpg?t=1790107132",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "5092960": {
       "appid": "5092960",
@@ -106974,7 +107194,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5092960/71b16d7a1fd1e841edff05ec22b9147895be173d/header.jpg?t=1790085079",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "5154340": {
       "appid": "5154340",
@@ -107011,7 +107235,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5154340/f451a1298aa28950abc5108087dec8e7c5b14434/header.jpg?t=1790182919",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": 7,
+      "review_score_label": "好評",
+      "review_percent": 84,
+      "review_count": 13
     },
     "5203270": {
       "appid": "5203270",
@@ -107044,7 +107272,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5203270/628c2f19aedd4d7d7fd9a1534700c8862f8d7f40/header.jpg?t=1790183578",
       "discount_end": 1791392456,
-      "is_adult": true
+      "is_adult": true,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "5207090": {
       "appid": "5207090",
@@ -107098,7 +107330,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5218170/56d883e38a840ef3d4d66634d618e0f22045b29c/header.jpg?t=1790217089",
       "discount_end": 1790787628,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "5253180": {
       "appid": "5253180",
@@ -107128,7 +107364,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5253180/b84ca416ffdfc3ff4e1bb9725a3f441c67ab617d/header.jpg?t=1790117631",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "3882410": {
       "appid": "3882410",
@@ -107159,7 +107399,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3882410/cda6555168fa9f3149fa17ef940331829469d870/header_tchinese.jpg?t=1790211878",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": 5,
+      "review_score_label": "褒貶不一",
+      "review_percent": 50,
+      "review_count": 16
     },
     "3892380": {
       "appid": "3892380",
@@ -107196,7 +107440,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3892380/008dd644c16b3d64ef9ad5054485508110ac487a/header.jpg?t=1790208316",
       "discount_end": 1790787615,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "3932790": {
       "appid": "3932790",
@@ -107233,19 +107481,23 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3932790/4969712a29cab096dbde9f232ee78e4c7c1cffab/header.jpg?t=1789978849",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4902250": {
       "appid": "4902250",
       "name": "Prisoners Chess",
       "url": "https://store.steampowered.com/app/4902250/",
       "release_date": "2026-09-24",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4902250/651ea255d00bfb294208c33f841df4033cf281f3/capsule_231x87.jpg?t=1788230457",
-      "status": "upcoming",
-      "price_pct": null,
-      "price_original": null,
-      "price_final": null,
-      "release_epoch": 1790231400,
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4902250/651ea255d00bfb294208c33f841df4033cf281f3/capsule_231x87.jpg?t=1790231412",
+      "status": "live",
+      "price_pct": "-10%",
+      "price_original": "NT$ 198.00",
+      "price_final": "NT$ 178.00",
+      "release_epoch": 1790231413,
       "tags": [
         "棋類",
         "策略",
@@ -107262,9 +107514,13 @@
         "桌上遊戲",
         "多人"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4902250/dda750c5dfb9fc0b2b7c2340278e1115ea608a19/header.jpg?t=1788230457",
-      "discount_end": null,
-      "is_adult": false
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4902250/dda750c5dfb9fc0b2b7c2340278e1115ea608a19/header.jpg?t=1790231412",
+      "discount_end": 1790787611,
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4988900": {
       "appid": "4988900",
@@ -107338,7 +107594,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5002330/0f3568d6a584264e3259d5db497150f24c99c914/header.jpg?t=1790189745",
       "discount_end": 1791392443,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "5012490": {
       "appid": "5012490",
@@ -107375,7 +107635,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5012490/66eb6b855bdec5cf56d904cb1f47f5fe216d3182/header.jpg?t=1790196408",
       "discount_end": 1791392442,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": 0,
+      "review_score_label": "2 篇使用者評論",
+      "review_percent": 100,
+      "review_count": 2
     },
     "5027800": {
       "appid": "5027800",
@@ -107404,7 +107668,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5027800/f747c1947b7956d467162db437843d46b1814896/header.jpg?t=1790182796",
       "discount_end": 1791392455,
-      "is_adult": true
+      "is_adult": true,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "5052720": {
       "appid": "5052720",
@@ -107441,7 +107709,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5052720/e0a120fcd91cfc1d9a3733b923d2d066594dee45/header.jpg?t=1789994729",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4553130": {
       "appid": "4553130",
@@ -107478,7 +107750,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4553130/d463d2ce02a85bc0f853a3fb355d74262281c895/header_tchinese.jpg?t=1790210286",
       "discount_end": 1791392404,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4595860": {
       "appid": "4595860",
@@ -107515,7 +107791,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4595860/cbe3564497393de5f47997c7578cf0a63f5e6526/header.jpg?t=1780849006",
       "discount_end": null,
-      "is_adult": true
+      "is_adult": true,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4600150": {
       "appid": "4600150",
@@ -107587,7 +107867,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4610360/208611458bf14321575d0477a4edbd9f0af003b1/header.jpg?t=1788973597",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4622260": {
       "appid": "4622260",
@@ -107624,7 +107908,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4622260/3a9c6231ee6603521c6440612d81fc2ed48abc11/header.jpg?t=1790220026",
       "discount_end": 1791392424,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4026060": {
       "appid": "4026060",
@@ -107661,7 +107949,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4026060/bd5ff2e10cae972d069b16118c047cf253d814d6/header.jpg?t=1788996623",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4091090": {
       "appid": "4091090",
@@ -107696,7 +107988,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4091090/e75e15f3b3dc5ca05c02e97b496d0fca3cc6c4fc/header.jpg?t=1789589159",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4146760": {
       "appid": "4146760",
@@ -107733,7 +108029,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4146760/014c9caa40fc0043deef5e238ee1f6e94afbb7bd/header.jpg?t=1790182851",
       "discount_end": 1791392447,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": 8,
+      "review_score_label": "極度好評",
+      "review_percent": 89,
+      "review_count": 58
     },
     "4753960": {
       "appid": "4753960",
@@ -107770,7 +108070,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4753960/d4025e4bc9ac030ec0275eac2c08d814b9c81b2e/header.jpg?t=1790215214",
       "discount_end": 1791392413,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": 7,
+      "review_score_label": "好評",
+      "review_percent": 87,
+      "review_count": 31
     },
     "4815060": {
       "appid": "4815060",
@@ -107806,7 +108110,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4815060/1fd7e9cabd1bba7878374d4069e83cd82b49d418/header_tchinese.jpg?t=1789534569",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4843040": {
       "appid": "4843040",
@@ -107880,7 +108188,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4870460/03a8113754074a9e82b9a05caf5de5e6d73bfe8c/header.jpg?t=1789648174",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4280850": {
       "appid": "4280850",
@@ -107917,7 +108229,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4280850/d03ce95ec93105d0f2b5557b1ad9a567a6578a1b/header.jpg?t=1790182897",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": 0,
+      "review_score_label": "2 篇使用者評論",
+      "review_percent": 100,
+      "review_count": 2
     },
     "4296850": {
       "appid": "4296850",
@@ -107952,7 +108268,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4296850/9b0f76ecf41d940550ab6b29d083bcd0fe42102c/header.jpg?t=1788619613",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4358140": {
       "appid": "4358140",
@@ -107989,7 +108309,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4358140/8bef10e440b5ab5afef629d712cfe6be97045393/header_tchinese.jpg?t=1790222063",
       "discount_end": null,
-      "is_adult": true
+      "is_adult": true,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4405080": {
       "appid": "4405080",
@@ -108058,7 +108382,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4516510/03c06fe61206a5c3c52f662793b3cd7ed17f7b14/header.jpg?t=1789664314",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4103290": {
       "appid": "4103290",
@@ -108095,7 +108423,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4103290/3537be4321a453af44d8c4511d24ed1689e0e793/header.jpg?t=1790179402",
       "discount_end": 1791392410,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4669750": {
       "appid": "4669750",
@@ -108166,7 +108498,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4287720/520f25cc8505aeb04316991db3be4692c9e2e6cb/header.jpg?t=1790186715",
       "discount_end": 1791392414,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "3681780": {
       "appid": "3681780",
@@ -108203,7 +108539,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3681780/ade814429e3dd7ac758effa4b82341f156544f12/header.jpg?t=1790201480",
       "discount_end": 1791392418,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "5130470": {
       "appid": "5130470",
@@ -108229,7 +108569,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5130470/89495040dff15d8672681f76460d731da7ce5319/header.jpg?t=1790180008",
       "discount_end": 1791392415,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "1636440": {
       "appid": "1636440",
@@ -108266,7 +108610,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1636440/0ed1cb4bc30631f95b92f7f13bb06c15d49b4afa/header.jpg?t=1790222467",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": 6,
+      "review_score_label": "大多好評",
+      "review_percent": 72,
+      "review_count": 721
     },
     "3669870": {
       "appid": "3669870",
@@ -108303,7 +108651,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3669870/918498496cb30b36cec93ebad589b132ddac8379/header_tchinese.jpg?t=1789653825",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "3861710": {
       "appid": "3861710",
@@ -108340,7 +108692,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3861710/b4f3578c807168b204d4c5d937118644bfedb38e/header.jpg?t=1790188002",
       "discount_end": 1790798400,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": 7,
+      "review_score_label": "好評",
+      "review_percent": 100,
+      "review_count": 17
     },
     "4320510": {
       "appid": "4320510",
@@ -108375,7 +108731,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4320510/56a502dd1882a1e0e58763a0743fb13f58e3ba69/header.jpg?t=1790194380",
       "discount_end": 1791392459,
-      "is_adult": true
+      "is_adult": true,
+      "review_score": 4,
+      "review_score_label": "大多負評",
+      "review_percent": 35,
+      "review_count": 34
     },
     "2085540": {
       "appid": "2085540",
@@ -108412,7 +108772,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2085540/bdd8ea4758441c2b3c00475e7c3647d0dc52baec/header.jpg?t=1790179341",
       "discount_end": 1790870400,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": 9,
+      "review_score_label": "壓倒性好評",
+      "review_percent": 96,
+      "review_count": 8025
     },
     "3431300": {
       "appid": "3431300",
@@ -108449,7 +108813,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3431300/3cb295b7e9e7d2eedf4b474d151e60edb7210338/header.jpg?t=1790182818",
       "discount_end": 1791392416,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": 8,
+      "review_score_label": "極度好評",
+      "review_percent": 97,
+      "review_count": 218
     },
     "4259190": {
       "appid": "4259190",
@@ -108485,7 +108853,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4259190/9f7d11479e98db4e5798ed936ca69f1ebb5cebe4/header.jpg?t=1790025743",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "632950": {
       "appid": "632950",
@@ -108522,7 +108894,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/632950/3aa88c8cd16de1fba6e1b9195848951f4663ae02/header_alt_assets_0.jpg?t=1789768120",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "3503090": {
       "appid": "3503090",
@@ -108559,7 +108935,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3503090/ea23f71571c9fa5cccb641fa322228dfce1617b4/header.jpg?t=1790183162",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4866000": {
       "appid": "4866000",
@@ -108596,14 +108976,18 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4866000/6fa8e9ba6ce80c74f1608a083fae109e40f9ec7d/header_alt_assets_1.jpg?t=1790182879",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": 0,
+      "review_score_label": "5 篇使用者評論",
+      "review_percent": 80,
+      "review_count": 5
     },
     "3631720": {
       "appid": "3631720",
       "name": "통나무 디펜스",
       "url": "https://store.steampowered.com/app/3631720/",
       "release_date": "2026-09-24",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3631720/f933fd1a30e0b27bd6de5c1f1e0be714ef9a1afd/capsule_231x87.jpg?t=1790186113",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3631720/f933fd1a30e0b27bd6de5c1f1e0be714ef9a1afd/capsule_231x87.jpg?t=1790232291",
       "status": "live",
       "price_pct": "-21%",
       "price_original": "NT$ 117.00",
@@ -108631,9 +109015,13 @@
         "線上合作",
         "合作"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3631720/294d1d99a2b1d154dd0eae49447cc08098605106/header.jpg?t=1790186113",
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3631720/294d1d99a2b1d154dd0eae49447cc08098605106/header.jpg?t=1790232291",
       "discount_end": 1790787612,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": 0,
+      "review_score_label": "1 篇使用者評論",
+      "review_percent": 0,
+      "review_count": 1
     },
     "5172490": {
       "appid": "5172490",
@@ -108670,7 +109058,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5172490/6bc778bc2dfc69f26fe3924371beac2146f67d9b/header.jpg?t=1790185448",
       "discount_end": 1791392406,
-      "is_adult": true
+      "is_adult": true,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4593860": {
       "appid": "4593860",
@@ -108702,7 +109094,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4593860/d3000a84b0ee5dbda5aeddd79401df5f1ea7c61d/header.jpg?t=1790185955",
       "discount_end": 1790787633,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4401410": {
       "appid": "4401410",
@@ -108739,7 +109135,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4401410/45ddc183953136f822cea68155003557df481a4e/header.jpg?t=1790184071",
       "discount_end": 1791392410,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4239070": {
       "appid": "4239070",
@@ -108776,7 +109176,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4239070/e6f56acbeca951b399bf995d7db2211dde514755/header.jpg?t=1790189943",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": 0,
+      "review_score_label": "1 篇使用者評論",
+      "review_percent": 100,
+      "review_count": 1
     },
     "5183380": {
       "appid": "5183380",
@@ -108813,7 +109217,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5183380/3fef39a6cd8ead62a694291f5b9e52cb206ef5d7/header.jpg?t=1790188121",
       "discount_end": 1790787640,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4981570": {
       "appid": "4981570",
@@ -108850,7 +109258,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4981570/220cdaf5171fb86917cd0f288c4fd551d89f24f9/header.jpg?t=1790198080",
       "discount_end": 1791219608,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": 7,
+      "review_score_label": "好評",
+      "review_percent": 93,
+      "review_count": 16
     },
     "4965060": {
       "appid": "4965060",
@@ -108887,7 +109299,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4965060/84e0ae4b6cd20cb8eacee918a84151dd507be573/header.jpg?t=1790187647",
       "discount_end": 1790787646,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "5029780": {
       "appid": "5029780",
@@ -108918,7 +109334,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5029780/1b218573f14072b0e08f89a3cb7def5b283b915b/header.jpg?t=1790190763",
       "discount_end": 1790787641,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4542880": {
       "appid": "4542880",
@@ -108955,7 +109375,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4542880/e7554c2bb5c061a31702e5d60509544a50bb5752/header.jpg?t=1790191666",
       "discount_end": 1790787642,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": 0,
+      "review_score_label": "7 篇使用者評論",
+      "review_percent": 71,
+      "review_count": 7
     },
     "5044180": {
       "appid": "5044180",
@@ -108992,7 +109416,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5044180/c05f832bcbc16222660c17a0fa7fccd070812812/header.jpg?t=1790194643",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4313120": {
       "appid": "4313120",
@@ -109025,7 +109453,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4313120/fef37a707aad0e7186c5c38fc77fff0fb8d43092/header.jpg?t=1790194984",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4863430": {
       "appid": "4863430",
@@ -109058,7 +109490,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4863430/429f89369d2fb46770a0ae41952706d106c58efd/header.jpg?t=1790199615",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "5180590": {
       "appid": "5180590",
@@ -109095,7 +109531,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5180590/83deba2e2e91ed539f73f6374cb65f1f4d0c1320/header_tchinese.jpg?t=1790200516",
       "discount_end": 1791392414,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "5097070": {
       "appid": "5097070",
@@ -109125,7 +109565,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5097070/edac628ad34427cadafb5c53b96b6561e1c91dbd/header.jpg?t=1790200999",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "5019920": {
       "appid": "5019920",
@@ -109162,7 +109606,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5019920/f68a77dcee43b69d9f3403e92dbe45de8f3e9c7b/header.jpg?t=1790204769",
       "discount_end": 1791392444,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": 0,
+      "review_score_label": "6 篇使用者評論",
+      "review_percent": 100,
+      "review_count": 6
     },
     "5083390": {
       "appid": "5083390",
@@ -109195,7 +109643,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5083390/7df49c6e2ebaa23b78df2bc7cbb1c0ed33b91d59/header.jpg?t=1790207551",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "5105570": {
       "appid": "5105570",
@@ -109232,7 +109684,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5105570/0577e969602bfb73457ad35e0cf43c3e0173f7ce/header.jpg?t=1790208593",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "5144870": {
       "appid": "5144870",
@@ -109258,7 +109714,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5144870/1937e9e2e20b103421381fe105c7bd93e16a0b37/header.jpg?t=1790214502",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "3191280": {
       "appid": "3191280",
@@ -109283,7 +109743,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3191280/e42016e264764d58ce3f5ac1694c64e93a8f553e/header.jpg?t=1790212770",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "5245980": {
       "appid": "5245980",
@@ -109310,7 +109774,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5245980/0adf176a607e07865c25920f75e102eb1a226b30/header.jpg?t=1790214519",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "5245970": {
       "appid": "5245970",
@@ -109335,7 +109803,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5245970/62cb2a07470a00b52353e6a8a033704ef74df6d3/header.jpg?t=1790214534",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4732980": {
       "appid": "4732980",
@@ -109365,7 +109837,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4732980/523947e0bf8504212eb0de1d8d064edd45264e8b/header.jpg?t=1790207877",
       "discount_end": 1791392455,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4781080": {
       "appid": "4781080",
@@ -109402,7 +109878,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4781080/bfd14af4232ac64593b7d411be4eb2fa32b20192/header.jpg?t=1790207400",
       "discount_end": 1790787658,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4483830": {
       "appid": "4483830",
@@ -109432,7 +109912,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4483830/e7cd3df628d65ed21a00eb419e9fa30478f5af58/header.jpg?t=1790221119",
       "discount_end": 1791392402,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4285860": {
       "appid": "4285860",
@@ -109469,7 +109953,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4285860/f8178eb935856f404a9dcaac02a13e534d5e2d5e/header.jpg?t=1790219599",
       "discount_end": 1790787617,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4133550": {
       "appid": "4133550",
@@ -109506,7 +109994,11 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4133550/68bc7f7f202cd92eb2264130c1e5bb9da23ab7f6/header.jpg?t=1790230659",
       "discount_end": 1790787639,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     },
     "4985180": {
       "appid": "4985180",
@@ -109536,7 +110028,76 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4985180/063f2f0abe1cc3734dfbd841ec542080b6513769/header.jpg?t=1790222912",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
+    },
+    "5017500": {
+      "appid": "5017500",
+      "name": "Infinite Galleries",
+      "url": "https://store.steampowered.com/app/5017500/",
+      "release_date": "2026-09-24",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5017500/d36246dda396c5a9d014d7ca6eea54f651476afa/capsule_231x87.jpg?t=1790231797",
+      "status": "live",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "免費",
+      "release_epoch": 1790231791,
+      "tags": [
+        "探索",
+        "步行模擬",
+        "程序生成",
+        "虛擬實境",
+        "第一人稱視角",
+        "放鬆",
+        "教育學習",
+        "休閒",
+        "氛圍",
+        "冒險",
+        "單人",
+        "3D",
+        "免費遊玩",
+        "獨立"
+      ],
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5017500/9b866512b4d42e71dcdbfdfa81e0b4b44dfb48aa/header.jpg?t=1790231797",
+      "discount_end": null,
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
+    },
+    "5101840": {
+      "appid": "5101840",
+      "name": "Teverim",
+      "url": "https://store.steampowered.com/app/5101840/",
+      "release_date": "2026-09-24",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5101840/6f19249791654d1a3a64ceb1c77bc3ab958d712d/capsule_231x87.jpg?t=1790231628",
+      "status": "live",
+      "price_pct": "-21%",
+      "price_original": "NT$ 52.00",
+      "price_final": "NT$ 41.00",
+      "release_epoch": 1790231629,
+      "tags": [
+        "角色扮演",
+        "類 Rogue",
+        "輕度 Rogue",
+        "回合制戰術",
+        "2D",
+        "奇幻",
+        "單人",
+        "獨立",
+        "搶先體驗"
+      ],
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5101840/3f37b1db632102b64ccf8b779f4efdc722c06fa1/header.jpg?t=1790231628",
+      "discount_end": 1790787647,
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     }
   }
 }
