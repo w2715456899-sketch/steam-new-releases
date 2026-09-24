@@ -143,11 +143,28 @@ def upsert_history(history: dict, games: Iterable[Game]) -> None:
 # ---------------------------------------------------------------------------
 
 
+STEAM_API_RETRIES = 3
+
+
 def steam_api_get(interface: str, method: str, key: str, **params) -> dict:
     url = f"{STEAM_API_BASE}/{interface}/{method}/v1/"
-    resp = requests.get(url, params={"key": key, **params}, headers=HEADERS, timeout=20)
-    resp.raise_for_status()
-    return resp.json()["response"]
+    # The review-score refresh alone makes ~65 sequential calls every run - at that volume, a
+    # single transient network hiccup or Steam 5xx (no retry) used to be enough to crash the
+    # whole hourly job. Retries here turn "one bad request kills the run" into "just this one
+    # request is a bit slower."
+    last_exc: Exception | None = None
+    for attempt in range(STEAM_API_RETRIES):
+        try:
+            resp = requests.get(url, params={"key": key, **params}, headers=HEADERS, timeout=20)
+            resp.raise_for_status()
+            return resp.json()["response"]
+        except (requests.RequestException, KeyError, ValueError) as exc:
+            last_exc = exc
+            if attempt < STEAM_API_RETRIES - 1:
+                wait = 2**attempt
+                log.warning("%s/%s request failed (%s), retrying in %ds...", interface, method, exc, wait)
+                time.sleep(wait)
+    raise last_exc
 
 
 def fetch_tag_names(key: str, language: str) -> dict[int, str]:
@@ -303,7 +320,14 @@ def refresh_stale_discounts(
                 "include_reviews": True,
             },
         }
-        resp = steam_api_get("IStoreBrowseService", "GetItems", key, input_json=json.dumps(input_json))
+        try:
+            resp = steam_api_get("IStoreBrowseService", "GetItems", key, input_json=json.dumps(input_json))
+        except (requests.RequestException, KeyError, ValueError) as exc:
+            # This is a "keep existing entries fresh" pass, not the critical path (today's
+            # fetch) - one batch failing even after steam_api_get's own retries shouldn't take
+            # down site generation/notification for the whole run, so skip it and move on.
+            log.warning("Batch refresh failed after retries, skipping this batch: %s", exc)
+            continue
         for item in resp.get("store_items", []):
             g = _item_to_game(item, tag_names)
             existing = history["games"].get(str(item.get("appid")))
@@ -363,7 +387,14 @@ def refresh_stale_upcoming(
                 "include_reviews": True,
             },
         }
-        resp = steam_api_get("IStoreBrowseService", "GetItems", key, input_json=json.dumps(input_json))
+        try:
+            resp = steam_api_get("IStoreBrowseService", "GetItems", key, input_json=json.dumps(input_json))
+        except (requests.RequestException, KeyError, ValueError) as exc:
+            # This is a "keep existing entries fresh" pass, not the critical path (today's
+            # fetch) - one batch failing even after steam_api_get's own retries shouldn't take
+            # down site generation/notification for the whole run, so skip it and move on.
+            log.warning("Batch refresh failed after retries, skipping this batch: %s", exc)
+            continue
         for item in resp.get("store_items", []):
             appid = str(item.get("appid"))
             existing = history["games"].get(appid)
@@ -421,7 +452,14 @@ def refresh_review_scores(history: dict, key: str, language: str, country: str) 
             "context": {"language": language, "country_code": country, "steam_realm": 1},
             "data_request": {"include_reviews": True},
         }
-        resp = steam_api_get("IStoreBrowseService", "GetItems", key, input_json=json.dumps(input_json))
+        try:
+            resp = steam_api_get("IStoreBrowseService", "GetItems", key, input_json=json.dumps(input_json))
+        except (requests.RequestException, KeyError, ValueError) as exc:
+            # This is a "keep existing entries fresh" pass, not the critical path (today's
+            # fetch) - one batch failing even after steam_api_get's own retries shouldn't take
+            # down site generation/notification for the whole run, so skip it and move on.
+            log.warning("Batch refresh failed after retries, skipping this batch: %s", exc)
+            continue
         for item in resp.get("store_items", []):
             existing = history["games"].get(str(item.get("appid")))
             if not existing:

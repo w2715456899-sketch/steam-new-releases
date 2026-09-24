@@ -72,7 +72,7 @@ jobs:
       - name: Alert on failure
         if: failure()
         run: |
-          MSG="⚠️ Steam 新遊戲更新失敗（$(date -u +'%Y-%m-%d %H:%M UTC')）
+          MSG="⚠️ Steam 新遊戲更新失敗（$(TZ='Asia/Taipei' date +'%Y-%m-%d %H:%M') 台北時間）
           ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           PAYLOAD=$(jq -n --arg content "$MSG" '{content: $content}')
           curl -sf -X POST -H "Content-Type: application/json" -d "$PAYLOAD" "${{ secrets.DISCORD_WEBHOOK_URL }}"
