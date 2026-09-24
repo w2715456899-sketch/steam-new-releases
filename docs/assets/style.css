@@ -107,6 +107,11 @@ h2.section { font-size: 0.85rem; color: #8894a3; margin: 24px 0 8px; text-transf
 .wish-star svg { width: 16px; height: 16px; display: block; }
 .wish-star svg path { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linejoin: round; }
 .wish-star.filled svg path { fill: currentColor; stroke: none; }
+/* Wishlist page rows have no tags/review line to give them height, so at the default row
+   height the vertically-centered badge sits close enough to the top-right star to overlap
+   it. Other pages' rows are already tall enough from their own content that this never
+   comes up, so this stays scoped to wishlist rows instead of changing .row everywhere. */
+.wishlist-row { min-height: 118px; }
 .row .media { flex: none; display: block; position: relative; }
 .row img.cap {
   width: 160px; height: 75px; object-fit: cover; border-radius: 6px; background: #232b37;
