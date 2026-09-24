@@ -147,6 +147,7 @@ h2.section { font-size: 0.85rem; color: #8894a3; margin: 24px 0 8px; text-transf
 .disc-final.unknown { color: #8894a3; font-weight: 400; font-size: 0.85rem; }
 .discount-end { color: #66c0f4; font-size: 0.78rem; margin-top: 3px; }
 .review-line { font-size: 0.78rem; margin-top: 4px; }
+.discount-end.placeholder, .review-line.placeholder { visibility: hidden; }
 .review-score { font-weight: 600; }
 .review-score.pos { color: #5fd58a; }
 .review-score.mixed { color: #d4b95f; }
