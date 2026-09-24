@@ -22,9 +22,16 @@ body {
 .meta { color: #8894a3; font-size: 0.8rem; margin-bottom: 20px; }
 h1 { font-size: 1.3rem; margin: 0; }
 .date-heading {
-  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;
   flex-wrap: wrap; margin: 4px 0 16px;
 }
+.date-hero { padding-left: 14px; border-left: 3px solid #7c5cbf; }
+.date-hero-eyebrow {
+  font-size: 0.72rem; color: #b79aef; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700;
+}
+.date-hero-date { font-size: 1.6rem; font-weight: 700; margin: 2px 0 0; line-height: 1.25; }
+.date-hero-date .wd { font-size: 1rem; font-weight: 400; color: #8894a3; margin-left: 8px; }
+.date-hero-count { font-size: 0.82rem; color: #8894a3; margin-top: 2px; }
 .adult-toggle {
   display: flex; align-items: center; gap: 6px; font-size: 0.82rem; color: #9db4d1;
   cursor: pointer; user-select: none;

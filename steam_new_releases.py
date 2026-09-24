@@ -32,6 +32,7 @@ LOCAL_TZ = ZoneInfo("Asia/Taipei")  # Both the query window and the date each it
 # says for anything released in the ~15-16h gap between the two timezones' day boundaries -
 # a known, accepted trade-off in favor of everything on this site agreeing with itself.
 MAX_QUERY_PAGES = 50  # safety cap (5000 items) so a pagination bug can't loop forever
+WEEKDAY_ZH = ["一", "二", "三", "四", "五", "六", "日"]
 
 log = logging.getLogger("steam_new_releases")
 
@@ -431,9 +432,16 @@ body {
 .meta { color: #8894a3; font-size: 0.8rem; margin-bottom: 20px; }
 h1 { font-size: 1.3rem; margin: 0; }
 .date-heading {
-  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;
   flex-wrap: wrap; margin: 4px 0 16px;
 }
+.date-hero { padding-left: 14px; border-left: 3px solid #7c5cbf; }
+.date-hero-eyebrow {
+  font-size: 0.72rem; color: #b79aef; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700;
+}
+.date-hero-date { font-size: 1.6rem; font-weight: 700; margin: 2px 0 0; line-height: 1.25; }
+.date-hero-date .wd { font-size: 1rem; font-weight: 400; color: #8894a3; margin-left: 8px; }
+.date-hero-count { font-size: 0.82rem; color: #8894a3; margin-top: 2px; }
 .adult-toggle {
   display: flex; align-items: center; gap: 6px; font-size: 0.82rem; color: #9db4d1;
   cursor: pointer; user-select: none;
@@ -840,7 +848,16 @@ def render_date_body(date_str: str, games: list[dict], base: str) -> str:
         f'<span class="hidden-count">（已隱藏 {adult_count} 款）</span>'
         "</label>"
     ) if adult_count else ""
-    body = f'<div class="date-heading"><h1>{esc(date_str)}</h1>{adult_toggle}</div>'
+    dt = datetime.strptime(date_str, "%Y-%m-%d")
+    hero = (
+        '<div class="date-hero">'
+        '<div class="date-hero-eyebrow">NEW RELEASES</div>'
+        f'<h1 class="date-hero-date">{dt.month}月{dt.day}日'
+        f'<span class="wd">星期{WEEKDAY_ZH[dt.weekday()]}</span></h1>'
+        f'<div class="date-hero-count">{len(games)} 款新遊戲</div>'
+        "</div>"
+    )
+    body = f'<div class="date-heading">{hero}{adult_toggle}</div>'
     if not games:
         return body + '<div class="empty">當天沒有資料</div>'
     body += render_games_section("已上架", live, base)
@@ -892,8 +909,6 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int, today: dat
             body_html=render_date_body(d, by_date[d], "../"),
         )
         (dates_dir / f"{d}.html").write_text(page, encoding="utf-8")
-
-    WEEKDAY_ZH = ["一", "二", "三", "四", "五", "六", "日"]
 
     def date_card(d: str) -> str:
         dt = datetime.strptime(d, "%Y-%m-%d")
