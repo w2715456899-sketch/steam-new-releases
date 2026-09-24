@@ -8096,8 +8096,8 @@
       "is_adult": false,
       "review_score": 8,
       "review_score_label": "極度好評",
-      "review_percent": 84,
-      "review_count": 53
+      "review_percent": 85,
+      "review_count": 55
     },
     "4496240": {
       "appid": "4496240",
@@ -24551,9 +24551,9 @@
       "discount_end": 1790614812,
       "is_adult": false,
       "review_score": 0,
-      "review_score_label": "2 篇使用者評論",
+      "review_score_label": "5 篇使用者評論",
       "review_percent": 100,
-      "review_count": 2
+      "review_count": 5
     },
     "4662180": {
       "appid": "4662180",
@@ -91345,7 +91345,7 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 92,
-      "review_count": 135
+      "review_count": 136
     },
     "1352890": {
       "appid": "1352890",
@@ -106363,7 +106363,7 @@
       "review_score": 7,
       "review_score_label": "好評",
       "review_percent": 97,
-      "review_count": 39
+      "review_count": 40
     },
     "3048060": {
       "appid": "3048060",
@@ -122552,7 +122552,7 @@
       "name": "Sector 13: Haunted Woods",
       "url": "https://store.steampowered.com/app/4244040/",
       "release_date": "2026-09-25",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4244040/72262e7a954bb066c20469ef258ad4b8f95e545d/capsule_231x87.jpg?t=1790198417",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4244040/72262e7a954bb066c20469ef258ad4b8f95e545d/capsule_231x87.jpg?t=1790288721",
       "status": "upcoming",
       "price_pct": null,
       "price_original": null,
@@ -122580,7 +122580,7 @@
         "驚悚",
         "生存恐怖"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4244040/4b397752a47953c44692b2c2290e674de04e676d/header.jpg?t=1790198417",
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4244040/4b397752a47953c44692b2c2290e674de04e676d/header.jpg?t=1790288721",
       "discount_end": null,
       "is_adult": false,
       "review_score": null,
@@ -124732,7 +124732,7 @@
       "name": "Mayor Life Simulator",
       "url": "https://store.steampowered.com/app/3834340/",
       "release_date": "2026-09-25",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3834340/e6dbd61578d320f83491b0c7f9bfad74070c8ee6/capsule_231x87.jpg?t=1790279477",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3834340/e6dbd61578d320f83491b0c7f9bfad74070c8ee6/capsule_231x87.jpg?t=1790289510",
       "status": "live",
       "price_pct": "-11%",
       "price_original": "NT$ 102.00",
@@ -124758,9 +124758,9 @@
         "駕駛",
         "經濟",
         "冒險",
-        "色情內容"
+        "多人"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3834340/f15b73ffab574ceaf3c400f5aea0a8fbee8cd19a/header.jpg?t=1790279477",
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3834340/f15b73ffab574ceaf3c400f5aea0a8fbee8cd19a/header.jpg?t=1790289510",
       "discount_end": 1791478816,
       "is_adult": false,
       "review_score": null,

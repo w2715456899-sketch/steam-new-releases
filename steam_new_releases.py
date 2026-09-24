@@ -22,7 +22,6 @@ BASE_DIR = Path(__file__).resolve().parent
 STEAM_API_BASE = "https://api.steampowered.com"
 ASSET_BASE = "https://shared.fastly.steamstatic.com/store_item_assets/"
 HEADERS = {"User-Agent": "steam-new-releases-bot/2.0"}
-STATE_RETENTION_DAYS = 14
 DEFAULT_RETENTION_DAYS = 30
 DEFAULT_BACKFILL_DAYS = 30
 LOCAL_TZ = ZoneInfo("Asia/Taipei")  # Both the query window and the date each item gets filed
@@ -93,18 +92,6 @@ def load_config(path: Path) -> dict:
         log.error("config.json is missing 'steam_api_key' (get one at https://steamcommunity.com/dev/apikey)")
         sys.exit(1)
     return config
-
-
-def load_state(path: Path) -> dict:
-    if not path.exists():
-        return {"notified": {}}
-    return json.loads(path.read_text(encoding="utf-8"))
-
-
-def save_state(path: Path, state: dict) -> None:
-    cutoff = (local_today() - timedelta(days=STATE_RETENTION_DAYS)).isoformat()
-    state["notified"] = {k: v for k, v in state["notified"].items() if v >= cutoff}
-    path.write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
 def load_history(path: Path) -> dict:
@@ -487,16 +474,14 @@ def refresh_review_scores(history: dict, key: str, language: str, country: str) 
     return refreshed
 
 
-def send_discord(webhook_url: str, today: date, games: list[Game], dry_run: bool, site_url: str) -> None:
-    if not games:
-        log.info("No new releases today - skipping Discord ping")
+def send_discord(webhook_url: str, today: date, count: int, dry_run: bool, site_url: str) -> None:
+    if not count:
+        log.info("No releases on record for today - skipping Discord ping")
         return
 
-    content = f"{today.isoformat()} 新遊戲更新了 共 {len(games)} 款\n{site_url}"
+    content = f"{today.isoformat()} 新遊戲更新了 共 {count} 款\n{site_url}"
     if dry_run:
         log.info(content)
-        for game in games:
-            log.info(" - %s (%s) %s", game.name, game.release_date, game.url)
         return
 
     requests.post(webhook_url, json={"content": content}, timeout=20).raise_for_status()
@@ -601,6 +586,11 @@ h2.section { font-size: 0.85rem; color: #8894a3; margin: 24px 0 8px; text-transf
 .row {
   display: flex; gap: 14px; padding: 12px 14px; align-items: center;
   border-bottom: 1px solid #1c2330; position: relative;
+  /* Rows with a discount/review line are naturally tall enough that the vertically-centered
+     badge clears the top-right star; a plain row (no discount, no reviews yet) is short
+     enough that they'd overlap. Fixing the height keeps every row's star in the same spot
+     regardless of what content that particular game happens to have. */
+  min-height: 118px;
 }
 .row:first-child { border-top-left-radius: 10px; border-top-right-radius: 10px; }
 .row:last-child { border-bottom: none; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; }
@@ -617,11 +607,6 @@ h2.section { font-size: 0.85rem; color: #8894a3; margin: 24px 0 8px; text-transf
 .wish-star svg { width: 16px; height: 16px; display: block; }
 .wish-star svg path { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linejoin: round; }
 .wish-star.filled svg path { fill: currentColor; stroke: none; }
-/* Wishlist page rows have no tags/review line to give them height, so at the default row
-   height the vertically-centered badge sits close enough to the top-right star to overlap
-   it. Other pages' rows are already tall enough from their own content that this never
-   comes up, so this stays scoped to wishlist rows instead of changing .row everywhere. */
-.wishlist-row { min-height: 118px; }
 .row .media { flex: none; display: block; position: relative; }
 .row img.cap {
   width: 160px; height: 75px; object-fit: cover; border-radius: 6px; background: #232b37;
@@ -1434,7 +1419,7 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int, today: dat
       var steamUrl = "steam://store/" + encodeURIComponent(g.appid);
       var openAttrs = 'data-web="' + esc(g.web) + '" data-steam="' + esc(steamUrl) + '"';
       return (
-        '<div class="row wishlist-row">' +
+        '<div class="row">' +
         '<a class="media" href="' + esc(g.web) + '" ' + openAttrs + '>' +
         '<img class="cap" src="' + esc(g.image) + '" loading="lazy" alt=""></a>' +
         '<button type="button" class="wish-star filled" data-appid="' + esc(g.appid) +
@@ -1492,7 +1477,6 @@ def main() -> None:
 
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", type=Path, default=BASE_DIR / "config.json")
-    parser.add_argument("--state", type=Path, default=BASE_DIR / "state.json")
     parser.add_argument("--history", type=Path, default=BASE_DIR / "history.json")
     parser.add_argument("--docs", type=Path, default=BASE_DIR / "docs")
     parser.add_argument("--dry-run", action="store_true", help="Print results instead of posting to Discord")
@@ -1501,9 +1485,8 @@ def main() -> None:
     parser.add_argument(
         "--skip-notify",
         action="store_true",
-        help="Update data/site as normal but don't post to Discord or mark anything as notified "
-        "(for frequent silent runs that just keep the site fresh; a later run without this flag "
-        "sends everything that piled up since the last real notification)",
+        help="Update data/site as normal but don't post to Discord (for frequent silent runs "
+        "that just keep the site fresh)",
     )
     parser.add_argument("--debug", action="store_true")
     args = parser.parse_args()
@@ -1559,21 +1542,18 @@ def main() -> None:
         if not args.dry_run and config.get("git_auto_push", True):
             git_publish(BASE_DIR, args.docs, f"Update site {today.isoformat()}")
 
-    state = load_state(args.state)
-    notified = state["notified"]
-    new_games = [g for g in games if g.appid not in notified]
-    log.info("Found %d release(s) today, %d not yet notified", len(games), len(new_games))
+    # Count from history (accumulated over every hourly run today), not from this run's own
+    # fresh fetch - a single fetch can miss a few games to the documented API pagination
+    # flakiness, but history.json already carries forward whatever earlier runs today found.
+    today_str = today.isoformat()
+    today_count = sum(1 for g in history["games"].values() if g["release_date"] == today_str)
+    log.info("%d release(s) on record for today", today_count)
 
     if args.skip_notify:
-        log.info("--skip-notify: leaving Discord and state.json alone this run")
+        log.info("--skip-notify: leaving Discord alone this run")
         return
 
-    send_discord(config["webhook_url"], today, new_games, args.dry_run, site_url)
-
-    if not args.dry_run:
-        for game in new_games:
-            notified[game.appid] = game.release_date.isoformat()
-        save_state(args.state, state)
+    send_discord(config["webhook_url"], today, today_count, args.dry_run, site_url)
 
 
 if __name__ == "__main__":

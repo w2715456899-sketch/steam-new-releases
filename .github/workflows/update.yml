@@ -41,7 +41,7 @@ jobs:
 
       # 06:00 Taipei (UTC+8) = 22:00 UTC the previous day - only that hourly run actually
       # pings Discord, so friends get one summary a day instead of an hourly ping. Every
-      # other run still refreshes history.json/state.json/docs/ silently.
+      # other run still refreshes history.json/docs/ silently.
       - name: Decide whether this is the once-a-day notify run
         id: when
         run: |
@@ -63,7 +63,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs history.json state.json
+          git add docs history.json
           git diff --cached --quiet || git commit -m "Update site $(date -u +'%Y-%m-%d %H:%M UTC')"
           git push
 

@@ -58,8 +58,8 @@ python steam_new_releases.py --dry-run --debug
 
 不會真的發 Discord、不會寫入任何檔案，只印出這次會抓到什麼。確認沒問題後可以直接執行
 `python steam_new_releases.py` 跑一次真的（會發 Discord、push 到 GitHub）；加
-`--skip-notify` 則會更新資料跟網站但不發 Discord、不標記已通知（跟 GitHub Actions 的
-「安靜更新」那幾次行為一樣）。
+`--skip-notify` 則會更新資料跟網站但不發 Discord（跟 GitHub Actions 的「安靜更新」那幾次
+行為一樣）。
 
 ## 運作方式
 
@@ -86,10 +86,11 @@ python steam_new_releases.py --dry-run --debug
 
 - 寫入 `history.json`，保留 `retention_days` 天。
 - 用 `docs/` 重新產生整個靜態網站（首頁、每日頁面、標籤頁面、搜尋頁）。
-- 對照 `state.json` 找出「這次新出現、之前沒通知過的遊戲」；只有早上 6:00 那次執行（沒帶
-  `--skip-notify`）才會真的發 Discord、把這些標記成已通知——平常每小時的安靜更新只會更新
-  `history.json`/網站，不動 `state.json`，所以累積一整天的新遊戲都會在早上那次一次發出。
-- GitHub Actions 每次執行完會把 `history.json`、`state.json`、`docs/` 一起 commit + push。
+- 只有早上 6:00 那次執行（沒帶 `--skip-notify`）才會真的發 Discord，內容是「今天累計到目前
+  為止 `history.json` 裡記錄了幾款」的總數——直接算 `history.json` 裡 `release_date` 是今天
+  的筆數，不是只看這次抓到的、也不追蹤「哪些已經通知過」，這樣就算某次 API 抓取剛好漏掉幾款
+  （已知的分頁不穩定問題），只要之前哪次有抓到、`history.json` 裡就有，數字依然正確。
+- GitHub Actions 每次執行完會把 `history.json`、`docs/` 一起 commit + push。
 
 ## 檔案說明
 
@@ -98,5 +99,4 @@ python steam_new_releases.py --dry-run --debug
 - `config.json` — 本機測試用的私人設定（webhook、API 金鑰…），**不進版控**；正式排程的密鑰放
   在 GitHub Secrets，不是這個檔案
 - `history.json` — 歷史資料，**會進版控**（只是遊戲清單，沒有敏感資訊）
-- `state.json` — 已通知過的 App ID 記錄，避免重複推播，**會進版控**
 - `docs/` — 產生出來的靜態網站，**會進版控**，GitHub Pages 直接從這個資料夾發布
