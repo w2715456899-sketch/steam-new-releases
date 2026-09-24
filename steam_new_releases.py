@@ -642,6 +642,7 @@ h2.section { font-size: 0.85rem; color: #8894a3; margin: 24px 0 8px; text-transf
 .disc-final.unknown { color: #8894a3; font-weight: 400; font-size: 0.85rem; }
 .discount-end { color: #66c0f4; font-size: 0.78rem; margin-top: 3px; }
 .review-line { font-size: 0.78rem; margin-top: 4px; }
+.discount-end.placeholder, .review-line.placeholder { visibility: hidden; }
 .review-score { font-weight: 600; }
 .review-score.pos { color: #5fd58a; }
 .review-score.mixed { color: #d4b95f; }
@@ -1067,13 +1068,20 @@ def render_price(g: dict) -> str:
     if end:
         dt = datetime.fromtimestamp(end, tz=LOCAL_TZ)
         html += f'<div class="discount-end">優惠至 {dt.strftime("%m/%d")} 截止</div>'
+    else:
+        # A game with no discount still reserves this line's height (invisible, not absent)
+        # so every row is the same height whether or not that particular game has one -
+        # otherwise a discounted/reviewed game's row visibly grows taller than a plain one's.
+        html += '<div class="discount-end placeholder">&nbsp;</div>'
     return html
 
 
 def render_review(g: dict) -> str:
     score, count = g.get("review_score"), g.get("review_count")
     if not score or not count:
-        return ""  # too few reviews yet for Steam to have scored it - nothing worth showing
+        # Too few reviews yet for Steam to have scored it - keep the line's height reserved
+        # (see render_price's discount-end placeholder for why) rather than omitting it.
+        return '<div class="review-line placeholder">&nbsp;</div>'
     # Steam's 9 buckets aren't evenly split around "mixed" - only score 5 is actually
     # Mixed; 6 (Mostly Positive) and 4 (Mostly Negative) already lean to one side.
     tier = "pos" if score >= 6 else "neg" if score <= 4 else "mixed"
