@@ -821,11 +821,22 @@ function imgFallback(el) {
     });
   });
 
+  var isMobile = /Mobi|Android|iPhone|iPad|iPod/.test(navigator.userAgent);
+
   document.addEventListener("click", function (e) {
     if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
     var el = e.target.closest("[data-web][data-steam]");
     if (!el) return;
     e.preventDefault();
+    if (isMobile) {
+      // steam:// only means anything to the desktop client - it's not a scheme the mobile
+      // Steam app registers, so trying it here just throws an "invalid URL" error. Mobile
+      // app-opening works through Universal/App Links on the normal https:// URL instead,
+      // handled entirely by the OS - so there's nothing for this "web or Steam" choice to
+      // actually choose between on a phone, and asking is just a broken extra tap.
+      window.location.href = el.getAttribute("data-web");
+      return;
+    }
     pending = { web: el.getAttribute("data-web"), steam: el.getAttribute("data-steam") };
     var pref = getPref();
     if (pref) { openWith(pref); pending = null; return; }
@@ -997,7 +1008,13 @@ def render_games_section(title: str, games: list[dict], base: str, show_date: bo
 
 
 def render_date_body(date_str: str, games: list[dict], base: str) -> str:
-    live = sorted([g for g in games if g["status"] == "live"], key=lambda g: g["name"])
+    # Most reviews first - a rough proxy for "what's actually catching people's attention",
+    # not just an alphabetical wall of names. Games with no review_count yet (very common for
+    # something that launched minutes ago) sort to the end via the 0 fallback, then by name.
+    live = sorted(
+        [g for g in games if g["status"] == "live"],
+        key=lambda g: (-(g.get("review_count") or 0), g["name"]),
+    )
     upcoming = sorted(
         [g for g in games if g["status"] == "upcoming"],
         key=lambda g: (g.get("release_epoch") is None, g.get("release_epoch") or 0, g["name"]),
