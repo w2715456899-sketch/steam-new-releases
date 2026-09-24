@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  actions: read  # needed to look up recent run conclusions for the failure-streak check below
 
 jobs:
   update:
@@ -66,13 +67,37 @@ jobs:
           git diff --cached --quiet || git commit -m "Update site $(date -u +'%Y-%m-%d %H:%M UTC')"
           git push
 
-      # Runs only if an earlier step in this job failed (bad API response, crash, push
-      # conflict, ...) - without this, a broken hourly run fails silently and the site
-      # just quietly stops updating until someone happens to check the Actions tab.
-      - name: Alert on failure
+      # The next hourly trigger is already a natural retry, and steam_api_get() now retries
+      # transient failures within a run too - so a single failed run is usually a passing
+      # blip, not worth paging anyone about. Only worth pinging once it's a real, ongoing
+      # problem: count how many completed runs in a row (right before this one) also failed,
+      # and only alert once this run makes three straight.
+      - name: Check consecutive failure streak
         if: failure()
+        id: streak
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          MSG="⚠️ Steam 新遊戲更新失敗（$(TZ='Asia/Taipei' date +'%Y-%m-%d %H:%M') 台北時間）
+          CONCLUSIONS=$(gh run list --repo "${{ github.repository }}" --workflow=update.yml \
+            --limit 5 --json conclusion --jq '.[].conclusion' 2>/dev/null) || CONCLUSIONS=""
+          if [ -z "$CONCLUSIONS" ]; then
+            STREAK=3  # couldn't check the history - fail safe and alert anyway
+          else
+            STREAK=1
+            for c in $CONCLUSIONS; do
+              if [ "$c" = "failure" ]; then
+                STREAK=$((STREAK + 1))
+              else
+                break
+              fi
+            done
+          fi
+          echo "streak=$STREAK" >> "$GITHUB_OUTPUT"
+
+      - name: Alert on failure
+        if: failure() && fromJSON(steps.streak.outputs.streak) >= 3
+        run: |
+          MSG="⚠️ Steam 新遊戲更新連續失敗 ${{ steps.streak.outputs.streak }} 次（$(TZ='Asia/Taipei' date +'%Y-%m-%d %H:%M') 台北時間）
           ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           PAYLOAD=$(jq -n --arg content "$MSG" '{content: $content}')
           curl -sf -X POST -H "Content-Type: application/json" -d "$PAYLOAD" "${{ secrets.DISCORD_WEBHOOK_URL }}"
