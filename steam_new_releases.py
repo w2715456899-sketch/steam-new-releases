@@ -457,10 +457,12 @@ h2.section { font-size: 0.85rem; color: #8894a3; margin: 24px 0 8px; text-transf
   width: 160px; height: 75px; object-fit: cover; border-radius: 6px; background: #232b37;
   transition: transform 0.18s ease, box-shadow 0.18s ease; transform-origin: right center;
 }
-.row:hover img.cap {
-  transform: scale(2.1);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
-  position: relative; z-index: 30;
+@media (hover: hover) and (pointer: fine) {
+  .row:hover img.cap {
+    transform: scale(2.1);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+    position: relative; z-index: 30;
+  }
 }
 .row .info { min-width: 0; flex: 1; }
 .row .name {
@@ -548,9 +550,15 @@ h2.section { font-size: 0.85rem; color: #8894a3; margin: 24px 0 8px; text-transf
 .tag-more-close { display: none; }
 .tag-toggle:checked ~ .tag-more-open { display: none; }
 .tag-toggle:checked ~ .tag-more-close { display: inline-block; }
-@media (max-width: 480px) {
-  .row img.cap { width: 110px; height: 52px; }
-  .row .name { font-size: 1rem; }
+@media (max-width: 600px) {
+  .row { flex-wrap: wrap; padding: 12px; }
+  .row .media { flex: 1 1 100%; order: 1; }
+  .row img.cap { width: 100%; height: auto; aspect-ratio: 16 / 7; }
+  .row .badge { order: 2; margin: 8px 0 0 auto; }
+  .row .info { flex: 1 1 100%; order: 3; margin-top: 8px; }
+  .row .name { white-space: normal; overflow: visible; text-overflow: clip; font-size: 1.05rem; }
+  .date-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+  .open-modal-options { flex-direction: column; }
 }
 .badge { flex: none; font-size: 0.92rem; font-weight: 600; padding: 6px 12px; border-radius: 999px; white-space: nowrap; }
 .badge.live { background: #16331f; color: #5fd58a; }
