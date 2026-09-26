@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>願望清單 - Steam美食家</title>
-<link rel="icon" href="assets/logo.png">
-<link rel="stylesheet" href="assets/style.css?v=0ccf0747">
+<title>#全地形載具 - Steam美食家</title>
+<link rel="icon" href="../assets/logo.png">
+<link rel="stylesheet" href="../assets/style.css?v=0ccf0747">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Steam新遊戲通知">
-<meta property="og:title" content="願望清單 - Steam美食家">
-<meta property="og:description" content="我收藏的 Steam 新遊戲願望清單">
-<meta property="og:url" content="https://w2715456899-sketch.github.io/steam-new-releases/wishlist.html">
-<meta property="og:image" content="https://w2715456899-sketch.github.io/steam-new-releases/assets/logo.png">
+<meta property="og:title" content="#全地形載具 - Steam美食家">
+<meta property="og:description" content="「全地形載具」相關的 Steam 新遊戲，共 1 款">
+<meta property="og:url" content="https://w2715456899-sketch.github.io/steam-new-releases/tags/全地形載具.html">
+<meta property="og:image" content="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3939990/1051ee33fb2872b5fe8c0021d60bc57a05f4f2f0/header.jpg?t=1790435485">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
@@ -23,66 +23,19 @@
     <span class="drawer-title">選單</span>
     <button type="button" class="drawer-close" id="drawerClose" aria-label="關閉">✕</button>
   </div>
-  <a class="drawer-item" href="index.html">回首頁</a>
-  <a class="drawer-item" href="wishlist.html">★ 願望清單</a>
+  <a class="drawer-item" href="../index.html">回首頁</a>
+  <a class="drawer-item" href="../wishlist.html">★ 願望清單</a>
 </nav>
 <div class="wrap">
   <div class="topbar">
-    <a class="brand" href="index.html"><img src="assets/logo.png" alt="Steam美食家"></a>
-    <div class="nav"><a class="nav-mid" href="index.html">← 回首頁</a></div>
+    <a class="brand" href="../index.html"><img src="../assets/logo.png" alt="Steam美食家"></a>
+    <div class="nav"><a class="nav-mid" href="../index.html">← 回首頁</a></div>
   </div>
   <div class="meta">Last synced 2026-09-26 23:14 · Showing the last 30 days</div>
-  <form class="global-search" action="search.html" method="get">
+  <form class="global-search" action="../search.html" method="get">
     <input type="text" name="q" id="globalSearch" class="search-box" placeholder="搜尋名稱…" autocomplete="off">
   </form>
-  <h1>願望清單</h1><div class="card" id="wishlistList"></div><script>
-(function () {
-  var container = document.getElementById("wishlistList");
-  if (!container) return;
-  function esc(s) {
-    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
-      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
-    });
-  }
-  function render() {
-    var w;
-    try { w = JSON.parse(localStorage.getItem("wishlist") || "{}"); } catch (e) { w = {}; }
-    var entries = Object.keys(w).map(function (id) {
-      var g = Object.assign({}, w[id]);
-      g.appid = id;
-      return g;
-    });
-    entries.sort(function (a, b) { return (b.addedAt || 0) - (a.addedAt || 0); });
-    if (!entries.length) {
-      container.className = "empty";
-      container.textContent = "還沒有加入任何願望清單，點遊戲卡片右上角的 ☆ 就可以加入";
-      return;
-    }
-    container.className = "card";
-    container.innerHTML = entries.map(function (g) {
-      var badgeClass = g.status === "live" ? "badge live" : "badge upcoming";
-      var badgeText = g.status === "live" ? esc(g.badge || "已上架") : ("⏳ " + esc(g.badge || ""));
-      var steamUrl = "steam://store/" + encodeURIComponent(g.appid);
-      var openAttrs = 'data-web="' + esc(g.web) + '" data-steam="' + esc(steamUrl) + '"';
-      return (
-        '<div class="row">' +
-        '<a class="media" href="' + esc(g.web) + '" ' + openAttrs + '>' +
-        '<img class="cap" src="' + esc(g.image) + '" loading="lazy" alt=""></a>' +
-        '<button type="button" class="wish-star filled" data-appid="' + esc(g.appid) +
-        '" data-name="' + esc(g.name) + '" data-web="' + esc(g.web) + '" data-image="' + esc(g.image) +
-        '" data-status="' + esc(g.status) + '" data-badge="' + esc(g.badge) + '" data-price="' + esc(g.price) +
-        '" aria-label="移除願望清單"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></button>' +
-        '<div class="info"><a class="name" href="' + esc(g.web) + '" ' + openAttrs + '>' + esc(g.name) + '</a>' +
-        '<div class="price-line"><span class="disc-final plain">' + esc(g.price || "價格未知") + '</span></div></div>' +
-        '<span class="' + badgeClass + '">' + badgeText + '</span>' +
-        '</div>'
-      );
-    }).join("");
-  }
-  render();
-  document.addEventListener("wishlistchange", render);
-})();
-</script>
+  <h1>#全地形載具</h1><div class="card"><div class="row"><a class="media" href="https://store.steampowered.com/app/3939990/" data-web="https://store.steampowered.com/app/3939990/" data-steam="steam://store/3939990"><img class="cap" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3939990/1051ee33fb2872b5fe8c0021d60bc57a05f4f2f0/header.jpg?t=1790435485" data-fallback="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3939990/e14473624d3a2ec05632a4cd3f35555ab5690188/capsule_231x87.jpg?t=1790435485" onerror="imgFallback(this)" loading="lazy" alt=""></a><button type="button" class="wish-star" data-appid="3939990" data-name="Truck Titans" data-web="https://store.steampowered.com/app/3939990/" data-image="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3939990/1051ee33fb2872b5fe8c0021d60bc57a05f4f2f0/header.jpg?t=1790435485" data-status="live" data-badge="已上架" data-price="NT$ 152.00" aria-label="加入願望清單"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></button><div class="info"><a class="name" href="https://store.steampowered.com/app/3939990/" data-web="https://store.steampowered.com/app/3939990/" data-steam="steam://store/3939990">Truck Titans</a><div class="date-line">2026-09-26</div><div class="price-line"><span class="disc-final plain">NT$ 152.00</span></div><div class="discount-end placeholder">&nbsp;</div><div class="review-line placeholder">&nbsp;</div><div class="tags"><a class="tag" href="../tags/休閒.html">休閒</a><a class="tag" href="../tags/競速.html">競速</a><a class="tag" href="../tags/運動.html">運動</a><a class="tag" href="../tags/街機.html">街機</a><a class="tag" href="../tags/電競.html">電競</a><a class="tag" href="../tags/對戰競速.html">對戰競速</a><input type="checkbox" id="tagexp-3939990" class="tag-toggle"><span class="tag-extra"><a class="tag" href="../tags/3D.html">3D</a><a class="tag" href="../tags/第一人稱視角.html">第一人稱視角</a><a class="tag" href="../tags/擬真.html">擬真</a><a class="tag" href="../tags/第三人稱視角.html">第三人稱視角</a><a class="tag" href="../tags/全地形載具.html">全地形載具</a><a class="tag" href="../tags/駕駛.html">駕駛</a><a class="tag" href="../tags/模擬.html">模擬</a><a class="tag" href="../tags/獨立.html">獨立</a><a class="tag" href="../tags/闔家.html">闔家</a><a class="tag" href="../tags/越野.html">越野</a><a class="tag" href="../tags/物理.html">物理</a><a class="tag" href="../tags/競分.html">競分</a><a class="tag" href="../tags/單人.html">單人</a></span><label for="tagexp-3939990" class="tag-more tag-more-open">+13</label><label for="tagexp-3939990" class="tag-more tag-more-close">收起</label></div></div><span class="badge live">已上架</span></div></div>
 </div>
 
 <div class="open-modal-backdrop" id="openModalBackdrop">
