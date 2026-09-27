@@ -1744,8 +1744,8 @@
       "is_adult": false,
       "review_score": 5,
       "review_score_label": "褒貶不一",
-      "review_percent": 66,
-      "review_count": 87
+      "review_percent": 67,
+      "review_count": 88
     },
     "5063480": {
       "appid": "5063480",
@@ -1785,8 +1785,8 @@
       "is_adult": false,
       "review_score": 8,
       "review_score_label": "極度好評",
-      "review_percent": 90,
-      "review_count": 80
+      "review_percent": 91,
+      "review_count": 89
     },
     "5068360": {
       "appid": "5068360",
@@ -6984,8 +6984,8 @@
       "is_adult": false,
       "review_score": 8,
       "review_score_label": "極度好評",
-      "review_percent": 82,
-      "review_count": 70
+      "review_percent": 84,
+      "review_count": 71
     },
     "4496240": {
       "appid": "4496240",
@@ -12021,7 +12021,7 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 83,
-      "review_count": 128
+      "review_count": 130
     },
     "3890180": {
       "appid": "3890180",
@@ -13527,8 +13527,8 @@
       "is_adult": false,
       "review_score": 6,
       "review_score_label": "大多好評",
-      "review_percent": 71,
-      "review_count": 187
+      "review_percent": 70,
+      "review_count": 194
     },
     "3336620": {
       "appid": "3336620",
@@ -14591,7 +14591,7 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 95,
-      "review_count": 70
+      "review_count": 73
     },
     "4629600": {
       "appid": "4629600",
@@ -15154,10 +15154,10 @@
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4734530/d8099b87d13dd3604babe18df166ceaa2a3350c9/header.jpg?t=1789041136",
       "discount_end": null,
       "is_adult": true,
-      "review_score": 6,
-      "review_score_label": "大多好評",
-      "review_percent": 70,
-      "review_count": 417
+      "review_score": 5,
+      "review_score_label": "褒貶不一",
+      "review_percent": 69,
+      "review_count": 418
     },
     "3939360": {
       "appid": "3939360",
@@ -33493,7 +33493,7 @@
       "review_score": 6,
       "review_score_label": "大多好評",
       "review_percent": 72,
-      "review_count": 284
+      "review_count": 286
     },
     "4190710": {
       "appid": "4190710",
@@ -35503,8 +35503,8 @@
       "is_adult": false,
       "review_score": 6,
       "review_score_label": "大多好評",
-      "review_percent": 71,
-      "review_count": 46
+      "review_percent": 70,
+      "review_count": 47
     },
     "4772770": {
       "appid": "4772770",
@@ -37481,8 +37481,8 @@
       "is_adult": false,
       "review_score": 6,
       "review_score_label": "大多好評",
-      "review_percent": 71,
-      "review_count": 39
+      "review_percent": 72,
+      "review_count": 40
     },
     "4958200": {
       "appid": "4958200",
@@ -42011,8 +42011,8 @@
       "is_adult": false,
       "review_score": 6,
       "review_score_label": "大多好評",
-      "review_percent": 71,
-      "review_count": 38
+      "review_percent": 75,
+      "review_count": 40
     },
     "3305840": {
       "appid": "3305840",
@@ -42088,8 +42088,8 @@
       "is_adult": false,
       "review_score": 8,
       "review_score_label": "極度好評",
-      "review_percent": 80,
-      "review_count": 73
+      "review_percent": 81,
+      "review_count": 77
     },
     "4030150": {
       "appid": "4030150",
@@ -42477,7 +42477,7 @@
       "is_adult": false,
       "review_score": 0,
       "review_score_label": "2 篇使用者評論",
-      "review_percent": 50,
+      "review_percent": 100,
       "review_count": 2
     },
     "4847780": {
@@ -46612,8 +46612,8 @@
       "is_adult": false,
       "review_score": 5,
       "review_score_label": "褒貶不一",
-      "review_percent": 63,
-      "review_count": 96
+      "review_percent": 62,
+      "review_count": 99
     },
     "4364730": {
       "appid": "4364730",
@@ -46768,7 +46768,7 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 87,
-      "review_count": 305
+      "review_count": 318
     },
     "5112240": {
       "appid": "5112240",
@@ -47118,9 +47118,9 @@
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5113530/5b989a052257a5bf9d6c759c2f0cdc071de40eee/header.jpg?t=1789736450",
       "discount_end": 1790960449,
       "is_adult": false,
-      "review_score": 5,
-      "review_score_label": "褒貶不一",
-      "review_percent": 68,
+      "review_score": 6,
+      "review_score_label": "大多好評",
+      "review_percent": 70,
       "review_count": 50
     },
     "5113570": {
@@ -57942,7 +57942,7 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 89,
-      "review_count": 1026
+      "review_count": 1034
     },
     "5044770": {
       "appid": "5044770",
@@ -58298,7 +58298,7 @@
       "review_score": 6,
       "review_score_label": "大多好評",
       "review_percent": 72,
-      "review_count": 701
+      "review_count": 702
     },
     "4557380": {
       "appid": "4557380",
@@ -67222,8 +67222,8 @@
       "is_adult": false,
       "review_score": 7,
       "review_score_label": "好評",
-      "review_percent": 87,
-      "review_count": 16
+      "review_percent": 89,
+      "review_count": 19
     },
     "5132200": {
       "appid": "5132200",
@@ -73334,7 +73334,7 @@
       "review_score": 5,
       "review_score_label": "褒貶不一",
       "review_percent": 57,
-      "review_count": 38
+      "review_count": 40
     },
     "3831210": {
       "appid": "3831210",
@@ -74931,10 +74931,10 @@
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4173820/ed9ed63043569b85511ac592870eeb653619e326/header.jpg?t=1789995659",
       "discount_end": 1790614857,
       "is_adult": false,
-      "review_score": null,
-      "review_score_label": null,
-      "review_percent": null,
-      "review_count": null
+      "review_score": 0,
+      "review_score_label": "1 篇使用者評論",
+      "review_percent": 100,
+      "review_count": 1
     },
     "4178140": {
       "appid": "4178140",
@@ -97203,8 +97203,8 @@
       "is_adult": false,
       "review_score": 5,
       "review_score_label": "褒貶不一",
-      "review_percent": 66,
-      "review_count": 12
+      "review_percent": 69,
+      "review_count": 13
     },
     "2231460": {
       "appid": "2231460",
@@ -102625,7 +102625,7 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 87,
-      "review_count": 6877
+      "review_count": 6884
     },
     "1568460": {
       "appid": "1568460",
@@ -106867,7 +106867,7 @@
       "review_score": 5,
       "review_score_label": "褒貶不一",
       "review_percent": 63,
-      "review_count": 1813
+      "review_count": 1825
     },
     "3669870": {
       "appid": "3669870",
@@ -107862,8 +107862,8 @@
       "is_adult": false,
       "review_score": 8,
       "review_score_label": "極度好評",
-      "review_percent": 93,
-      "review_count": 132
+      "review_percent": 92,
+      "review_count": 139
     },
     "5083390": {
       "appid": "5083390",
@@ -112539,10 +112539,10 @@
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4086480/26239324a8077ed0a76154153d0567b2b62d2580/header.jpg?t=1790351952",
       "discount_end": 1790960410,
       "is_adult": false,
-      "review_score": 6,
-      "review_score_label": "大多好評",
-      "review_percent": 77,
-      "review_count": 18
+      "review_score": 7,
+      "review_score_label": "好評",
+      "review_percent": 80,
+      "review_count": 20
     },
     "4121430": {
       "appid": "4121430",
@@ -112688,8 +112688,8 @@
       "is_adult": false,
       "review_score": 5,
       "review_score_label": "褒貶不一",
-      "review_percent": 50,
-      "review_count": 16
+      "review_percent": 47,
+      "review_count": 17
     },
     "4248790": {
       "appid": "4248790",
@@ -113059,8 +113059,8 @@
       "is_adult": false,
       "review_score": 7,
       "review_score_label": "好評",
-      "review_percent": 82,
-      "review_count": 23
+      "review_percent": 84,
+      "review_count": 25
     },
     "5146190": {
       "appid": "5146190",
@@ -113871,7 +113871,7 @@
       "review_score": 6,
       "review_score_label": "大多好評",
       "review_percent": 71,
-      "review_count": 168
+      "review_count": 173
     },
     "2760580": {
       "appid": "2760580",
@@ -113952,8 +113952,8 @@
       "is_adult": false,
       "review_score": 5,
       "review_score_label": "褒貶不一",
-      "review_percent": 67,
-      "review_count": 167
+      "review_percent": 68,
+      "review_count": 171
     },
     "1552060": {
       "appid": "1552060",
@@ -114290,8 +114290,8 @@
       "is_adult": false,
       "review_score": 7,
       "review_score_label": "好評",
-      "review_percent": 92,
-      "review_count": 42
+      "review_percent": 91,
+      "review_count": 47
     },
     "5130320": {
       "appid": "5130320",
@@ -114476,8 +114476,8 @@
       "is_adult": false,
       "review_score": 5,
       "review_score_label": "褒貶不一",
-      "review_percent": 65,
-      "review_count": 38
+      "review_percent": 66,
+      "review_count": 39
     },
     "5215270": {
       "appid": "5215270",
@@ -115825,8 +115825,8 @@
       "is_adult": false,
       "review_score": 5,
       "review_score_label": "褒貶不一",
-      "review_percent": 68,
-      "review_count": 80
+      "review_percent": 67,
+      "review_count": 81
     },
     "5090850": {
       "appid": "5090850",
@@ -117991,8 +117991,8 @@
       "is_adult": false,
       "review_score": 6,
       "review_score_label": "大多好評",
-      "review_percent": 77,
-      "review_count": 40
+      "review_percent": 76,
+      "review_count": 43
     },
     "5194330": {
       "appid": "5194330",
@@ -118310,8 +118310,8 @@
       "is_adult": true,
       "review_score": 7,
       "review_score_label": "好評",
-      "review_percent": 88,
-      "review_count": 34
+      "review_percent": 85,
+      "review_count": 35
     },
     "4949180": {
       "appid": "4949180",
@@ -118683,8 +118683,8 @@
       "is_adult": false,
       "review_score": 8,
       "review_score_label": "極度好評",
-      "review_percent": 93,
-      "review_count": 121
+      "review_percent": 92,
+      "review_count": 138
     },
     "3740030": {
       "appid": "3740030",
@@ -120461,10 +120461,10 @@
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4273090/fd901bfd3928f2d4daec0a65fe0737f9bcb08323/header.jpg?t=1790457776",
       "discount_end": null,
       "is_adult": false,
-      "review_score": null,
-      "review_score_label": null,
-      "review_percent": null,
-      "review_count": null
+      "review_score": 0,
+      "review_score_label": "6 篇使用者評論",
+      "review_percent": 33,
+      "review_count": 6
     },
     "4888600": {
       "appid": "4888600",
@@ -120911,6 +120911,43 @@
         "單人"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5213680/5181da80d7453d4f6ac10b0cfc8993aefbe6d3d4/header.jpg?t=1790495665",
+      "discount_end": null,
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
+    },
+    "5081700": {
+      "appid": "5081700",
+      "name": "Sylva's Blessing",
+      "url": "https://store.steampowered.com/app/5081700/",
+      "release_date": "2026-09-27",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5081700/f5d9906e217947b30ec5dbe21bf18455e6e8bba7/capsule_231x87.jpg?t=1790499983",
+      "status": "live",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 117.00",
+      "release_epoch": 1790499851,
+      "tags": [
+        "策略",
+        "類 Rogue 牌組製作",
+        "卡牌對戰",
+        "卡牌遊戲",
+        "休閒",
+        "類 Rogue",
+        "2D",
+        "愜意",
+        "牌組製作",
+        "程序生成",
+        "回合制戰鬥",
+        "獨立",
+        "色彩鮮艷",
+        "闔家",
+        "奇幻",
+        "單人"
+      ],
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5081700/e676eaca535a8ee1561b94bfd393961b40572891/header.jpg?t=1790499983",
       "discount_end": null,
       "is_adult": false,
       "review_score": null,
