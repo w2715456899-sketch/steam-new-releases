@@ -617,7 +617,7 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 84,
-      "review_count": 75
+      "review_count": 76
     },
     "776250": {
       "appid": "776250",
@@ -1403,9 +1403,9 @@
       "release_date": "2026-09-21",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1017980/c67043a0d6ea350fb79e0d813a2b2b24e6c3974f/capsule_231x87.jpg?t=1789979190",
       "status": "live",
-      "price_pct": "-16%",
-      "price_original": "NT$ 76.00",
-      "price_final": "NT$ 64.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 76.00",
       "release_epoch": 1789979192,
       "tags": [
         "休閒",
@@ -1419,7 +1419,7 @@
         "單人"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1017980/be9f24add20a47d9a90f441f19304bc0b9911a0f/header.jpg?t=1789979190",
-      "discount_end": 1790614829,
+      "discount_end": null,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -1833,9 +1833,9 @@
       "release_date": "2026-09-15",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4270230/d41ab2fbd0a0b133a091e7193e2182411502f1d2/capsule_231x87_tchinese.jpg?t=1789438019",
       "status": "live",
-      "price_pct": "-10%",
-      "price_original": "NT$ 99.00",
-      "price_final": "NT$ 89.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 99.00",
       "release_epoch": 1789438021,
       "tags": [
         "桌面夥伴",
@@ -1851,7 +1851,7 @@
         "單人"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4270230/7b14edaae028c586e9070f5402c5323d20c17a41/header_tchinese.jpg?t=1789438019",
-      "discount_end": 1790614857,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 7,
       "review_score_label": "好評",
@@ -4626,9 +4626,9 @@
       "release_date": "2026-09-14",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3424650/a8378c73bed2f59079de86037da5c4aea0fed5f6/capsule_231x87.jpg?t=1789400472",
       "status": "live",
-      "price_pct": "-15%",
-      "price_original": "NT$ 117.00",
-      "price_final": "NT$ 99.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 117.00",
       "release_epoch": 1789400473,
       "tags": [
         "平台解謎",
@@ -4653,7 +4653,7 @@
         "第一人稱射擊"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3424650/13fb3712b10462391defc9499495da356404d121/header.jpg?t=1789400472",
-      "discount_end": 1790614811,
+      "discount_end": null,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -5144,9 +5144,9 @@
       "discount_end": null,
       "is_adult": false,
       "review_score": 0,
-      "review_score_label": "6 篇使用者評論",
+      "review_score_label": "7 篇使用者評論",
       "review_percent": 100,
-      "review_count": 6
+      "review_count": 7
     },
     "4018060": {
       "appid": "4018060",
@@ -5232,9 +5232,9 @@
       "release_date": "2026-09-15",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3943280/9870508ba280e1bc1c8fbbb45dfd396868eaa8bf/capsule_231x87.jpg?t=1789405271",
       "status": "live",
-      "price_pct": "-35%",
-      "price_original": "NT$ 139.00",
-      "price_final": "NT$ 91.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 139.00",
       "release_epoch": 1789405272,
       "tags": [
         "動作",
@@ -5259,7 +5259,7 @@
         "闔家"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3943280/a4c8810adab10869a8c39d3a12a3a79fa47a90db/header.jpg?t=1789405271",
-      "discount_end": 1790614807,
+      "discount_end": null,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -5273,9 +5273,9 @@
       "release_date": "2026-09-15",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3943370/dabc450a8654222e4327e1ed6a22eef8a01c9a7f/capsule_231x87.jpg?t=1789405343",
       "status": "live",
-      "price_pct": "-34%",
-      "price_original": "NT$ 199.00",
-      "price_final": "NT$ 131.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 199.00",
       "release_epoch": 1789405345,
       "tags": [
         "模擬",
@@ -5291,8 +5291,8 @@
         "物理",
         "3D",
         "第一人稱視角",
-        "搶先體驗",
         "科幻",
+        "搶先體驗",
         "戰鬥",
         "清版射擊",
         "射擊",
@@ -5300,7 +5300,7 @@
         "未來"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3943370/5b23415cb95a3d78ec788e866be0a8a03746b1e7/header.jpg?t=1789405343",
-      "discount_end": 1790614821,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 0,
       "review_score_label": "2 篇使用者評論",
@@ -5314,9 +5314,9 @@
       "release_date": "2026-09-15",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3943420/8503af19b8bd90c6bd1f2f6b9b620a65e4300f95/capsule_231x87.jpg?t=1789405380",
       "status": "live",
-      "price_pct": "-30%",
-      "price_original": "NT$ 159.00",
-      "price_final": "NT$ 112.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 159.00",
       "release_epoch": 1789405382,
       "tags": [
         "模擬",
@@ -5341,7 +5341,7 @@
         "載具對戰"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3943420/53ca820cc823a74688d255a1b75af28f1a1e035f/header.jpg?t=1789405380",
-      "discount_end": 1790614859,
+      "discount_end": null,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -5355,9 +5355,9 @@
       "release_date": "2026-09-15",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3943480/67a75e47e9575ba1975c0101c19946e9ce53fb06/capsule_231x87.jpg?t=1789405415",
       "status": "live",
-      "price_pct": "-35%",
-      "price_original": "NT$ 139.00",
-      "price_final": "NT$ 91.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 139.00",
       "release_epoch": 1789405417,
       "tags": [
         "運動",
@@ -5382,7 +5382,7 @@
         "闔家"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3943480/37c41a2d30afa7d8ba623fc7fe0e9fee0aba266b/header.jpg?t=1789405415",
-      "discount_end": 1790614833,
+      "discount_end": null,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -5656,9 +5656,9 @@
       "release_date": "2026-09-15",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4071800/96a878608431ac9da5534b983c91ed50cca80ef5/capsule_231x87.jpg?t=1789405709",
       "status": "live",
-      "price_pct": "-35%",
-      "price_original": "NT$ 139.00",
-      "price_final": "NT$ 91.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 139.00",
       "release_epoch": 1789405711,
       "tags": [
         "休閒",
@@ -5683,7 +5683,7 @@
         "策略"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4071800/c5c1f3c32b10982d5cf04db498de9fa2e3fc997a/header.jpg?t=1789405709",
-      "discount_end": 1790614828,
+      "discount_end": null,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -5697,9 +5697,9 @@
       "release_date": "2026-09-15",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4071810/3f303bbf8247b6cb60b4b365d9586e66f36eb9dd/capsule_231x87.jpg?t=1789405741",
       "status": "live",
-      "price_pct": "-40%",
-      "price_original": "NT$ 219.00",
-      "price_final": "NT$ 131.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 219.00",
       "release_epoch": 1789405743,
       "tags": [
         "競速",
@@ -5720,11 +5720,11 @@
         "物理",
         "競分",
         "單人",
-        "分割畫面",
-        "合作"
+        "合作",
+        "分割畫面"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4071810/f7830d5fda6dccbba82b6a2c52ebd89127558f22/header.jpg?t=1789405741",
-      "discount_end": 1790614800,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 0,
       "review_score_label": "4 篇使用者評論",
@@ -6205,9 +6205,9 @@
       "release_date": "2026-09-21",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4493090/ebafbb8139802420475ae45161800cd44505cf88/capsule_231x87.jpg?t=1789992866",
       "status": "live",
-      "price_pct": "-10%",
-      "price_original": "NT$ 118.00",
-      "price_final": "NT$ 106.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 118.00",
       "release_epoch": 1789992867,
       "tags": [
         "大型多人",
@@ -6226,12 +6226,13 @@
         "線上合作",
         "玩家對戰",
         "搶先體驗",
-        "武俠",
         "仙俠",
-        "自訂角色"
+        "武俠",
+        "自訂角色",
+        "人工智慧"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4493090/1c44cc61ad4619dd3ca655e1333f8888404a009f/header.jpg?t=1789992866",
-      "discount_end": 1790614824,
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4493090/1c44cc61ad4619dd3ca655e1333f8888404a009f/header.jpg?t=1790347988",
+      "discount_end": null,
       "is_adult": false,
       "review_score": 8,
       "review_score_label": "極度好評",
@@ -8954,9 +8955,9 @@
       "release_date": "2026-09-19",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3151220/cd4a032eb5da830ea7cd9ba88f11f50884444a9f/capsule_231x87_alt_assets_1.jpg?t=1789755132",
       "status": "live",
-      "price_pct": "-10%",
-      "price_original": "NT$ 175.00",
-      "price_final": "NT$ 157.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 175.00",
       "release_epoch": 1789755133,
       "tags": [
         "快節奏",
@@ -8981,7 +8982,7 @@
         "搶先體驗"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3151220/e23aacf3b38034afc33fc1ad9b8fe9efdd00f068/header_alt_assets_1.jpg?t=1789755132",
-      "discount_end": 1790614811,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 0,
       "review_score_label": "5 篇使用者評論",
@@ -9298,8 +9299,8 @@
       "is_adult": true,
       "review_score": 5,
       "review_score_label": "褒貶不一",
-      "review_percent": 50,
-      "review_count": 24
+      "review_percent": 52,
+      "review_count": 25
     },
     "3192880": {
       "appid": "3192880",
@@ -10406,10 +10407,10 @@
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3850970/a8ab078eb0704312bd7c2003385cf1bac462a615/header.jpg?t=1790168305",
       "discount_end": 1791392430,
       "is_adult": false,
-      "review_score": 6,
-      "review_score_label": "大多好評",
-      "review_percent": 71,
-      "review_count": 35
+      "review_score": 5,
+      "review_score_label": "褒貶不一",
+      "review_percent": 69,
+      "review_count": 36
     },
     "3855090": {
       "appid": "3855090",
@@ -10658,9 +10659,9 @@
       "release_date": "2026-09-14",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3863090/f37d99220423debff0b87ef8896058bf0015df56/capsule_231x87_tchinese.jpg?t=1789390859",
       "status": "live",
-      "price_pct": "-20%",
-      "price_original": "NT$ 124.00",
-      "price_final": "NT$ 99.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 124.00",
       "release_epoch": 1789390861,
       "tags": [
         "女主人翁",
@@ -10684,8 +10685,8 @@
         "休閒",
         "獨立"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3863090/92c2c261829bcad7c14a10331eb25f8fd311d2ad/header_tchinese.jpg?t=1789390859",
-      "discount_end": 1790614858,
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3863090/92c2c261829bcad7c14a10331eb25f8fd311d2ad/header_tchinese.jpg?t=1790357192",
+      "discount_end": null,
       "is_adult": false,
       "review_score": 7,
       "review_score_label": "好評",
@@ -10740,9 +10741,9 @@
       "release_date": "2026-09-22",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3874130/d7057de8da0dc4d758ccca068b48a654fd7fe882/capsule_231x87.jpg?t=1790013271",
       "status": "live",
-      "price_pct": "-10%",
-      "price_original": "NT$ 265.00",
-      "price_final": "NT$ 238.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 265.00",
       "release_epoch": 1790009417,
       "tags": [
         "平台解謎",
@@ -10767,7 +10768,7 @@
         "歡樂"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3874130/46e55d2274ba95ed2fd79fd309a073356eea1b08/header.jpg?t=1790013271",
-      "discount_end": 1790614815,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 0,
       "review_score_label": "9 篇使用者評論",
@@ -11015,9 +11016,9 @@
       "release_date": "2026-09-22",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3891030/a052dcaeeaf2e96b45cda3e5adb078c1e739832d/capsule_231x87.jpg?t=1790008953",
       "status": "live",
-      "price_pct": "-21%",
-      "price_original": "NT$ 175.00",
-      "price_final": "NT$ 138.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 175.00",
       "release_epoch": 1790008954,
       "tags": [
         "選擇導向",
@@ -11042,7 +11043,7 @@
         "搶先體驗"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3891030/258a1555a7c3d6476d3f88f3713d59d261c6c16f/header.jpg?t=1790008953",
-      "discount_end": 1790614832,
+      "discount_end": null,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -11169,9 +11170,9 @@
       "release_date": "2026-09-15",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3916440/ff04e534d1eea4b25a5e5f9976a29d54ec5161eb/capsule_231x87.jpg?t=1789419659",
       "status": "live",
-      "price_pct": "-15%",
-      "price_original": "NT$ 85.00",
-      "price_final": "NT$ 72.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 85.00",
       "release_epoch": 1789419660,
       "tags": [
         "獨立",
@@ -11196,7 +11197,7 @@
         "心理"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3916440/0b61223e01e0cb436573a4627cf73476c26d31bb/header.jpg?t=1789419659",
-      "discount_end": 1790614857,
+      "discount_end": null,
       "review_score": 5,
       "review_score_label": "褒貶不一",
       "review_percent": 58,
@@ -11464,8 +11465,8 @@
       "discount_end": null,
       "review_score": 6,
       "review_score_label": "大多好評",
-      "review_percent": 76,
-      "review_count": 56
+      "review_percent": 77,
+      "review_count": 57
     },
     "3926990": {
       "appid": "3926990",
@@ -12310,8 +12311,8 @@
       "is_adult": false,
       "review_score": 6,
       "review_score_label": "大多好評",
-      "review_percent": 74,
-      "review_count": 285
+      "review_percent": 76,
+      "review_count": 348
     },
     "3336620": {
       "appid": "3336620",
@@ -12828,9 +12829,9 @@
       "release_date": "2026-09-14",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4573090/a73710ffd2909d8196007a39e037460b48b3ce4d/capsule_231x87_tchinese.jpg?t=1790028662",
       "status": "live",
-      "price_pct": "-25%",
-      "price_original": "NT$ 108.00",
-      "price_final": "NT$ 81.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 108.00",
       "release_epoch": 1789387083,
       "tags": [
         "模擬",
@@ -12844,8 +12845,8 @@
         "經濟",
         "資源管理",
         "獨立",
-        "管理",
         "單人",
+        "管理",
         "可愛",
         "放鬆",
         "街機",
@@ -12854,8 +12855,8 @@
         "氛圍",
         "小遊戲"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4573090/70a01e25507c30b244a60c939416391a326503a7/header_tchinese.jpg?t=1790028662",
-      "discount_end": 1790614859,
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4573090/70a01e25507c30b244a60c939416391a326503a7/header_tchinese.jpg?t=1790579819",
+      "discount_end": null,
       "is_adult": false,
       "review_score": 8,
       "review_score_label": "極度好評",
@@ -13146,9 +13147,9 @@
       "release_date": "2026-09-14",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4628250/a2bb1db1d6d2070ee4da3157dd716960ab42fe69/capsule_231x87.jpg?t=1789503754",
       "status": "live",
-      "price_pct": "-11%",
-      "price_original": "NT$ 82.00",
-      "price_final": "NT$ 73.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 82.00",
       "release_epoch": 1789398139,
       "tags": [
         "休閒",
@@ -13173,7 +13174,7 @@
         "軟體"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4628250/830926acb1648f7101609002242318cbaf7249b5/header.jpg?t=1789503754",
-      "discount_end": 1790614816,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 8,
       "review_score_label": "極度好評",
@@ -14634,9 +14635,9 @@
       "release_date": "2026-09-15",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4063090/3bb2c603d27a08207d14b7766319b53ba5dd1f43/capsule_231x87.jpg?t=1789405537",
       "status": "live",
-      "price_pct": "-40%",
-      "price_original": "NT$ 119.00",
-      "price_final": "NT$ 71.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 119.00",
       "release_epoch": 1789405538,
       "tags": [
         "休閒",
@@ -14661,7 +14662,7 @@
         "運動"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4063090/d120c34bbce7fc11c08c5eab7b75458874042b76/header.jpg?t=1789405537",
-      "discount_end": 1790614836,
+      "discount_end": null,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -14710,9 +14711,9 @@
       "release_date": "2026-09-15",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4071780/071a3510afc921fe19462d1e68fe5b49583c2ff4/capsule_231x87.jpg?t=1789405661",
       "status": "live",
-      "price_pct": "-40%",
-      "price_original": "NT$ 119.00",
-      "price_final": "NT$ 71.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 119.00",
       "release_epoch": 1789405663,
       "tags": [
         "競速",
@@ -14737,7 +14738,7 @@
         "沉浸模擬"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4071780/7507f307b8517e75ed8ce526b530d45e57509ff0/header.jpg?t=1789405661",
-      "discount_end": 1790614840,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 0,
       "review_score_label": "2 篇使用者評論",
@@ -15028,7 +15029,7 @@
       "is_adult": false,
       "review_score": 7,
       "review_score_label": "好評",
-      "review_percent": 92,
+      "review_percent": 100,
       "review_count": 13
     },
     "2954890": {
@@ -15079,9 +15080,9 @@
       "release_date": "2026-09-21",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3129050/4259207f64df4efb686251dc117ae3af91a8ce26/capsule_231x87.jpg?t=1789994941",
       "status": "live",
-      "price_pct": "-10%",
-      "price_original": "NT$ 308.00",
-      "price_final": "NT$ 277.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 308.00",
       "release_epoch": 1789992484,
       "tags": [
         "劇情豐富",
@@ -15106,7 +15107,7 @@
         "色彩鮮艷"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3129050/70a9602648d3a4f2231a078cc39958348b11b601/header.jpg?t=1789994941",
-      "discount_end": 1790614802,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 7,
       "review_score_label": "好評",
@@ -15120,9 +15121,9 @@
       "release_date": "2026-09-14",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2436870/f36c126a1859e5d5441088fd920ba492dd91f87c/capsule_231x87_alt_assets_1.jpg?t=1789735261",
       "status": "live",
-      "price_pct": "-20%",
-      "price_original": "NT$ 260.00",
-      "price_final": "NT$ 208.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 260.00",
       "release_epoch": 1789387233,
       "tags": [
         "骰子",
@@ -15146,8 +15147,8 @@
         "自訂角色",
         "魔法"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2436870/0066b7820e137b724e377c26c67cf5ebaab17381/header_alt_assets_1.jpg?t=1789735261",
-      "discount_end": 1790614830,
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2436870/0066b7820e137b724e377c26c67cf5ebaab17381/header_alt_assets_1.jpg?t=1790324900",
+      "discount_end": null,
       "is_adult": false,
       "review_score": 6,
       "review_score_label": "大多好評",
@@ -15482,9 +15483,9 @@
       "release_date": "2026-09-14",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2548910/c383c359c589b3fe49d6c8a213016d33904c1d1d/capsule_231x87_tchinese.jpg?t=1789390683",
       "status": "live",
-      "price_pct": "-20%",
-      "price_original": "NT$ 249.00",
-      "price_final": "NT$ 199.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 249.00",
       "release_epoch": 1789390685,
       "tags": [
         "團隊角色扮演",
@@ -15509,7 +15510,7 @@
         "獨立"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2548910/header_tchinese.jpg?t=1789390683",
-      "discount_end": 1790614801,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 7,
       "review_score_label": "好評",
@@ -17548,9 +17549,9 @@
       "release_date": "2026-09-22",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4602350/8233906abb1643872e1dae39b2c63528e3d01d55/capsule_231x87.jpg?t=1790010051",
       "status": "live",
-      "price_pct": "-25%",
-      "price_original": "NT$ 95.00",
-      "price_final": "NT$ 71.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 95.00",
       "release_epoch": 1790010052,
       "tags": [
         "3D 平台",
@@ -17573,7 +17574,7 @@
         "敘事"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4602350/f8b05cc97f62f29b489016408c63ec1324bb8ebe/header.jpg?t=1790010051",
-      "discount_end": 1790614844,
+      "discount_end": null,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -18040,9 +18041,9 @@
       "release_date": "2026-09-18",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4633920/ecfde9ee4107d85f3b49a3ca03c43082f575f158/capsule_231x87.jpg?t=1789740664",
       "status": "live",
-      "price_pct": "-34%",
-      "price_original": "NT$ 76.00",
-      "price_final": "NT$ 50.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 76.00",
       "release_epoch": 1789740676,
       "tags": [
         "解謎",
@@ -18065,7 +18066,7 @@
         "單人"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4633920/0b501efc140c318ee5cae09b1e8b0047c0007d63/header.jpg?t=1789740664",
-      "discount_end": 1790614853,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
@@ -18223,9 +18224,9 @@
       "release_date": "2026-09-22",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4639490/eab8a8df3e2a875ed9cdef25a98981bae0b7f2ed/capsule_231x87.jpg?t=1790006960",
       "status": "live",
-      "price_pct": "-10%",
-      "price_original": "NT$ 117.00",
-      "price_final": "NT$ 105.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 117.00",
       "release_epoch": 1790006961,
       "tags": [
         "愜意",
@@ -18250,7 +18251,7 @@
         "單人"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4639490/c8d1488aa67d5cdc3d4155ca4693bd5cff5b2a20/header.jpg?t=1790006960",
-      "discount_end": 1790614818,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 0,
       "review_score_label": "4 篇使用者評論",
@@ -18830,9 +18831,9 @@
       "release_date": "2026-09-15",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4071790/a5eca6f47538eb98a8a28745f973fa2aed6cd962/capsule_231x87.jpg?t=1789405685",
       "status": "live",
-      "price_pct": "-40%",
-      "price_original": "NT$ 119.00",
-      "price_final": "NT$ 71.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 119.00",
       "release_epoch": 1789405686,
       "tags": [
         "運動",
@@ -18857,7 +18858,7 @@
         "單人"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4071790/7ba0bb0db8392451ed27e1811900129d38a023b9/header.jpg?t=1789405685",
-      "discount_end": 1790614804,
+      "discount_end": null,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -19133,9 +19134,9 @@
       "release_date": "2026-09-15",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4659150/8a4d153694de9b5db59ac763cadc9d33a15e217f/capsule_231x87.jpg?t=1789413077",
       "status": "live",
-      "price_pct": "-15%",
-      "price_original": "NT$ 39.00",
-      "price_final": "NT$ 33.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 39.00",
       "release_epoch": 1789413078,
       "tags": [
         "休閒",
@@ -19159,7 +19160,7 @@
         "創世神"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4659150/8aef46331882c9884aaf98141b7ab64ac1a0deee/header.jpg?t=1789413077",
-      "discount_end": 1790614814,
+      "discount_end": null,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -19255,9 +19256,9 @@
       "release_date": "2026-09-22",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4661850/0ed54b62962aee1015a4a54cfdf736ebccb035ea/capsule_231x87.jpg?t=1790048594",
       "status": "live",
-      "price_pct": "-10%",
-      "price_original": "NT$ 377.00",
-      "price_final": "NT$ 339.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 377.00",
       "release_epoch": 1790048595,
       "tags": [
         "政治模擬",
@@ -19279,8 +19280,8 @@
         "搶先體驗",
         "外交"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4661850/7e48e3ad172015176c69fe92f564d244c843fb0e/header.jpg?t=1790048594",
-      "discount_end": 1790614812,
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4661850/7e48e3ad172015176c69fe92f564d244c843fb0e/header.jpg?t=1790541222",
+      "discount_end": null,
       "is_adult": false,
       "review_score": 0,
       "review_score_label": "7 篇使用者評論",
@@ -19331,9 +19332,9 @@
       "release_date": "2026-09-21",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4666430/6f0547db012003d83e99581aa728f90b4772133b/capsule_231x87.jpg?t=1789995751",
       "status": "live",
-      "price_pct": "-10%",
-      "price_original": "NT$ 159.00",
-      "price_final": "NT$ 143.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 159.00",
       "release_epoch": 1789995752,
       "tags": [
         "冒險",
@@ -19358,7 +19359,7 @@
         "單人"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4666430/4ccb9d5bb6fc0fed52f0441d925213e193278041/header.jpg?t=1789995751",
-      "discount_end": 1790614830,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
@@ -20333,9 +20334,9 @@
       "release_date": "2026-09-21",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4782420/334d0a7adea57c1bbbe99eb8e8c68218c6e9b4d2/capsule_231x87.jpg?t=1789978537",
       "status": "live",
-      "price_pct": "-40%",
-      "price_original": "NT$ 117.00",
-      "price_final": "NT$ 70.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 114.00",
       "release_epoch": 1789978539,
       "tags": [
         "動作類 Rogue",
@@ -20355,7 +20356,7 @@
         "單人"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4782420/1b1b986424432b75e43004d90a547333f8c83273/header.jpg?t=1789978537",
-      "discount_end": 1790614836,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
@@ -21318,7 +21319,7 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 91,
-      "review_count": 161
+      "review_count": 165
     },
     "4513480": {
       "appid": "4513480",
@@ -22032,9 +22033,9 @@
       "release_date": "2026-09-15",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4688290/36212e590de9eb2970a6bca4c12946da291ef713/capsule_231x87.jpg?t=1789405756",
       "status": "live",
-      "price_pct": "-20%",
-      "price_original": "NT$ 216.00",
-      "price_final": "NT$ 172.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 216.00",
       "release_epoch": 1789405758,
       "tags": [
         "動作",
@@ -22054,7 +22055,7 @@
         "電影感"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4688290/6b7aca8c98e0f12a735e1ce0c0925a5560c26fd8/header.jpg?t=1789405756",
-      "discount_end": 1790614815,
+      "discount_end": null,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -22222,7 +22223,7 @@
       "review_score": 7,
       "review_score_label": "好評",
       "review_percent": 100,
-      "review_count": 27
+      "review_count": 29
     },
     "4250100": {
       "appid": "4250100",
@@ -24054,9 +24055,9 @@
       "release_date": "2026-09-22",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3652840/3e7462c4dd475db3bdfb00a38288cb1bfacb77b3/capsule_231x87.jpg?t=1790055864",
       "status": "live",
-      "price_pct": "-15%",
-      "price_original": "NT$ 275.00",
-      "price_final": "NT$ 233.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 275.00",
       "release_epoch": 1790055866,
       "tags": [
         "裸露",
@@ -24081,7 +24082,7 @@
         "單人"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3652840/75ea14407083ac94e081363c66e10229f0816e54/header.jpg?t=1790055864",
-      "discount_end": 1790614822,
+      "discount_end": null,
       "is_adult": true,
       "review_score": 5,
       "review_score_label": "褒貶不一",
@@ -24126,8 +24127,8 @@
       "is_adult": false,
       "review_score": 6,
       "review_score_label": "大多好評",
-      "review_percent": 75,
-      "review_count": 552
+      "review_percent": 74,
+      "review_count": 579
     },
     "4575670": {
       "appid": "4575670",
@@ -25170,7 +25171,7 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 97,
-      "review_count": 275
+      "review_count": 331
     },
     "3098050": {
       "appid": "3098050",
@@ -25659,8 +25660,8 @@
       "is_adult": false,
       "review_score": 8,
       "review_score_label": "極度好評",
-      "review_percent": 95,
-      "review_count": 145
+      "review_percent": 96,
+      "review_count": 160
     },
     "2846460": {
       "appid": "2846460",
@@ -26408,7 +26409,7 @@
       "review_score": 9,
       "review_score_label": "壓倒性好評",
       "review_percent": 99,
-      "review_count": 1740
+      "review_count": 2004
     },
     "4429670": {
       "appid": "4429670",
@@ -30089,15 +30090,15 @@
       "release_date": "2026-09-15",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4221990/2c7bafdc90acf46b2d17cc6c1135546063e527d3/capsule_231x87.jpg?t=1789401717",
       "status": "live",
-      "price_pct": "-15%",
-      "price_original": "NT$ 159.00",
-      "price_final": "NT$ 135.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 159.00",
       "release_epoch": 1789401724,
       "tags": [
         "動作",
         "休閒",
-        "街機",
         "遞增",
+        "街機",
         "收集型平台",
         "2D",
         "放置",
@@ -30107,14 +30108,14 @@
         "釣魚",
         "放鬆",
         "獨立",
-        "科學",
         "單人",
+        "科學",
         "經濟",
         "策略",
         "管理"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4221990/dcbb43f81e7d2bf1d7c89438c34195cbe45b38b1/header.jpg?t=1789401717",
-      "discount_end": 1790614850,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 8,
       "review_score_label": "極度好評",
@@ -30128,9 +30129,9 @@
       "release_date": "2026-09-21",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4224560/b0862d7bf9e6978ff1ee10b2e2c279e461a95668/capsule_231x87.jpg?t=1789995355",
       "status": "live",
-      "price_pct": "-11%",
-      "price_original": "NT$ 82.00",
-      "price_final": "NT$ 73.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 82.00",
       "release_epoch": 1789995356,
       "tags": [
         "休閒",
@@ -30155,7 +30156,7 @@
         "管理"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4224560/d93bace0ade50229608919a8a9b687458b18e67e/header.jpg?t=1789995355",
-      "discount_end": 1790614854,
+      "discount_end": null,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -30908,7 +30909,7 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 97,
-      "review_count": 216
+      "review_count": 218
     },
     "4353350": {
       "appid": "4353350",
@@ -30917,9 +30918,9 @@
       "release_date": "2026-09-15",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4353350/bf9da73a65f48796e7ca48c057029c2083990538/capsule_231x87.jpg?t=1789404638",
       "status": "live",
-      "price_pct": "-10%",
-      "price_original": "NT$ 136.00",
-      "price_final": "NT$ 122.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 136.00",
       "release_epoch": 1789404625,
       "tags": [
         "休閒",
@@ -30940,7 +30941,7 @@
         "小遊戲"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4353350/bbf06e120347758de0335204c4005dc0a084d42c/header.jpg?t=1789404638",
-      "discount_end": 1790614820,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 8,
       "review_score_label": "極度好評",
@@ -31077,9 +31078,9 @@
       "release_date": "2026-09-14",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4375110/3649ded3a9c92650e3650bb6a6441f1ffcfd79e2/capsule_231x87_alt_assets_0.jpg?t=1789995042",
       "status": "live",
-      "price_pct": "-10%",
-      "price_original": "NT$ 308.00",
-      "price_final": "NT$ 277.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 308.00",
       "release_epoch": 1789376450,
       "tags": [
         "色情內容",
@@ -31091,18 +31092,19 @@
         "探索",
         "開放世界",
         "擬真",
-        "放鬆",
         "愛情",
+        "放鬆",
         "多結局",
         "線性",
         "選擇導向",
         "單人",
         "人工智慧",
         "Hentai",
-        "LGBTQ+"
+        "LGBTQ+",
+        "虛擬實境"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4375110/345526563deb29e25a77f8458f2625b5ac9c2f60/header_alt_assets_0.jpg?t=1789995042",
-      "discount_end": 1790614847,
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4375110/345526563deb29e25a77f8458f2625b5ac9c2f60/header_alt_assets_0.jpg?t=1790579836",
+      "discount_end": null,
       "is_adult": true,
       "review_score": 6,
       "review_score_label": "大多好評",
@@ -31307,7 +31309,7 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 100,
-      "review_count": 162
+      "review_count": 163
     },
     "4271550": {
       "appid": "4271550",
@@ -32300,9 +32302,9 @@
       "release_date": "2026-09-22",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4920750/2f6f53b957e37d2456b904269be1c1a4f5bdad68/capsule_231x87.jpg?t=1790031491",
       "status": "live",
-      "price_pct": "-10%",
-      "price_original": "NT$ 136.00",
-      "price_final": "NT$ 122.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 136.00",
       "release_epoch": 1790031492,
       "tags": [
         "卡牌對戰",
@@ -32326,8 +32328,8 @@
         "類 Rogue",
         "輕度 Rogue"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4920750/2510025f6e5c59d9caef3c0e95abd0585561adee/header.jpg?t=1790031491",
-      "discount_end": 1790614809,
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4920750/e185093c6093573bf59f2dec40b7ca84f567216b/header.jpg?t=1790460258",
+      "discount_end": null,
       "is_adult": false,
       "review_score": 7,
       "review_score_label": "好評",
@@ -33423,7 +33425,7 @@
       "review_score": 6,
       "review_score_label": "大多好評",
       "review_percent": 79,
-      "review_count": 67
+      "review_count": 69
     },
     "4282360": {
       "appid": "4282360",
@@ -35898,8 +35900,8 @@
       "is_adult": false,
       "review_score": 5,
       "review_score_label": "褒貶不一",
-      "review_percent": 67,
-      "review_count": 37
+      "review_percent": 65,
+      "review_count": 38
     },
     "4962350": {
       "appid": "4962350",
@@ -36134,9 +36136,9 @@
       "release_date": "2026-09-14",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4964760/21a1f326f6de4c09823f2b61d4d68a68a8f44a66/capsule_231x87.jpg?t=1789393591",
       "status": "live",
-      "price_pct": "-41%",
-      "price_original": "NT$ 76.00",
-      "price_final": "NT$ 45.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 76.00",
       "release_epoch": 1789393592,
       "tags": [
         "休閒",
@@ -36157,7 +36159,7 @@
         "奇幻"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4964760/19ce167380721468129c0bf52595924cc0cf68b2/header.jpg?t=1789393591",
-      "discount_end": 1790614829,
+      "discount_end": null,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -36628,9 +36630,9 @@
       "discount_end": null,
       "is_adult": false,
       "review_score": 0,
-      "review_score_label": "1 篇使用者評論",
+      "review_score_label": "2 篇使用者評論",
       "review_percent": 100,
-      "review_count": 1
+      "review_count": 2
     },
     "4968350": {
       "appid": "4968350",
@@ -36804,8 +36806,8 @@
       "is_adult": false,
       "review_score": 8,
       "review_score_label": "極度好評",
-      "review_percent": 94,
-      "review_count": 257
+      "review_percent": 95,
+      "review_count": 264
     },
     "2412960": {
       "appid": "2412960",
@@ -37366,9 +37368,9 @@
       "release_date": "2026-09-22",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4847230/9c6acfdfa8e14ff204482d837067d2a42f580174/capsule_231x87.jpg?t=1790085911",
       "status": "live",
-      "price_pct": "-16%",
-      "price_original": "NT$ 95.00",
-      "price_final": "NT$ 80.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 95.00",
       "release_epoch": 1790057227,
       "tags": [
         "角色扮演",
@@ -37388,8 +37390,8 @@
         "資源管理",
         "單人"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4847230/fac715c462a251275e1fb649b28b5e70717b1b13/header.jpg?t=1790085911",
-      "discount_end": 1790614804,
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4847230/fac715c462a251275e1fb649b28b5e70717b1b13/header.jpg?t=1790503540",
+      "discount_end": null,
       "is_adult": false,
       "review_score": 0,
       "review_score_label": "2 篇使用者評論",
@@ -38031,8 +38033,8 @@
       "is_adult": false,
       "review_score": 7,
       "review_score_label": "好評",
-      "review_percent": 88,
-      "review_count": 35
+      "review_percent": 86,
+      "review_count": 36
     },
     "4895550": {
       "appid": "4895550",
@@ -38569,9 +38571,9 @@
       "release_date": "2026-09-15",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4900460/be16394ee3720456f6df5519fde418825b2af118/capsule_231x87.jpg?t=1789449602",
       "status": "live",
-      "price_pct": "-21%",
-      "price_original": "NT$ 117.00",
-      "price_final": "NT$ 93.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 117.00",
       "release_epoch": 1789449604,
       "tags": [
         "派對遊戲",
@@ -38592,7 +38594,7 @@
         "沙盒"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4900460/69cb6da71da6ac65565fa4094813948bec652fc5/header.jpg?t=1789449602",
-      "discount_end": 1790614801,
+      "discount_end": null,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -39148,10 +39150,10 @@
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4883210/146d70732bd5582acd0d3d2531a6a4751477061c/header.jpg?t=1788185586",
       "discount_end": null,
       "is_adult": false,
-      "review_score": 0,
-      "review_score_label": "9 篇使用者評論",
-      "review_percent": 88,
-      "review_count": 9
+      "review_score": 7,
+      "review_score_label": "好評",
+      "review_percent": 90,
+      "review_count": 10
     },
     "4884540": {
       "appid": "4884540",
@@ -39265,7 +39267,7 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 80,
-      "review_count": 29925
+      "review_count": 29929
     },
     "1867240": {
       "appid": "1867240",
@@ -39593,7 +39595,7 @@
       "review_score": 5,
       "review_score_label": "褒貶不一",
       "review_percent": 67,
-      "review_count": 13562
+      "review_count": 13575
     },
     "3271280": {
       "appid": "3271280",
@@ -39675,7 +39677,7 @@
       "review_score": 6,
       "review_score_label": "大多好評",
       "review_percent": 74,
-      "review_count": 830
+      "review_count": 831
     },
     "3393280": {
       "appid": "3393280",
@@ -39807,16 +39809,16 @@
       "release_date": "2026-09-21",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4019220/7f07d1dd7a97e00694481ee7747940989dc5820c/capsule_231x87.jpg?t=1790009899",
       "status": "live",
-      "price_pct": "-10%",
-      "price_original": "NT$ 308.00",
-      "price_final": "NT$ 277.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 308.00",
       "release_epoch": 1789990310,
       "tags": [
         "工藝",
-        "工作模擬",
         "設計及繪圖",
-        "模擬",
+        "工作模擬",
         "愜意",
+        "模擬",
         "放鬆",
         "生活模擬",
         "管理",
@@ -39827,14 +39829,14 @@
         "可愛",
         "資源管理",
         "闔家",
-        "沉浸模擬",
         "商店經營",
+        "沉浸模擬",
         "獨立",
         "LGBTQ+",
         "歷史"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4019220/f1cd08127872e60e4c47a4bc3e40d682d94741bf/header.jpg?t=1790009899",
-      "discount_end": 1790614846,
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4019220/f1cd08127872e60e4c47a4bc3e40d682d94741bf/header.jpg?t=1790605593",
+      "discount_end": null,
       "is_adult": false,
       "review_score": 9,
       "review_score_label": "壓倒性好評",
@@ -39962,7 +39964,7 @@
       "review_score": 6,
       "review_score_label": "大多好評",
       "review_percent": 78,
-      "review_count": 4956
+      "review_count": 5109
     },
     "4412320": {
       "appid": "4412320",
@@ -40335,9 +40337,9 @@
       "release_date": "2026-09-15",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3180340/43e5ebf68e0f10b5db2deba6f9651588af1a4d7a/capsule_231x87.jpg?t=1789668241",
       "status": "live",
-      "price_pct": "-10%",
-      "price_original": "NT$ 377.00",
-      "price_final": "NT$ 339.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 377.00",
       "release_epoch": 1789405198,
       "tags": [
         "動作",
@@ -40362,7 +40364,7 @@
         "未來"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3180340/header.jpg?t=1789668241",
-      "discount_end": 1790614855,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 8,
       "review_score_label": "極度好評",
@@ -40520,8 +40522,8 @@
       "is_adult": false,
       "review_score": 5,
       "review_score_label": "褒貶不一",
-      "review_percent": 68,
-      "review_count": 276
+      "review_percent": 67,
+      "review_count": 277
     },
     "3947460": {
       "appid": "3947460",
@@ -40646,9 +40648,9 @@
       "release_date": "2026-09-14",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4300090/4311842b39318ea8cd624e1bc2e73f66a7b5d466/capsule_231x87_tchinese.jpg?t=1789812983",
       "status": "live",
-      "price_pct": "-30%",
-      "price_original": "NT$ 205.00",
-      "price_final": "NT$ 143.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 205.00",
       "release_epoch": 1789378896,
       "tags": [
         "組織整理",
@@ -40659,8 +40661,8 @@
         "解謎",
         "點擊冒險",
         "隱藏物件",
-        "女主人翁",
         "溫馨",
+        "女主人翁",
         "2D",
         "休閒",
         "可愛",
@@ -40673,7 +40675,7 @@
         "氛圍"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4300090/b7fb89fe53516ec1121f1ac751a6650d14443e97/header_tchinese.jpg?t=1789812983",
-      "discount_end": 1790614833,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 6,
       "review_score_label": "大多好評",
@@ -40801,7 +40803,7 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 99,
-      "review_count": 307
+      "review_count": 337
     },
     "2538870": {
       "appid": "2538870",
@@ -46022,9 +46024,9 @@
       "release_date": "2026-09-14",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5059850/2190f8271e4666830b2a1c64b5bbb412c340e98a/capsule_231x87.jpg?t=1789692859",
       "status": "live",
-      "price_pct": "-20%",
-      "price_original": "NT$ 469.00",
-      "price_final": "NT$ 375.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 469.00",
       "release_epoch": 1789390343,
       "tags": [
         "運動",
@@ -46038,7 +46040,7 @@
         "搶先體驗"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5059850/829b685c127df2d50aba48647ebb176502d5be89/header.jpg?t=1789692859",
-      "discount_end": 1790614820,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 0,
       "review_score_label": "7 篇使用者評論",
@@ -47425,9 +47427,9 @@
       "release_date": "2026-09-22",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4847850/db287d38f6c381f11e4fb512977e3e11f9505826/capsule_231x87.jpg?t=1790012183",
       "status": "live",
-      "price_pct": "-10%",
-      "price_original": "NT$ 338.00",
-      "price_final": "NT$ 304.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 338.00",
       "release_epoch": 1790012019,
       "tags": [
         "冒險",
@@ -47452,7 +47454,7 @@
         "隱藏物件"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4847850/b648967ef5341d0f5d6ba984a31ea23fd87b3d92/header.jpg?t=1790012183",
-      "discount_end": 1790614802,
+      "discount_end": null,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -48859,9 +48861,9 @@
       "release_date": "2026-09-21",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4946370/56f60353625a9a1263c92dc0e55d0494ba0a8910/capsule_231x87.jpg?t=1790040940",
       "status": "live",
-      "price_pct": "-25%",
-      "price_original": "NT$ 95.00",
-      "price_final": "NT$ 71.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 95.00",
       "release_epoch": 1789995765,
       "tags": [
         "模擬",
@@ -48874,8 +48876,8 @@
         "獨立",
         "資源管理"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4946370/c335ea67bdbcb0892ca31961db854636eb718206/header.jpg?t=1790040940",
-      "discount_end": 1790614842,
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4946370/c335ea67bdbcb0892ca31961db854636eb718206/header.jpg?t=1790612316",
+      "discount_end": null,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -48956,8 +48958,8 @@
       "is_adult": true,
       "review_score": 4,
       "review_score_label": "大多負評",
-      "review_percent": 21,
-      "review_count": 61
+      "review_percent": 22,
+      "review_count": 62
     },
     "4911990": {
       "appid": "4911990",
@@ -50340,9 +50342,9 @@
       "release_date": "2026-09-15",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5048480/723166bd25d48b47818d5127417480cd776c2090/capsule_231x87.jpg?t=1790030932",
       "status": "live",
-      "price_pct": "-20%",
-      "price_original": "NT$ 216.00",
-      "price_final": "NT$ 172.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 216.00",
       "release_epoch": 1789424276,
       "tags": [
         "冒險",
@@ -50367,7 +50369,7 @@
         "單人"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5048480/677292a92b8934f4b627b440f591dfb1230cc41f/header.jpg?t=1790030932",
-      "discount_end": 1790614854,
+      "discount_end": null,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -51489,9 +51491,9 @@
       "release_date": "2026-09-15",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3070070/5c2ce0a6c3455d49ce536cf054a85266363b0dc2/capsule_231x87_alt_assets_0.jpg?t=1789528213",
       "status": "live",
-      "price_pct": "-15%",
-      "price_original": "NT$ 377.00",
-      "price_final": "NT$ 320.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 377.00",
       "release_epoch": 1789404603,
       "tags": [
         "模擬",
@@ -51516,7 +51518,7 @@
         "沙盒"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3070070/80b94bfe22c6cd7bd9f66d0af536ae947f9cce3a/header_alt_assets_0.jpg?t=1789528213",
-      "discount_end": 1790614858,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 9,
       "review_score_label": "壓倒性好評",
@@ -52681,9 +52683,9 @@
       "release_date": "2026-09-15",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4913770/8dfc21a28c9d683c40a4b62153bc2eb2e56e7d62/capsule_231x87.jpg?t=1789405642",
       "status": "live",
-      "price_pct": "-25%",
-      "price_original": "NT$ 52.00",
-      "price_final": "NT$ 39.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 52.00",
       "release_epoch": 1789405644,
       "tags": [
         "卡牌對戰",
@@ -52708,7 +52710,7 @@
         "休閒"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4913770/cbe6e7ceaa4e398e429c486d6a5d2da53a06c266/header.jpg?t=1789405642",
-      "discount_end": 1790614816,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
@@ -54380,9 +54382,9 @@
       "release_date": "2026-09-15",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5032470/cc03ef5f5a8b61fc5901d95f90e8b0211fe227c5/capsule_231x87.jpg?t=1789508366",
       "status": "live",
-      "price_pct": "-15%",
-      "price_original": "NT$ 138.00",
-      "price_final": "NT$ 117.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 138.00",
       "release_epoch": 1789405280,
       "tags": [
         "模擬",
@@ -54397,7 +54399,7 @@
         "單人"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5032470/f666a7a48759d037343a29164f467ec4dd56b951/header.jpg?t=1789508366",
-      "discount_end": 1790614816,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 0,
       "review_score_label": "4 篇使用者評論",
@@ -54493,9 +54495,9 @@
       "release_date": "2026-09-15",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5032680/df808377b4b6639a946ab6fb53a1a904cd3c2efa/capsule_231x87.jpg?t=1789403186",
       "status": "live",
-      "price_pct": "-12%",
-      "price_original": "NT$ 25.00",
-      "price_final": "NT$ 22.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 25.00",
       "release_epoch": 1789403187,
       "tags": [
         "冒險",
@@ -54517,7 +54519,7 @@
         "單人"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5032680/4163229e370f6f1a3d6364a13ddd0e084d4c40eb/header.jpg?t=1789403186",
-      "discount_end": 1790614825,
+      "discount_end": null,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -55022,7 +55024,7 @@
       "is_adult": false,
       "review_score": 5,
       "review_score_label": "褒貶不一",
-      "review_percent": 69,
+      "review_percent": 65,
       "review_count": 23
     },
     "5035760": {
@@ -55032,9 +55034,9 @@
       "release_date": "2026-09-22",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5035760/8d6c8aa9c311a73905d6c80757b1af7059ad7413/capsule_231x87.jpg?t=1790010199",
       "status": "live",
-      "price_pct": "-25%",
-      "price_original": "NT$ 207.00",
-      "price_final": "NT$ 155.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 207.00",
       "release_epoch": 1790010200,
       "tags": [
         "時間管理",
@@ -55059,7 +55061,7 @@
         "魔法"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5035760/c8067d13a6ac01afce83908f879ab6f59a746685/header.jpg?t=1790010199",
-      "discount_end": 1790614818,
+      "discount_end": null,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -56944,9 +56946,9 @@
       "release_date": "2026-09-22",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5077310/f7f6550d9db16bfd3100317f05b181d97a0c9644/capsule_231x87.jpg?t=1790013698",
       "status": "live",
-      "price_pct": "-11%",
-      "price_original": "NT$ 76.00",
-      "price_final": "NT$ 68.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 76.00",
       "release_epoch": 1790013700,
       "tags": [
         "角色扮演",
@@ -56970,8 +56972,8 @@
         "復古",
         "戰鬥"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5077310/9453dcab8e09971774c9d141f597c27d0721d0f5/header.jpg?t=1790013698",
-      "discount_end": 1790614837,
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5077310/9453dcab8e09971774c9d141f597c27d0721d0f5/header.jpg?t=1790484942",
+      "discount_end": null,
       "is_adult": false,
       "review_score": 0,
       "review_score_label": "2 篇使用者評論",
@@ -58232,9 +58234,9 @@
       "release_date": "2026-09-15",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5085640/94c9691a81dca08ee0cb7b884e12723eed36d716/capsule_231x87.jpg?t=1789403956",
       "status": "live",
-      "price_pct": "-40%",
-      "price_original": "NT$ 216.00",
-      "price_final": "NT$ 129.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 216.00",
       "release_epoch": 1789403957,
       "tags": [
         "動作類 Rogue",
@@ -58259,7 +58261,7 @@
         "奇幻"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5085640/637b32e4d68db96609b72d143afa80772e2c39dc/header.jpg?t=1789403956",
-      "discount_end": 1790614815,
+      "discount_end": null,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -58850,9 +58852,9 @@
       "release_date": "2026-09-22",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4808810/40f9e555f782f71d624f330a0c064ef4a8f019c0/capsule_231x87.jpg?t=1790024784",
       "status": "live",
-      "price_pct": "-25%",
-      "price_original": "NT$ 95.00",
-      "price_final": "NT$ 71.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 95.00",
       "release_epoch": 1790024785,
       "tags": [
         "動作",
@@ -58877,7 +58879,7 @@
         "多人"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4808810/fe5850b0c910ffafa004a1a88da42bb38c907d11/header.jpg?t=1790024784",
-      "discount_end": 1790614823,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 0,
       "review_score_label": "3 篇使用者評論",
@@ -58994,8 +58996,8 @@
       "is_adult": false,
       "review_score": 8,
       "review_score_label": "極度好評",
-      "review_percent": 80,
-      "review_count": 125
+      "review_percent": 81,
+      "review_count": 129
     },
     "4811030": {
       "appid": "4811030",
@@ -59602,9 +59604,9 @@
       "release_date": "2026-09-15",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5133880/db4f67131ac7b64d00a1db04ac652de454d1ad9d/capsule_231x87.jpg?t=1789403224",
       "status": "live",
-      "price_pct": "-30%",
-      "price_original": "NT$ 198.00",
-      "price_final": "NT$ 138.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 198.00",
       "release_epoch": 1789403225,
       "tags": [
         "動作",
@@ -59625,12 +59627,12 @@
         "沉浸模擬"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5133880/d904179115fd7b918e9cf65292c4cf0cf6f5495f/header.jpg?t=1789403224",
-      "discount_end": 1790614803,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 0,
-      "review_score_label": "5 篇使用者評論",
-      "review_percent": 60,
-      "review_count": 5
+      "review_score_label": "6 篇使用者評論",
+      "review_percent": 50,
+      "review_count": 6
     },
     "5134140": {
       "appid": "5134140",
@@ -61387,9 +61389,9 @@
       "release_date": "2026-09-22",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5148830/490422b7e810ce87757456fe4171be772d03822a/capsule_231x87.jpg?t=1790018504",
       "status": "live",
-      "price_pct": "-40%",
-      "price_original": "NT$ 136.00",
-      "price_final": "NT$ 81.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 52.00",
       "release_epoch": 1790018505,
       "tags": [
         "商店經營",
@@ -61409,7 +61411,7 @@
         "單人"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5148830/8f86d20b7f95bd368dd4dae5cd1e0175ff19b2ff/header.jpg?t=1790018504",
-      "discount_end": 1790614843,
+      "discount_end": null,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -61524,9 +61526,9 @@
       "release_date": "2026-09-14",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5151890/9d8745ac82f5e495fd3b61a64892228cd1ee09a9/capsule_231x87.jpg?t=1789396700",
       "status": "live",
-      "price_pct": "-38%",
-      "price_original": "NT$ 42.00",
-      "price_final": "NT$ 26.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 42.00",
       "release_epoch": 1789396701,
       "tags": [
         "接龍",
@@ -61546,7 +61548,7 @@
         "單人"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5151890/0bbe746d3be4b3de2ad34c13895ff98039b32387/header.jpg?t=1789396700",
-      "discount_end": 1790614818,
+      "discount_end": null,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -61560,9 +61562,9 @@
       "release_date": "2026-09-21",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5151960/bffba11ed899b1b978ebbc46bd24e92cfb28b648/capsule_231x87.jpg?t=1789974842",
       "status": "live",
-      "price_pct": "-20%",
-      "price_original": "NT$ 216.00",
-      "price_final": "NT$ 172.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 216.00",
       "release_epoch": 1789974844,
       "tags": [
         "模擬",
@@ -61579,7 +61581,7 @@
         "聲控"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5151960/a96b921518dcff9b30337382edd3ec32d2a02b2a/header.jpg?t=1789974842",
-      "discount_end": 1790614801,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
@@ -61720,10 +61722,10 @@
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5153230/10db19b1523e3e0320cc5b5a7a0d0f1c908162af/header.jpg?t=1790150232",
       "discount_end": null,
       "is_adult": false,
-      "review_score": null,
-      "review_score_label": null,
-      "review_percent": null,
-      "review_count": null
+      "review_score": 0,
+      "review_score_label": "1 篇使用者評論",
+      "review_percent": 100,
+      "review_count": 1
     },
     "5153850": {
       "appid": "5153850",
@@ -61732,9 +61734,9 @@
       "release_date": "2026-09-14",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5153850/76a02ce1307f578c55027c6e1ae6658a1ed88fbe/capsule_231x87.jpg?t=1789372053",
       "status": "live",
-      "price_pct": "-10%",
-      "price_original": "NT$ 320.00",
-      "price_final": "NT$ 288.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 320.00",
       "release_epoch": 1789372054,
       "tags": [
         "休閒",
@@ -61759,7 +61761,7 @@
         "音樂"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5153850/051cf5316b1e26289e8a85437b2323bf57b18f69/header.jpg?t=1789372053",
-      "discount_end": 1790614831,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
@@ -61919,7 +61921,7 @@
       "review_score": 6,
       "review_score_label": "大多好評",
       "review_percent": 78,
-      "review_count": 387
+      "review_count": 389
     },
     "5155330": {
       "appid": "5155330",
@@ -62065,9 +62067,9 @@
       "release_date": "2026-09-22",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5156430/bf10e090b2110413c4fb5f9b100843467b5d4ddc/capsule_231x87.jpg?t=1790017275",
       "status": "live",
-      "price_pct": "-15%",
-      "price_original": "NT$ 117.00",
-      "price_final": "NT$ 99.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 117.00",
       "release_epoch": 1790017277,
       "tags": [
         "動作類 Rogue",
@@ -62081,7 +62083,7 @@
         "線上合作"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5156430/659c3381d18febcf84d8a280d44eb46f32339d17/header.jpg?t=1790017275",
-      "discount_end": 1790614814,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 0,
       "review_score_label": "2 篇使用者評論",
@@ -62805,9 +62807,9 @@
       "release_date": "2026-09-14",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5162530/a2b670767e1157d06284aac2a3244a4ac7fda257/capsule_231x87.jpg?t=1789391774",
       "status": "live",
-      "price_pct": "-40%",
-      "price_original": "NT$ 159.00",
-      "price_final": "NT$ 95.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 159.00",
       "release_epoch": 1789391775,
       "tags": [
         "模擬",
@@ -62824,7 +62826,7 @@
         "單人"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5162530/f30533dee8aafa6fd02962714676ab6cedd5e76b/header.jpg?t=1789391774",
-      "discount_end": 1790614813,
+      "discount_end": null,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -63470,8 +63472,8 @@
       "is_adult": false,
       "review_score": 6,
       "review_score_label": "大多好評",
-      "review_percent": 71,
-      "review_count": 14
+      "review_percent": 73,
+      "review_count": 15
     },
     "5171060": {
       "appid": "5171060",
@@ -64003,9 +64005,9 @@
       "release_date": "2026-09-14",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5177890/85d7d2a234d192d2185c4e96f3c74398ff3c4a33/capsule_231x87.jpg?t=1789369323",
       "status": "live",
-      "price_pct": "-21%",
-      "price_original": "NT$ 136.00",
-      "price_final": "NT$ 108.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 136.00",
       "release_epoch": 1789369324,
       "tags": [
         "賭博",
@@ -64020,7 +64022,7 @@
         "單人"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5177890/f15bca146a2f5dd32117b9d0d4db5a90cad453fb/header.jpg?t=1789369323",
-      "discount_end": 1790614801,
+      "discount_end": null,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -66858,9 +66860,9 @@
       "release_date": "2026-09-21",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4173820/a4cde91efa35286459692cb58752a8ab0836a5f4/capsule_231x87.jpg?t=1789995659",
       "status": "live",
-      "price_pct": "-10%",
-      "price_original": "NT$ 138.00",
-      "price_final": "NT$ 124.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 138.00",
       "release_epoch": 1789995660,
       "tags": [
         "迷宮探索",
@@ -66884,8 +66886,8 @@
         "單人",
         "2D"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4173820/ed9ed63043569b85511ac592870eeb653619e326/header.jpg?t=1789995659",
-      "discount_end": 1790614857,
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4173820/ed9ed63043569b85511ac592870eeb653619e326/header.jpg?t=1790602592",
+      "discount_end": null,
       "is_adult": false,
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
@@ -67276,15 +67278,15 @@
       "release_date": "2026-09-21",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2301480/340e28e93cf5796353aba92bea1c06ca888f6765/capsule_231x87.jpg?t=1790003065",
       "status": "live",
-      "price_pct": "-10%",
-      "price_original": "NT$ 188.00",
-      "price_final": "NT$ 169.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 188.00",
       "release_epoch": 1790003065,
       "tags": [
         "模擬",
         "時間管理",
-        "戀愛模擬",
         "色情內容",
+        "戀愛模擬",
         "探索",
         "搞笑",
         "歡樂",
@@ -67303,7 +67305,7 @@
         "劇情豐富"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2301480/d33497a3cf01670a1c02288215a7f28efb1c427b/header.jpg?t=1790003065",
-      "discount_end": 1790614823,
+      "discount_end": null,
       "is_adult": true,
       "review_score": 7,
       "review_score_label": "好評",
@@ -67998,9 +68000,9 @@
       "release_date": "2026-09-21",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4535170/99f54674fa0fc10b98592586d0852a4eeb760b18/capsule_231x87.jpg?t=1790004100",
       "status": "live",
-      "price_pct": "-15%",
-      "price_original": "NT$ 199.00",
-      "price_final": "NT$ 169.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 199.00",
       "release_epoch": 1790004101,
       "tags": [
         "卡牌對戰",
@@ -68025,7 +68027,7 @@
         "2D"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4535170/dbb547664a7af5a51c25eb0875603a2b0decbac1/header.jpg?t=1790004100",
-      "discount_end": 1790614838,
+      "discount_end": null,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -69543,9 +69545,9 @@
       "release_date": "2026-09-15",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4091920/c374ed55986ca12dba81a1ed7502bb71da559dd4/capsule_231x87.jpg?t=1789828722",
       "status": "live",
-      "price_pct": "-25%",
-      "price_original": "NT$ 308.00",
-      "price_final": "NT$ 231.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 308.00",
       "release_epoch": 1789409931,
       "tags": [
         "動作",
@@ -69569,8 +69571,8 @@
         "駕駛",
         "射擊"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4091920/299f65d66d08cb0429614d666848eaced0c118d1/header.jpg?t=1789828722",
-      "discount_end": 1790614848,
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4091920/c96c122b23a674f7428a7edb77690876aa771718/header.jpg?t=1790172134",
+      "discount_end": null,
       "is_adult": false,
       "review_score": 7,
       "review_score_label": "好評",
@@ -70206,9 +70208,9 @@
       "release_date": "2026-09-22",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4289410/30953b35de3d9c502b3115027378b679a80bb8ef/capsule_231x87.jpg?t=1790050993",
       "status": "live",
-      "price_pct": "-21%",
-      "price_original": "NT$ 117.00",
-      "price_final": "NT$ 93.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 117.00",
       "release_epoch": 1790042299,
       "tags": [
         "放置",
@@ -70233,7 +70235,7 @@
         "2D"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4289410/75c44fc15c78405cee2442ec67ccc464baaa4e49/header.jpg?t=1790050993",
-      "discount_end": 1790614817,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 8,
       "review_score_label": "極度好評",
@@ -70898,7 +70900,7 @@
       "review_score": 5,
       "review_score_label": "褒貶不一",
       "review_percent": 64,
-      "review_count": 391
+      "review_count": 397
     },
     "4336400": {
       "appid": "4336400",
@@ -71057,9 +71059,9 @@
       "release_date": "2026-09-19",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4356680/c9d34c907d95ceee1334359cb8a7ca2b7daeefce/capsule_231x87.jpg?t=1789750620",
       "status": "live",
-      "price_pct": "-20%",
-      "price_original": "NT$ 25.00",
-      "price_final": "NT$ 20.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 25.00",
       "release_epoch": 1789750622,
       "tags": [
         "類 Rogue",
@@ -71084,7 +71086,7 @@
         "像素風格"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4356680/c7c32a91f84b75b99d4a7267a3f416eabc389363/header.jpg?t=1789750620",
-      "discount_end": 1790614859,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
@@ -71719,9 +71721,9 @@
       "release_date": "2026-08-31",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4048540/20575bd9ff205fd30678fbaf620237b189d0524c/capsule_231x87.jpg?t=1788785741",
       "status": "live",
-      "price_pct": "-20%",
-      "price_original": "NT$ 255.00",
-      "price_final": "NT$ 205.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 216.00",
       "release_epoch": 1788125101,
       "tags": [
         "沙盒",
@@ -71746,7 +71748,7 @@
         "動作角色扮演"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4048540/799b089b8a5cff2f52816ef2effd3310eaa6d471/header.jpg?t=1788785741",
-      "discount_end": 1790614800,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
@@ -71831,9 +71833,9 @@
       "release_date": "2026-09-15",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4054250/33f8a9e8b2fc6bb5ec15271e4518fc74c40086dd/capsule_231x87.jpg?t=1789405445",
       "status": "live",
-      "price_pct": "-39%",
-      "price_original": "NT$ 179.00",
-      "price_final": "NT$ 110.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 179.00",
       "release_epoch": 1789405447,
       "tags": [
         "運動",
@@ -71858,7 +71860,7 @@
         "槍械改造"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4054250/78aa56106e5b44622bf2ef91a9eddacb05557723/header.jpg?t=1789405445",
-      "discount_end": 1790614804,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
@@ -71907,9 +71909,9 @@
       "release_date": "2026-09-15",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4058130/64a427b461b26b25d1bf0f67299177a67a07ae24/capsule_231x87.jpg?t=1789405482",
       "status": "live",
-      "price_pct": "-40%",
-      "price_original": "NT$ 119.00",
-      "price_final": "NT$ 71.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 119.00",
       "release_epoch": 1789405484,
       "tags": [
         "策略",
@@ -71934,7 +71936,7 @@
         "網格導向動作"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4058130/db20a43e2e0e31b7a6df8fd4f50de8e279e50901/header.jpg?t=1789405482",
-      "discount_end": 1790614841,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
@@ -71948,9 +71950,9 @@
       "release_date": "2026-09-15",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4063080/507f74cf2673a8e9b4861c7255ebc338ce79a002/capsule_231x87.jpg?t=1789405510",
       "status": "live",
-      "price_pct": "-30%",
-      "price_original": "NT$ 159.00",
-      "price_final": "NT$ 112.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 159.00",
       "release_epoch": 1789405511,
       "tags": [
         "農場管理",
@@ -71975,7 +71977,7 @@
         "闔家"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4063080/132d92ab543556b26be14e19e3cbc80fd7a0a745/header.jpg?t=1789405510",
-      "discount_end": 1790614807,
+      "discount_end": null,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -71989,9 +71991,9 @@
       "release_date": "2026-09-15",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4063100/2c61db66f2ff8c1f8cc37d8fa60e7a020fb0e37c/capsule_231x87.jpg?t=1789405565",
       "status": "live",
-      "price_pct": "-35%",
-      "price_original": "NT$ 139.00",
-      "price_final": "NT$ 91.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 139.00",
       "release_epoch": 1789405566,
       "tags": [
         "動作",
@@ -72016,7 +72018,7 @@
         "獨立"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4063100/a7eacd3f937a64bb7cb16bc870898130d5ae8936/header.jpg?t=1789405565",
-      "discount_end": 1790614804,
+      "discount_end": null,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -72030,14 +72032,14 @@
       "release_date": "2026-09-15",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4063110/809fdbd1a864b87eb9a63e75b6178a978aab67db/capsule_231x87.jpg?t=1789405599",
       "status": "live",
-      "price_pct": "-35%",
-      "price_original": "NT$ 139.00",
-      "price_final": "NT$ 91.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 139.00",
       "release_epoch": 1789405601,
       "tags": [
         "自然",
-        "創世神",
         "休閒",
+        "創世神",
         "沉浸模擬",
         "模擬",
         "探索",
@@ -72057,7 +72059,7 @@
         "動作"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4063110/c79738eec7d6cfd0698aac05ce77a8e85f5bb4a9/header.jpg?t=1789405599",
-      "discount_end": 1790614838,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
@@ -72111,9 +72113,9 @@
       "release_date": "2026-09-15",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4064030/b075770fb2ebadca6ec4927c9e9919f5f09f1c3d/capsule_231x87.jpg?t=1789405642",
       "status": "live",
-      "price_pct": "-30%",
-      "price_original": "NT$ 159.00",
-      "price_final": "NT$ 112.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 159.00",
       "release_epoch": 1789405644,
       "tags": [
         "模擬",
@@ -72138,7 +72140,7 @@
         "搶先體驗"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4064030/a4eba1486eeaf27d3f3395684f3ca46e2dd7ca32/header.jpg?t=1789405642",
-      "discount_end": 1790614813,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
@@ -72222,9 +72224,9 @@
       "release_date": "2026-09-21",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5040690/287c73f040ed403f4ab0af8a39f4803cf697b537/capsule_231x87.jpg?t=1789990398",
       "status": "live",
-      "price_pct": "-30%",
-      "price_original": "NT$ 76.00",
-      "price_final": "NT$ 53.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 76.00",
       "release_epoch": 1789990399,
       "tags": [
         "遞增",
@@ -72240,7 +72242,7 @@
         "單人"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5040690/ea36ab27f05d7dede6fc12d39f8c9ede326042dc/header.jpg?t=1789990398",
-      "discount_end": 1790614817,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 0,
       "review_score_label": "3 篇使用者評論",
@@ -73581,8 +73583,8 @@
       "is_adult": true,
       "review_score": 5,
       "review_score_label": "褒貶不一",
-      "review_percent": 40,
-      "review_count": 15
+      "review_percent": 43,
+      "review_count": 16
     },
     "4533490": {
       "appid": "4533490",
@@ -73663,9 +73665,9 @@
       "release_date": "2026-09-14",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4538140/dd1f350bb71e50e1213e3ad5f259efbe0681ee2a/capsule_231x87.jpg?t=1789401594",
       "status": "live",
-      "price_pct": "-10%",
-      "price_original": "NT$ 175.00",
-      "price_final": "NT$ 157.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 175.00",
       "release_epoch": 1789401595,
       "tags": [
         "恐怖",
@@ -73690,7 +73692,7 @@
         "生存恐怖"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4538140/3634bc1eef00e4b73b2acc65e8f1b3eba8dd558a/header.jpg?t=1789401594",
-      "discount_end": 1790614852,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 6,
       "review_score_label": "大多好評",
@@ -73745,9 +73747,9 @@
       "release_date": "2026-09-14",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4540130/8da954c8828d264d5d5cdf23eedf4ba5f4e0f00e/capsule_231x87.jpg?t=1789376939",
       "status": "live",
-      "price_pct": "-40%",
-      "price_original": "NT$ 175.00",
-      "price_final": "NT$ 105.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 175.00",
       "release_epoch": 1789376941,
       "tags": [
         "逆彈幕",
@@ -73766,7 +73768,7 @@
         "獨立"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4540130/298987d70306f9d4cfc755f813cf595a1014fed7/header.jpg?t=1789376939",
-      "discount_end": 1790614858,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 8,
       "review_score_label": "極度好評",
@@ -73934,8 +73936,8 @@
       "is_adult": false,
       "review_score": 6,
       "review_score_label": "大多好評",
-      "review_percent": 79,
-      "review_count": 62
+      "review_percent": 77,
+      "review_count": 63
     },
     "1160490": {
       "appid": "1160490",
@@ -74200,7 +74202,7 @@
       "review_score": 5,
       "review_score_label": "褒貶不一",
       "review_percent": 51,
-      "review_count": 687
+      "review_count": 696
     },
     "2068500": {
       "appid": "2068500",
@@ -74250,9 +74252,9 @@
       "release_date": "2026-09-14",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2076540/04e2406014610457e162f2fcb4373490aec4d734/capsule_231x87.jpg?t=1789593586",
       "status": "live",
-      "price_pct": "-26%",
-      "price_original": "NT$ 117.00",
-      "price_final": "NT$ 87.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 117.00",
       "release_epoch": 1789372745,
       "tags": [
         "程序生成",
@@ -74276,8 +74278,8 @@
         "3D",
         "多人"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2076540/3aca34fb458b325719b96a6fb8a493a2f0e9539b/header.jpg?t=1789593586",
-      "discount_end": 1790614802,
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2076540/3aca34fb458b325719b96a6fb8a493a2f0e9539b/header.jpg?t=1790379704",
+      "discount_end": null,
       "is_adult": false,
       "review_score": 5,
       "review_score_label": "褒貶不一",
@@ -74373,9 +74375,9 @@
       "release_date": "2026-09-22",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2140700/5356c0805611c856f525b5afe2a7e1d8d8310c2b/capsule_231x87.jpg?t=1790036431",
       "status": "live",
-      "price_pct": "-20%",
-      "price_original": "NT$ 168.00",
-      "price_final": "NT$ 134.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 168.00",
       "release_epoch": 1790018055,
       "tags": [
         "動作",
@@ -74400,7 +74402,7 @@
         "戰鬥"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2140700/93d04a531ba8aae267d4133822c3aa4a35bd5a5c/header.jpg?t=1790036431",
-      "discount_end": 1790614811,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 5,
       "review_score_label": "褒貶不一",
@@ -74825,9 +74827,9 @@
       "release_date": "2026-09-19",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4627590/ea2069a577f2380da299939b017fab033be0d7be/capsule_231x87.jpg?t=1789750863",
       "status": "live",
-      "price_pct": "-21%",
-      "price_original": "NT$ 136.00",
-      "price_final": "NT$ 108.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 136.00",
       "release_epoch": 1789750864,
       "tags": [
         "收集型平台",
@@ -74847,8 +74849,8 @@
         "獨立",
         "工作模擬"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4627590/40dbc571cad79af523cc4823e4e7bf21fc2ed8b7/header.jpg?t=1789750863",
-      "discount_end": 1790614801,
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4627590/40dbc571cad79af523cc4823e4e7bf21fc2ed8b7/header.jpg?t=1790099477",
+      "discount_end": null,
       "is_adult": false,
       "review_score": 5,
       "review_score_label": "褒貶不一",
@@ -74942,9 +74944,9 @@
       "release_date": "2026-09-21",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4255080/7a5b7c562a2d81cb6854ca7b8bf59661d1fd30da/capsule_231x87.jpg?t=1789989022",
       "status": "live",
-      "price_pct": "-21%",
-      "price_original": "NT$ 117.00",
-      "price_final": "NT$ 93.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 117.00",
       "release_epoch": 1789989024,
       "tags": [
         "回合制策略",
@@ -74968,8 +74970,8 @@
         "單人",
         "搶先體驗"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4255080/6d58512ace650d003a8265a22338b86f7048a04f/header.jpg?t=1789989022",
-      "discount_end": 1790614820,
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4255080/6d58512ace650d003a8265a22338b86f7048a04f/header.jpg?t=1790316868",
+      "discount_end": null,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -76950,8 +76952,8 @@
       "is_adult": false,
       "review_score": 7,
       "review_score_label": "好評",
-      "review_percent": 81,
-      "review_count": 27
+      "review_percent": 82,
+      "review_count": 28
     },
     "5088870": {
       "appid": "5088870",
@@ -78168,9 +78170,9 @@
       "release_date": "2026-09-21",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4995090/d35a05e5f28c50e77c6a6a89f293747740c08f15/capsule_231x87.jpg?t=1789984313",
       "status": "live",
-      "price_pct": "-20%",
-      "price_original": "NT$ 95.00",
-      "price_final": "NT$ 76.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 95.00",
       "release_epoch": 1789984315,
       "tags": [
         "休閒",
@@ -78195,7 +78197,7 @@
         "對話導向"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4995090/46c1e36c4db7dc49c965df21247a7d0dac10744a/header.jpg?t=1789984313",
-      "discount_end": 1790614853,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 0,
       "review_score_label": "2 篇使用者評論",
@@ -79523,9 +79525,9 @@
       "release_date": "2026-09-22",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5095670/f1c85279a5a01f0a1c2d5f46f8179192cf36ce92/capsule_231x87.jpg?t=1790017025",
       "status": "live",
-      "price_pct": "-15%",
-      "price_original": "NT$ 207.00",
-      "price_final": "NT$ 175.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 207.00",
       "release_epoch": 1790017029,
       "tags": [
         "模擬",
@@ -79538,8 +79540,8 @@
         "獨立",
         "單人"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5095670/9f83e83bc6d0c354179c8bc74d1f4f6095fdc2d0/header.jpg?t=1790017025",
-      "discount_end": 1790614858,
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5095670/9f83e83bc6d0c354179c8bc74d1f4f6095fdc2d0/header.jpg?t=1790165484",
+      "discount_end": null,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -80486,9 +80488,9 @@
       "release_date": "2026-09-15",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5071760/0c88b9d88d577f884e82b31fe9bc45a74f5a92a1/capsule_231x87.jpg?t=1789405277",
       "status": "live",
-      "price_pct": "-28%",
-      "price_original": "NT$ 25.00",
-      "price_final": "NT$ 18.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 25.00",
       "release_epoch": 1789405280,
       "tags": [
         "休閒",
@@ -80513,7 +80515,7 @@
         "角色扮演"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5071760/98c51914c46eac329dbe6bd2cc95a71868d6fffe/header.jpg?t=1789405277",
-      "discount_end": 1790614815,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 7,
       "review_score_label": "好評",
@@ -81323,9 +81325,9 @@
       "release_date": "2026-09-15",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4985780/37fe1ae1714099afa15215873c5698f45a734b26/capsule_231x87.jpg?t=1789423681",
       "status": "live",
-      "price_pct": "-21%",
-      "price_original": "NT$ 76.00",
-      "price_final": "NT$ 60.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 76.00",
       "release_epoch": 1789423682,
       "tags": [
         "動作",
@@ -81342,7 +81344,7 @@
         "單人"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4985780/74e1d089e8fac7514eba1c57bd3d478092ce1be5/header.jpg?t=1789423681",
-      "discount_end": 1790614800,
+      "discount_end": null,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -81655,9 +81657,9 @@
       "release_date": "2026-09-22",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4988860/8efb7168423f85b184f403c2daa8a456f49fb30b/capsule_231x87.jpg?t=1790010052",
       "status": "live",
-      "price_pct": "-10%",
-      "price_original": "NT$ 136.00",
-      "price_final": "NT$ 122.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 136.00",
       "release_epoch": 1790010054,
       "tags": [
         "放鬆",
@@ -81679,7 +81681,7 @@
         "步行模擬"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4988860/de4878fd32de98562b6b951fdc2b9aded17ffbfc/header.jpg?t=1790010052",
-      "discount_end": 1790614850,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 7,
       "review_score_label": "好評",
@@ -83111,9 +83113,9 @@
       "release_date": "2026-09-21",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5106570/b2ff0661120001aefb69a21ac90202a8b7881060/capsule_231x87.jpg?t=1789992251",
       "status": "live",
-      "price_pct": "-12%",
-      "price_original": "NT$ 25.00",
-      "price_final": "NT$ 22.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 25.00",
       "release_epoch": 1789992252,
       "tags": [
         "動作",
@@ -83126,7 +83128,7 @@
         "街機"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5106570/81be53a18fdd01491ded710a8856bbba4125cdee/header.jpg?t=1789992251",
-      "discount_end": 1790614810,
+      "discount_end": null,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -85054,7 +85056,7 @@
       "review_score": 6,
       "review_score_label": "大多好評",
       "review_percent": 70,
-      "review_count": 189
+      "review_count": 190
     },
     "3547270": {
       "appid": "3547270",
@@ -85169,8 +85171,8 @@
       "is_adult": false,
       "review_score": 7,
       "review_score_label": "好評",
-      "review_percent": 91,
-      "review_count": 12
+      "review_percent": 92,
+      "review_count": 13
     },
     "3557380": {
       "appid": "3557380",
@@ -85302,9 +85304,9 @@
       "release_date": "2026-09-14",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3562200/9734b35f5e65ad2282e801704f668a8740f8e6b6/capsule_231x87.jpg?t=1789734483",
       "status": "live",
-      "price_pct": "-25%",
-      "price_original": "NT$ 158.00",
-      "price_final": "NT$ 118.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 158.00",
       "release_epoch": 1789390808,
       "tags": [
         "休閒",
@@ -85328,8 +85330,8 @@
         "回合制策略",
         "回合制戰術"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3562200/9ad29e01c2342414000a8bbccf9eecbdd085f8bc/header.jpg?t=1789734483",
-      "discount_end": 1790614801,
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3562200/9ad29e01c2342414000a8bbccf9eecbdd085f8bc/header.jpg?t=1790341513",
+      "discount_end": null,
       "is_adult": false,
       "review_score": 8,
       "review_score_label": "極度好評",
@@ -85933,9 +85935,9 @@
       "release_date": "2026-09-22",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3008700/8231e66196bfe0cfcfbfef6196d2d47f942a9e92/capsule_231x87.jpg?t=1790033394",
       "status": "live",
-      "price_pct": "-10%",
-      "price_original": "NT$ 216.00",
-      "price_final": "NT$ 194.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 216.00",
       "release_epoch": 1790033395,
       "tags": [
         "像素風格",
@@ -85960,7 +85962,7 @@
         "未來"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3008700/c1ea4b2f96a10e0b28d89e98e33a3fde6752a4f2/header.jpg?t=1790033394",
-      "discount_end": 1790614853,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 7,
       "review_score_label": "好評",
@@ -86137,9 +86139,9 @@
       "release_date": "2026-09-14",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3034660/3bf87a88b4f720501f156ec5905a055b761bc033/capsule_231x87.jpg?t=1789793878",
       "status": "live",
-      "price_pct": "-20%",
-      "price_original": "NT$ 308.00",
-      "price_final": "NT$ 246.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 308.00",
       "release_epoch": 1789401490,
       "tags": [
         "回合制戰術",
@@ -86164,7 +86166,7 @@
         "3D"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3034660/8cbd3f009f5a725485dac85783092da800cca4ff/header.jpg?t=1789793878",
-      "discount_end": 1790614807,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 6,
       "review_score_label": "大多好評",
@@ -87381,9 +87383,9 @@
       "release_date": "2026-09-22",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4980100/271905f3ea228fec105953bf851e07b68c8df136/capsule_231x87.jpg?t=1790008223",
       "status": "live",
-      "price_pct": "-31%",
-      "price_original": "NT$ 51.00",
-      "price_final": "NT$ 35.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 51.00",
       "release_epoch": 1790008225,
       "tags": [
         "砍殺",
@@ -87408,7 +87410,7 @@
         "黑暗"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4980100/e40c56b587f7ab2136899899bab641636ac73968/header.jpg?t=1790008223",
-      "discount_end": 1790614822,
+      "discount_end": null,
       "is_adult": false,
       "review_score": 7,
       "review_score_label": "好評",
@@ -88346,9 +88348,9 @@
       "release_date": "2026-09-15",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3375710/72c4dbe1103403ceb6abb0d7f75fb0e5ff04ca38/capsule_231x87.jpg?t=1789423698",
       "status": "live",
-      "price_pct": "-20%",
-      "price_original": "NT$ 175.00",
-      "price_final": "NT$ 140.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 175.00",
       "release_epoch": 1789423699,
       "tags": [
         "色情內容",
@@ -88373,7 +88375,7 @@
         "互動小說"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3375710/914153d65349e0e5e3afa56f93d3f0bc059b1243/header.jpg?t=1789423698",
-      "discount_end": 1790614817,
+      "discount_end": null,
       "is_adult": true,
       "review_score": null,
       "review_score_label": null,
@@ -89533,9 +89535,9 @@
       "release_date": "2026-09-21",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4539070/0c5ace21e4b4f1a5452d4d2ee854783f7e0350b1/capsule_231x87.jpg?t=1790006370",
       "status": "live",
-      "price_pct": "-10%",
-      "price_original": "NT$ 159.00",
-      "price_final": "NT$ 143.00",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 159.00",
       "release_epoch": 1790006371,
       "tags": [
         "角色扮演",
@@ -89559,8 +89561,8 @@
         "純文字",
         "單人"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4539070/fbc63a8e885bca1ec172150ecb7fcb2f7d8d70a5/header.jpg?t=1790006370",
-      "discount_end": 1790614829,
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4539070/fbc63a8e885bca1ec172150ecb7fcb2f7d8d70a5/header.jpg?t=1790390120",
+      "discount_end": null,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -93464,7 +93466,7 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 89,
-      "review_count": 265
+      "review_count": 266
     },
     "2845430": {
       "appid": "2845430",
@@ -93807,9 +93809,9 @@
       "discount_end": 1790787610,
       "is_adult": false,
       "review_score": 0,
-      "review_score_label": "8 篇使用者評論",
+      "review_score_label": "9 篇使用者評論",
       "review_percent": 100,
-      "review_count": 8
+      "review_count": 9
     },
     "5036050": {
       "appid": "5036050",
@@ -94228,8 +94230,8 @@
       "is_adult": false,
       "review_score": 7,
       "review_score_label": "好評",
-      "review_percent": 87,
-      "review_count": 24
+      "review_percent": 88,
+      "review_count": 26
     },
     "5203270": {
       "appid": "5203270",
@@ -94452,9 +94454,9 @@
       "release_date": "2026-09-24",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3932790/9dce97dc5b66a510b3b5bf38887e4b40d3a72bc6/capsule_231x87.jpg?t=1790262085",
       "status": "live",
-      "price_pct": "-26%",
-      "price_original": "NT$ 960.00",
-      "price_final": "NT$ 714.00",
+      "price_pct": "-10%",
+      "price_original": "NT$ 830.00",
+      "price_final": "NT$ 747.00",
       "release_epoch": 1790236846,
       "tags": [
         "探索",
@@ -94479,7 +94481,7 @@
         "單人"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3932790/4969712a29cab096dbde9f232ee78e4c7c1cffab/header.jpg?t=1790262085",
-      "discount_end": 1790614800,
+      "discount_end": 1790874041,
       "is_adult": false,
       "review_score": 8,
       "review_score_label": "極度好評",
@@ -95040,7 +95042,7 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 87,
-      "review_count": 243
+      "review_count": 289
     },
     "4753960": {
       "appid": "4753960",
@@ -95243,8 +95245,8 @@
       "is_adult": false,
       "review_score": 7,
       "review_score_label": "好評",
-      "review_percent": 100,
-      "review_count": 15
+      "review_percent": 93,
+      "review_count": 16
     },
     "4296850": {
       "appid": "4296850",
@@ -95917,7 +95919,7 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 92,
-      "review_count": 81
+      "review_count": 83
     },
     "3503090": {
       "appid": "3503090",
@@ -97155,7 +97157,7 @@
       "review_score": 9,
       "review_score_label": "壓倒性好評",
       "review_percent": 96,
-      "review_count": 2230
+      "review_count": 2258
     },
     "5178900": {
       "appid": "5178900",
@@ -98369,10 +98371,10 @@
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4526330/1adf07f57234b446d494f275fa8895f04a0a79e2/header.jpg?t=1790247795",
       "discount_end": 1790874014,
       "is_adult": false,
-      "review_score": 6,
-      "review_score_label": "大多好評",
-      "review_percent": 78,
-      "review_count": 14
+      "review_score": 7,
+      "review_score_label": "好評",
+      "review_percent": 84,
+      "review_count": 13
     },
     "4614040": {
       "appid": "4614040",
@@ -100915,9 +100917,9 @@
       "discount_end": null,
       "is_adult": false,
       "review_score": 0,
-      "review_score_label": "8 篇使用者評論",
+      "review_score_label": "9 篇使用者評論",
       "review_percent": 100,
-      "review_count": 8
+      "review_count": 9
     },
     "4834240": {
       "appid": "4834240",
@@ -101233,7 +101235,7 @@
       "review_score": 6,
       "review_score_label": "大多好評",
       "review_percent": 75,
-      "review_count": 482
+      "review_count": 490
     },
     "3865000": {
       "appid": "3865000",
@@ -101273,8 +101275,8 @@
       "is_adult": false,
       "review_score": 8,
       "review_score_label": "極度好評",
-      "review_percent": 92,
-      "review_count": 57
+      "review_percent": 91,
+      "review_count": 58
     },
     "4086480": {
       "appid": "4086480",
@@ -101454,8 +101456,8 @@
       "is_adult": false,
       "review_score": 5,
       "review_score_label": "褒貶不一",
-      "review_percent": 54,
-      "review_count": 24
+      "review_percent": 51,
+      "review_count": 27
     },
     "4248790": {
       "appid": "4248790",
@@ -102593,10 +102595,10 @@
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3183450/371eef8f39ea3b9c271fc03ff2a62c412ab1add1/header_tchinese.jpg?t=1790301625",
       "discount_end": 1791478823,
       "is_adult": false,
-      "review_score": 6,
-      "review_score_label": "大多好評",
-      "review_percent": 79,
-      "review_count": 39
+      "review_score": 7,
+      "review_score_label": "好評",
+      "review_percent": 80,
+      "review_count": 42
     },
     "3222640": {
       "appid": "3222640",
@@ -102636,8 +102638,8 @@
       "is_adult": false,
       "review_score": 6,
       "review_score_label": "大多好評",
-      "review_percent": 72,
-      "review_count": 244
+      "review_percent": 73,
+      "review_count": 251
     },
     "2760580": {
       "appid": "2760580",
@@ -102719,7 +102721,7 @@
       "review_score": 5,
       "review_score_label": "褒貶不一",
       "review_percent": 67,
-      "review_count": 228
+      "review_count": 229
     },
     "1552060": {
       "appid": "1552060",
@@ -103056,8 +103058,8 @@
       "is_adult": false,
       "review_score": 8,
       "review_score_label": "極度好評",
-      "review_percent": 86,
-      "review_count": 74
+      "review_percent": 85,
+      "review_count": 76
     },
     "5130320": {
       "appid": "5130320",
@@ -106876,8 +106878,8 @@
       "is_adult": false,
       "review_score": 7,
       "review_score_label": "好評",
-      "review_percent": 80,
-      "review_count": 10
+      "review_percent": 81,
+      "review_count": 11
     },
     "5080420": {
       "appid": "5080420",
@@ -107148,7 +107150,7 @@
       "review_score": 7,
       "review_score_label": "好評",
       "review_percent": 96,
-      "review_count": 26
+      "review_count": 27
     },
     "2964550": {
       "appid": "2964550",
@@ -107338,7 +107340,7 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 85,
-      "review_count": 255
+      "review_count": 256
     },
     "4247840": {
       "appid": "4247840",
@@ -107450,7 +107452,7 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 92,
-      "review_count": 211
+      "review_count": 236
     },
     "3740030": {
       "appid": "3740030",
@@ -110366,13 +110368,13 @@
       "appid": "5036540",
       "name": "HAS With Friends",
       "url": "https://store.steampowered.com/app/5036540/",
-      "release_date": "2026-09-28",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5036540/148322621be07de9acee665b11f101e393300fed/capsule_231x87.jpg?t=1789235295",
-      "status": "upcoming",
-      "price_pct": null,
-      "price_original": null,
-      "price_final": null,
-      "release_epoch": null,
+      "release_date": "2026-09-29",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5036540/148322621be07de9acee665b11f101e393300fed/capsule_231x87.jpg?t=1790614958",
+      "status": "live",
+      "price_pct": "-20%",
+      "price_original": "NT$ 157.00",
+      "price_final": "NT$ 125.00",
+      "release_epoch": 1790614960,
       "tags": [
         "策略",
         "多人",
@@ -110389,8 +110391,8 @@
         "推理",
         "闔家"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5036540/d231e89d198e9e2012b8b90daf17ab0d9b104572/header.jpg?t=1789235295",
-      "discount_end": null,
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5036540/d231e89d198e9e2012b8b90daf17ab0d9b104572/header.jpg?t=1790614958",
+      "discount_end": 1791824436,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -113656,12 +113658,12 @@
       "name": "Galactic Mayhem",
       "url": "https://store.steampowered.com/app/5121060/",
       "release_date": "2026-09-29",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5121060/b3adc103835eeb34614eac8ad7f69db37fb88785/capsule_231x87.jpg?t=1790246754",
-      "status": "upcoming",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5121060/b3adc103835eeb34614eac8ad7f69db37fb88785/capsule_231x87.jpg?t=1790615225",
+      "status": "live",
       "price_pct": null,
       "price_original": null,
-      "price_final": null,
-      "release_epoch": 1790629200,
+      "price_final": "NT$ 52.00",
+      "release_epoch": 1790615227,
       "tags": [
         "動作",
         "2D 格鬥",
@@ -113675,7 +113677,7 @@
         "多人",
         "單人"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5121060/96258bff142c535983432475c7e04fe34ebfbc49/header.jpg?t=1790246754",
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5121060/96258bff142c535983432475c7e04fe34ebfbc49/header.jpg?t=1790615225",
       "discount_end": null,
       "is_adult": false,
       "review_score": null,
@@ -113693,7 +113695,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790614800,
+      "release_epoch": null,
       "tags": [
         "競速",
         "太空",
@@ -113730,7 +113732,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790614800,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "運動",
@@ -113806,7 +113808,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790614800,
+      "release_epoch": null,
       "tags": [
         "策略",
         "卡牌遊戲",
@@ -114013,12 +114015,12 @@
       "name": "Keep It Farming",
       "url": "https://store.steampowered.com/app/5194070/",
       "release_date": "2026-09-29",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5194070/be5353df27a163327aeeffa4dbcdd2284d922188/capsule_231x87.jpg?t=1789514510",
-      "status": "upcoming",
-      "price_pct": null,
-      "price_original": null,
-      "price_final": null,
-      "release_epoch": 1790614800,
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5194070/be5353df27a163327aeeffa4dbcdd2284d922188/capsule_231x87.jpg?t=1790614848",
+      "status": "live",
+      "price_pct": "-20%",
+      "price_original": "NT$ 159.00",
+      "price_final": "NT$ 127.00",
+      "release_epoch": 1790614849,
       "tags": [
         "策略",
         "遞增",
@@ -114041,8 +114043,8 @@
         "自訂角色",
         "搶先體驗"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5194070/e82ae77072f2f9fdeeeff0d71168e81b3e55feb9/header.jpg?t=1789514510",
-      "discount_end": null,
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5194070/e82ae77072f2f9fdeeeff0d71168e81b3e55feb9/header.jpg?t=1790614848",
+      "discount_end": 1791219646,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -114358,7 +114360,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790614800,
+      "release_epoch": null,
       "tags": [
         "視覺小說",
         "3D",
@@ -114553,7 +114555,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790614800,
+      "release_epoch": null,
       "tags": [
         "恐怖",
         "氛圍",
@@ -114589,12 +114591,12 @@
       "name": "P.I.G.E.O.N.",
       "url": "https://store.steampowered.com/app/4508540/",
       "release_date": "2026-09-29",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4508540/75ff2b4c0b752a9d23cd2ce7dd7c470edab67896/capsule_231x87.jpg?t=1790586693",
-      "status": "upcoming",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4508540/75ff2b4c0b752a9d23cd2ce7dd7c470edab67896/capsule_231x87.jpg?t=1790614907",
+      "status": "live",
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790629200,
+      "release_epoch": 1790614906,
       "tags": [
         "冒險",
         "視覺小說",
@@ -114617,7 +114619,7 @@
         "選擇導向",
         "互動小說"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4508540/e0a6d5c4dc12c7c27604dd6cdc1d4405d20c1c97/header.jpg?t=1790586693",
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4508540/e0a6d5c4dc12c7c27604dd6cdc1d4405d20c1c97/header.jpg?t=1790614907",
       "discount_end": null,
       "is_adult": false,
       "review_score": null,
@@ -114830,7 +114832,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790614800,
+      "release_epoch": null,
       "tags": [
         "模擬",
         "心理",
@@ -114864,7 +114866,7 @@
       "name": "Humanize Robotics",
       "url": "https://store.steampowered.com/app/4174010/",
       "release_date": "2026-09-29",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4174010/2ec2da8258ffa924bee1f3ba9ec427e1eb5ad15e/capsule_231x87.jpg?t=1789661176",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4174010/2ec2da8258ffa924bee1f3ba9ec427e1eb5ad15e/capsule_231x87.jpg?t=1790614551",
       "status": "upcoming",
       "price_pct": null,
       "price_original": null,
@@ -114892,7 +114894,7 @@
         "策略",
         "第三人稱射擊"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4174010/eec0378a370bb0d0a6719b34e8a7f6c64be65e05/header.jpg?t=1789661176",
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4174010/eec0378a370bb0d0a6719b34e8a7f6c64be65e05/header.jpg?t=1790614551",
       "discount_end": null,
       "is_adult": false,
       "review_score": null,
@@ -115174,12 +115176,12 @@
       "name": "Bustle Beacon",
       "url": "https://store.steampowered.com/app/4665400/",
       "release_date": "2026-09-29",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4665400/1a3ef6b687f08488304d154719c55a79cc4de795/capsule_231x87.jpg?t=1788900585",
-      "status": "upcoming",
-      "price_pct": null,
-      "price_original": null,
-      "price_final": null,
-      "release_epoch": 1790613300,
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4665400/1a3ef6b687f08488304d154719c55a79cc4de795/capsule_231x87.jpg?t=1790613200",
+      "status": "live",
+      "price_pct": "-30%",
+      "price_original": "NT$ 343.00",
+      "price_final": "NT$ 240.00",
+      "release_epoch": 1790613201,
       "tags": [
         "回合制",
         "回合制策略",
@@ -115202,8 +115204,8 @@
         "經濟",
         "風格化"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4665400/38483dde8c145a8d52f70cc30460e94909f06cfb/header.jpg?t=1788900585",
-      "discount_end": null,
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4665400/38483dde8c145a8d52f70cc30460e94909f06cfb/header.jpg?t=1790613200",
+      "discount_end": 1791824419,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -115338,12 +115340,12 @@
       "name": "Radiotext",
       "url": "https://store.steampowered.com/app/3418160/",
       "release_date": "2026-09-29",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3418160/8a886e004cdc962543abee33b49cd4d0e55cb145/capsule_231x87.jpg?t=1789834257",
-      "status": "upcoming",
-      "price_pct": null,
-      "price_original": null,
-      "price_final": null,
-      "release_epoch": 1790614800,
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3418160/8a886e004cdc962543abee33b49cd4d0e55cb145/capsule_231x87.jpg?t=1790614865",
+      "status": "live",
+      "price_pct": "-30%",
+      "price_original": "NT$ 254.00",
+      "price_final": "NT$ 177.00",
+      "release_epoch": 1790614866,
       "tags": [
         "氛圍",
         "互動小說",
@@ -115366,8 +115368,8 @@
         "純文字",
         "懸疑"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3418160/dafafb48961135f70b523851d6b8073b2738e458/header.jpg?t=1789834257",
-      "discount_end": null,
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3418160/dafafb48961135f70b523851d6b8073b2738e458/header.jpg?t=1790614865",
+      "discount_end": 1791824403,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -115806,7 +115808,7 @@
       "name": "Ammossum",
       "url": "https://store.steampowered.com/app/2659600/",
       "release_date": "2026-09-29",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2659600/f31469325c3f66d4523c412670cce8d0bc23fe69/capsule_231x87.jpg?t=1790612051",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2659600/f31469325c3f66d4523c412670cce8d0bc23fe69/capsule_231x87.jpg?t=1790612626",
       "status": "live",
       "price_pct": "-21%",
       "price_original": "NT$ 182.00",
@@ -115834,8 +115836,196 @@
         "射擊",
         "庫存管理"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2659600/e28a8ff532169de8bb910557c60f8307fe3f9fed/header.jpg?t=1790612051",
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2659600/e28a8ff532169de8bb910557c60f8307fe3f9fed/header.jpg?t=1790612626",
       "discount_end": 1791824410,
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
+    },
+    "5187330": {
+      "appid": "5187330",
+      "name": "Compression Quota",
+      "url": "https://store.steampowered.com/app/5187330/",
+      "release_date": "2026-09-29",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5187330/e60b7f243d1d5df6da1875b56eb8457a11b579a8/capsule_231x87.jpg?t=1790612866",
+      "status": "live",
+      "price_pct": "-25%",
+      "price_original": "NT$ 175.00",
+      "price_final": "NT$ 131.00",
+      "release_epoch": 1790612868,
+      "tags": [
+        "休閒",
+        "3D",
+        "可愛",
+        "自動化",
+        "資本主義",
+        "毀滅",
+        "獨立",
+        "經濟",
+        "打寶",
+        "管理",
+        "放鬆",
+        "資源管理",
+        "單人",
+        "街機",
+        "放置",
+        "遞增",
+        "策略"
+      ],
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5187330/6d6a2c3f12f8ea45bd01dd988566304264ef31cd/header.jpg?t=1790612866",
+      "discount_end": 1791824445,
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
+    },
+    "5155480": {
+      "appid": "5155480",
+      "name": "Emberglade",
+      "url": "https://store.steampowered.com/app/5155480/",
+      "release_date": "2026-09-29",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5155480/9f046841e0c8674bf7f8d60b02320465706ef620/capsule_231x87.jpg?t=1790613862",
+      "status": "live",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "NT$ 136.00",
+      "release_epoch": 1790613863,
+      "tags": [
+        "動作類 Rogue",
+        "策略",
+        "自選冒險體驗",
+        "迷宮探索",
+        "休閒",
+        "輕度 Rogue",
+        "類 Rogue",
+        "2D",
+        "選擇導向",
+        "多結局",
+        "回合制戰鬥",
+        "獨立",
+        "搶先體驗",
+        "風格化",
+        "賭博",
+        "單人"
+      ],
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5155480/8fbd41a503e74b92c12be9d19b5c9a54b0f7b950/header.jpg?t=1790613862",
+      "discount_end": null,
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
+    },
+    "5003710": {
+      "appid": "5003710",
+      "name": "Rewritten: Chasing History",
+      "url": "https://store.steampowered.com/app/5003710/",
+      "release_date": "2026-09-29",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5003710/c3675ab05c17e01d421d565bf0f97865695d4a3c/capsule_231x87.jpg?t=1790614815",
+      "status": "live",
+      "price_pct": "-21%",
+      "price_original": "NT$ 117.00",
+      "price_final": "NT$ 93.00",
+      "release_epoch": 1790614817,
+      "tags": [
+        "休閒",
+        "模擬",
+        "策略",
+        "動作冒險",
+        "3D 平台",
+        "3D",
+        "卡通風格",
+        "可愛",
+        "獨立",
+        "架空歷史",
+        "人工智慧",
+        "氛圍",
+        "選擇導向",
+        "多人",
+        "冒險",
+        "單人",
+        "教育學習",
+        "闔家",
+        "歷史",
+        "值得重玩"
+      ],
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5003710/5bf857164c043c86e8b6151d809e8ea687825d30/header.jpg?t=1790614815",
+      "discount_end": 1791219613,
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
+    },
+    "5144970": {
+      "appid": "5144970",
+      "name": "Step Slash",
+      "url": "https://store.steampowered.com/app/5144970/",
+      "release_date": "2026-09-29",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5144970/5abf34c7c55349a3e44243ee2c6a1c2f059bac9c/capsule_231x87.jpg?t=1790614815",
+      "status": "live",
+      "price_pct": "-30%",
+      "price_original": "NT$ 76.00",
+      "price_final": "NT$ 53.00",
+      "release_epoch": 1790614816,
+      "tags": [
+        "策略",
+        "回合制策略",
+        "輕度 Rogue",
+        "2D",
+        "像素風格",
+        "奇幻",
+        "中世紀",
+        "戰鬥",
+        "回合制戰鬥",
+        "單人"
+      ],
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5144970/c0bc4a808ca04ffc8b74cb9fbf08e3a130730ba9/header.jpg?t=1790614815",
+      "discount_end": 1791824413,
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
+    },
+    "2386200": {
+      "appid": "2386200",
+      "name": "PSI: Pressure Climbing",
+      "url": "https://store.steampowered.com/app/2386200/",
+      "release_date": "2026-09-29",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2386200/9e34f4dcaaea1ee477973a33238d759e4dd1cd3a/capsule_231x87.jpg?t=1790614598",
+      "status": "live",
+      "price_pct": "-10%",
+      "price_original": "NT$ 175.00",
+      "price_final": "NT$ 157.00",
+      "release_epoch": 1790614600,
+      "tags": [
+        "冒險",
+        "探索",
+        "3D",
+        "第一人稱視角",
+        "獨立",
+        "平台",
+        "單人",
+        "3D 平台",
+        "電影感",
+        "氛圍",
+        "黑色喜劇",
+        "非線性",
+        "地底",
+        "類 Rogue",
+        "精確平台",
+        "劇情豐富",
+        "開放世界",
+        "超現實",
+        "黑色幽默",
+        "物理"
+      ],
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2386200/450857f90c17f5a7fc605e4f4f21567669af8416/header.jpg?t=1790614598",
+      "discount_end": 1791219637,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
