@@ -45,13 +45,13 @@
       "appid": "5229190",
       "name": "孙割不相信眼泪",
       "url": "https://store.steampowered.com/app/5229190/",
-      "release_date": "2026-09-23",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5229190/09bcb06d329e094c9066d57c6f8c538bdaebcbc0/capsule_231x87.jpg?t=1789562288",
-      "status": "upcoming",
-      "price_pct": null,
-      "price_original": null,
-      "price_final": null,
-      "release_epoch": null,
+      "release_date": "2026-09-30",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5229190/09bcb06d329e094c9066d57c6f8c538bdaebcbc0/capsule_231x87.jpg?t=1790752372",
+      "status": "live",
+      "price_pct": "-16%",
+      "price_original": "NT$ 43.00",
+      "price_final": "NT$ 36.00",
+      "release_epoch": 1790752373,
       "tags": [
         "角色扮演",
         "互動小說",
@@ -62,8 +62,8 @@
         "單人",
         "休閒"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5229190/63c23df95e8fc0a92d9dae91a14e943b418c2118/header.jpg?t=1789562288",
-      "discount_end": null,
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5229190/63c23df95e8fc0a92d9dae91a14e943b418c2118/header.jpg?t=1790752372",
+      "discount_end": 1791997251,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -12130,8 +12130,8 @@
       "is_adult": false,
       "review_score": 6,
       "review_score_label": "大多好評",
-      "review_percent": 78,
-      "review_count": 407
+      "review_percent": 79,
+      "review_count": 424
     },
     "3336620": {
       "appid": "3336620",
@@ -15696,7 +15696,7 @@
       "review_score": 5,
       "review_score_label": "褒貶不一",
       "review_percent": 51,
-      "review_count": 1832
+      "review_count": 1833
     },
     "3441990": {
       "appid": "3441990",
@@ -23457,10 +23457,10 @@
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4891520/74c1332d19e32326092519ddf81a7956c8cd5ee5/header.jpg?t=1789734639",
       "discount_end": null,
       "is_adult": false,
-      "review_score": 6,
-      "review_score_label": "大多好評",
-      "review_percent": 72,
-      "review_count": 18
+      "review_score": 5,
+      "review_score_label": "褒貶不一",
+      "review_percent": 68,
+      "review_count": 19
     },
     "4891930": {
       "appid": "4891930",
@@ -23890,8 +23890,8 @@
       "is_adult": false,
       "review_score": 8,
       "review_score_label": "極度好評",
-      "review_percent": 86,
-      "review_count": 121
+      "review_percent": 87,
+      "review_count": 124
     },
     "3983860": {
       "appid": "3983860",
@@ -29039,10 +29039,10 @@
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4185750/d174c1947e05606274fecfb787531efffb7b43c5/header.jpg?t=1790179185",
       "discount_end": 1791392444,
       "is_adult": false,
-      "review_score": 6,
-      "review_score_label": "大多好評",
-      "review_percent": 78,
-      "review_count": 14
+      "review_score": 7,
+      "review_score_label": "好評",
+      "review_percent": 80,
+      "review_count": 15
     },
     "4190240": {
       "appid": "4190240",
@@ -30635,7 +30635,7 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 100,
-      "review_count": 170
+      "review_count": 173
     },
     "4271550": {
       "appid": "4271550",
@@ -39064,7 +39064,7 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 87,
-      "review_count": 304
+      "review_count": 305
     },
     "4656000": {
       "appid": "4656000",
@@ -39546,7 +39546,7 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 82,
-      "review_count": 3279
+      "review_count": 3291
     },
     "3636930": {
       "appid": "3636930",
@@ -40146,7 +40146,7 @@
       "review_score": 9,
       "review_score_label": "壓倒性好評",
       "review_percent": 97,
-      "review_count": 1565
+      "review_count": 1585
     },
     "3804370": {
       "appid": "3804370",
@@ -40187,7 +40187,7 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 83,
-      "review_count": 383
+      "review_count": 388
     },
     "4094660": {
       "appid": "4094660",
@@ -50388,7 +50388,7 @@
       "review_score": 9,
       "review_score_label": "壓倒性好評",
       "review_percent": 96,
-      "review_count": 1206
+      "review_count": 1208
     },
     "3070070": {
       "appid": "3070070",
@@ -64478,8 +64478,8 @@
       "is_adult": false,
       "review_score": 5,
       "review_score_label": "褒貶不一",
-      "review_percent": 55,
-      "review_count": 108
+      "review_percent": 56,
+      "review_count": 110
     },
     "5103070": {
       "appid": "5103070",
@@ -72953,7 +72953,7 @@
       "review_score": 5,
       "review_score_label": "褒貶不一",
       "review_percent": 51,
-      "review_count": 698
+      "review_count": 700
     },
     "2068500": {
       "appid": "2068500",
@@ -84728,7 +84728,7 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 93,
-      "review_count": 502
+      "review_count": 503
     },
     "3065360": {
       "appid": "3065360",
@@ -91567,8 +91567,8 @@
       "is_adult": false,
       "review_score": 6,
       "review_score_label": "大多好評",
-      "review_percent": 70,
-      "review_count": 67
+      "review_percent": 71,
+      "review_count": 70
     },
     "3602640": {
       "appid": "3602640",
@@ -91659,7 +91659,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "虛擬實境",
         "冒險",
@@ -92776,8 +92776,8 @@
       "is_adult": false,
       "review_score": 8,
       "review_score_label": "極度好評",
-      "review_percent": 89,
-      "review_count": 55
+      "review_percent": 88,
+      "review_count": 59
     },
     "4902250": {
       "appid": "4902250",
@@ -94169,7 +94169,7 @@
       "review_score": 5,
       "review_score_label": "褒貶不一",
       "review_percent": 65,
-      "review_count": 2889
+      "review_count": 2912
     },
     "632950": {
       "appid": "632950",
@@ -97299,7 +97299,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "女主人翁",
         "休閒",
@@ -98330,13 +98330,13 @@
       "appid": "5235150",
       "name": "綠帽大戰",
       "url": "https://store.steampowered.com/app/5235150/",
-      "release_date": "2026-09-25",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5235150/9da4494f07439fd200cc7748d101523ecdae9fe8/capsule_231x87_tchinese.jpg?t=1789449449",
-      "status": "upcoming",
-      "price_pct": null,
-      "price_original": null,
-      "price_final": null,
-      "release_epoch": null,
+      "release_date": "2026-09-30",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5235150/9da4494f07439fd200cc7748d101523ecdae9fe8/capsule_231x87_tchinese.jpg?t=1790752351",
+      "status": "live",
+      "price_pct": "-20%",
+      "price_original": "NT$ 25.00",
+      "price_final": "NT$ 20.00",
+      "release_epoch": 1790752352,
       "tags": [
         "休閒",
         "動作角色扮演",
@@ -98347,8 +98347,8 @@
         "單人",
         "獨立"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5235150/4e46d9c4e64f13c552e8e701096d990db32f1b79/header_tchinese.jpg?t=1789449449",
-      "discount_end": null,
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5235150/4e46d9c4e64f13c552e8e701096d990db32f1b79/header_tchinese.jpg?t=1790752351",
+      "discount_end": 1791997229,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -99484,8 +99484,8 @@
       "is_adult": false,
       "review_score": 8,
       "review_score_label": "極度好評",
-      "review_percent": 87,
-      "review_count": 224
+      "review_percent": 86,
+      "review_count": 228
     },
     "3850550": {
       "appid": "3850550",
@@ -99526,7 +99526,7 @@
       "review_score": 6,
       "review_score_label": "大多好評",
       "review_percent": 73,
-      "review_count": 586
+      "review_count": 598
     },
     "3865000": {
       "appid": "3865000",
@@ -100617,8 +100617,8 @@
       "is_adult": false,
       "review_score": 8,
       "review_score_label": "極度好評",
-      "review_percent": 87,
-      "review_count": 63
+      "review_percent": 86,
+      "review_count": 66
     },
     "1935810": {
       "appid": "1935810",
@@ -100733,8 +100733,8 @@
       "is_adult": false,
       "review_score": 7,
       "review_score_label": "好評",
-      "review_percent": 90,
-      "review_count": 33
+      "review_percent": 88,
+      "review_count": 34
     },
     "5171550": {
       "appid": "5171550",
@@ -101536,7 +101536,7 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 80,
-      "review_count": 60
+      "review_count": 61
     },
     "5215270": {
       "appid": "5215270",
@@ -104981,7 +104981,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "組織整理",
@@ -110034,7 +110034,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "模擬",
         "烹飪",
@@ -110139,8 +110139,8 @@
       "is_adult": false,
       "review_score": 6,
       "review_score_label": "大多好評",
-      "review_percent": 76,
-      "review_count": 515
+      "review_percent": 75,
+      "review_count": 620
     },
     "4865860": {
       "appid": "4865860",
@@ -112710,8 +112710,8 @@
       "is_adult": false,
       "review_score": 5,
       "review_score_label": "褒貶不一",
-      "review_percent": 67,
-      "review_count": 31
+      "review_percent": 65,
+      "review_count": 32
     },
     "5101390": {
       "appid": "5101390",
@@ -112995,8 +112995,8 @@
       "is_adult": false,
       "review_score": 6,
       "review_score_label": "大多好評",
-      "review_percent": 72,
-      "review_count": 33
+      "review_percent": 73,
+      "review_count": 34
     },
     "3725800": {
       "appid": "3725800",
@@ -113072,8 +113072,8 @@
       "is_adult": false,
       "review_score": 8,
       "review_score_label": "極度好評",
-      "review_percent": 95,
-      "review_count": 80
+      "review_percent": 93,
+      "review_count": 101
     },
     "2521160": {
       "appid": "2521160",
@@ -113458,10 +113458,10 @@
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3133010/8766552efde368e5f77b05ea8019596c578cc22e/header_alt_assets_0.jpg?t=1790694047",
       "discount_end": 1791910813,
       "is_adult": false,
-      "review_score": 0,
-      "review_score_label": "7 篇使用者評論",
+      "review_score": 7,
+      "review_score_label": "好評",
       "review_percent": 100,
-      "review_count": 7
+      "review_count": 11
     },
     "4665400": {
       "appid": "4665400",
@@ -113826,8 +113826,8 @@
       "is_adult": false,
       "review_score": 8,
       "review_score_label": "極度好評",
-      "review_percent": 83,
-      "review_count": 59
+      "review_percent": 81,
+      "review_count": 61
     },
     "3464000": {
       "appid": "3464000",
@@ -114017,8 +114017,8 @@
       "is_adult": false,
       "review_score": 5,
       "review_score_label": "褒貶不一",
-      "review_percent": 68,
-      "review_count": 1246
+      "review_percent": 67,
+      "review_count": 1299
     },
     "4613180": {
       "appid": "4613180",
@@ -114133,8 +114133,8 @@
       "is_adult": false,
       "review_score": 5,
       "review_score_label": "褒貶不一",
-      "review_percent": 66,
-      "review_count": 50
+      "review_percent": 64,
+      "review_count": 51
     },
     "5187330": {
       "appid": "5187330",
@@ -114789,7 +114789,7 @@
       "review_score": 5,
       "review_score_label": "褒貶不一",
       "review_percent": 56,
-      "review_count": 2871
+      "review_count": 2935
     },
     "5227600": {
       "appid": "5227600",
@@ -116128,7 +116128,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "解謎",
         "倉庫番",
@@ -116169,7 +116169,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "冒險",
         "角色扮演",
@@ -116210,7 +116210,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "平台",
@@ -116251,7 +116251,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "冒險",
         "角色扮演",
@@ -116287,7 +116287,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "獨立",
         "動作",
@@ -116316,7 +116316,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "隱藏物件",
         "休閒",
@@ -116347,7 +116347,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "玩家對戰",
@@ -116382,7 +116382,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "生物收集",
         "釣魚",
@@ -116423,7 +116423,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "策略",
         "類 Rogue",
@@ -116464,7 +116464,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "競技場射擊",
         "俯視視角射擊",
@@ -116505,7 +116505,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "模擬",
         "休閒",
@@ -116543,7 +116543,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "色情內容",
         "裸露",
@@ -116607,7 +116607,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "冒險",
         "推理",
@@ -116648,7 +116648,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "角色扮演",
         "策略",
@@ -116689,7 +116689,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "自選冒險體驗",
         "選擇導向",
@@ -116730,7 +116730,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "策略",
         "基地建設",
@@ -116771,7 +116771,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "冒險",
         "3D 平台",
@@ -116801,7 +116801,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "獨立",
         "模擬",
@@ -116835,7 +116835,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "推理",
         "調查",
@@ -116876,7 +116876,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "潛行",
@@ -116917,7 +116917,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "策略",
         "卡牌遊戲",
@@ -116955,7 +116955,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "策略",
         "休閒",
@@ -116996,7 +116996,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "沉浸模擬",
         "互動小說",
@@ -117037,7 +117037,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "恐怖",
         "動作",
@@ -117070,7 +117070,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "動作類 Rogue",
@@ -117111,7 +117111,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "策略",
@@ -117152,7 +117152,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "第一人稱射擊",
         "玩家對戰",
@@ -117234,7 +117234,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "探索",
         "動作冒險",
@@ -117275,7 +117275,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "冒險",
         "休閒",
@@ -117316,7 +117316,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作類 Rogue",
         "卡牌對戰",
@@ -117357,7 +117357,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "三消",
         "休閒",
@@ -117391,7 +117391,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "奔跑",
         "生存",
@@ -117428,7 +117428,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "策略",
         "角色扮演",
@@ -117469,7 +117469,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "模擬",
         "運動",
@@ -117496,7 +117496,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "貓",
         "愜意",
@@ -117537,7 +117537,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "2D 平台",
         "輕度 Rogue",
@@ -117578,7 +117578,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "模擬",
         "沙盒",
@@ -117607,7 +117607,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "冒險",
         "角色扮演",
@@ -117648,7 +117648,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "2D 平台",
         "奔跑",
@@ -117689,7 +117689,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "神話",
         "老式",
@@ -117730,7 +117730,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "模擬",
         "運動",
@@ -117767,7 +117767,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "策略",
         "卡牌對戰",
@@ -117800,7 +117800,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "遞增",
         "管理",
@@ -117838,7 +117838,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "冒險",
         "解謎",
@@ -117871,7 +117871,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "冒險",
@@ -117912,7 +117912,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "視覺小說",
         "像素風格",
@@ -117942,7 +117942,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "策略",
         "沉浸模擬",
@@ -117971,7 +117971,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "模擬",
         "點擊冒險",
@@ -118004,7 +118004,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "放置",
         "生物收集",
@@ -118045,7 +118045,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "駭客",
         "動態旁白",
@@ -118085,7 +118085,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "探索",
         "平台解謎",
@@ -118126,7 +118126,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "貓",
         "探索",
@@ -118167,7 +118167,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作類 Rogue",
         "輕度 Rogue",
@@ -118208,7 +118208,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "模擬",
@@ -118247,7 +118247,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "模擬",
         "策略",
@@ -118327,7 +118327,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "多人",
         "策略",
@@ -118396,7 +118396,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "策略",
         "卡牌遊戲",
@@ -118431,7 +118431,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "冒險",
         "像素風格",
@@ -118470,7 +118470,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "探索",
         "第一人稱視角",
@@ -118498,7 +118498,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "冒險",
         "休閒",
@@ -118539,7 +118539,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "冒險",
         "角色扮演",
@@ -118580,7 +118580,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "雙搖桿射擊",
         "競分",
@@ -118617,7 +118617,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "平台",
         "精確平台",
@@ -118656,7 +118656,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "策略",
         "休閒",
@@ -118692,7 +118692,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "回合制戰術",
         "回合制",
@@ -118771,7 +118771,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "遞增",
@@ -118812,7 +118812,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "策略",
         "動作類 Rogue",
@@ -118853,7 +118853,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "模擬",
         "摔角",
@@ -118882,7 +118882,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "冒險",
         "探索",
@@ -118923,7 +118923,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "休閒",
@@ -118964,7 +118964,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "卡牌對戰",
         "策略",
@@ -119035,7 +119035,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "2D",
@@ -119064,7 +119064,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "策略",
@@ -119105,7 +119105,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "合作",
         "線上合作",
@@ -119146,7 +119146,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "冒險",
@@ -119187,7 +119187,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "槍械改造",
         "清版射擊",
@@ -119227,7 +119227,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "角色扮演",
         "冒險",
@@ -119268,7 +119268,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "平台解謎",
         "像素風格",
@@ -119307,7 +119307,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "類 Rogue",
         "輕度 Rogue",
@@ -119348,7 +119348,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "3D 平台",
         "低容錯",
@@ -119384,7 +119384,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "回合制戰術",
         "策略",
@@ -119425,7 +119425,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "角色扮演",
         "動作角色扮演",
@@ -119466,7 +119466,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "冒險",
         "休閒",
@@ -119506,7 +119506,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "街機",
@@ -119547,7 +119547,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "冒險",
@@ -119578,7 +119578,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "模擬",
@@ -119611,7 +119611,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "模擬",
@@ -119672,7 +119672,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "街機",
         "派對遊戲",
@@ -119713,7 +119713,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "類 Rogue 牌組製作",
         "卡牌對戰",
@@ -119752,7 +119752,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "3D",
@@ -119793,7 +119793,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "解謎",
@@ -119823,7 +119823,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "遞增",
@@ -119859,7 +119859,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "策略",
         "解謎",
@@ -119888,7 +119888,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "探索",
         "殖民模擬",
@@ -119929,7 +119929,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "推理",
         "休閒",
@@ -119970,7 +119970,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "火星",
         "自動化",
@@ -120011,7 +120011,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "休閒",
@@ -120087,12 +120087,12 @@
       "name": "Dawn of the West",
       "url": "https://store.steampowered.com/app/4408740/",
       "release_date": "2026-09-30",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4408740/69e40fdf50550d2228d881b50e37ab33f388178f/capsule_231x87.jpg?t=1777123899",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4408740/69e40fdf50550d2228d881b50e37ab33f388178f/capsule_231x87.jpg?t=1790708847",
       "status": "upcoming",
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": 1814338800,
       "tags": [
         "第一人稱射擊",
         "玩家對戰",
@@ -120109,7 +120109,7 @@
         "暴力",
         "3D"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4408740/18c4c4d042a72eee52e7419aa7d22cc3e9e3ee16/header.jpg?t=1777123899",
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4408740/18c4c4d042a72eee52e7419aa7d22cc3e9e3ee16/header.jpg?t=1790708847",
       "discount_end": null,
       "is_adult": false,
       "review_score": null,
@@ -120127,7 +120127,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作類 Rogue",
         "競技場射擊",
@@ -120168,7 +120168,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "卡牌對戰",
         "策略",
@@ -120207,7 +120207,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "類 Rogue",
@@ -120236,7 +120236,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "冒險",
@@ -120274,7 +120274,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "策略",
         "角色扮演",
@@ -120307,7 +120307,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "策略",
         "棋盤遊戲",
@@ -120418,7 +120418,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "休閒",
@@ -120459,7 +120459,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "解謎",
@@ -120492,7 +120492,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "角色扮演",
@@ -120526,7 +120526,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "桌面夥伴",
@@ -120561,7 +120561,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "策略",
         "塔防",
@@ -120593,7 +120593,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "角色扮演",
         "桌面夥伴",
@@ -120627,7 +120627,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "角色扮演",
         "動作",
@@ -120668,7 +120668,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "動作類 Rogue",
@@ -120706,7 +120706,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "策略",
@@ -120744,7 +120744,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "角色扮演",
         "自選冒險體驗",
@@ -120780,7 +120780,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "卡牌遊戲",
         "策略",
@@ -120821,7 +120821,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "模擬",
@@ -120850,7 +120850,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "策略",
         "休閒",
@@ -120878,7 +120878,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "探索",
         "解謎",
@@ -120915,7 +120915,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "策略",
         "卡牌遊戲",
@@ -120954,7 +120954,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "塔防",
@@ -120995,7 +120995,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "策略",
@@ -121023,7 +121023,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "動作冒險",
@@ -121061,7 +121061,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "平台解謎",
         "奔跑",
@@ -121139,7 +121139,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "模擬",
         "策略",
@@ -121180,7 +121180,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "策略",
         "卡牌遊戲",
@@ -121214,7 +121214,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "第一人稱射擊",
@@ -121255,7 +121255,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "工具",
         "建造",
@@ -121290,7 +121290,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "派對遊戲",
         "街機",
@@ -121329,7 +121329,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "冒險",
@@ -121411,7 +121411,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "自選冒險體驗",
         "電腦角色扮演",
@@ -121452,7 +121452,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "模擬",
         "互動小說",
@@ -121488,12 +121488,12 @@
       "name": "Chronicles Of The Sinner",
       "url": "https://store.steampowered.com/app/4760700/",
       "release_date": "2026-09-30",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4760700/f57c6b331390b93dfa1c680e4412fb91f50d4bb6/capsule_231x87.jpg?t=1780065240",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4760700/f57c6b331390b93dfa1c680e4412fb91f50d4bb6/capsule_231x87.jpg?t=1790700162",
       "status": "upcoming",
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": 1798704000,
       "tags": [
         "恐怖",
         "心理恐怖",
@@ -121516,7 +121516,7 @@
         "採礦",
         "心理"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4760700/e37fdd817a23a04ab0fe2bfede4235cb9a9c5425/header.jpg?t=1780065240",
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4760700/e37fdd817a23a04ab0fe2bfede4235cb9a9c5425/header.jpg?t=1790700162",
       "discount_end": null,
       "is_adult": false,
       "review_score": null,
@@ -121534,7 +121534,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "玩家對戰",
         "街機",
@@ -121616,7 +121616,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "模擬",
         "運動",
@@ -121689,7 +121689,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "運動",
         "模擬",
@@ -121726,7 +121726,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "冒險",
@@ -121801,7 +121801,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "解謎",
@@ -121835,7 +121835,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "角色扮演",
         "模擬",
@@ -121876,7 +121876,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "競技場射擊",
         "第三人稱射擊",
@@ -121917,7 +121917,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "冒險",
         "策略",
@@ -121954,7 +121954,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "模擬",
@@ -122028,7 +122028,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "模擬",
@@ -122099,7 +122099,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "自動對戰",
         "2D",
@@ -122140,7 +122140,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "駭客",
         "模擬",
@@ -122178,7 +122178,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "冒險",
         "動作角色扮演",
@@ -122219,7 +122219,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "運動",
         "電競",
@@ -122259,7 +122259,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "策略",
         "塔防",
@@ -122300,7 +122300,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "邏輯",
         "玩家對戰",
@@ -122341,7 +122341,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "策略",
         "卡牌遊戲",
@@ -122375,7 +122375,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "喪屍",
@@ -122406,7 +122406,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "太空模擬",
@@ -122447,7 +122447,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "獨立",
@@ -122488,7 +122488,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "模擬",
         "策略",
@@ -122529,7 +122529,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "3D 格鬥",
@@ -122570,7 +122570,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "自選冒險體驗",
         "策略",
@@ -122611,7 +122611,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "冒險",
         "魔法",
@@ -122690,7 +122690,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "心理恐怖",
         "調查",
@@ -122731,7 +122731,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "競速魔王戰",
         "彈幕",
@@ -122772,7 +122772,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "探索",
         "時間管理",
@@ -122813,7 +122813,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "快節奏",
         "低容錯",
@@ -122854,7 +122854,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "探索",
         "沉浸模擬",
@@ -122895,7 +122895,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "拳擊",
@@ -122929,7 +122929,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "模擬",
@@ -122964,7 +122964,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "3D",
         "第一人稱視角",
@@ -123044,7 +123044,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "遞增",
@@ -123076,7 +123076,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "釣魚",
         "愜意",
@@ -123117,7 +123117,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "競技場射擊",
         "俯視視角射擊",
@@ -123158,7 +123158,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作類 Rogue",
         "競技場射擊",
@@ -123199,7 +123199,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "運動",
         "玩家對戰",
@@ -123240,7 +123240,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "策略",
@@ -123360,7 +123360,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "模擬",
         "運動",
@@ -123393,7 +123393,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "解謎",
@@ -123431,7 +123431,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "策略",
         "即時策略",
@@ -123472,7 +123472,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "恐怖",
         "生存恐怖",
@@ -123513,7 +123513,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "色情內容",
         "視覺小說",
@@ -123595,7 +123595,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "模擬",
         "程式設計",
@@ -123636,7 +123636,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "策略",
@@ -123712,7 +123712,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "模擬",
         "回合制策略",
@@ -123783,7 +123783,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "模擬",
         "休閒",
@@ -123860,7 +123860,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "冒險",
         "休閒",
@@ -123942,7 +123942,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "模擬",
         "免費遊玩",
@@ -124119,12 +124119,12 @@
       "name": "妹妹",
       "url": "https://store.steampowered.com/app/5256480/",
       "release_date": "2026-09-30",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5256480/5779e1bfea3c912ed274ec1429bf402c522771a5/capsule_231x87_tchinese.jpg?t=1790141254",
-      "status": "upcoming",
-      "price_pct": null,
-      "price_original": null,
-      "price_final": null,
-      "release_epoch": null,
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5256480/5779e1bfea3c912ed274ec1429bf402c522771a5/capsule_231x87_tchinese.jpg?t=1790752495",
+      "status": "live",
+      "price_pct": "-20%",
+      "price_original": "NT$ 25.00",
+      "price_final": "NT$ 20.00",
+      "release_epoch": 1790752497,
       "tags": [
         "休閒",
         "放置",
@@ -124135,8 +124135,8 @@
         "獨立",
         "單人"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5256480/9c0c970711a6009aaefa33a2519baa5f38cd7cd4/header_tchinese.jpg?t=1790141254",
-      "discount_end": null,
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5256480/9c0c970711a6009aaefa33a2519baa5f38cd7cd4/header_tchinese.jpg?t=1790752495",
+      "discount_end": 1791997254,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -124153,7 +124153,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "第一人稱射擊",
         "遞增",
@@ -124230,7 +124230,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "角色扮演",
         "桌上遊戲",
@@ -124269,7 +124269,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "動作",
@@ -124344,7 +124344,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "視覺小說",
         "女主人翁",
@@ -124380,7 +124380,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "模擬",
         "休閒",
@@ -124418,7 +124418,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "恐怖",
         "農場模擬",
@@ -124500,7 +124500,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "模擬",
         "心理恐怖",
@@ -124582,7 +124582,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "冒險",
@@ -124618,7 +124618,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "社交推理",
         "派對遊戲",
@@ -124658,7 +124658,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "策略",
         "冒險",
@@ -124687,7 +124687,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "模擬",
         "電影感",
@@ -124755,7 +124755,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "3D 平台",
         "隱藏物件",
@@ -124787,7 +124787,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "色情內容",
         "休閒",
@@ -124828,7 +124828,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "隱藏物件",
         "多人",
@@ -124910,7 +124910,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "解謎",
@@ -124940,7 +124940,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "策略",
         "角色扮演",
@@ -124981,7 +124981,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "冒險",
         "心理恐怖",
@@ -125057,7 +125057,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "角色扮演",
         "冒險",
@@ -125098,7 +125098,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "冒險",
         "解謎",
@@ -125135,7 +125135,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "角色扮演",
         "互動小說",
@@ -125174,7 +125174,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "派對遊戲",
         "隱藏物件",
@@ -125210,7 +125210,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "冒險",
         "互動小說",
@@ -125279,7 +125279,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "愜意",
         "休閒",
@@ -125319,7 +125319,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "解謎",
         "邏輯",
@@ -125429,7 +125429,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "視覺小說",
         "劇情豐富",
@@ -125503,7 +125503,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "點擊冒險",
@@ -125573,7 +125573,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "派對遊戲",
@@ -125608,7 +125608,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "競速",
         "對戰競速",
@@ -125649,7 +125649,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "類 Rogue",
@@ -125683,7 +125683,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "桌面夥伴",
         "放置",
@@ -125722,7 +125722,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "模擬",
@@ -125754,7 +125754,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "推理",
         "探索",
@@ -125795,7 +125795,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "虛擬實境",
         "自動化",
@@ -125877,7 +125877,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "逆彈幕",
         "動作類 Rogue",
@@ -125913,12 +125913,12 @@
       "name": "Shelved",
       "url": "https://store.steampowered.com/app/5125590/",
       "release_date": "2026-09-30",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5125590/ac0a67efd742f4e84eaa08ecba426dc9bd27a0f6/capsule_231x87.jpg?t=1789032456",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5125590/ac0a67efd742f4e84eaa08ecba426dc9bd27a0f6/capsule_231x87.jpg?t=1790700283",
       "status": "upcoming",
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": 1798704000,
       "tags": [
         "休閒",
         "模擬",
@@ -125937,7 +125937,7 @@
         "物理",
         "單人"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5125590/0bbbe1d5e1ba250cc951342ef4eab8f8017b78af/header.jpg?t=1789032456",
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5125590/0bbbe1d5e1ba250cc951342ef4eab8f8017b78af/header.jpg?t=1790700283",
       "discount_end": null,
       "is_adult": false,
       "review_score": null,
@@ -125955,7 +125955,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "角色扮演",
         "冒險",
@@ -125996,7 +125996,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "探索",
         "第一人稱射擊",
@@ -126036,7 +126036,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "老式射擊",
         "戰爭遊戲",
@@ -126115,7 +126115,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "虛擬實境",
         "射擊",
@@ -126156,7 +126156,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "對戰競速",
         "競速",
@@ -126197,7 +126197,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "競速",
         "動作",
@@ -126279,7 +126279,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "策略",
         "輕度 Rogue",
@@ -126319,7 +126319,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "冒險",
         "色情內容",
@@ -126356,7 +126356,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "視覺小說",
         "女主人翁",
@@ -126397,7 +126397,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "模擬",
         "動作",
@@ -126434,7 +126434,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "類銀河戰士惡魔城",
         "動作冒險",
@@ -126548,7 +126548,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "恐怖",
         "探索",
@@ -126588,7 +126588,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "開放世界生存工藝",
         "農業",
@@ -126628,7 +126628,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "3D",
         "心理恐怖",
@@ -126669,7 +126669,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "角色扮演",
         "動作冒險",
@@ -126737,7 +126737,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "線性",
         "劇情豐富",
@@ -126853,7 +126853,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "獨立",
         "模擬",
@@ -126894,7 +126894,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "休閒",
@@ -126935,7 +126935,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "放置",
         "策略",
@@ -126975,7 +126975,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "選擇導向",
         "卡牌對戰",
@@ -127057,7 +127057,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "農場模擬",
@@ -127094,7 +127094,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "冒險",
         "模擬",
@@ -127207,7 +127207,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "冒險",
@@ -127241,7 +127241,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "超現實",
         "恐怖",
@@ -127282,7 +127282,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "傳統類 Rogue",
         "卡牌對戰",
@@ -127323,7 +127323,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "角色扮演",
         "解謎",
@@ -127470,7 +127470,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "模擬",
         "冒險",
@@ -127511,7 +127511,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "角色扮演",
         "戰術角色扮演",
@@ -127552,7 +127552,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "模擬",
         "單人",
@@ -127579,7 +127579,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "角色扮演",
         "恐怖",
@@ -127612,7 +127612,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "冒險",
         "單人",
@@ -127645,7 +127645,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "策略",
@@ -127679,7 +127679,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "冒險",
         "策略",
@@ -127720,7 +127720,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "視覺小說",
         "自選冒險體驗",
@@ -127761,7 +127761,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "放置",
@@ -127802,7 +127802,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "互動小說",
         "視覺小說",
@@ -127835,7 +127835,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "自動化",
         "模擬",
@@ -127866,7 +127866,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "色情內容",
         "裸露",
@@ -127939,7 +127939,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "冒險",
         "視覺小說",
@@ -127969,7 +127969,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "模擬",
         "休閒",
@@ -128005,7 +128005,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "派對遊戲",
@@ -128042,7 +128042,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "色情內容",
         "休閒",
@@ -128077,7 +128077,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "冒險",
         "平台",
@@ -128115,7 +128115,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "鮮血",
         "戰鬥",
@@ -128197,7 +128197,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "模擬",
@@ -128262,7 +128262,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "模擬",
@@ -128291,7 +128291,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "賭博",
         "遞增",
@@ -128372,7 +128372,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "策略",
         "類 Rogue",
@@ -128413,7 +128413,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "冒險",
         "模擬",
@@ -128446,7 +128446,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "派對遊戲",
@@ -128484,7 +128484,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "探索",
         "角色扮演",
@@ -128525,7 +128525,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "線上合作",
         "駕駛",
@@ -128566,7 +128566,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "線上合作",
         "合作",
@@ -128607,7 +128607,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "角色扮演",
@@ -128648,7 +128648,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "工藝",
         "放鬆",
@@ -128683,7 +128683,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "角色扮演",
         "日系角色扮演",
@@ -128724,7 +128724,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "線上合作",
@@ -128765,7 +128765,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "放置",
         "休閒",
@@ -128840,7 +128840,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "模擬",
@@ -128881,7 +128881,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "角色扮演",
         "視覺小說",
@@ -128922,7 +128922,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "動作類 Rogue",
@@ -128998,7 +128998,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "策略",
         "卡牌遊戲",
@@ -129149,7 +129149,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "懷舊",
@@ -129231,7 +129231,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "二戰",
         "汽機車模擬",
@@ -129272,7 +129272,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "生存",
         "喪屍",
@@ -129313,7 +129313,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "獨立",
@@ -129342,12 +129342,12 @@
       "name": "Survivesmith",
       "url": "https://store.steampowered.com/app/3540570/",
       "release_date": "2026-09-30",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3540570/d21b59b603cb255fc3f2f4ab5cead1f2e4baaf1d/capsule_231x87.jpg?t=1790742010",
-      "status": "upcoming",
-      "price_pct": null,
-      "price_original": null,
-      "price_final": null,
-      "release_epoch": null,
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3540570/d21b59b603cb255fc3f2f4ab5cead1f2e4baaf1d/capsule_231x87.jpg?t=1790751995",
+      "status": "live",
+      "price_pct": "-41%",
+      "price_original": "NT$ 83.00",
+      "price_final": "NT$ 49.00",
+      "release_epoch": 1790749479,
       "tags": [
         "逆彈幕",
         "彈幕",
@@ -129370,8 +129370,8 @@
         "自訂角色",
         "槍械改造"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3540570/01c8177098ab2118703325bb54e74d25f83379d1/header.jpg?t=1790742010",
-      "discount_end": null,
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3540570/01c8177098ab2118703325bb54e74d25f83379d1/header.jpg?t=1790751995",
+      "discount_end": 1791910836,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -129388,7 +129388,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "探索",
         "類魂",
@@ -129429,7 +129429,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "探索",
         "砍殺",
@@ -129470,7 +129470,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "冒險",
         "休閒",
@@ -129511,7 +129511,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "策略",
@@ -129550,7 +129550,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "精確平台",
         "低容錯",
@@ -129586,7 +129586,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "商店經營",
         "模擬",
@@ -129622,7 +129622,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "角色扮演",
         "視覺小說",
@@ -129663,7 +129663,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "冒險",
@@ -129702,7 +129702,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "精確平台",
         "低容錯",
@@ -129738,35 +129738,35 @@
       "name": "VoidCraft",
       "url": "https://store.steampowered.com/app/4729370/",
       "release_date": "2026-09-30",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4729370/25749b64c35db35f29dbee3d2678f24a0bb46124/capsule_231x87.jpg?t=1782836467",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4729370/25749b64c35db35f29dbee3d2678f24a0bb46124/capsule_231x87.jpg?t=1790745134",
       "status": "upcoming",
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": 1798704000,
       "tags": [
-        "動作",
         "模擬",
         "策略",
-        "大型多人",
         "大戰略",
+        "大型多人",
         "即時策略",
         "太空模擬",
-        "沉浸模擬",
-        "即時戰術",
-        "戰爭遊戲",
-        "2D",
         "線上合作",
         "多人",
-        "極簡主義",
-        "擬真",
-        "合作",
-        "載具對戰",
-        "純文字",
         "貿易",
-        "物理"
+        "4X",
+        "3D",
+        "管理",
+        "科幻",
+        "經濟",
+        "太空",
+        "玩家對戰",
+        "基地建設",
+        "免費遊玩",
+        "資源管理",
+        "程序生成"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4729370/d13d6592fb9480bc953d88cd6bc27b918765b544/header.jpg?t=1782836467",
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4729370/d13d6592fb9480bc953d88cd6bc27b918765b544/header.jpg?t=1790745134",
       "discount_end": null,
       "is_adult": false,
       "review_score": null,
@@ -129784,7 +129784,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "角色扮演",
@@ -129820,7 +129820,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "探索",
@@ -129857,7 +129857,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "動作冒險",
@@ -129898,7 +129898,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "華麗格鬥",
         "劍術",
@@ -129939,7 +129939,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "沙盒",
         "自選冒險體驗",
@@ -129980,7 +129980,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "模擬",
         "互動小說",
@@ -130021,7 +130021,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "卡牌遊戲",
@@ -130062,7 +130062,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "視覺小說",
         "劇情豐富",
@@ -130101,7 +130101,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "獨立",
         "類 Rogue 牌組製作",
@@ -130142,7 +130142,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "雙搖桿射擊",
         "單機合作",
@@ -130183,7 +130183,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "基地建設",
@@ -130216,7 +130216,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "運動",
         "超級英雄",
@@ -130257,7 +130257,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "策略",
         "模擬",
@@ -130288,7 +130288,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "角色扮演",
         "日系角色扮演",
@@ -130327,7 +130327,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "3D 格鬥",
@@ -130368,7 +130368,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "射擊",
@@ -130400,7 +130400,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "恐怖",
         "心理恐怖",
@@ -130435,7 +130435,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "恐怖",
         "冒險",
@@ -130476,7 +130476,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "冒險",
         "動作",
@@ -130517,7 +130517,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "模擬",
         "沙盒",
@@ -130558,7 +130558,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "策略",
@@ -130597,7 +130597,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "隱藏物件",
@@ -130628,7 +130628,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "街機",
@@ -130657,7 +130657,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "角色扮演",
@@ -130698,7 +130698,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "角色扮演",
@@ -130738,7 +130738,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "探索",
         "2D 平台",
@@ -130779,7 +130779,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "大型多人",
@@ -130848,7 +130848,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "放置",
         "遞增",
@@ -130878,7 +130878,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "隱藏物件",
         "狗",
@@ -131033,7 +131033,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "冒險",
@@ -131107,7 +131107,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "模擬",
         "策略",
@@ -131143,7 +131143,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "探索",
         "解謎",
@@ -131217,7 +131217,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "模擬",
@@ -131248,7 +131248,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "冒險",
@@ -131285,7 +131285,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "塔防",
         "策略",
@@ -131361,7 +131361,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "冒險",
         "休閒",
@@ -131466,7 +131466,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "競速",
         "運動",
@@ -131507,7 +131507,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "策略",
@@ -131538,7 +131538,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "策略",
         "卡牌遊戲",
@@ -131571,7 +131571,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作類 Rogue",
         "逆彈幕",
@@ -131609,7 +131609,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "模擬",
         "策略",
@@ -131649,7 +131649,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "模擬",
@@ -131690,7 +131690,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "冒險",
         "模擬",
@@ -131724,7 +131724,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作類 Rogue",
         "競技場射擊",
@@ -131765,7 +131765,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "時間管理",
         "3D 平台",
@@ -131847,7 +131847,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "冒險",
         "歡樂",
@@ -131888,7 +131888,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "射擊",
@@ -131929,7 +131929,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "冒險",
@@ -131967,7 +131967,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "冒險",
         "像素風格",
@@ -132008,7 +132008,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "心理恐怖",
         "恐怖",
@@ -132039,7 +132039,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "即時策略",
         "策略",
@@ -132080,7 +132080,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "運動",
         "策略",
@@ -132116,7 +132116,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "休閒",
@@ -132152,7 +132152,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "裸露",
@@ -132185,7 +132185,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "2D 平台",
         "互動小說",
@@ -132226,7 +132226,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "多人",
         "線上合作",
@@ -132267,7 +132267,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "恐龍",
         "團隊角色扮演",
@@ -132308,7 +132308,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "休閒",
@@ -132349,7 +132349,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "探索",
@@ -132390,7 +132390,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "戀愛模擬",
         "視覺小說",
@@ -132431,7 +132431,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "探索",
         "模擬",
@@ -132472,7 +132472,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "策略",
         "塔防",
@@ -132503,7 +132503,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "卡牌對戰",
         "策略",
@@ -132540,7 +132540,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "角色扮演",
         "視覺小說",
@@ -132568,7 +132568,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "解謎",
         "風格化",
@@ -132609,7 +132609,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "冒險",
@@ -132647,7 +132647,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "策略",
         "輕度 Rogue",
@@ -132682,7 +132682,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "動作冒險",
@@ -132857,7 +132857,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "冒險",
         "卡牌遊戲",
@@ -132897,7 +132897,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "角色扮演",
         "模擬",
@@ -132933,7 +132933,7 @@
       "name": "Match 3 Labyrinth",
       "url": "https://store.steampowered.com/app/4165370/",
       "release_date": "2026-09-30",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4165370/da2479af13732fc907cd698242bd78452534e3df/capsule_231x87.jpg?t=1790700558",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4165370/da2479af13732fc907cd698242bd78452534e3df/capsule_231x87.jpg?t=1790745686",
       "status": "upcoming",
       "price_pct": null,
       "price_original": null,
@@ -132956,7 +132956,7 @@
         "奇幻",
         "單人"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4165370/45e5bfc5a7cea526031800d23641898a73ed6634/header.jpg?t=1790700558",
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4165370/45e5bfc5a7cea526031800d23641898a73ed6634/header.jpg?t=1790745686",
       "discount_end": null,
       "is_adult": false,
       "review_score": null,
@@ -132974,7 +132974,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "打字",
         "動作角色扮演",
@@ -133056,7 +133056,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "虛擬實境",
         "動作",
@@ -133097,7 +133097,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作即時策略",
         "策略",
@@ -133138,7 +133138,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "角色扮演",
         "電競",
@@ -133165,7 +133165,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "探索",
         "回合制戰術",
@@ -133206,7 +133206,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "策略",
@@ -133237,7 +133237,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "跑酷",
         "動作",
@@ -133275,7 +133275,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "策略",
         "模擬",
@@ -133316,7 +133316,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "恐怖",
         "單人",
@@ -133357,7 +133357,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "角色扮演",
         "放置",
@@ -133396,7 +133396,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "第一人稱射擊",
         "策略",
@@ -133437,7 +133437,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "線上合作",
@@ -133471,7 +133471,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "遞增",
@@ -133506,7 +133506,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "色情內容",
         "角色扮演",
@@ -133541,7 +133541,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "模擬",
         "恐怖",
@@ -133622,7 +133622,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "模擬",
         "戀愛模擬",
@@ -133663,7 +133663,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "模擬",
         "管理",
@@ -133702,7 +133702,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "第三人稱射擊",
         "射擊",
@@ -133782,7 +133782,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "街機",
@@ -133821,7 +133821,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "卡牌對戰",
         "策略",
@@ -133862,7 +133862,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "海戰",
@@ -133901,7 +133901,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "模擬",
         "運動",
@@ -133933,7 +133933,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "角色扮演",
         "純文字",
@@ -133974,7 +133974,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "視覺小說",
         "選擇導向",
@@ -134009,7 +134009,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "冒險",
         "動作",
@@ -134050,7 +134050,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "冒險",
         "模擬",
@@ -134091,7 +134091,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "色情內容",
         "休閒",
@@ -134132,7 +134132,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "探索",
         "角色扮演",
@@ -134416,7 +134416,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "休閒",
@@ -134457,7 +134457,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "模擬",
@@ -134485,7 +134485,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "模擬",
@@ -134525,7 +134525,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "冒險",
@@ -134558,7 +134558,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "冒險",
         "探索",
@@ -134599,7 +134599,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "冒險",
@@ -134630,7 +134630,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "類 Rogue",
         "彈幕",
@@ -134668,7 +134668,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "冒險",
         "動作冒險",
@@ -134705,7 +134705,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "卡牌遊戲",
@@ -134740,7 +134740,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "線上合作",
         "派對遊戲",
@@ -135018,7 +135018,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "模擬",
         "策略",
@@ -135054,7 +135054,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "探索",
         "角色扮演",
@@ -135173,7 +135173,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "競速",
         "駕駛",
@@ -135282,7 +135282,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "策略",
         "類 Rogue 牌組製作",
@@ -135316,7 +135316,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "策略",
         "回合制策略",
@@ -135416,10 +135416,10 @@
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3582120/8202b6bb276cd631dc03fc75855c0e59782fa13c/header_tchinese.jpg?t=1790737209",
       "discount_end": 1791910805,
       "is_adult": false,
-      "review_score": null,
-      "review_score_label": null,
-      "review_percent": null,
-      "review_count": null
+      "review_score": 7,
+      "review_score_label": "好評",
+      "review_percent": 87,
+      "review_count": 16
     },
     "3693140": {
       "appid": "3693140",
@@ -135431,7 +135431,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "策略",
@@ -135470,7 +135470,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "心理恐怖",
         "可愛",
@@ -135511,7 +135511,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "點擊冒險",
         "解謎",
@@ -135552,7 +135552,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "彈幕",
         "清版射擊",
@@ -135593,7 +135593,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "策略",
         "交換卡牌",
@@ -135634,7 +135634,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "3D",
         "恐怖",
@@ -135674,7 +135674,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "冒險",
@@ -135714,7 +135714,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "自選冒險體驗",
         "平台解謎",
@@ -135754,7 +135754,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "冒險",
@@ -135792,7 +135792,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "射擊",
@@ -135833,7 +135833,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "戀愛模擬",
@@ -135896,7 +135896,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "2D 格鬥",
@@ -135937,7 +135937,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "冒險",
         "迷宮探索",
@@ -135978,7 +135978,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "派對遊戲",
         "輕度 Rogue",
@@ -136019,7 +136019,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "解謎",
         "點擊冒險",
@@ -136056,7 +136056,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "休閒",
         "派對遊戲",
@@ -136127,7 +136127,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "視覺小說",
         "劇情豐富",
@@ -136209,7 +136209,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "策略",
         "棋盤遊戲",
@@ -136284,7 +136284,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "第一人稱射擊",
@@ -136325,7 +136325,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "策略",
         "回合制",
@@ -136774,10 +136774,10 @@
         "開放世界",
         "單人",
         "卡通",
+        "色情內容",
         "卡通風格",
         "策略",
-        "角色扮演",
-        "獨立"
+        "角色扮演"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5182140/44449bf8a4b08e1cd9db44d551503df2f7243f48/header_tchinese.jpg?t=1790740817",
       "discount_end": 1791910815,
@@ -136948,7 +136948,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1790751600,
+      "release_epoch": null,
       "tags": [
         "動作",
         "動作類 Rogue",
@@ -137073,6 +137073,88 @@
       "review_score_label": null,
       "review_percent": null,
       "review_count": null
+    },
+    "5051720": {
+      "appid": "5051720",
+      "name": "CRAFTLANDER",
+      "url": "https://store.steampowered.com/app/5051720/",
+      "release_date": "2026-09-30",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5051720/1b39a2249a772e65119dcf6d3019d60f157ce8ae/capsule_231x87.jpg?t=1790747644",
+      "status": "live",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "免費",
+      "release_epoch": 1790747642,
+      "tags": [
+        "生存",
+        "工藝",
+        "探索",
+        "動作",
+        "程序生成",
+        "第一人稱視角",
+        "冒險",
+        "航海",
+        "開放世界",
+        "資源管理",
+        "庫存管理",
+        "3D",
+        "魔法",
+        "第一人稱射擊",
+        "奇幻",
+        "戰鬥",
+        "闔家",
+        "放鬆",
+        "採礦",
+        "動物"
+      ],
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5051720/0c2452c962840d86efaa89f79e3611f8755495d0/header.jpg?t=1790747644",
+      "discount_end": null,
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
+    },
+    "2429930": {
+      "appid": "2429930",
+      "name": "Power Network Tycoon",
+      "url": "https://store.steampowered.com/app/2429930/",
+      "release_date": "2026-09-30",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2429930/102e7af66989db28c4a0bc4c03e79bd139ebffcc/capsule_231x87.jpg?t=1790752101",
+      "status": "live",
+      "price_pct": "-25%",
+      "price_original": "NT$ 268.00",
+      "price_final": "NT$ 201.00",
+      "release_epoch": 1790752102,
+      "tags": [
+        "城市營造",
+        "模擬",
+        "物理",
+        "資源管理",
+        "教育學習",
+        "獨立",
+        "資本主義",
+        "工作模擬",
+        "殖民模擬",
+        "管理",
+        "科學",
+        "沙盒",
+        "程序生成",
+        "政治模擬",
+        "軟體",
+        "休閒",
+        "單人",
+        "風格化",
+        "3D",
+        "擬真"
+      ],
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2429930/bf58a260d157e72abe0d738045c7934d6fadcc8e/header.jpg?t=1790752101",
+      "discount_end": 1791997220,
+      "is_adult": false,
+      "review_score": 7,
+      "review_score_label": "好評",
+      "review_percent": 96,
+      "review_count": 26
     }
   }
 }
