@@ -9220,7 +9220,7 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 84,
-      "review_count": 107
+      "review_count": 108
     },
     "3802620": {
       "appid": "3802620",
@@ -14885,7 +14885,7 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 83,
-      "review_count": 102
+      "review_count": 105
     },
     "3612630": {
       "appid": "3612630",
@@ -36635,7 +36635,7 @@
       "review_score": 6,
       "review_score_label": "大多好評",
       "review_percent": 74,
-      "review_count": 837
+      "review_count": 839
     },
     "3393280": {
       "appid": "3393280",
@@ -36758,7 +36758,7 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 86,
-      "review_count": 19005
+      "review_count": 19016
     },
     "4019220": {
       "appid": "4019220",
@@ -36881,7 +36881,7 @@
       "review_score": 9,
       "review_score_label": "壓倒性好評",
       "review_percent": 96,
-      "review_count": 1297
+      "review_count": 1337
     },
     "4358690": {
       "appid": "4358690",
@@ -48169,7 +48169,7 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 91,
-      "review_count": 1156
+      "review_count": 1161
     },
     "4883590": {
       "appid": "4883590",
@@ -69429,10 +69429,10 @@
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1587380/7fce3cad584ef2e555a070e6d78df0922202619a/header.jpg?t=1790083863",
       "discount_end": null,
       "is_adult": false,
-      "review_score": 0,
-      "review_score_label": "8 篇使用者評論",
+      "review_score": 7,
+      "review_score_label": "好評",
       "review_percent": 100,
-      "review_count": 8
+      "review_count": 10
     },
     "1602620": {
       "appid": "1602620",
@@ -89788,7 +89788,7 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 89,
-      "review_count": 6701
+      "review_count": 6744
     },
     "3861710": {
       "appid": "3861710",
@@ -89990,7 +89990,7 @@
       "review_score": 5,
       "review_score_label": "褒貶不一",
       "review_percent": 66,
-      "review_count": 3109
+      "review_count": 3114
     },
     "632950": {
       "appid": "632950",
@@ -109647,8 +109647,8 @@
       "is_adult": false,
       "review_score": 8,
       "review_score_label": "極度好評",
-      "review_percent": 83,
-      "review_count": 65
+      "review_percent": 84,
+      "review_count": 69
     },
     "3464000": {
       "appid": "3464000",
@@ -109911,10 +109911,10 @@
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5140650/1994d6dfc5058e82991b0df5fd8dc858d766c9b6/header.jpg?t=1790611851",
       "discount_end": 1791824450,
       "is_adult": false,
-      "review_score": null,
-      "review_score_label": null,
-      "review_percent": null,
-      "review_count": null
+      "review_score": 0,
+      "review_score_label": "1 篇使用者評論",
+      "review_percent": 0,
+      "review_count": 1
     },
     "2659600": {
       "appid": "2659600",
@@ -110610,7 +110610,7 @@
       "review_score": 5,
       "review_score_label": "褒貶不一",
       "review_percent": 58,
-      "review_count": 4150
+      "review_count": 4200
     },
     "5227600": {
       "appid": "5227600",
@@ -119814,10 +119814,10 @@
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5245810/f7f624422d8033d03706758d5f03fe197b48257c/header.jpg?t=1790729886",
       "discount_end": null,
       "is_adult": false,
-      "review_score": null,
-      "review_score_label": null,
-      "review_percent": null,
-      "review_count": null
+      "review_score": 0,
+      "review_score_label": "2 篇使用者評論",
+      "review_percent": 100,
+      "review_count": 2
     },
     "5247380": {
       "appid": "5247380",
@@ -130979,9 +130979,9 @@
       "discount_end": 1791910824,
       "is_adult": false,
       "review_score": 0,
-      "review_score_label": "3 篇使用者評論",
-      "review_percent": 0,
-      "review_count": 3
+      "review_score_label": "7 篇使用者評論",
+      "review_percent": 28,
+      "review_count": 7
     },
     "3850920": {
       "appid": "3850920",
@@ -135127,7 +135127,7 @@
       "name": "Climb Up Together",
       "url": "https://store.steampowered.com/app/5239210/",
       "release_date": "2026-10-01",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5239210/4fc2a3a771c6fc0320875edfc0ebed727e3110c0/capsule_231x87.jpg?t=1790798876",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5239210/4fc2a3a771c6fc0320875edfc0ebed727e3110c0/capsule_231x87.jpg?t=1790815035",
       "status": "upcoming",
       "price_pct": null,
       "price_original": null,
@@ -135152,7 +135152,7 @@
         "奇幻",
         "單人"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5239210/ed4e26041b4658f809cb8f59c13a0977bfd4c407/header.jpg?t=1790798876",
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5239210/ed4e26041b4658f809cb8f59c13a0977bfd4c407/header.jpg?t=1790815035",
       "discount_end": null,
       "is_adult": false,
       "review_score": null,
@@ -135250,7 +135250,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790815080,
+      "release_epoch": null,
       "tags": [
         "策略",
         "回合制策略",
@@ -137329,7 +137329,7 @@
       "name": "Mahjong For All",
       "url": "https://store.steampowered.com/app/4993850/",
       "release_date": "2026-10-01",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4993850/c59644c6557864bb44082dd9394b6b635686176f/capsule_231x87.jpg?t=1790807801",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4993850/c59644c6557864bb44082dd9394b6b635686176f/capsule_231x87.jpg?t=1790815440",
       "status": "live",
       "price_pct": null,
       "price_original": null,
@@ -137355,7 +137355,7 @@
         "回合制戰術",
         "單人"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4993850/435ba3f9c7d76a9c55cecd9644dbb2a40a4b6903/header.jpg?t=1790807801",
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4993850/435ba3f9c7d76a9c55cecd9644dbb2a40a4b6903/header.jpg?t=1790815440",
       "discount_end": null,
       "is_adult": false,
       "review_score": null,
@@ -137534,7 +137534,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1790816400,
+      "release_epoch": null,
       "tags": [
         "心理恐怖",
         "恐怖",
@@ -137903,12 +137903,12 @@
       "name": "真・三國無雙２ with 猛將傳 Remastered",
       "url": "https://store.steampowered.com/app/3841510/",
       "release_date": "2026-10-01",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3841510/7e9f936c66c4bb7e98c9003bef912c863a1ad435/capsule_231x87_tchinese.jpg?t=1790749042",
-      "status": "upcoming",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3841510/7e9f936c66c4bb7e98c9003bef912c863a1ad435/capsule_231x87_tchinese.jpg?t=1790817204",
+      "status": "live",
       "price_pct": null,
       "price_original": null,
       "price_final": "NT$ 1,190.00",
-      "release_epoch": 1790816400,
+      "release_epoch": 1790816414,
       "tags": [
         "砍殺",
         "華麗格鬥",
@@ -137931,7 +137931,7 @@
         "戰術",
         "電影感"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3841510/13ce5fc9d5ba542cedf8490197590f3d49c3eb6b/header_tchinese.jpg?t=1790749042",
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3841510/13ce5fc9d5ba542cedf8490197590f3d49c3eb6b/header_tchinese.jpg?t=1790817204",
       "discount_end": null,
       "is_adult": false,
       "review_score": null,
@@ -138487,6 +138487,44 @@
       "review_score_label": null,
       "review_percent": null,
       "review_count": null
+    },
+    "3877630": {
+      "appid": "3877630",
+      "name": "The Calamity Trials",
+      "url": "https://store.steampowered.com/app/3877630/",
+      "release_date": "2026-10-01",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3877630/7db0d4a488e5ce83feef07d978706b51cf7ad67c/capsule_231x87.jpg?t=1790817095",
+      "status": "live",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "免費",
+      "release_epoch": 1790814924,
+      "tags": [
+        "動作",
+        "模擬",
+        "恐怖",
+        "第一人稱射擊",
+        "跑酷",
+        "平台",
+        "街機",
+        "氛圍",
+        "風格化",
+        "奔跑",
+        "射擊",
+        "免費遊玩",
+        "3D 平台",
+        "3D",
+        "第一人稱視角",
+        "擬真",
+        "科幻"
+      ],
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3877630/85a5c09295f61d02782dd70ce78f53e0d8616f25/header.jpg?t=1790817095",
+      "discount_end": null,
+      "is_adult": false,
+      "review_score": 6,
+      "review_score_label": "大多好評",
+      "review_percent": 75,
+      "review_count": 20
     }
   }
 }
