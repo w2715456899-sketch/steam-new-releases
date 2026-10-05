@@ -4215,8 +4215,8 @@
       "is_adult": false,
       "review_score": 6,
       "review_score_label": "大多好評",
-      "review_percent": 73,
-      "review_count": 15,
+      "review_percent": 75,
+      "review_count": 16,
       "itad_id": "0197bf6e-8ca8-71b8-8da8-d865937f57da",
       "is_historical_low": false
     },
@@ -10974,10 +10974,10 @@
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3351280/b45a06dba1b2f65ca4eea9f344965b993d6c6613/header_tchinese.jpg?t=1789565677",
       "discount_end": null,
       "is_adult": false,
-      "review_score": 7,
-      "review_score_label": "好評",
-      "review_percent": 89,
-      "review_count": 49,
+      "review_score": 8,
+      "review_score_label": "極度好評",
+      "review_percent": 90,
+      "review_count": 50,
       "itad_id": "019a338a-d471-7085-8e95-d110c67f15d1"
     },
     "3353800": {
@@ -13558,8 +13558,8 @@
       "is_adult": false,
       "review_score": 5,
       "review_score_label": "褒貶不一",
-      "review_percent": 53,
-      "review_count": 13,
+      "review_percent": 60,
+      "review_count": 15,
       "itad_id": "01a0a0f8-d053-73bb-bb6b-35c9cdc7a827",
       "is_historical_low": false
     },
@@ -22537,8 +22537,8 @@
       "is_adult": false,
       "review_score": 7,
       "review_score_label": "好評",
-      "review_percent": 91,
-      "review_count": 34,
+      "review_percent": 92,
+      "review_count": 38,
       "itad_id": "019dca25-1f7b-708d-9727-1e9e416f3aca",
       "is_historical_low": false
     },
@@ -27143,8 +27143,8 @@
       "is_adult": false,
       "review_score": 6,
       "review_score_label": "大多好評",
-      "review_percent": 72,
-      "review_count": 18,
+      "review_percent": 73,
+      "review_count": 19,
       "itad_id": "019f3dbc-fb2f-719f-986a-8d29b0f3e3f1",
       "is_historical_low": true
     },
@@ -27902,8 +27902,8 @@
       "is_adult": false,
       "review_score": 6,
       "review_score_label": "大多好評",
-      "review_percent": 78,
-      "review_count": 2650,
+      "review_percent": 77,
+      "review_count": 2653,
       "itad_id": "0192d404-aa9f-720a-8833-12fe3d245208",
       "is_historical_low": true
     },
@@ -29419,7 +29419,7 @@
       "review_score": 6,
       "review_score_label": "大多好評",
       "review_percent": 73,
-      "review_count": 265,
+      "review_count": 275,
       "itad_id": "019c31e9-c0bd-71ab-854c-09512d7f2ebd",
       "is_historical_low": true
     },
@@ -34504,8 +34504,8 @@
       "discount_end": null,
       "review_score": 5,
       "review_score_label": "褒貶不一",
-      "review_percent": 52,
-      "review_count": 19,
+      "review_percent": 55,
+      "review_count": 20,
       "itad_id": "019f83f5-4fd3-71ea-84e1-9c7fca59c8fd",
       "is_historical_low": false
     },
@@ -40046,8 +40046,8 @@
       "is_adult": false,
       "review_score": 5,
       "review_score_label": "褒貶不一",
-      "review_percent": 53,
-      "review_count": 13,
+      "review_percent": 57,
+      "review_count": 14,
       "itad_id": "01a01a00-5c53-71fc-9953-f2613b035084",
       "is_historical_low": false
     },
@@ -55901,7 +55901,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "01a001c1-0aa7-7017-bb1b-3f6b471d95e4",
+      "is_historical_low": true
     },
     "4828020": {
       "appid": "4828020",
@@ -55942,7 +55944,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "01a0035c-f81a-72eb-86d0-b1294243f124",
+      "is_historical_low": false
     },
     "4829380": {
       "appid": "4829380",
@@ -55980,7 +55984,9 @@
       "review_score": 5,
       "review_score_label": "褒貶不一",
       "review_percent": 50,
-      "review_count": 10
+      "review_count": 10,
+      "itad_id": "019ebc82-558d-71a0-b8bd-666b27b69d61",
+      "is_historical_low": true
     },
     "4830070": {
       "appid": "4830070",
@@ -56018,7 +56024,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "019ee16a-af6f-7296-a713-a99a76dbe94d",
+      "is_historical_low": false
     },
     "4820710": {
       "appid": "4820710",
@@ -56050,7 +56058,9 @@
       "review_score": 0,
       "review_score_label": "6 篇使用者評論",
       "review_percent": 100,
-      "review_count": 6
+      "review_count": 6,
+      "itad_id": "019f0472-3370-7349-9e01-388c1dd2332c",
+      "is_historical_low": false
     },
     "4820770": {
       "appid": "4820770",
@@ -56082,7 +56092,9 @@
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
       "review_percent": 100,
-      "review_count": 1
+      "review_count": 1,
+      "itad_id": "01a038ca-fde7-7354-b463-842735766610",
+      "is_historical_low": false
     },
     "4821440": {
       "appid": "4821440",
@@ -56118,7 +56130,9 @@
       "review_score": 0,
       "review_score_label": "4 篇使用者評論",
       "review_percent": 75,
-      "review_count": 4
+      "review_count": 4,
+      "itad_id": "019eaf50-1489-7370-8dcf-e00e13f35b97",
+      "is_historical_low": false
     },
     "4821960": {
       "appid": "4821960",
@@ -56159,7 +56173,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "019ff30e-2bc4-7013-bd51-63a62b9dc13d",
+      "is_historical_low": true
     },
     "4822210": {
       "appid": "4822210",
@@ -56200,7 +56216,9 @@
       "review_score": 0,
       "review_score_label": "5 篇使用者評論",
       "review_percent": 20,
-      "review_count": 5
+      "review_count": 5,
+      "itad_id": "019ec07a-a1d8-704c-9d0e-294c28cce1c1",
+      "is_historical_low": false
     },
     "5087820": {
       "appid": "5087820",
@@ -56237,7 +56255,9 @@
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5087820/f582168c3a40ed89e58811f0622f5247f3e23947/header.jpg?t=1789040526",
       "discount_end": null,
-      "is_adult": false
+      "is_adult": false,
+      "itad_id": "01a04249-aaa2-7022-8f8d-355b6f542d7e",
+      "is_historical_low": true
     },
     "5088080": {
       "appid": "5088080",
@@ -56278,7 +56298,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "01a0440e-f7de-704d-b6d1-4695c230a415",
+      "is_historical_low": true
     },
     "5088120": {
       "appid": "5088120",
@@ -56317,7 +56339,9 @@
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
       "review_percent": 100,
-      "review_count": 1
+      "review_count": 1,
+      "itad_id": "01a02ae6-40c5-7124-8538-cc015ca4f1fb",
+      "is_historical_low": false
     },
     "5088450": {
       "appid": "5088450",
@@ -56358,7 +56382,9 @@
       "review_score": 7,
       "review_score_label": "好評",
       "review_percent": 88,
-      "review_count": 25
+      "review_count": 25,
+      "itad_id": "01a04016-ab6f-73e4-9b0a-a1edcf62c7dd",
+      "is_historical_low": false
     },
     "5088710": {
       "appid": "5088710",
@@ -56399,7 +56425,8 @@
       "review_score": 7,
       "review_score_label": "好評",
       "review_percent": 83,
-      "review_count": 30
+      "review_count": 30,
+      "itad_id": "01a05c32-b980-721e-a050-f5077902b7ff"
     },
     "5088870": {
       "appid": "5088870",
@@ -56434,7 +56461,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "01a02b0f-56ec-7219-9092-e3078204f03d",
+      "is_historical_low": false
     },
     "5089210": {
       "appid": "5089210",
@@ -56473,7 +56502,9 @@
       "review_score": 0,
       "review_score_label": "2 篇使用者評論",
       "review_percent": 100,
-      "review_count": 2
+      "review_count": 2,
+      "itad_id": "01a0268d-df3a-708e-a563-45accb9b7e71",
+      "is_historical_low": true
     },
     "5089560": {
       "appid": "5089560",
@@ -56511,7 +56542,9 @@
       "review_score": 5,
       "review_score_label": "褒貶不一",
       "review_percent": 42,
-      "review_count": 14
+      "review_count": 14,
+      "itad_id": "01a024d6-55de-7356-b2de-4f00a8ba4c6c",
+      "is_historical_low": false
     },
     "5089740": {
       "appid": "5089740",
@@ -56552,7 +56585,9 @@
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
       "review_percent": 0,
-      "review_count": 1
+      "review_count": 1,
+      "itad_id": "01a06242-8064-7198-a7ac-03218adca5a5",
+      "is_historical_low": false
     },
     "4570680": {
       "appid": "4570680",
@@ -56593,7 +56628,9 @@
       "review_score": 0,
       "review_score_label": "3 篇使用者評論",
       "review_percent": 100,
-      "review_count": 3
+      "review_count": 3,
+      "itad_id": "019d8f15-3924-721f-8c07-9a16c931885c",
+      "is_historical_low": false
     },
     "4571130": {
       "appid": "4571130",
@@ -56626,7 +56663,9 @@
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
       "review_percent": 100,
-      "review_count": 1
+      "review_count": 1,
+      "itad_id": "01a06347-74d2-7046-9b9e-cf813cca03d4",
+      "is_historical_low": true
     },
     "4573700": {
       "appid": "4573700",
@@ -56659,7 +56698,9 @@
       "review_score": 0,
       "review_score_label": "2 篇使用者評論",
       "review_percent": 0,
-      "review_count": 2
+      "review_count": 2,
+      "itad_id": "019f0689-ceb0-73a2-91cf-142d8f0ce984",
+      "is_historical_low": true
     },
     "4577980": {
       "appid": "4577980",
@@ -56692,7 +56733,9 @@
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
       "review_percent": 100,
-      "review_count": 1
+      "review_count": 1,
+      "itad_id": "019dbbd2-7e1d-705b-9fe0-e640e6b80176",
+      "is_historical_low": true
     },
     "4580590": {
       "appid": "4580590",
@@ -56728,7 +56771,9 @@
       "review_score": 0,
       "review_score_label": "3 篇使用者評論",
       "review_percent": 66,
-      "review_count": 3
+      "review_count": 3,
+      "itad_id": "019d89aa-1d4f-7181-89d1-b80d19f1b0b6",
+      "is_historical_low": false
     },
     "4550460": {
       "appid": "4550460",
@@ -56762,7 +56807,9 @@
       "review_score": 0,
       "review_score_label": "3 篇使用者評論",
       "review_percent": 100,
-      "review_count": 3
+      "review_count": 3,
+      "itad_id": "019d2f7d-312f-7380-bf14-752f171f3366",
+      "is_historical_low": true
     },
     "4551800": {
       "appid": "4551800",
@@ -56797,7 +56844,9 @@
       "review_score": 7,
       "review_score_label": "好評",
       "review_percent": 100,
-      "review_count": 12
+      "review_count": 12,
+      "itad_id": "019d954e-39d4-72a5-b9ce-59cc51b92c62",
+      "is_historical_low": true
     },
     "5044390": {
       "appid": "5044390",
@@ -56831,7 +56880,9 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 84,
-      "review_count": 69
+      "review_count": 69,
+      "itad_id": "019ffc3a-822a-700f-af11-21f5020776a2",
+      "is_historical_low": true
     },
     "4991690": {
       "appid": "4991690",
@@ -56869,7 +56920,9 @@
       "review_score": 0,
       "review_score_label": "3 篇使用者評論",
       "review_percent": 66,
-      "review_count": 3
+      "review_count": 3,
+      "itad_id": "019fddd0-3efd-72cf-b6b0-21d82681bc65",
+      "is_historical_low": false
     },
     "4992020": {
       "appid": "4992020",
@@ -56898,7 +56951,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "019ffb6c-950f-7157-aeed-54aef9421610",
+      "is_historical_low": true
     },
     "4992680": {
       "appid": "4992680",
@@ -56939,7 +56994,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "01a03208-a104-73e5-b737-91c910bb5a82",
+      "is_historical_low": false
     },
     "4992740": {
       "appid": "4992740",
@@ -56980,7 +57037,9 @@
       "review_score": 0,
       "review_score_label": "6 篇使用者評論",
       "review_percent": 66,
-      "review_count": 6
+      "review_count": 6,
+      "itad_id": "01a04aa8-2078-72c3-af76-5dbd2426dcf4",
+      "is_historical_low": false
     },
     "4994340": {
       "appid": "4994340",
@@ -57007,7 +57066,9 @@
       "review_score": 0,
       "review_score_label": "2 篇使用者評論",
       "review_percent": 100,
-      "review_count": 2
+      "review_count": 2,
+      "itad_id": "01a0651a-59b3-73f5-9115-e5fdea74afb2",
+      "is_historical_low": false
     },
     "4994490": {
       "appid": "4994490",
@@ -57043,7 +57104,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "01a029e1-420e-7275-87ab-fedfb5287934",
+      "is_historical_low": false
     },
     "4994530": {
       "appid": "4994530",
@@ -57084,7 +57147,8 @@
       "review_score": 5,
       "review_score_label": "褒貶不一",
       "review_percent": 68,
-      "review_count": 19
+      "review_count": 19,
+      "itad_id": "019fb9fa-5c50-73fc-850f-b09153f68775"
     },
     "4994630": {
       "appid": "4994630",
@@ -57122,7 +57186,9 @@
       "review_score": 0,
       "review_score_label": "2 篇使用者評論",
       "review_percent": 100,
-      "review_count": 2
+      "review_count": 2,
+      "itad_id": "019fee2c-9504-73aa-918c-9312b0436d55",
+      "is_historical_low": false
     },
     "4995090": {
       "appid": "4995090",
@@ -57163,7 +57229,9 @@
       "review_score": 0,
       "review_score_label": "2 篇使用者評論",
       "review_percent": 100,
-      "review_count": 2
+      "review_count": 2,
+      "itad_id": "019f98ee-e4f1-706c-8a56-a2e6d778f138",
+      "is_historical_low": false
     },
     "4995250": {
       "appid": "4995250",
@@ -57197,7 +57265,9 @@
       "review_score": 0,
       "review_score_label": "5 篇使用者評論",
       "review_percent": 80,
-      "review_count": 5
+      "review_count": 5,
+      "itad_id": "019fc808-739b-714a-ac02-6447c64172f5",
+      "is_historical_low": false
     },
     "4995410": {
       "appid": "4995410",
@@ -57233,7 +57303,9 @@
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
       "review_percent": 100,
-      "review_count": 1
+      "review_count": 1,
+      "itad_id": "01a03834-1678-7072-a867-cdd72e3e28f6",
+      "is_historical_low": false
     },
     "5090260": {
       "appid": "5090260",
@@ -57274,7 +57346,9 @@
       "review_score": 0,
       "review_score_label": "4 篇使用者評論",
       "review_percent": 25,
-      "review_count": 4
+      "review_count": 4,
+      "itad_id": "01a012dd-c60b-71b8-b603-98e3e3e15455",
+      "is_historical_low": true
     },
     "5090560": {
       "appid": "5090560",
@@ -57315,7 +57389,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "01a039dd-bf77-7204-9b35-63975e55bff1",
+      "is_historical_low": false
     },
     "5090740": {
       "appid": "5090740",
@@ -57356,7 +57432,9 @@
       "review_score": 7,
       "review_score_label": "好評",
       "review_percent": 100,
-      "review_count": 10
+      "review_count": 10,
+      "itad_id": "01a01668-5359-7058-96f2-78ded36324d6",
+      "is_historical_low": false
     },
     "5091290": {
       "appid": "5091290",
@@ -57397,7 +57475,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "01a006d9-9281-7027-a102-08db1db1a2c0",
+      "is_historical_low": false
     },
     "5091780": {
       "appid": "5091780",
@@ -57423,7 +57503,9 @@
       "review_score": 0,
       "review_score_label": "2 篇使用者評論",
       "review_percent": 50,
-      "review_count": 2
+      "review_count": 2,
+      "itad_id": "01a0077e-64c5-7099-8ea1-efa41b891849",
+      "is_historical_low": false
     },
     "5091840": {
       "appid": "5091840",
@@ -57464,7 +57546,9 @@
       "review_score": 0,
       "review_score_label": "5 篇使用者評論",
       "review_percent": 100,
-      "review_count": 5
+      "review_count": 5,
+      "itad_id": "01a02190-a08c-71d6-9cbf-b3ab50cfe76e",
+      "is_historical_low": false
     },
     "5091860": {
       "appid": "5091860",
@@ -57505,7 +57589,9 @@
       "review_score": 0,
       "review_score_label": "7 篇使用者評論",
       "review_percent": 85,
-      "review_count": 7
+      "review_count": 7,
+      "itad_id": "01a06415-7471-7344-876d-d2bfd9edb9a3",
+      "is_historical_low": false
     },
     "5091930": {
       "appid": "5091930",
@@ -57541,7 +57627,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "01a03b87-549c-727d-8c30-d7643e68afcc",
+      "is_historical_low": false
     },
     "5092320": {
       "appid": "5092320",
@@ -57576,7 +57664,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "01a020de-32bb-7352-a2e1-54888bca0b11",
+      "is_historical_low": true
     },
     "5092530": {
       "appid": "5092530",
@@ -57617,7 +57707,8 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "01a03653-4066-7000-8b64-d4ee97707137"
     },
     "5092870": {
       "appid": "5092870",
@@ -57658,7 +57749,9 @@
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
       "review_percent": 100,
-      "review_count": 1
+      "review_count": 1,
+      "itad_id": "01a01ddd-1048-712f-8c24-dbfa141025db",
+      "is_historical_low": false
     },
     "5093740": {
       "appid": "5093740",
@@ -57686,7 +57779,8 @@
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
       "review_percent": 100,
-      "review_count": 1
+      "review_count": 1,
+      "itad_id": "01a03d83-9ba2-717b-97f4-a6ecde811aab"
     },
     "5094240": {
       "appid": "5094240",
@@ -57721,7 +57815,9 @@
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
       "review_percent": 100,
-      "review_count": 1
+      "review_count": 1,
+      "itad_id": "01a013b9-9238-73e8-8221-61faebd14d83",
+      "is_historical_low": false
     },
     "5094550": {
       "appid": "5094550",
@@ -57756,7 +57852,8 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "01a037ef-538a-7278-bda0-7486a06e1587"
     },
     "5094720": {
       "appid": "5094720",
@@ -57791,7 +57888,9 @@
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
       "review_percent": 100,
-      "review_count": 1
+      "review_count": 1,
+      "itad_id": "01a03841-ad99-7220-9c6b-15d104ec9042",
+      "is_historical_low": false
     },
     "5094880": {
       "appid": "5094880",
@@ -57823,7 +57922,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "01a042fc-23a2-70b5-864c-5ef3a73e2d93",
+      "is_historical_low": false
     },
     "5094980": {
       "appid": "5094980",
@@ -57864,7 +57965,8 @@
       "review_score": 7,
       "review_score_label": "好評",
       "review_percent": 90,
-      "review_count": 10
+      "review_count": 10,
+      "itad_id": "01a056ac-4306-71be-8d56-687b271b7e1e"
     },
     "5095280": {
       "appid": "5095280",
@@ -57905,7 +58007,9 @@
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
       "review_percent": 100,
-      "review_count": 1
+      "review_count": 1,
+      "itad_id": "01a02ffe-c68f-7136-a9e3-5c67bda7555f",
+      "is_historical_low": false
     },
     "5095670": {
       "appid": "5095670",
@@ -57935,7 +58039,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "01a04f1b-e486-727b-99b8-30533928e9eb",
+      "is_historical_low": false
     },
     "5096220": {
       "appid": "5096220",
@@ -57968,7 +58074,9 @@
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
       "review_percent": 100,
-      "review_count": 1
+      "review_count": 1,
+      "itad_id": "01a036f8-22ef-7318-a74e-18c63b8a30f9",
+      "is_historical_low": false
     },
     "5096230": {
       "appid": "5096230",
@@ -58009,7 +58117,9 @@
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
       "review_percent": 100,
-      "review_count": 1
+      "review_count": 1,
+      "itad_id": "01a03b5e-3a4a-7318-b05d-5697c1542739",
+      "is_historical_low": false
     },
     "5096850": {
       "appid": "5096850",
@@ -58041,7 +58151,9 @@
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
       "review_percent": 100,
-      "review_count": 1
+      "review_count": 1,
+      "itad_id": "01a059e4-5e2c-7100-9ab4-50807a59cfb8",
+      "is_historical_low": false
     },
     "5097440": {
       "appid": "5097440",
@@ -58078,7 +58190,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "01a06e99-0e6c-714d-be04-c4cd803807bd",
+      "is_historical_low": true
     },
     "5097600": {
       "appid": "5097600",
@@ -58114,7 +58228,9 @@
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
       "review_percent": 100,
-      "review_count": 1
+      "review_count": 1,
+      "itad_id": "01a049e7-c730-7053-9f2b-d46e4cc8dab8",
+      "is_historical_low": true
     },
     "5097640": {
       "appid": "5097640",
@@ -58154,7 +58270,9 @@
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
       "review_percent": 100,
-      "review_count": 1
+      "review_count": 1,
+      "itad_id": "01a01b80-d0c4-7383-9197-f104d78fa44e",
+      "is_historical_low": false
     },
     "5098270": {
       "appid": "5098270",
@@ -58193,7 +58311,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "01a0533d-53c4-7253-aeb5-568b21c3372d",
+      "is_historical_low": true
     },
     "5098380": {
       "appid": "5098380",
@@ -58230,7 +58350,9 @@
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
       "review_percent": 100,
-      "review_count": 1
+      "review_count": 1,
+      "itad_id": "01a025f6-dd39-718e-9759-e686029e389e",
+      "is_historical_low": true
     },
     "4959800": {
       "appid": "4959800",
@@ -58271,7 +58393,9 @@
       "review_score": 0,
       "review_score_label": "5 篇使用者評論",
       "review_percent": 100,
-      "review_count": 5
+      "review_count": 5,
+      "itad_id": "01a0134b-c711-730f-98cc-2bd1648f0564",
+      "is_historical_low": false
     },
     "4960010": {
       "appid": "4960010",
@@ -58303,7 +58427,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "019fac3e-bf5a-727c-8349-a86b0aa865c7",
+      "is_historical_low": true
     },
     "4960780": {
       "appid": "4960780",
@@ -58336,7 +58462,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "019fb5e6-a4e7-72d4-b982-e0c002d20ad5",
+      "is_historical_low": false
     },
     "4961150": {
       "appid": "4961150",
@@ -58377,7 +58505,9 @@
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
       "review_percent": 100,
-      "review_count": 1
+      "review_count": 1,
+      "itad_id": "019fa417-50fd-710e-8e40-5b7b69089a5f",
+      "is_historical_low": true
     },
     "4961990": {
       "appid": "4961990",
@@ -58412,7 +58542,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "01a0181f-990c-727c-90cb-e2de944de86c",
+      "is_historical_low": false
     },
     "5070660": {
       "appid": "5070660",
@@ -58445,7 +58577,9 @@
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
       "review_percent": 100,
-      "review_count": 1
+      "review_count": 1,
+      "itad_id": "01a0225e-c8d3-705e-a7ad-8f88ee78a37b",
+      "is_historical_low": true
     },
     "5070790": {
       "appid": "5070790",
@@ -58477,7 +58611,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "01a04212-b9cc-700a-aad7-50ccced78d8e",
+      "is_historical_low": false
     },
     "5070950": {
       "appid": "5070950",
@@ -58505,7 +58641,8 @@
       "review_score": 7,
       "review_score_label": "好評",
       "review_percent": 90,
-      "review_count": 22
+      "review_count": 22,
+      "itad_id": "01a03946-8f39-70c5-984c-69e605246312"
     },
     "5071480": {
       "appid": "5071480",
@@ -58538,7 +58675,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "01a0390f-b4f5-7154-9111-6770ebb78f92",
+      "is_historical_low": true
     },
     "5071740": {
       "appid": "5071740",
@@ -58572,7 +58711,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "01a04ec9-7b50-72c3-94af-06e52a40fee2",
+      "is_historical_low": false
     },
     "5071760": {
       "appid": "5071760",
@@ -58613,7 +58754,9 @@
       "review_score": 7,
       "review_score_label": "好評",
       "review_percent": 100,
-      "review_count": 10
+      "review_count": 10,
+      "itad_id": "01a016e3-cbf7-72b6-a7bf-27eff4ee110d",
+      "is_historical_low": false
     },
     "5071920": {
       "appid": "5071920",
@@ -58653,7 +58796,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "01a04a2c-7d33-714c-819d-abe80f3ae193",
+      "is_historical_low": false
     },
     "5071940": {
       "appid": "5071940",
@@ -58694,7 +58839,9 @@
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
       "review_percent": 0,
-      "review_count": 1
+      "review_count": 1,
+      "itad_id": "01a03bbe-6397-73e7-944c-db24f886af22",
+      "is_historical_low": false
     },
     "5072160": {
       "appid": "5072160",
@@ -58730,7 +58877,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "01a03765-ec7e-71b7-9cc6-053135c4dd16",
+      "is_historical_low": false
     },
     "5073050": {
       "appid": "5073050",
@@ -58765,7 +58914,9 @@
       "review_score": 0,
       "review_score_label": "2 篇使用者評論",
       "review_percent": 100,
-      "review_count": 2
+      "review_count": 2,
+      "itad_id": "01a01788-977b-7222-863f-c6d7ca65f735",
+      "is_historical_low": true
     },
     "5053660": {
       "appid": "5053660",
@@ -58806,7 +58957,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "01a014cc-2f5c-70b6-a0df-5739be9e4e75",
+      "is_historical_low": true
     },
     "5053710": {
       "appid": "5053710",
@@ -58847,7 +59000,9 @@
       "review_score": 7,
       "review_score_label": "好評",
       "review_percent": 90,
-      "review_count": 11
+      "review_count": 11,
+      "itad_id": "01a03dac-b2dd-7385-a8be-15055b18da7a",
+      "is_historical_low": false
     },
     "5053880": {
       "appid": "5053880",
@@ -58888,7 +59043,9 @@
       "review_score": 6,
       "review_score_label": "大多好評",
       "review_percent": 70,
-      "review_count": 17
+      "review_count": 17,
+      "itad_id": "01a007a7-d745-7028-bfc6-b81e7ca6a5c7",
+      "is_historical_low": false
     },
     "5054120": {
       "appid": "5054120",
@@ -58929,7 +59086,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "01a02fd5-8975-7260-8592-9ba4cf5cd560",
+      "is_historical_low": true
     },
     "5054380": {
       "appid": "5054380",
@@ -58961,7 +59120,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "01a00f1c-6d13-73b7-969a-b4330c863b20",
+      "is_historical_low": false
     },
     "5054940": {
       "appid": "5054940",
@@ -59002,7 +59163,8 @@
       "review_score": 0,
       "review_score_label": "4 篇使用者評論",
       "review_percent": 75,
-      "review_count": 4
+      "review_count": 4,
+      "itad_id": "01a00afb-0d43-704e-9089-efe6b36896b3"
     },
     "5055960": {
       "appid": "5055960",
@@ -59033,7 +59195,9 @@
       "review_score": 7,
       "review_score_label": "好評",
       "review_percent": 93,
-      "review_count": 30
+      "review_count": 30,
+      "itad_id": "01a00032-c7c0-70c4-81c4-08f1abd8e874",
+      "is_historical_low": false
     },
     "5056060": {
       "appid": "5056060",
@@ -59074,7 +59238,9 @@
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
       "review_percent": 100,
-      "review_count": 1
+      "review_count": 1,
+      "itad_id": "01a02596-9342-737c-af10-1c4a3211ae61",
+      "is_historical_low": false
     },
     "5056170": {
       "appid": "5056170",
@@ -59113,7 +59279,9 @@
       "review_score": 0,
       "review_score_label": "4 篇使用者評論",
       "review_percent": 100,
-      "review_count": 4
+      "review_count": 4,
+      "itad_id": "01a0367c-7701-71e5-a19f-ebbbe34911d4",
+      "is_historical_low": true
     },
     "5056520": {
       "appid": "5056520",
@@ -59147,7 +59315,9 @@
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
       "review_percent": 0,
-      "review_count": 1
+      "review_count": 1,
+      "itad_id": "019fede7-f36f-726a-b485-a75d9c5609ea",
+      "is_historical_low": false
     },
     "4985440": {
       "appid": "4985440",
@@ -59183,7 +59353,9 @@
       "review_score": 0,
       "review_score_label": "5 篇使用者評論",
       "review_percent": 100,
-      "review_count": 5
+      "review_count": 5,
+      "itad_id": "01a03a4b-7c0e-71b2-9831-a8219ec5125a",
+      "is_historical_low": false
     },
     "4985690": {
       "appid": "4985690",
@@ -59224,7 +59396,9 @@
       "review_score": 0,
       "review_score_label": "2 篇使用者評論",
       "review_percent": 100,
-      "review_count": 2
+      "review_count": 2,
+      "itad_id": "01a041ce-1d95-718e-b975-481c207bbb07",
+      "is_historical_low": true
     },
     "4985780": {
       "appid": "4985780",
@@ -59257,7 +59431,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "019fb586-aa9b-70fe-8d0d-315a36dfe1fd",
+      "is_historical_low": false
     },
     "4985870": {
       "appid": "4985870",
@@ -59292,7 +59468,9 @@
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
       "review_percent": 100,
-      "review_count": 1
+      "review_count": 1,
+      "itad_id": "019fb0c0-633a-7111-86cf-a5868865e1cf",
+      "is_historical_low": true
     },
     "4985880": {
       "appid": "4985880",
@@ -59321,7 +59499,9 @@
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
       "review_percent": 100,
-      "review_count": 1
+      "review_count": 1,
+      "itad_id": "019f8dc6-7882-7117-98bd-451fe8295f4e",
+      "is_historical_low": false
     },
     "4986770": {
       "appid": "4986770",
@@ -59359,7 +59539,9 @@
       "review_score": 0,
       "review_score_label": "2 篇使用者評論",
       "review_percent": 100,
-      "review_count": 2
+      "review_count": 2,
+      "itad_id": "01a05426-c634-7349-aa86-0897eb354b18",
+      "is_historical_low": false
     },
     "4986890": {
       "appid": "4986890",
@@ -59400,7 +59582,9 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 81,
-      "review_count": 166
+      "review_count": 166,
+      "itad_id": "019f939f-4df6-73ce-8600-01e28cb68b19",
+      "is_historical_low": false
     },
     "4988100": {
       "appid": "4988100",
@@ -59441,7 +59625,9 @@
       "review_score": 0,
       "review_score_label": "6 篇使用者評論",
       "review_percent": 100,
-      "review_count": 6
+      "review_count": 6,
+      "itad_id": "019fa665-d4d6-7255-8f07-b0f34241a2c3",
+      "is_historical_low": false
     },
     "4988860": {
       "appid": "4988860",
@@ -59479,7 +59665,9 @@
       "review_score": 6,
       "review_score_label": "大多好評",
       "review_percent": 78,
-      "review_count": 19
+      "review_count": 19,
+      "itad_id": "019ff5e6-061c-732d-b55b-b009cceaba69",
+      "is_historical_low": false
     },
     "4989050": {
       "appid": "4989050",
@@ -59510,7 +59698,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "01a00b3f-baf2-714c-a6ce-e280ab78c39c",
+      "is_historical_low": true
     },
     "4989230": {
       "appid": "4989230",
@@ -59547,7 +59737,9 @@
       "review_score": 0,
       "review_score_label": "2 篇使用者評論",
       "review_percent": 0,
-      "review_count": 2
+      "review_count": 2,
+      "itad_id": "01a01848-d11b-73f8-9a7a-e2738a51016c",
+      "is_historical_low": false
     },
     "4989780": {
       "appid": "4989780",
@@ -59584,7 +59776,9 @@
       "review_score": 0,
       "review_score_label": "4 篇使用者評論",
       "review_percent": 50,
-      "review_count": 4
+      "review_count": 4,
+      "itad_id": "01a02303-99a5-701a-ab68-eeeffcb5b21f",
+      "is_historical_low": false
     },
     "4991050": {
       "appid": "4991050",
@@ -59618,7 +59812,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "01a010fd-39ac-704d-abd0-24cdfe829924",
+      "is_historical_low": true
     },
     "4991180": {
       "appid": "4991180",
@@ -59658,7 +59854,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "01a069fc-0a6e-73fd-8971-7b237b79f5cd",
+      "is_historical_low": true
     },
     "4991340": {
       "appid": "4991340",
@@ -59697,7 +59895,8 @@
       "review_score": 0,
       "review_score_label": "5 篇使用者評論",
       "review_percent": 60,
-      "review_count": 5
+      "review_count": 5,
+      "itad_id": "01a02a18-3aee-730c-9a6e-017e64e4c72c"
     },
     "4991530": {
       "appid": "4991530",
@@ -59738,7 +59937,8 @@
       "review_score": 0,
       "review_score_label": "5 篇使用者評論",
       "review_percent": 20,
-      "review_count": 5
+      "review_count": 5,
+      "itad_id": "019fdaa5-c955-738e-befb-f41e2e3457aa"
     },
     "5099030": {
       "appid": "5099030",
@@ -59779,7 +59979,9 @@
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
       "review_percent": 100,
-      "review_count": 1
+      "review_count": 1,
+      "itad_id": "01a04aec-d207-723c-aa1d-6c0f0e3b5535",
+      "is_historical_low": true
     },
     "5099120": {
       "appid": "5099120",
@@ -59820,7 +60022,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "01a030bf-1b3a-7148-acd3-3e97c5df5cce",
+      "is_historical_low": false
     },
     "5099260": {
       "appid": "5099260",
@@ -59852,7 +60056,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "01a01848-d127-7169-9a26-4a48f27ec622",
+      "is_historical_low": false
     },
     "5099860": {
       "appid": "5099860",
@@ -59882,7 +60088,8 @@
       "review_score": 0,
       "review_score_label": "2 篇使用者評論",
       "review_percent": 0,
-      "review_count": 2
+      "review_count": 2,
+      "itad_id": "01a05acd-b27d-711c-99b4-df1ced902e33"
     },
     "5100320": {
       "appid": "5100320",
@@ -59920,7 +60127,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "01a029ee-f38b-73db-a11a-2ca7a86bc152",
+      "is_historical_low": true
     },
     "5100410": {
       "appid": "5100410",
@@ -59959,7 +60168,9 @@
       "review_score": 7,
       "review_score_label": "好評",
       "review_percent": 100,
-      "review_count": 10
+      "review_count": 10,
+      "itad_id": "01a029ee-f38f-70a2-ad34-8c814cd6ab1e",
+      "is_historical_low": false
     },
     "5100420": {
       "appid": "5100420",
@@ -59996,7 +60207,9 @@
       "review_score": 7,
       "review_score_label": "好評",
       "review_percent": 100,
-      "review_count": 10
+      "review_count": 10,
+      "itad_id": "01a01676-1788-71ad-98a5-6e383eca88b1",
+      "is_historical_low": false
     },
     "5100520": {
       "appid": "5100520",
@@ -60033,7 +60246,9 @@
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
       "review_percent": 100,
-      "review_count": 1
+      "review_count": 1,
+      "itad_id": "01a01cbc-da0d-73df-b5dc-18ef4ba36672",
+      "is_historical_low": false
     },
     "5100780": {
       "appid": "5100780",
@@ -60063,7 +60278,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "01a0914e-4993-70eb-9b9e-2b411747ff43",
+      "is_historical_low": true
     },
     "5101000": {
       "appid": "5101000",
@@ -60098,7 +60315,8 @@
       "review_score": 0,
       "review_score_label": "2 篇使用者評論",
       "review_percent": 50,
-      "review_count": 2
+      "review_count": 2,
+      "itad_id": "01a03661-1127-73fe-83a4-b62dea0d726f"
     },
     "5101140": {
       "appid": "5101140",
@@ -60134,7 +60352,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "01a04dc4-8aac-717c-af5e-3d5968565150",
+      "is_historical_low": true
     },
     "5101560": {
       "appid": "5101560",
@@ -60173,7 +60393,9 @@
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
       "review_percent": 100,
-      "review_count": 1
+      "review_count": 1,
+      "itad_id": "01a079b3-d351-700a-bb01-8c2a680cd1f1",
+      "is_historical_low": true
     },
     "5102530": {
       "appid": "5102530",
@@ -60213,7 +60435,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "01a015ec-c177-7343-97b9-7e6fcf4cbe3f",
+      "is_historical_low": false
     },
     "5102710": {
       "appid": "5102710",
@@ -60247,7 +60471,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "01a03cb5-75e3-7037-95f8-94e642b32aef",
+      "is_historical_low": false
     },
     "5103290": {
       "appid": "5103290",
@@ -60284,7 +60510,9 @@
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
       "review_percent": 100,
-      "review_count": 1
+      "review_count": 1,
+      "itad_id": "01a01c5c-94c3-7009-bdba-3f3009ac2afc",
+      "is_historical_low": false
     },
     "5103400": {
       "appid": "5103400",
@@ -60322,7 +60550,9 @@
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
       "review_percent": 0,
-      "review_count": 1
+      "review_count": 1,
+      "itad_id": "01a018b6-b0ac-73d7-8c6b-7335e7baea95",
+      "is_historical_low": false
     },
     "5103500": {
       "appid": "5103500",
@@ -60354,7 +60584,8 @@
       "review_score": 0,
       "review_score_label": "2 篇使用者評論",
       "review_percent": 100,
-      "review_count": 2
+      "review_count": 2,
+      "itad_id": "01a02bdd-5684-7188-b8a8-77c92f636ba0"
     },
     "5103890": {
       "appid": "5103890",
@@ -60387,7 +60618,9 @@
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
       "review_percent": 100,
-      "review_count": 1
+      "review_count": 1,
+      "itad_id": "01a0318d-2dc9-73fd-97c6-e077ab326322",
+      "is_historical_low": false
     },
     "5104020": {
       "appid": "5104020",
@@ -60424,7 +60657,9 @@
       "review_score": 0,
       "review_score_label": "2 篇使用者評論",
       "review_percent": 100,
-      "review_count": 2
+      "review_count": 2,
+      "itad_id": "01a0287c-2e51-7380-8544-51771ef4a403",
+      "is_historical_low": false
     },
     "5104050": {
       "appid": "5104050",
@@ -60463,7 +60698,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "01a02664-8daa-721f-a865-355357513202",
+      "is_historical_low": false
     },
     "5104080": {
       "appid": "5104080",
@@ -60501,7 +60738,9 @@
       "review_score": 0,
       "review_score_label": "5 篇使用者評論",
       "review_percent": 100,
-      "review_count": 5
+      "review_count": 5,
+      "itad_id": "01a01736-31fb-71b2-82d7-4a6403015dd3",
+      "is_historical_low": false
     },
     "5104330": {
       "appid": "5104330",
@@ -60537,7 +60776,9 @@
       "review_score": 0,
       "review_score_label": "4 篇使用者評論",
       "review_percent": 100,
-      "review_count": 4
+      "review_count": 4,
+      "itad_id": "01a0170d-2a12-7147-9d31-63df4327601c",
+      "is_historical_low": false
     },
     "5105480": {
       "appid": "5105480",
@@ -60566,7 +60807,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "01a064f1-2d3a-7086-9f76-70a880537c93",
+      "is_historical_low": true
     },
     "5106000": {
       "appid": "5106000",
@@ -60602,7 +60845,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "01a01fb0-107e-709c-9151-8c74baccac60",
+      "is_historical_low": false
     },
     "5106540": {
       "appid": "5106540",
@@ -60638,7 +60883,9 @@
       "review_score": 0,
       "review_score_label": "4 篇使用者評論",
       "review_percent": 100,
-      "review_count": 4
+      "review_count": 4,
+      "itad_id": "01a06dcb-2146-72c0-99ac-9166847efa1b",
+      "is_historical_low": false
     },
     "5106570": {
       "appid": "5106570",
@@ -60667,7 +60914,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "01a06a93-1b6c-714f-9383-4842eb75715b",
+      "is_historical_low": false
     },
     "5107000": {
       "appid": "5107000",
@@ -60708,7 +60957,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "01a0558b-d0fb-71d5-99ba-de69ec233b10",
+      "is_historical_low": true
     },
     "5107010": {
       "appid": "5107010",
@@ -60749,7 +61000,9 @@
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
       "review_percent": 100,
-      "review_count": 1
+      "review_count": 1,
+      "itad_id": "01a029fc-b74e-7267-9e46-2517de6e66dd",
+      "is_historical_low": false
     },
     "5107090": {
       "appid": "5107090",
@@ -60790,7 +61043,9 @@
       "review_score": 7,
       "review_score_label": "好評",
       "review_percent": 100,
-      "review_count": 14
+      "review_count": 14,
+      "itad_id": "01a0251b-1c8b-7366-8695-bb2ea60d82c0",
+      "is_historical_low": false
     },
     "5107100": {
       "appid": "5107100",
@@ -60831,7 +61086,9 @@
       "review_score": 7,
       "review_score_label": "好評",
       "review_percent": 100,
-      "review_count": 14
+      "review_count": 14,
+      "itad_id": "0192c408-3f05-70b8-bcf5-7285b499d4e7",
+      "is_historical_low": true
     },
     "3793300": {
       "appid": "3793300",
@@ -60864,7 +61121,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "0197c16a-b62c-71c6-95fb-824f9e0cd744",
+      "is_historical_low": false
     },
     "3813060": {
       "appid": "3813060",
@@ -60905,7 +61164,9 @@
       "review_score": 0,
       "review_score_label": "3 篇使用者評論",
       "review_percent": 33,
-      "review_count": 3
+      "review_count": 3,
+      "itad_id": "018d937f-3e3c-73ac-bb37-4e64eb8e1539",
+      "is_historical_low": false
     },
     "3768430": {
       "appid": "3768430",
@@ -60941,7 +61202,9 @@
       "review_score": 0,
       "review_score_label": "3 篇使用者評論",
       "review_percent": 100,
-      "review_count": 3
+      "review_count": 3,
+      "itad_id": "0197311d-85ed-73bc-9b37-8ecd68c19dd8",
+      "is_historical_low": false
     },
     "2822270": {
       "appid": "2822270",
@@ -60980,7 +61243,9 @@
       "review_score": 0,
       "review_score_label": "6 篇使用者評論",
       "review_percent": 83,
-      "review_count": 6
+      "review_count": 6,
+      "itad_id": "018d9845-752f-72eb-9675-31491fe65c7c",
+      "is_historical_low": false
     },
     "3484940": {
       "appid": "3484940",
@@ -61021,7 +61286,9 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 82,
-      "review_count": 134
+      "review_count": 134,
+      "itad_id": "0194f528-e5db-72b8-9cf9-5faa5dd9448e",
+      "is_historical_low": false
     },
     "3605140": {
       "appid": "3605140",
@@ -61062,7 +61329,8 @@
       "review_score": 4,
       "review_score_label": "大多負評",
       "review_percent": 22,
-      "review_count": 239
+      "review_count": 239,
+      "itad_id": "01970805-d355-71f1-9436-793476d11714"
     },
     "3734150": {
       "appid": "3734150",
@@ -61103,7 +61371,8 @@
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
       "review_percent": 100,
-      "review_count": 1
+      "review_count": 1,
+      "itad_id": "019ca3cc-891a-7035-b7a5-ae467f9c3191"
     },
     "4860160": {
       "appid": "4860160",
@@ -61134,7 +61403,8 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "01a05b12-66a1-7242-a1cf-1a7756c0b668"
     },
     "4861620": {
       "appid": "4861620",
@@ -61175,7 +61445,9 @@
       "review_score": 0,
       "review_score_label": "2 篇使用者評論",
       "review_percent": 100,
-      "review_count": 2
+      "review_count": 2,
+      "itad_id": "019f0f9a-9aaa-720d-b128-02e7bfd8d01e",
+      "is_historical_low": false
     },
     "1366590": {
       "appid": "1366590",
@@ -61215,7 +61487,9 @@
       "review_score": 6,
       "review_score_label": "大多好評",
       "review_percent": 72,
-      "review_count": 18
+      "review_count": 18,
+      "itad_id": "019c3084-a23b-72b8-a791-486f3adb36d6",
+      "is_historical_low": false
     },
     "3520820": {
       "appid": "3520820",
@@ -61256,7 +61530,8 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 83,
-      "review_count": 65
+      "review_count": 65,
+      "itad_id": "0195eeea-f657-72cb-8665-84fd84c5ebd5"
     },
     "5153890": {
       "appid": "5153890",
@@ -61296,7 +61571,9 @@
       "review_score": 0,
       "review_score_label": "2 篇使用者評論",
       "review_percent": 0,
-      "review_count": 2
+      "review_count": 2,
+      "itad_id": "01a04024-52a3-73ef-b2a4-30428fe60ea4",
+      "is_historical_low": false
     },
     "5099430": {
       "appid": "5099430",
@@ -61337,7 +61614,8 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 95,
-      "review_count": 342
+      "review_count": 342,
+      "itad_id": "01a06f67-2733-7139-85f0-2b07e662cdb8"
     },
     "1477080": {
       "appid": "1477080",
@@ -61373,7 +61651,9 @@
       "review_score": 5,
       "review_score_label": "褒貶不一",
       "review_percent": 61,
-      "review_count": 13
+      "review_count": 13,
+      "itad_id": "0196011a-54e6-737e-b14b-c5cf6ee8b47b",
+      "is_historical_low": false
     },
     "4146230": {
       "appid": "4146230",
@@ -61406,7 +61686,9 @@
       "review_score": 0,
       "review_score_label": "3 篇使用者評論",
       "review_percent": 66,
-      "review_count": 3
+      "review_count": 3,
+      "itad_id": "019ae2a3-170d-72c4-bb90-dc9867f1caf1",
+      "is_historical_low": false
     },
     "4155650": {
       "appid": "4155650",
@@ -61447,7 +61729,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "019a7f21-29ed-7041-bf8a-6f421770a6d5",
+      "is_historical_low": true
     },
     "3650740": {
       "appid": "3650740",
@@ -61488,7 +61772,9 @@
       "review_score": 5,
       "review_score_label": "褒貶不一",
       "review_percent": 62,
-      "review_count": 35
+      "review_count": 35,
+      "itad_id": "01966e62-b05d-71fe-8197-6f95d2f9972d",
+      "is_historical_low": false
     },
     "3653250": {
       "appid": "3653250",
@@ -61529,7 +61815,9 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 96,
-      "review_count": 98
+      "review_count": 98,
+      "itad_id": "01966c3b-0887-72c6-8e1d-78f63b34fb92",
+      "is_historical_low": false
     },
     "3664060": {
       "appid": "3664060",
@@ -61570,7 +61858,9 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 91,
-      "review_count": 127
+      "review_count": 127,
+      "itad_id": "019c03bc-11e2-71ca-b404-90d08ac376f5",
+      "is_historical_low": false
     },
     "3664070": {
       "appid": "3664070",
@@ -61611,7 +61901,9 @@
       "review_score": 7,
       "review_score_label": "好評",
       "review_percent": 92,
-      "review_count": 38
+      "review_count": 38,
+      "itad_id": "019639c2-b4d0-73db-b1b6-dc4f6a8bcaab",
+      "is_historical_low": false
     },
     "3674680": {
       "appid": "3674680",
@@ -61652,7 +61944,9 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 92,
-      "review_count": 52
+      "review_count": 52,
+      "itad_id": "019dff25-5a98-71b9-baa4-e867e75613dd",
+      "is_historical_low": false
     },
     "3702540": {
       "appid": "3702540",
@@ -61693,7 +61987,9 @@
       "review_score": 6,
       "review_score_label": "大多好評",
       "review_percent": 70,
-      "review_count": 382
+      "review_count": 382,
+      "itad_id": "0196a217-22b6-711e-a221-3e6a703bde17",
+      "is_historical_low": false
     },
     "3711050": {
       "appid": "3711050",
@@ -61734,7 +62030,9 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 83,
-      "review_count": 400
+      "review_count": 400,
+      "itad_id": "019ac3d8-5aba-7102-84af-1a284b3adb95",
+      "is_historical_low": false
     },
     "3737310": {
       "appid": "3737310",
@@ -61775,7 +62073,8 @@
       "review_score": 7,
       "review_score_label": "好評",
       "review_percent": 87,
-      "review_count": 16
+      "review_count": 16,
+      "itad_id": "0196dbfa-9a45-7081-937d-cf7f0fe49c0c"
     },
     "3748520": {
       "appid": "3748520",
@@ -61816,7 +62115,9 @@
       "review_score": 9,
       "review_score_label": "壓倒性好評",
       "review_percent": 95,
-      "review_count": 1006
+      "review_count": 1006,
+      "itad_id": "019c9b1c-115d-72f3-85eb-14340fdb8efe",
+      "is_historical_low": false
     },
     "3750150": {
       "appid": "3750150",
@@ -61857,7 +62158,9 @@
       "review_score": 5,
       "review_score_label": "褒貶不一",
       "review_percent": 69,
-      "review_count": 13
+      "review_count": 13,
+      "itad_id": "01971469-e60c-7293-8030-c03467a1535a",
+      "is_historical_low": false
     },
     "3759810": {
       "appid": "3759810",
@@ -61898,7 +62201,9 @@
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
       "review_percent": 100,
-      "review_count": 1
+      "review_count": 1,
+      "itad_id": "019f41c2-dc65-72b2-a2df-2eb4eeef3624",
+      "is_historical_low": true
     },
     "3503300": {
       "appid": "3503300",
@@ -61939,7 +62244,9 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 100,
-      "review_count": 50
+      "review_count": 50,
+      "itad_id": "0195b6a7-7560-72bd-bd4c-0d0bc5f34fe1",
+      "is_historical_low": false
     },
     "3524950": {
       "appid": "3524950",
@@ -61980,7 +62287,9 @@
       "review_score": 7,
       "review_score_label": "好評",
       "review_percent": 100,
-      "review_count": 11
+      "review_count": 11,
+      "itad_id": "0196ede5-14a3-7073-a1e5-ea3a6f4da76a",
+      "is_historical_low": true
     },
     "3528300": {
       "appid": "3528300",
@@ -62020,7 +62329,9 @@
       "review_score": 6,
       "review_score_label": "大多好評",
       "review_percent": 72,
-      "review_count": 11
+      "review_count": 11,
+      "itad_id": "0198e23a-d688-7208-bcf0-f7c6ed13dc93",
+      "is_historical_low": false
     },
     "3544130": {
       "appid": "3544130",
@@ -62061,7 +62372,9 @@
       "review_score": 5,
       "review_score_label": "褒貶不一",
       "review_percent": 69,
-      "review_count": 199
+      "review_count": 199,
+      "itad_id": "0195b301-a4c2-72b7-87b1-57f4ba4f09a7",
+      "is_historical_low": false
     },
     "3549150": {
       "appid": "3549150",
@@ -62096,7 +62409,9 @@
       "review_score": 7,
       "review_score_label": "好評",
       "review_percent": 100,
-      "review_count": 11
+      "review_count": 11,
+      "itad_id": "0195ac3f-42c0-727b-8fb4-9a053e510dd7",
+      "is_historical_low": false
     },
     "3556700": {
       "appid": "3556700",
@@ -62136,7 +62451,9 @@
       "review_score": 7,
       "review_score_label": "好評",
       "review_percent": 92,
-      "review_count": 14
+      "review_count": 14,
+      "itad_id": "01959858-6976-724e-9bcc-6e3bf9f30943",
+      "is_historical_low": false
     },
     "3557380": {
       "appid": "3557380",
@@ -62177,7 +62494,9 @@
       "review_score": 0,
       "review_score_label": "2 篇使用者評論",
       "review_percent": 100,
-      "review_count": 2
+      "review_count": 2,
+      "itad_id": "0195830c-6919-70ff-ba3d-8374a744ab14",
+      "is_historical_low": false
     },
     "3560360": {
       "appid": "3560360",
@@ -62218,7 +62537,9 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 90,
-      "review_count": 360
+      "review_count": 360,
+      "itad_id": "019563d3-d81d-70ad-991f-b0e6efe8c96d",
+      "is_historical_low": false
     },
     "3562200": {
       "appid": "3562200",
@@ -62259,7 +62580,9 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 98,
-      "review_count": 142
+      "review_count": 142,
+      "itad_id": "0195714a-d624-7145-9877-f15bc51fa3a6",
+      "is_historical_low": false
     },
     "3570470": {
       "appid": "3570470",
@@ -62297,7 +62620,8 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 80,
-      "review_count": 65
+      "review_count": 65,
+      "itad_id": "0195707c-d461-71c1-b649-9a4390ef6244"
     },
     "3570490": {
       "appid": "3570490",
@@ -62338,7 +62662,9 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 92,
-      "review_count": 52
+      "review_count": 52,
+      "itad_id": "01958ea0-5db5-7248-b5f5-ad3ad7bdc7b6",
+      "is_historical_low": false
     },
     "3572800": {
       "appid": "3572800",
@@ -62379,7 +62705,9 @@
       "review_score": 6,
       "review_score_label": "大多好評",
       "review_percent": 76,
-      "review_count": 121
+      "review_count": 121,
+      "itad_id": "01958317-c7b2-7285-90c4-8b7aff6474bc",
+      "is_historical_low": false
     },
     "3575500": {
       "appid": "3575500",
@@ -62420,7 +62748,9 @@
       "review_score": 7,
       "review_score_label": "好評",
       "review_percent": 80,
-      "review_count": 10
+      "review_count": 10,
+      "itad_id": "019586a4-826e-719f-aafe-6daf525a7b52",
+      "is_historical_low": false
     },
     "3604780": {
       "appid": "3604780",
@@ -62461,7 +62791,9 @@
       "review_score": 6,
       "review_score_label": "大多好評",
       "review_percent": 79,
-      "review_count": 850
+      "review_count": 850,
+      "itad_id": "0195ca20-82a1-70d5-913e-868d8513f940",
+      "is_historical_low": false
     },
     "745810": {
       "appid": "745810",
@@ -62502,7 +62834,9 @@
       "review_score": 5,
       "review_score_label": "褒貶不一",
       "review_percent": 62,
-      "review_count": 97
+      "review_count": 97,
+      "itad_id": "018d937e-ff16-7217-bed3-588c75d339ba",
+      "is_historical_low": false
     },
     "764420": {
       "appid": "764420",
@@ -62543,7 +62877,9 @@
       "review_score": 0,
       "review_score_label": "9 篇使用者評論",
       "review_percent": 77,
-      "review_count": 9
+      "review_count": 9,
+      "itad_id": "018d937f-7b4d-7328-826b-3b0c678cf4d1",
+      "is_historical_low": false
     },
     "868160": {
       "appid": "868160",
@@ -62584,7 +62920,9 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 84,
-      "review_count": 319
+      "review_count": 319,
+      "itad_id": "019e116f-f675-7369-9687-911debbd1a38",
+      "is_historical_low": false
     },
     "645860": {
       "appid": "645860",
@@ -62609,7 +62947,9 @@
       "review_score": 5,
       "review_score_label": "褒貶不一",
       "review_percent": 58,
-      "review_count": 12
+      "review_count": 12,
+      "itad_id": "018d937f-20e6-7088-bd9d-6110fda7b000",
+      "is_historical_low": false
     },
     "2998920": {
       "appid": "2998920",
@@ -62650,7 +62990,9 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 100,
-      "review_count": 144
+      "review_count": 144,
+      "itad_id": "018fe3c4-047d-7348-bc49-4293951b6672",
+      "is_historical_low": false
     },
     "3006090": {
       "appid": "3006090",
@@ -62691,7 +63033,9 @@
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
       "review_percent": 0,
-      "review_count": 1
+      "review_count": 1,
+      "itad_id": "019a2b7e-d44c-7005-8e5f-95ac028e6691",
+      "is_historical_low": false
     },
     "3008700": {
       "appid": "3008700",
@@ -62732,7 +63076,9 @@
       "review_score": 7,
       "review_score_label": "好評",
       "review_percent": 87,
-      "review_count": 39
+      "review_count": 39,
+      "itad_id": "01900e85-1f3a-721a-9527-b44d9c0c86d6",
+      "is_historical_low": false
     },
     "3010380": {
       "appid": "3010380",
@@ -62773,7 +63119,9 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 93,
-      "review_count": 58
+      "review_count": 58,
+      "itad_id": "019b9d6d-1658-73dd-a7b7-e6a894081c5a",
+      "is_historical_low": false
     },
     "3015360": {
       "appid": "3015360",
@@ -62813,7 +63161,9 @@
       "review_score": 7,
       "review_score_label": "好評",
       "review_percent": 95,
-      "review_count": 20
+      "review_count": 20,
+      "itad_id": "0192dc99-f3e2-73d2-9108-711de383f9a5",
+      "is_historical_low": false
     },
     "3029380": {
       "appid": "3029380",
@@ -62854,7 +63204,9 @@
       "review_score": 7,
       "review_score_label": "好評",
       "review_percent": 90,
-      "review_count": 22
+      "review_count": 22,
+      "itad_id": "01917772-aef6-7359-8df6-fff3d668f298",
+      "is_historical_low": true
     },
     "3034650": {
       "appid": "3034650",
@@ -62895,7 +63247,9 @@
       "review_score": 7,
       "review_score_label": "好評",
       "review_percent": 83,
-      "review_count": 30
+      "review_count": 30,
+      "itad_id": "0197cbb7-7240-7383-aeea-bc40a9463050",
+      "is_historical_low": false
     },
     "3034660": {
       "appid": "3034660",
@@ -62936,7 +63290,9 @@
       "review_score": 6,
       "review_score_label": "大多好評",
       "review_percent": 70,
-      "review_count": 27
+      "review_count": 27,
+      "itad_id": "01929465-5963-73fa-a460-990e4018a47c",
+      "is_historical_low": false
     },
     "3042790": {
       "appid": "3042790",
@@ -62972,7 +63328,9 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 91,
-      "review_count": 69
+      "review_count": 69,
+      "itad_id": "01971758-cdcd-7173-93cd-0c258feb16a9",
+      "is_historical_low": true
     },
     "3048060": {
       "appid": "3048060",
@@ -63013,7 +63371,9 @@
       "review_score": 5,
       "review_score_label": "褒貶不一",
       "review_percent": 64,
-      "review_count": 134
+      "review_count": 134,
+      "itad_id": "01980973-9823-732a-b48d-da1f08c4eea6",
+      "is_historical_low": true
     },
     "3058360": {
       "appid": "3058360",
@@ -63054,7 +63414,9 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 93,
-      "review_count": 521
+      "review_count": 521,
+      "itad_id": "0192debf-2df3-73f5-b84b-20c5d3c92811",
+      "is_historical_low": false
     },
     "3065360": {
       "appid": "3065360",
@@ -63095,7 +63457,9 @@
       "review_score": 6,
       "review_score_label": "大多好評",
       "review_percent": 73,
-      "review_count": 23
+      "review_count": 23,
+      "itad_id": "01961441-091d-7268-87b7-8b8bccab1d71",
+      "is_historical_low": false
     },
     "3068230": {
       "appid": "3068230",
@@ -63136,7 +63500,9 @@
       "review_score": 6,
       "review_score_label": "大多好評",
       "review_percent": 71,
-      "review_count": 14
+      "review_count": 14,
+      "itad_id": "019540e5-5cca-71c3-85b2-7da7d98a2fe9",
+      "is_historical_low": true
     },
     "2231460": {
       "appid": "2231460",
@@ -63177,7 +63543,9 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 90,
-      "review_count": 82
+      "review_count": 82,
+      "itad_id": "018d937f-6fd3-709b-975a-769c8ef090d6",
+      "is_historical_low": false
     },
     "4252960": {
       "appid": "4252960",
@@ -63212,7 +63580,8 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 98,
-      "review_count": 354
+      "review_count": 354,
+      "itad_id": "019f166a-b492-73e9-a059-68cb03b1f17f"
     },
     "4118910": {
       "appid": "4118910",
@@ -63253,7 +63622,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "019becaa-f26f-711f-9ab6-cccebb8f41db",
+      "is_historical_low": false
     },
     "4129600": {
       "appid": "4129600",
@@ -63282,7 +63653,8 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "019a4350-5150-739d-bc63-606eaba591b2"
     },
     "4131820": {
       "appid": "4131820",
@@ -63316,7 +63688,9 @@
       "review_score": 0,
       "review_score_label": "2 篇使用者評論",
       "review_percent": 100,
-      "review_count": 2
+      "review_count": 2,
+      "itad_id": "018f71e1-0fbc-7165-83ec-698138bf8655",
+      "is_historical_low": true
     },
     "4131840": {
       "appid": "4131840",
@@ -63357,7 +63731,9 @@
       "review_score": null,
       "review_score_label": null,
       "review_percent": null,
-      "review_count": null
+      "review_count": null,
+      "itad_id": "019b2ecf-d076-7095-ab27-e6ba947ba9c0",
+      "is_historical_low": false
     },
     "4137610": {
       "appid": "4137610",
@@ -63387,7 +63763,8 @@
       "review_score": 0,
       "review_score_label": "1 篇使用者評論",
       "review_percent": 100,
-      "review_count": 1
+      "review_count": 1,
+      "itad_id": "019ce816-a02a-70ae-8aeb-a04214fe6249"
     },
     "5066660": {
       "appid": "5066660",
@@ -66813,7 +67190,7 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 87,
-      "review_count": 7123
+      "review_count": 7161
     },
     "1568460": {
       "appid": "1568460",
@@ -68696,8 +69073,8 @@
       "is_adult": false,
       "review_score": 6,
       "review_score_label": "大多好評",
-      "review_percent": 71,
-      "review_count": 105
+      "review_percent": 72,
+      "review_count": 108
     },
     "3602640": {
       "appid": "3602640",
@@ -70817,8 +71194,8 @@
       "is_adult": false,
       "review_score": 5,
       "review_score_label": "褒貶不一",
-      "review_percent": 50,
-      "review_count": 24
+      "review_percent": 52,
+      "review_count": 25
     },
     "4103290": {
       "appid": "4103290",
@@ -71091,7 +71468,7 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 90,
-      "review_count": 9358
+      "review_count": 9367
     },
     "3861710": {
       "appid": "3861710",
@@ -71212,7 +71589,7 @@
       "review_score": 9,
       "review_score_label": "壓倒性好評",
       "review_percent": 95,
-      "review_count": 8515
+      "review_count": 8521
     },
     "3431300": {
       "appid": "3431300",
@@ -72571,8 +72948,8 @@
       "is_adult": false,
       "review_score": 9,
       "review_score_label": "壓倒性好評",
-      "review_percent": 97,
-      "review_count": 2400
+      "review_percent": 96,
+      "review_count": 2428
     },
     "5178900": {
       "appid": "5178900",
@@ -76646,7 +77023,7 @@
       "review_score": 6,
       "review_score_label": "大多好評",
       "review_percent": 72,
-      "review_count": 851
+      "review_count": 858
     },
     "3865000": {
       "appid": "3865000",
@@ -84370,8 +84747,8 @@
       "is_adult": false,
       "review_score": 7,
       "review_score_label": "好評",
-      "review_percent": 90,
-      "review_count": 11
+      "review_percent": 91,
+      "review_count": 12
     },
     "3939990": {
       "appid": "3939990",
@@ -99797,9 +100174,9 @@
       "discount_end": 1791565221,
       "is_adult": false,
       "review_score": 0,
-      "review_score_label": "1 篇使用者評論",
-      "review_percent": 0,
-      "review_count": 1
+      "review_score_label": "3 篇使用者評論",
+      "review_percent": 33,
+      "review_count": 3
     },
     "4341470": {
       "appid": "4341470",
@@ -118543,8 +118920,8 @@
       "is_adult": false,
       "review_score": 5,
       "review_score_label": "褒貶不一",
-      "review_percent": 66,
-      "review_count": 12
+      "review_percent": 61,
+      "review_count": 13
     },
     "5153210": {
       "appid": "5153210",
@@ -119167,8 +119544,8 @@
       "is_adult": false,
       "review_score": 8,
       "review_score_label": "極度好評",
-      "review_percent": 87,
-      "review_count": 230
+      "review_percent": 88,
+      "review_count": 234
     },
     "3634190": {
       "appid": "3634190",
@@ -120889,10 +121266,10 @@
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5094130/f7faced4be0fe0723bbeb83342b1484208b43918/header.jpg?t=1790858640",
       "discount_end": 1791478859,
       "is_adult": false,
-      "review_score": null,
-      "review_score_label": null,
-      "review_percent": null,
-      "review_count": null
+      "review_score": 0,
+      "review_score_label": "1 篇使用者評論",
+      "review_percent": 100,
+      "review_count": 1
     },
     "4944470": {
       "appid": "4944470",
@@ -123759,8 +124136,8 @@
       "is_adult": false,
       "review_score": 6,
       "review_score_label": "大多好評",
-      "review_percent": 78,
-      "review_count": 9470
+      "review_percent": 79,
+      "review_count": 9759
     },
     "3236810": {
       "appid": "3236810",
@@ -129626,6 +130003,47 @@
         "日系角色扮演"
       ],
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4928620/4f76096798a38375c3c576dfef1e4e7e10f912ec/header.jpg?t=1791184598",
+      "discount_end": null,
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
+    },
+    "4840240": {
+      "appid": "4840240",
+      "name": "The Listener",
+      "url": "https://store.steampowered.com/app/4840240/",
+      "release_date": "2026-10-05",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4840240/d802590b01aa06197224e1065f58eb166e4a2365/capsule_231x87.jpg?t=1791185592",
+      "status": "live",
+      "price_pct": null,
+      "price_original": null,
+      "price_final": "免費",
+      "release_epoch": 1791185591,
+      "tags": [
+        "休閒",
+        "模擬",
+        "互動小說",
+        "自選冒險體驗",
+        "政治模擬",
+        "第一人稱視角",
+        "3D",
+        "擬真",
+        "80 年代",
+        "氛圍",
+        "陰謀",
+        "推理",
+        "調查",
+        "冷戰",
+        "免費遊玩",
+        "歷史",
+        "黑暗",
+        "純文字",
+        "選擇導向",
+        "多結局"
+      ],
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4840240/315c5740939f867247fbaaefd46d58e67098f581/header.jpg?t=1791185592",
       "discount_end": null,
       "is_adult": false,
       "review_score": null,
