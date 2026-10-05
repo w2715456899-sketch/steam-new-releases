@@ -21,6 +21,11 @@ import requests
 BASE_DIR = Path(__file__).resolve().parent
 STEAM_API_BASE = "https://api.steampowered.com"
 ASSET_BASE = "https://shared.fastly.steamstatic.com/store_item_assets/"
+ITAD_API_BASE = "https://api.isthereanydeal.com"
+ITAD_STEAM_SHOP_ID = 61  # confirmed live via GET /service/shops/v1 (no auth needed)
+ITAD_LOOKUP_BATCH_CAP = 200  # new appid->ITAD-id lookups per run, so a large one-time
+# backlog (e.g. first time this feature runs against ~3000 already-tracked games) spreads
+# across several hourly runs instead of one run taking tens of minutes.
 HEADERS = {"User-Agent": "steam-new-releases-bot/2.0"}
 DEFAULT_RETENTION_DAYS = 30
 DEFAULT_BACKFILL_DAYS = 30
@@ -474,6 +479,74 @@ def refresh_review_scores(history: dict, key: str, language: str, country: str) 
     return refreshed
 
 
+def refresh_historical_low(history: dict, itad_key: str, country: str) -> int:
+    """Resolve each live game's IsThereAnyDeal id (once, cached) and flag whether its current
+    Steam price matches its all-time low there.
+
+    Two passes, deliberately not merged: resolving a Steam appid -> ITAD id is a one-time
+    lookup (no batch endpoint for it), so a large backlog - e.g. the first time this feature
+    ever runs against ~3000 already-tracked games - would take tens of minutes in one run if
+    not capped; ITAD_LOOKUP_BATCH_CAP spreads that backlog across several hourly runs instead.
+    The actual price check (GetItems-style batch of up to 200 ids) is cheap enough to just do
+    for every already-resolved game, every run, the same way refresh_review_scores() does -
+    "is this still the low" has no natural staleness signal either, it just needs rechecking.
+    Upcoming (unreleased) games are skipped entirely - nothing has a sale history yet.
+    """
+    if not itad_key:
+        return 0
+
+    to_lookup = [
+        aid
+        for aid, g in history["games"].items()
+        if g.get("status") == "live" and "itad_id" not in g
+    ][:ITAD_LOOKUP_BATCH_CAP]
+    for aid in to_lookup:
+        try:
+            resp = requests.get(
+                f"{ITAD_API_BASE}/games/lookup/v1",
+                params={"key": itad_key, "appid": aid},
+                timeout=20,
+            )
+            resp.raise_for_status()
+            data = resp.json()
+        except (requests.RequestException, ValueError) as exc:
+            log.warning("ITAD lookup failed for appid %s, will retry next run: %s", aid, exc)
+            continue
+        history["games"][aid]["itad_id"] = data["game"]["id"] if data.get("found") else ""
+        time.sleep(0.2)
+    if to_lookup:
+        log.info("Resolved ITAD id for %d game(s)", len(to_lookup))
+
+    id_to_appid = {g["itad_id"]: aid for aid, g in history["games"].items() if g.get("itad_id")}
+    itad_ids = list(id_to_appid)
+    refreshed = 0
+    for i in range(0, len(itad_ids), 200):
+        batch = itad_ids[i : i + 200]
+        try:
+            resp = requests.post(
+                f"{ITAD_API_BASE}/games/overview/v2",
+                params={"key": itad_key, "country": country.upper(), "shops": str(ITAD_STEAM_SHOP_ID)},
+                json=batch,
+                timeout=20,
+            )
+            resp.raise_for_status()
+            data = resp.json()
+        except (requests.RequestException, ValueError) as exc:
+            log.warning("ITAD price check failed for a batch, skipping it: %s", exc)
+            continue
+        for p in data.get("prices", []):
+            existing = history["games"].get(id_to_appid.get(p["id"]))
+            if not existing:
+                continue
+            cur, low = p.get("current"), p.get("lowest")
+            existing["is_historical_low"] = bool(
+                cur and low and cur["price"]["amount"] <= low["price"]["amount"]
+            )
+            refreshed += 1
+        time.sleep(0.3)
+    return refreshed
+
+
 def send_discord(webhook_url: str, today: date, count: int, dry_run: bool, site_url: str) -> None:
     if not count:
         log.info("No releases on record for today - skipping Discord ping")
@@ -776,6 +849,7 @@ __OG__
   </div>
   <a class="drawer-item" href="__HOME_HREF__">回首頁</a>
   <a class="drawer-item" href="__ASSET_BASE__wishlist.html">★ 願望清單</a>
+  <a class="drawer-item" href="__ASSET_BASE__historical-low.html">📉 歷史新低</a>
 </nav>
 <div class="wrap">
   <div class="topbar">
@@ -1459,6 +1533,32 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int, today: dat
     )
     (docs_dir / "wishlist.html").write_text(wishlist_page, encoding="utf-8")
 
+    low_games = sorted(
+        (g for g in history["games"].values() if g.get("is_historical_low")),
+        key=lambda g: g["release_date"],
+        reverse=True,
+    )
+    if low_games:
+        low_body = (
+            '<h1>歷史新低</h1>'
+            '<div class="card">'
+            + "".join(render_row(g, "", show_date=True) for g in low_games)
+            + "</div>"
+        )
+    else:
+        low_body = '<h1>歷史新低</h1><div class="empty">目前沒有遊戲處於歷史新低價</div>'
+    low_page = render_page(
+        title=f"歷史新低 - {SITE_NAME}",
+        base="",
+        nav_html='<a class="nav-mid" href="index.html">← 回首頁</a>',
+        meta=meta,
+        body_html=low_body,
+        og_description=f"目前有 {len(low_games)} 款新遊戲正處於歷史最低價",
+        og_image=f"{site_url}assets/logo.png",
+        canonical_url=f"{site_url}historical-low.html",
+    )
+    (docs_dir / "historical-low.html").write_text(low_page, encoding="utf-8")
+
 
 def git_publish(base_dir: Path, docs_dir: Path, message: str) -> None:
     """Best-effort: commit and push the docs dir so GitHub Pages picks up the new site."""
@@ -1542,6 +1642,10 @@ def main() -> None:
     refreshed_reviews = refresh_review_scores(history, api_key, language, country)
     if refreshed_reviews:
         log.info("Refreshed review scores for %d game(s)", refreshed_reviews)
+
+    refreshed_low = refresh_historical_low(history, config.get("itad_api_key", ""), country)
+    if refreshed_low:
+        log.info("Refreshed historical-low status for %d game(s)", refreshed_low)
 
     if not args.dry_run or should_backfill:
         save_history(args.history, history, retention_days)

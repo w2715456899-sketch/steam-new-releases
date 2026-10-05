@@ -1,6 +1,7 @@
 {
   "webhook_url": "https://discord.com/api/webhooks/xxxxx/yyyyy",
   "steam_api_key": "your Steam Web API key from https://steamcommunity.com/dev/apikey",
+  "itad_api_key": "your IsThereAnyDeal API key from https://isthereanydeal.com/apps/my/ (optional - leave blank to skip the 歷史新低 feature)",
   "language": "tchinese",
   "country": "tw",
   "retention_days": 30,

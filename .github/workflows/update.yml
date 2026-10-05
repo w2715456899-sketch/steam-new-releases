@@ -30,6 +30,7 @@ jobs:
           {
             "webhook_url": "${{ secrets.DISCORD_WEBHOOK_URL }}",
             "steam_api_key": "${{ secrets.STEAM_API_KEY }}",
+            "itad_api_key": "${{ secrets.ITAD_API_KEY }}",
             "language": "tchinese",
             "country": "tw",
             "retention_days": 30,
