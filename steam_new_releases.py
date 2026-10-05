@@ -23,9 +23,9 @@ STEAM_API_BASE = "https://api.steampowered.com"
 ASSET_BASE = "https://shared.fastly.steamstatic.com/store_item_assets/"
 ITAD_API_BASE = "https://api.isthereanydeal.com"
 ITAD_STEAM_SHOP_ID = 61  # confirmed live via GET /service/shops/v1 (no auth needed)
-ITAD_LOOKUP_BATCH_CAP = 200  # new appid->ITAD-id lookups per run, so a large one-time
-# backlog (e.g. first time this feature runs against ~3000 already-tracked games) spreads
-# across several hourly runs instead of one run taking tens of minutes.
+HISTORICAL_LOW_MIN_AGE_DAYS = 30  # launch discounts usually run ~2 weeks; skip those
+HISTORICAL_LOW_MIN_REVIEWS = 1000
+HISTORICAL_LOW_MAX_PAGES = 10  # x200 per page - safety cap, normally ~2 pages
 HEADERS = {"User-Agent": "steam-new-releases-bot/2.0"}
 DEFAULT_RETENTION_DAYS = 30
 DEFAULT_BACKFILL_DAYS = 30
@@ -117,26 +117,30 @@ def upsert_history(history: dict, games: Iterable[Game]) -> None:
     # against), so it's safe to just overwrite everything rather than sticky-merge with what
     # was there before.
     for g in games:
-        history["games"][g.appid] = {
-            "appid": g.appid,
-            "name": g.name,
-            "url": g.url,
-            "release_date": g.release_date.isoformat(),
-            "image": g.image,
-            "status": g.status,
-            "price_pct": g.price_pct,
-            "price_original": g.price_original,
-            "price_final": g.price_final,
-            "release_epoch": g.release_epoch,
-            "tags": g.tags,
-            "header_image": g.header_image,
-            "discount_end": g.discount_end,
-            "is_adult": g.is_adult,
-            "review_score": g.review_score,
-            "review_score_label": g.review_score_label,
-            "review_percent": g.review_percent,
-            "review_count": g.review_count,
-        }
+        history["games"][g.appid] = game_to_dict(g)
+
+
+def game_to_dict(g: Game) -> dict:
+    return {
+        "appid": g.appid,
+        "name": g.name,
+        "url": g.url,
+        "release_date": g.release_date.isoformat(),
+        "image": g.image,
+        "status": g.status,
+        "price_pct": g.price_pct,
+        "price_original": g.price_original,
+        "price_final": g.price_final,
+        "release_epoch": g.release_epoch,
+        "tags": g.tags,
+        "header_image": g.header_image,
+        "discount_end": g.discount_end,
+        "is_adult": g.is_adult,
+        "review_score": g.review_score,
+        "review_score_label": g.review_score_label,
+        "review_percent": g.review_percent,
+        "review_count": g.review_count,
+    }
 
 
 # ---------------------------------------------------------------------------
@@ -479,72 +483,92 @@ def refresh_review_scores(history: dict, key: str, language: str, country: str) 
     return refreshed
 
 
-def refresh_historical_low(history: dict, itad_key: str, country: str) -> int:
-    """Resolve each live game's IsThereAnyDeal id (once, cached) and flag whether its current
-    Steam price matches its all-time low there.
+def fetch_historical_lows(
+    itad_key: str, steam_key: str, language: str, country: str, tag_names: dict[int, str], today: date
+) -> list[dict] | None:
+    """Games currently on sale on Steam at a brand-new all-time low (ITAD flag "N" - the same
+    thing SteamDB marks in blue), released at least HISTORICAL_LOW_MIN_AGE_DAYS ago, with at
+    least HISTORICAL_LOW_MIN_REVIEWS Steam reviews.
 
-    Two passes, deliberately not merged: resolving a Steam appid -> ITAD id is a one-time
-    lookup (no batch endpoint for it), so a large backlog - e.g. the first time this feature
-    ever runs against ~3000 already-tracked games - would take tens of minutes in one run if
-    not capped; ITAD_LOOKUP_BATCH_CAP spreads that backlog across several hourly runs instead.
-    The actual price check (GetItems-style batch of up to 200 ids) is cheap enough to just do
-    for every already-resolved game, every run, the same way refresh_review_scores() does -
-    "is this still the low" has no natural staleness signal either, it just needs rechecking.
-    Upcoming (unreleased) games are skipped entirely - nothing has a sale history yet.
+    Independent of the 30-day new-release catalog on purpose: these are mostly older games.
+    ITAD supplies which games qualify; Steam's own GetItems then supplies everything shown,
+    so rows render in exactly the same Steam format as every other page. Returns None if the
+    ITAD side fails, so the caller keeps last run's list rather than blanking the page.
     """
-    if not itad_key:
-        return 0
-
-    to_lookup = [
-        aid
-        for aid, g in history["games"].items()
-        if g.get("status") == "live" and "itad_id" not in g
-    ][:ITAD_LOOKUP_BATCH_CAP]
-    for aid in to_lookup:
-        try:
-            resp = requests.get(
-                f"{ITAD_API_BASE}/games/lookup/v1",
-                params={"key": itad_key, "appid": aid},
-                timeout=20,
-            )
+    headers = {"ITAD-API-Key": itad_key}
+    released_before = (today - timedelta(days=HISTORICAL_LOW_MIN_AGE_DAYS)).isoformat()
+    body = {
+        "country": country.upper(),
+        "shops": [ITAD_STEAM_SHOP_ID],
+        "limit": 200,
+        "offset": 0,
+        "filter": {
+            "flag": "N",
+            "type": [1],
+            # ITAD 500s on a null bound here, so the lower end is just "any time".
+            "releaseDate": {"min": "1970-01-01", "max": released_before},
+            # Both bounds are required - with only "min" ITAD silently ignores the filter.
+            "steamCount": {"min": HISTORICAL_LOW_MIN_REVIEWS, "max": 10**9},
+        },
+    }
+    itad_ids: list[str] = []
+    try:
+        for _ in range(HISTORICAL_LOW_MAX_PAGES):
+            resp = requests.post(f"{ITAD_API_BASE}/deals/v2", headers=headers, json=body, timeout=60)
             resp.raise_for_status()
             data = resp.json()
-        except (requests.RequestException, ValueError) as exc:
-            log.warning("ITAD lookup failed for appid %s, will retry next run: %s", aid, exc)
-            continue
-        history["games"][aid]["itad_id"] = data["game"]["id"] if data.get("found") else ""
-        time.sleep(0.2)
-    if to_lookup:
-        log.info("Resolved ITAD id for %d game(s)", len(to_lookup))
+            itad_ids += [d["id"] for d in data.get("list", [])]
+            if not data.get("hasMore"):
+                break
+            body["offset"] = data["nextOffset"]
+            time.sleep(0.3)
 
-    id_to_appid = {g["itad_id"]: aid for aid, g in history["games"].items() if g.get("itad_id")}
-    itad_ids = list(id_to_appid)
-    refreshed = 0
-    for i in range(0, len(itad_ids), 200):
-        batch = itad_ids[i : i + 200]
-        try:
+        appids: list[str] = []
+        for i in range(0, len(itad_ids), 200):
             resp = requests.post(
-                f"{ITAD_API_BASE}/games/overview/v2",
-                params={"key": itad_key, "country": country.upper(), "shops": str(ITAD_STEAM_SHOP_ID)},
-                json=batch,
-                timeout=20,
+                f"{ITAD_API_BASE}/lookup/shop/{ITAD_STEAM_SHOP_ID}/id/v1",
+                headers=headers,
+                json=itad_ids[i : i + 200],
+                timeout=60,
             )
             resp.raise_for_status()
-            data = resp.json()
-        except (requests.RequestException, ValueError) as exc:
-            log.warning("ITAD price check failed for a batch, skipping it: %s", exc)
+            for shop_ids in resp.json().values():
+                # Some ITAD "games" only exist on Steam as a package (sub/...) - no app page
+                # to show, so those are skipped.
+                app = next((s for s in shop_ids or [] if s.startswith("app/")), None)
+                if app:
+                    appids.append(app.split("/", 1)[1])
+    except (requests.RequestException, KeyError, ValueError) as exc:
+        log.warning("ITAD historical-low fetch failed, keeping last run's list: %s", exc)
+        return None
+
+    games: list[dict] = []
+    for i in range(0, len(appids), 50):
+        input_json = {
+            "ids": [{"appid": int(a)} for a in appids[i : i + 50]],
+            "context": {"language": language, "country_code": country, "steam_realm": 1},
+            "data_request": {
+                "include_assets": True,
+                "include_release": True,
+                "include_basic_info": True,
+                "include_best_purchase_option": True,
+                "include_tag_count": 20,
+                "include_reviews": True,
+            },
+        }
+        try:
+            resp = steam_api_get("IStoreBrowseService", "GetItems", steam_key, input_json=json.dumps(input_json))
+        except (requests.RequestException, KeyError, ValueError) as exc:
+            log.warning("Steam details for a historical-low batch failed, skipping it: %s", exc)
             continue
-        for p in data.get("prices", []):
-            existing = history["games"].get(id_to_appid.get(p["id"]))
-            if not existing:
-                continue
-            cur, low = p.get("current"), p.get("lowest")
-            existing["is_historical_low"] = bool(
-                cur and low and cur["price"]["amount"] <= low["price"]["amount"]
-            )
-            refreshed += 1
+        for item in resp.get("store_items", []):
+            g = _item_to_game(item, tag_names)
+            # Steam itself must agree the game is discounted right now - ITAD's data can lag
+            # Steam by a little, and a full-price game must never show up as a "low".
+            if g and g.status == "live" and g.price_pct:
+                games.append(game_to_dict(g))
         time.sleep(0.3)
-    return refreshed
+    return games
 
 
 def send_discord(webhook_url: str, today: date, count: int, dry_run: bool, site_url: str) -> None:
@@ -790,6 +814,7 @@ h2.section { font-size: 0.85rem; color: #8894a3; margin: 24px 0 8px; text-transf
   color: #b79aef; text-decoration: none;
 }
 .tag:hover { background: #3a2a4f; color: #d3c1fb; }
+button.tag { border: none; font-family: inherit; cursor: pointer; }
 .tag-toggle { display: none; }
 .tag-extra { display: none; }
 .tag-toggle:checked ~ .tag-extra { display: contents; }
@@ -1151,11 +1176,13 @@ def tag_slug(tag: str) -> str:
 TAGS_VISIBLE = 6
 
 
-def render_tags(appid: str, tags: list[str], base: str) -> str:
+def render_tags(appid: str, tags: list[str], base: str, links: bool = True) -> str:
     if not tags:
         return ""
 
     def chip(t: str) -> str:
+        if not links:
+            return f'<button type="button" class="tag" data-tag="{esc(t)}">{esc(t)}</button>'
         return f'<a class="tag" href="{base}tags/{tag_slug(t)}.html">{esc(t)}</a>'
 
     visible = "".join(chip(t) for t in tags[:TAGS_VISIBLE])
@@ -1226,7 +1253,7 @@ def render_review(g: dict) -> str:
     )
 
 
-def render_row(g: dict, base: str, show_date: bool = False) -> str:
+def render_row(g: dict, base: str, show_date: bool = False, tag_links: bool = True) -> str:
     if g["status"] == "live":
         badge_label = "已上架"
         badge = f'<span class="badge live">{badge_label}</span>'
@@ -1241,7 +1268,7 @@ def render_row(g: dict, base: str, show_date: bool = False) -> str:
 
     date_html = f'<div class="date-line">{esc(g["release_date"])}</div>' if show_date else ""
     review_html = render_review(g)
-    tags_html = render_tags(g["appid"], g.get("tags", []), base)
+    tags_html = render_tags(g["appid"], g.get("tags", []), base, links=tag_links)
     fallback_image = g.get("image") or ""
     zoom_image = g.get("header_image") or fallback_image
     web_url = esc(g["url"])
@@ -1383,7 +1410,9 @@ HISTORICAL_LOW_SCRIPT = """<script>
     var tags = Object.keys(counts).sort(function (a, b) { return counts[b] - counts[a] || a.localeCompare(b); });
     if (activeTag && !counts[activeTag]) activeTag = null;
     tagBar.innerHTML = "";
-    tags.slice(0, tagLimit).forEach(function (t) {
+    var shown = tags.slice(0, tagLimit);
+    if (activeTag && shown.indexOf(activeTag) === -1) shown.push(activeTag);
+    shown.forEach(function (t) {
       tagBar.appendChild(chip(t, counts[t], t === activeTag ? "active" : "", function () {
         activeTag = activeTag === t ? null : t;
         page = 1;
@@ -1405,12 +1434,23 @@ HISTORICAL_LOW_SCRIPT = """<script>
     b.addEventListener("click", function () {
       page = target;
       render();
-      var top = document.getElementById("lowTop").getBoundingClientRect().top + window.pageYOffset;
-      var bar = document.querySelector(".topbar");
-      window.scrollTo(0, top - (bar ? bar.offsetHeight : 0) - 12);
+      scrollToList();
     });
     return b;
   }
+  function scrollToList() {
+    var top = document.getElementById("lowTop").getBoundingClientRect().top + window.pageYOffset;
+    var bar = document.querySelector(".topbar");
+    window.scrollTo(0, top - (bar ? bar.offsetHeight : 0) - 12);
+  }
+  document.getElementById("lowResults").addEventListener("click", function (e) {
+    var t = e.target.closest("button.tag[data-tag]");
+    if (!t) return;
+    activeTag = t.getAttribute("data-tag");
+    page = 1;
+    render();
+    scrollToList();
+  });
   function renderPager(pages) {
     pager.innerHTML = "";
     if (pages <= 1) return;
@@ -1700,7 +1740,7 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int, today: dat
     (docs_dir / "wishlist.html").write_text(wishlist_page, encoding="utf-8")
 
     low_games = sorted(
-        (g for g in history["games"].values() if g.get("is_historical_low")),
+        history.get("historical_low", []),
         key=lambda g: (-(g.get("review_count") or 0), g["name"]),
     )
     if low_games:
@@ -1708,7 +1748,7 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int, today: dat
             '<div class="filter-tags" id="lowTags"></div>'
             '<div class="low-head" id="lowTop"><h1>歷史新低</h1><span class="low-count" id="lowCount"></span></div>'
             '<div class="card" id="lowResults">'
-            + "".join(render_row(g, "", show_date=True) for g in low_games)
+            + "".join(render_row(g, "", show_date=True, tag_links=False) for g in low_games)
             + '</div><div class="empty" id="lowEmpty" style="display:none">目前沒有遊戲處於歷史新低價</div>'
             '<div class="pager" id="lowPager"></div>'
             f"{HISTORICAL_LOW_SCRIPT}"
@@ -1721,7 +1761,7 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int, today: dat
         nav_html='<a class="nav-mid" href="index.html">← 回首頁</a>',
         meta=meta,
         body_html=low_body,
-        og_description=f"目前有 {len(low_games)} 款新遊戲正處於歷史最低價",
+        og_description=f"目前有 {len(low_games)} 款遊戲在 Steam 創下歷史新低價",
         og_image=f"{site_url}assets/logo.png",
         canonical_url=f"{site_url}historical-low.html",
     )
@@ -1811,9 +1851,12 @@ def main() -> None:
     if refreshed_reviews:
         log.info("Refreshed review scores for %d game(s)", refreshed_reviews)
 
-    refreshed_low = refresh_historical_low(history, config.get("itad_api_key", ""), country)
-    if refreshed_low:
-        log.info("Refreshed historical-low status for %d game(s)", refreshed_low)
+    itad_key = config.get("itad_api_key", "")
+    if itad_key:
+        lows = fetch_historical_lows(itad_key, api_key, language, country, tag_names, today)
+        if lows is not None:
+            history["historical_low"] = lows
+            log.info("Found %d game(s) at a new historical low", len(lows))
 
     if not args.dry_run or should_backfill:
         save_history(args.history, history, retention_days)

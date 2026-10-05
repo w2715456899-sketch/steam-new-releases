@@ -222,6 +222,7 @@ h2.section { font-size: 0.85rem; color: #8894a3; margin: 24px 0 8px; text-transf
   color: #b79aef; text-decoration: none;
 }
 .tag:hover { background: #3a2a4f; color: #d3c1fb; }
+button.tag { border: none; font-family: inherit; cursor: pointer; }
 .tag-toggle { display: none; }
 .tag-extra { display: none; }
 .tag-toggle:checked ~ .tag-extra { display: contents; }
