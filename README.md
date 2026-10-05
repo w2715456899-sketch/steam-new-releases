@@ -39,7 +39,7 @@
    （https://steamcommunity.com/dev/apikey 申請）。
 3. 新增 `DISCORD_WEBHOOK_URL`：Discord 頻道「編輯頻道 → 整合 → Webhook」取得的網址。
 4. （選填）新增 `ITAD_API_KEY`：IsThereAnyDeal 的 API 金鑰
-   （https://isthereanydeal.com/apps/my/ 申請，需先驗證 email）。有填才會產生「📉 歷史新低」頁面
+   （https://isthereanydeal.com/apps/my/ 申請，需先驗證 email）。有填才會產生「歷史新低」頁面
    （目前售價等於 ITAD 記錄的歷史最低價的新遊戲）；沒填就自動略過。每小時最多查 200 款遊戲的
    ITAD 對應，所以第一次要幾輪才會補完全部。
 4. 存好之後不用做任何事，`update.yml` 每小時會自動觸發（`cron: "0 * * * *"`），也可以到

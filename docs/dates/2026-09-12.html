@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>2026-09-12 新遊戲 - Steam美食家</title>
 <link rel="icon" href="../assets/logo.png">
-<link rel="stylesheet" href="../assets/style.css?v=0ccf0747">
+<link rel="stylesheet" href="../assets/style.css?v=2b8bce84">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Steam新遊戲通知">
 <meta property="og:title" content="2026-09-12 新遊戲 - Steam美食家">
@@ -13,26 +13,29 @@
 <meta property="og:url" content="https://w2715456899-sketch.github.io/steam-new-releases/dates/2026-09-12.html">
 <meta property="og:image" content="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5092580/4221a40d3f83dfba9d9ce251857f3932effe3c1b/header.jpg?t=1789211674">
 <meta name="twitter:card" content="summary_large_image">
+<script>try { if (localStorage.getItem("navCollapsed") === "1") document.documentElement.classList.add("nav-collapsed"); } catch (e) {}</script>
 </head>
 <body>
 <script>try { if (localStorage.getItem("showAdultContent") === "1") document.body.className = "show-adult"; } catch (e) {}</script>
-<button type="button" class="drawer-toggle" id="drawerToggle" aria-label="選單">›</button>
-<div class="drawer-backdrop" id="drawerBackdrop"></div>
-<nav class="drawer" id="drawer">
-  <div class="drawer-head">
-    <span class="drawer-title">選單</span>
-    <button type="button" class="drawer-close" id="drawerClose" aria-label="關閉">✕</button>
+<div class="sidenav-backdrop" id="sidenavBackdrop"></div>
+<nav class="sidenav" id="sidenav">
+  <div class="sidenav-head">
+    <span class="sidenav-title">選單</span>
+    <button type="button" class="sidenav-collapse" id="sidenavCollapse" aria-label="收合選單">‹</button>
   </div>
-  <a class="drawer-item" href="../index.html">回首頁</a>
-  <a class="drawer-item" href="../wishlist.html">★ 願望清單</a>
-  <a class="drawer-item" href="../historical-low.html">📉 歷史新低</a>
+  <a class="sidenav-item" href="../index.html" title="回首頁"><span class="ico">🏠</span><span class="lbl">回首頁</span></a>
+  <a class="sidenav-item" href="../wishlist.html" title="願望清單"><span class="ico star">★</span><span class="lbl">願望清單</span></a>
+  <a class="sidenav-item" href="../historical-low.html" title="歷史新低"><span class="ico low"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="5.5" cy="7" r="3.3"/><circle cx="17.8" cy="16.2" r="3.3"/><path d="M19.5 2 L6.8 17.4" stroke-linecap="round"/><path d="M3 22 L4.35 15.33 L9.29 19.41 Z" fill="currentColor" stroke="none"/></svg></span><span class="lbl">歷史新低</span></a>
 </nav>
 <div class="wrap">
   <div class="topbar">
-    <a class="brand" href="../index.html"><img src="../assets/logo.png" alt="Steam美食家"></a>
+    <div class="topbar-left">
+      <button type="button" class="menu-btn" id="menuBtn" aria-label="開啟選單">☰ 選單</button>
+      <a class="brand" href="../index.html"><img src="../assets/logo.png" alt="Steam美食家"></a>
+    </div>
     <div class="nav"><a class="nav-arrow" href="../dates/2026-09-11.html" aria-label="前一天">←</a><a class="nav-mid" href="../dates/index.html">所有日期</a><a class="nav-arrow" href="../dates/2026-09-13.html" aria-label="後一天">→</a></div>
   </div>
-  <div class="meta">Last synced 2026-10-05 10:18 · Showing the last 30 days</div>
+  <div class="meta">Last synced 2026-10-05 10:46 · Showing the last 30 days</div>
   <form class="global-search" action="../search.html" method="get">
     <input type="text" name="q" id="globalSearch" class="search-box" placeholder="搜尋名稱…" autocomplete="off">
   </form>
@@ -88,17 +91,34 @@ function showToast(text) {
   el._hideTimer = setTimeout(function () { el.classList.remove("show"); }, 2200);
 }
 (function () {
-  var toggle = document.getElementById("drawerToggle");
-  var drawer = document.getElementById("drawer");
-  var backdrop = document.getElementById("drawerBackdrop");
-  function openDrawer() { drawer.classList.add("open"); backdrop.classList.add("open"); }
-  function closeDrawer() { drawer.classList.remove("open"); backdrop.classList.remove("open"); }
-  toggle.addEventListener("click", function () {
-    if (drawer.classList.contains("open")) { closeDrawer(); } else { openDrawer(); }
+  // Desktop: a persistent sidebar that collapses to an icon rail (remembered per browser).
+  // Phone/narrow: there's no room for a permanent column, so it's a slide-over instead.
+  var root = document.documentElement;
+  var nav = document.getElementById("sidenav");
+  var backdrop = document.getElementById("sidenavBackdrop");
+  var collapseBtn = document.getElementById("sidenavCollapse");
+  var narrow = window.matchMedia("(max-width: 900px)");
+  function openOverlay() { nav.classList.add("open"); backdrop.classList.add("open"); }
+  function closeOverlay() { nav.classList.remove("open"); backdrop.classList.remove("open"); }
+  function syncLabel() {
+    collapseBtn.setAttribute("aria-label", narrow.matches ? "關閉選單"
+      : root.classList.contains("nav-collapsed") ? "展開選單" : "收合選單");
+  }
+  collapseBtn.addEventListener("click", function () {
+    if (narrow.matches) { closeOverlay(); return; }
+    var collapsed = root.classList.toggle("nav-collapsed");
+    try { localStorage.setItem("navCollapsed", collapsed ? "1" : "0"); } catch (e) {}
+    syncLabel();
   });
-  backdrop.addEventListener("click", closeDrawer);
-  document.getElementById("drawerClose").addEventListener("click", closeDrawer);
-  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeDrawer(); });
+  document.getElementById("menuBtn").addEventListener("click", openOverlay);
+  backdrop.addEventListener("click", closeOverlay);
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeOverlay(); });
+  if (narrow.addEventListener) narrow.addEventListener("change", function () { closeOverlay(); syncLabel(); });
+  syncLabel();
+  var here = location.pathname.replace(/index\.html$/, "");
+  nav.querySelectorAll(".sidenav-item").forEach(function (a) {
+    if (a.pathname.replace(/index\.html$/, "") === here) a.classList.add("active");
+  });
 })();
 (function () {
   // Wishlist lives entirely in localStorage (no account, no backend) - each star button

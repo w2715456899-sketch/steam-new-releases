@@ -578,6 +578,7 @@ body {
   padding: 16px 0; flex-wrap: wrap; position: sticky; top: 0;
   background: rgba(16, 20, 26, 0.92); backdrop-filter: blur(6px); z-index: 10;
 }
+.topbar-left { display: flex; align-items: center; gap: 12px; }
 .brand { display: flex; align-items: center; text-decoration: none; }
 .brand img { height: 44px; width: auto; display: block; }
 .nav { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
@@ -592,38 +593,53 @@ body {
   padding: 8px 16px; border-radius: 999px; background: #241a33; border: 1px solid #3a2a4f;
 }
 .nav-mid:hover { background: #2d2140; }
-.drawer-toggle {
-  position: fixed; left: 0; top: 50%; transform: translateY(-50%);
-  width: 26px; height: 56px; border-radius: 0 10px 10px 0;
-  background: #171d26; border: 1px solid #232b37; border-left: none;
-  color: #9db4d1; font-size: 1.1rem; cursor: pointer; z-index: 60; padding: 0;
-  display: flex; align-items: center; justify-content: center;
+.sidenav {
+  position: fixed; left: 0; top: 0; bottom: 0; width: 210px; z-index: 70;
+  background: #131820; border-right: 1px solid #232b37;
+  padding: env(safe-area-inset-top, 0px) 10px env(safe-area-inset-bottom, 0px);
+  display: flex; flex-direction: column; gap: 4px; overflow: hidden;
+  transition: width 0.2s ease, transform 0.2s ease;
 }
-.drawer-toggle:hover { background: #1c2330; color: #e7ecf2; }
-.drawer-backdrop {
-  position: fixed; inset: 0; background: rgba(8, 10, 14, 0.6); z-index: 65; display: none;
+.sidenav-head { display: flex; align-items: center; justify-content: space-between; padding: 18px 4px 12px 10px; }
+.sidenav-title { font-size: 0.75rem; color: #6b7686; text-transform: uppercase; letter-spacing: 0.08em; white-space: nowrap; }
+.sidenav-collapse {
+  flex: none; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; padding: 0;
+  background: #1c2330; border: 1px solid #2a3346; color: #b79aef; font-size: 1.05rem; line-height: 1;
+  display: flex; align-items: center; justify-content: center; transition: transform 0.2s ease;
 }
-.drawer-backdrop.open { display: block; }
-.drawer {
-  position: fixed; left: 0; top: 0; bottom: 0; width: min(260px, 80vw);
-  background: #171d26; border-right: 1px solid #232b37; z-index: 70;
-  transform: translateX(-100%); transition: transform 0.2s ease;
-  padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px);
-  display: flex; flex-direction: column;
+.sidenav-collapse:hover { background: #241a33; border-color: #7c5cbf; color: #d3c1fb; }
+.sidenav-item {
+  display: flex; align-items: center; gap: 12px; padding: 10px; border-radius: 10px;
+  color: #c5cfdb; text-decoration: none; font-size: 0.93rem; white-space: nowrap;
 }
-.drawer.open { transform: translateX(0); }
-.drawer-head { display: flex; align-items: center; justify-content: space-between; padding: 18px 10px 8px 18px; }
-.drawer-title { font-size: 0.78rem; color: #6b7686; text-transform: uppercase; letter-spacing: 0.06em; }
-.drawer-close {
-  width: 28px; height: 28px; border-radius: 8px; background: none; border: none;
-  color: #6b7686; font-size: 1rem; cursor: pointer; line-height: 1;
+.sidenav-item:hover { background: #1c2330; color: #e7ecf2; }
+.sidenav-item.active { background: #241a33; color: #d3c1fb; box-shadow: inset 3px 0 0 #7c5cbf; }
+.sidenav-item .ico { flex: none; width: 24px; text-align: center; font-size: 1.15rem; line-height: 1; }
+.sidenav-item .ico.star { color: #f5c04a; }
+.sidenav-item .ico.low { color: #a4d007; display: flex; justify-content: center; }
+.sidenav-item .ico.low svg { width: 1.15rem; height: 1.15rem; }
+.sidenav-backdrop { position: fixed; inset: 0; background: rgba(8, 10, 14, 0.6); z-index: 65; display: none; }
+.menu-btn { display: none; }
+@media (min-width: 901px) {
+  body { padding-left: 230px; transition: padding-left 0.2s ease; }
+  html.nav-collapsed body { padding-left: 84px; }
+  html.nav-collapsed .sidenav { width: 64px; }
+  html.nav-collapsed .sidenav-head { justify-content: center; padding: 18px 0 12px; }
+  html.nav-collapsed .sidenav-title, html.nav-collapsed .sidenav-item .lbl { display: none; }
+  html.nav-collapsed .sidenav-item { justify-content: center; padding: 10px 0; }
+  html.nav-collapsed .sidenav-collapse { transform: rotate(180deg); }
 }
-.drawer-close:hover { background: #232b3d; color: #e7ecf2; }
-.drawer-item {
-  display: flex; align-items: center; gap: 8px; padding: 12px 18px; color: #e7ecf2;
-  text-decoration: none; font-size: 0.95rem;
+@media (max-width: 900px) {
+  .sidenav { width: min(260px, 80vw); transform: translateX(-100%); }
+  .sidenav.open { transform: none; }
+  .sidenav-backdrop.open { display: block; }
+  .menu-btn {
+    display: flex; align-items: center; gap: 6px; cursor: pointer; font-family: inherit;
+    padding: 7px 13px; border-radius: 999px; font-size: 0.85rem; font-weight: 600;
+    background: #1c2330; border: 1px solid #2a3346; color: #e7ecf2;
+  }
+  .menu-btn:hover { border-color: #7c5cbf; }
 }
-.drawer-item:hover { background: #1c2330; }
 .toast {
   position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px));
   transform: translateX(-50%) translateY(12px); background: #1c2330; color: #e7ecf2;
@@ -824,6 +840,28 @@ h2.section { font-size: 0.85rem; color: #8894a3; margin: 24px 0 8px; text-transf
 .search-box:focus { outline: none; border-color: #4a5b7a; }
 .global-search { margin-bottom: 20px; }
 .global-search .search-box { margin-bottom: 0; }
+.filter-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: -8px 0 20px; }
+.filter-chip {
+  font-family: inherit; font-size: 0.8rem; padding: 4px 12px; border-radius: 999px; cursor: pointer;
+  background: #241a33; color: #b79aef; border: 1px solid transparent;
+}
+.filter-chip:hover { background: #3a2a4f; color: #d3c1fb; }
+.filter-chip .n { color: #7d6a9e; font-size: 0.72rem; margin-left: 5px; }
+.filter-chip.active { background: #7c5cbf; color: #fff; }
+.filter-chip.active .n { color: #e3d8fb; }
+.filter-chip.more { background: transparent; color: #6b7686; border: 1px dashed #3a4152; }
+.filter-chip.more:hover { color: #9db4d1; border-color: #5a6478; }
+.low-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px; }
+.low-count { color: #8894a3; font-size: 0.82rem; }
+.pager { display: flex; justify-content: center; align-items: center; gap: 6px; flex-wrap: wrap; margin: 20px 0 8px; }
+.pager button {
+  font-family: inherit; min-width: 34px; height: 34px; padding: 0 10px; border-radius: 999px; cursor: pointer;
+  background: #171d26; border: 1px solid #232b37; color: #9db4d1; font-size: 0.85rem;
+}
+.pager button:hover:not(:disabled) { background: #1c2330; color: #e7ecf2; border-color: #3a4152; }
+.pager button.current { background: #7c5cbf; border-color: #7c5cbf; color: #fff; }
+.pager button:disabled { color: #3f4756; cursor: default; }
+.pager .gap { color: #6b7686; padding: 0 2px; }
 """
 
 STYLE_HASH = hashlib.md5(STYLE_CSS.encode("utf-8")).hexdigest()[:8]
@@ -837,23 +875,26 @@ PAGE_SHELL = """<!doctype html>
 <link rel="icon" href="__ASSET_BASE__assets/logo.png">
 <link rel="stylesheet" href="__ASSET_BASE__assets/style.css?v=__CSS_VER__">
 __OG__
+<script>try { if (localStorage.getItem("navCollapsed") === "1") document.documentElement.classList.add("nav-collapsed"); } catch (e) {}</script>
 </head>
 <body>
 <script>try { if (localStorage.getItem("showAdultContent") === "1") document.body.className = "show-adult"; } catch (e) {}</script>
-<button type="button" class="drawer-toggle" id="drawerToggle" aria-label="選單">›</button>
-<div class="drawer-backdrop" id="drawerBackdrop"></div>
-<nav class="drawer" id="drawer">
-  <div class="drawer-head">
-    <span class="drawer-title">選單</span>
-    <button type="button" class="drawer-close" id="drawerClose" aria-label="關閉">✕</button>
+<div class="sidenav-backdrop" id="sidenavBackdrop"></div>
+<nav class="sidenav" id="sidenav">
+  <div class="sidenav-head">
+    <span class="sidenav-title">選單</span>
+    <button type="button" class="sidenav-collapse" id="sidenavCollapse" aria-label="收合選單">‹</button>
   </div>
-  <a class="drawer-item" href="__HOME_HREF__">回首頁</a>
-  <a class="drawer-item" href="__ASSET_BASE__wishlist.html">★ 願望清單</a>
-  <a class="drawer-item" href="__ASSET_BASE__historical-low.html">📉 歷史新低</a>
+  <a class="sidenav-item" href="__HOME_HREF__" title="回首頁"><span class="ico">🏠</span><span class="lbl">回首頁</span></a>
+  <a class="sidenav-item" href="__ASSET_BASE__wishlist.html" title="願望清單"><span class="ico star">★</span><span class="lbl">願望清單</span></a>
+  <a class="sidenav-item" href="__ASSET_BASE__historical-low.html" title="歷史新低"><span class="ico low"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="5.5" cy="7" r="3.3"/><circle cx="17.8" cy="16.2" r="3.3"/><path d="M19.5 2 L6.8 17.4" stroke-linecap="round"/><path d="M3 22 L4.35 15.33 L9.29 19.41 Z" fill="currentColor" stroke="none"/></svg></span><span class="lbl">歷史新低</span></a>
 </nav>
 <div class="wrap">
   <div class="topbar">
-    <a class="brand" href="__HOME_HREF__"><img src="__ASSET_BASE__assets/logo.png" alt="__SITE_NAME__"></a>
+    <div class="topbar-left">
+      <button type="button" class="menu-btn" id="menuBtn" aria-label="開啟選單">☰ 選單</button>
+      <a class="brand" href="__HOME_HREF__"><img src="__ASSET_BASE__assets/logo.png" alt="__SITE_NAME__"></a>
+    </div>
     <div class="nav">__NAV__</div>
   </div>
   <div class="meta">__META__</div>
@@ -912,17 +953,34 @@ function showToast(text) {
   el._hideTimer = setTimeout(function () { el.classList.remove("show"); }, 2200);
 }
 (function () {
-  var toggle = document.getElementById("drawerToggle");
-  var drawer = document.getElementById("drawer");
-  var backdrop = document.getElementById("drawerBackdrop");
-  function openDrawer() { drawer.classList.add("open"); backdrop.classList.add("open"); }
-  function closeDrawer() { drawer.classList.remove("open"); backdrop.classList.remove("open"); }
-  toggle.addEventListener("click", function () {
-    if (drawer.classList.contains("open")) { closeDrawer(); } else { openDrawer(); }
+  // Desktop: a persistent sidebar that collapses to an icon rail (remembered per browser).
+  // Phone/narrow: there's no room for a permanent column, so it's a slide-over instead.
+  var root = document.documentElement;
+  var nav = document.getElementById("sidenav");
+  var backdrop = document.getElementById("sidenavBackdrop");
+  var collapseBtn = document.getElementById("sidenavCollapse");
+  var narrow = window.matchMedia("(max-width: 900px)");
+  function openOverlay() { nav.classList.add("open"); backdrop.classList.add("open"); }
+  function closeOverlay() { nav.classList.remove("open"); backdrop.classList.remove("open"); }
+  function syncLabel() {
+    collapseBtn.setAttribute("aria-label", narrow.matches ? "關閉選單"
+      : root.classList.contains("nav-collapsed") ? "展開選單" : "收合選單");
+  }
+  collapseBtn.addEventListener("click", function () {
+    if (narrow.matches) { closeOverlay(); return; }
+    var collapsed = root.classList.toggle("nav-collapsed");
+    try { localStorage.setItem("navCollapsed", collapsed ? "1" : "0"); } catch (e) {}
+    syncLabel();
   });
-  backdrop.addEventListener("click", closeDrawer);
-  document.getElementById("drawerClose").addEventListener("click", closeDrawer);
-  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeDrawer(); });
+  document.getElementById("menuBtn").addEventListener("click", openOverlay);
+  backdrop.addEventListener("click", closeOverlay);
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeOverlay(); });
+  if (narrow.addEventListener) narrow.addEventListener("change", function () { closeOverlay(); syncLabel(); });
+  syncLabel();
+  var here = location.pathname.replace(/index\\.html$/, "");
+  nav.querySelectorAll(".sidenav-item").forEach(function (a) {
+    if (a.pathname.replace(/index\\.html$/, "") === here) a.classList.add("active");
+  });
 })();
 (function () {
   // Wishlist lives entirely in localStorage (no account, no backend) - each star button
@@ -1285,6 +1343,114 @@ def _hero_image(games: list[dict], site_url: str) -> str:
     return site_url + "assets/logo.png"
 
 
+# Tag counts are built client-side from each row's own tag chips (rather than baked in at
+# generation time) so they respect the adult-content toggle - hidden adult games shouldn't
+# put "Hentai" in the top 7.
+HISTORICAL_LOW_SCRIPT = """<script>
+(function () {
+  var PER_PAGE = 15, FIRST_TAGS = 7, TAG_STEP = 20;
+  var rows = Array.prototype.slice.call(document.querySelectorAll("#lowResults .row"));
+  rows.forEach(function (r) {
+    r._tags = Array.prototype.map.call(r.querySelectorAll(".tags .tag"), function (a) { return a.textContent; });
+  });
+  var tagBar = document.getElementById("lowTags");
+  var pager = document.getElementById("lowPager");
+  var countEl = document.getElementById("lowCount");
+  var emptyEl = document.getElementById("lowEmpty");
+  var activeTag = null, page = 1, tagLimit = FIRST_TAGS;
+
+  function eligible() {
+    var showAdult = document.body.classList.contains("show-adult");
+    return rows.filter(function (r) { return showAdult || r.getAttribute("data-adult") !== "1"; });
+  }
+  function chip(label, n, cls, onClick) {
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "filter-chip" + (cls ? " " + cls : "");
+    b.textContent = label;
+    if (n !== null) {
+      var s = document.createElement("span");
+      s.className = "n";
+      s.textContent = n;
+      b.appendChild(s);
+    }
+    b.addEventListener("click", onClick);
+    return b;
+  }
+  function renderTags(pool) {
+    var counts = {};
+    pool.forEach(function (r) { r._tags.forEach(function (t) { counts[t] = (counts[t] || 0) + 1; }); });
+    var tags = Object.keys(counts).sort(function (a, b) { return counts[b] - counts[a] || a.localeCompare(b); });
+    if (activeTag && !counts[activeTag]) activeTag = null;
+    tagBar.innerHTML = "";
+    tags.slice(0, tagLimit).forEach(function (t) {
+      tagBar.appendChild(chip(t, counts[t], t === activeTag ? "active" : "", function () {
+        activeTag = activeTag === t ? null : t;
+        page = 1;
+        render();
+      }));
+    });
+    if (tags.length > tagLimit) {
+      tagBar.appendChild(chip("…", null, "more", function () { tagLimit += TAG_STEP; render(); }));
+    } else if (tagLimit > FIRST_TAGS) {
+      tagBar.appendChild(chip("收起", null, "more", function () { tagLimit = FIRST_TAGS; render(); }));
+    }
+  }
+  function pageButton(label, target, cls, disabled) {
+    var b = document.createElement("button");
+    b.type = "button";
+    b.textContent = label;
+    if (cls) b.className = cls;
+    b.disabled = !!disabled;
+    b.addEventListener("click", function () {
+      page = target;
+      render();
+      var top = document.getElementById("lowTop").getBoundingClientRect().top + window.pageYOffset;
+      var bar = document.querySelector(".topbar");
+      window.scrollTo(0, top - (bar ? bar.offsetHeight : 0) - 12);
+    });
+    return b;
+  }
+  function renderPager(pages) {
+    pager.innerHTML = "";
+    if (pages <= 1) return;
+    pager.appendChild(pageButton("‹", page - 1, "", page === 1));
+    var last = 0;
+    for (var p = 1; p <= pages; p++) {
+      if (p === 1 || p === pages || Math.abs(p - page) <= 1) {
+        if (last && p - last > 1) {
+          var gap = document.createElement("span");
+          gap.className = "gap";
+          gap.textContent = "…";
+          pager.appendChild(gap);
+        }
+        pager.appendChild(pageButton(String(p), p, p === page ? "current" : "", false));
+        last = p;
+      }
+    }
+    pager.appendChild(pageButton("›", page + 1, "", page === pages));
+  }
+  function render() {
+    var pool = eligible();
+    renderTags(pool);
+    var matched = activeTag ? pool.filter(function (r) { return r._tags.indexOf(activeTag) !== -1; }) : pool;
+    var pages = Math.max(1, Math.ceil(matched.length / PER_PAGE));
+    if (page > pages) page = pages;
+    var start = (page - 1) * PER_PAGE;
+    var visible = matched.slice(start, start + PER_PAGE);
+    rows.forEach(function (r) { r.style.display = "none"; });
+    visible.forEach(function (r) { r.style.display = ""; });
+    countEl.textContent = (activeTag ? activeTag + "：" : "") + matched.length + " 款";
+    emptyEl.style.display = matched.length ? "none" : "";
+    document.getElementById("lowResults").style.display = matched.length ? "" : "none";
+    renderPager(pages);
+  }
+  document.addEventListener("adulttoggle", function () { page = 1; render(); });
+  render();
+})();
+</script>"""
+
+
 def generate_site(history: dict, docs_dir: Path, retention_days: int, today: date, site_url: str) -> None:
     by_date: dict[str, list[dict]] = {}
     for g in history["games"].values():
@@ -1535,15 +1701,17 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int, today: dat
 
     low_games = sorted(
         (g for g in history["games"].values() if g.get("is_historical_low")),
-        key=lambda g: g["release_date"],
-        reverse=True,
+        key=lambda g: (-(g.get("review_count") or 0), g["name"]),
     )
     if low_games:
         low_body = (
-            '<h1>歷史新低</h1>'
-            '<div class="card">'
+            '<div class="filter-tags" id="lowTags"></div>'
+            '<div class="low-head" id="lowTop"><h1>歷史新低</h1><span class="low-count" id="lowCount"></span></div>'
+            '<div class="card" id="lowResults">'
             + "".join(render_row(g, "", show_date=True) for g in low_games)
-            + "</div>"
+            + '</div><div class="empty" id="lowEmpty" style="display:none">目前沒有遊戲處於歷史新低價</div>'
+            '<div class="pager" id="lowPager"></div>'
+            f"{HISTORICAL_LOW_SCRIPT}"
         )
     else:
         low_body = '<h1>歷史新低</h1><div class="empty">目前沒有遊戲處於歷史新低價</div>'
