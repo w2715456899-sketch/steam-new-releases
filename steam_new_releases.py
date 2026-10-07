@@ -41,14 +41,14 @@ OG_SITE_NAME = "Steam新遊戲通知"  # shown instead of SITE_NAME specifically
 # cards (Discord/LINE/etc, via og:site_name and og:title) - a deliberately different name
 # from the site's own, chosen by the user for how a shared link should introduce itself.
 WEEKDAY_ZH = ["一", "二", "三", "四", "五", "六", "日"]
-# An inline SVG star, not the ☆/★ characters - those glyphs render noticeably off-center
-# inside a small circular button on iOS Safari (font-metric quirk, not a layout bug), while
-# an SVG centers exactly the same everywhere since it's sized/positioned as a real shape,
-# not text. .filled toggles fill vs. outline-only via CSS (see .wish-star.filled svg path).
-WISH_STAR_SVG = (
+# Contents of every wishlist button: an inline SVG star (the ☆/★ glyphs sit off-center on
+# iOS Safari; an SVG doesn't) plus both labels. .filled toggles the star's fill and which
+# label shows via CSS (see .wish-star.filled), so JS only ever flips that one class.
+WISH_BTN_HTML = (
     '<svg viewBox="0 0 24 24" aria-hidden="true">'
     '<path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>'
     "</svg>"
+    '<span class="w-off">願望</span><span class="w-on">已加入</span>'
 )
 
 log = logging.getLogger("steam_new_releases")
@@ -590,303 +590,347 @@ def send_discord(webhook_url: str, today: date, count: int, dry_run: bool, site_
 # so the browser's own back/forward buttons work with no JS routing.
 # ---------------------------------------------------------------------------
 
-STYLE_CSS = """:root { color-scheme: dark; }
+STYLE_CSS = """/* Retro look: the 2004-era Steam desktop client - olive window chrome, bevelled buttons,
+   sunken panes, Tahoma/Verdana. Bevel = light top-left edge + dark bottom-right edge;
+   sunken = the same two colors swapped. */
+:root {
+  color-scheme: dark;
+  --desk: #2b3125; --win: #4c5844; --pane: #3e4637; --inset: #2f3529; --hover: #49533f;
+  --hi: #8c9284; --lo: #282e22; --line: #353c2f;
+  --text: #dee5d7; --mute: #a0aa95; --dim: #7d8673; --gold: #c4b550;
+  --green: #a4d007; --green-bg: #4c6b22; --blue: #66c0f4; --warn: #e0b25f; --bad: #e0745a;
+  --ui: Tahoma, Verdana, "Microsoft JhengHei", "PingFang TC", "Noto Sans TC", sans-serif;
+}
 * { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
 body {
-  margin: 0; padding: 0 16px 48px; background: #10141a; color: #e7ecf2;
-  font-family: -apple-system, "Segoe UI", "Microsoft JhengHei", sans-serif;
+  margin: 0; padding: 20px 16px 40px; background: var(--desk); color: var(--text);
+  font-family: var(--ui); font-size: 13px; line-height: 1.45;
 }
-.wrap { max-width: 900px; margin: 0 auto; }
-.topbar {
-  display: flex; align-items: center; justify-content: space-between; gap: 12px;
-  padding: 16px 0; flex-wrap: wrap; position: sticky; top: 0;
-  background: rgba(16, 20, 26, 0.92); backdrop-filter: blur(6px); z-index: 10;
+a { color: inherit; }
+button { font-family: inherit; }
+.bevel, .btn, .tab, .nav-arrow, .nav-mid, .wish-star, .filter-chip, .pager button, .date-card, .open-modal-option, .tag-more {
+  border: 1px solid; border-color: var(--hi) var(--lo) var(--lo) var(--hi);
 }
-.topbar-left { display: flex; align-items: center; gap: 12px; }
-.brand { display: flex; align-items: center; text-decoration: none; }
-.brand img { height: 44px; width: auto; display: block; }
-.nav { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-.nav-arrow {
-  width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-  background: #171d26; border: 1px solid #232b37; color: #9db4d1; text-decoration: none; font-size: 1rem;
+.sunk, .search-box, .card, .box {
+  border: 1px solid; border-color: var(--lo) var(--hi) var(--hi) var(--lo);
 }
-.nav-arrow:hover { background: #1c2330; color: #e7ecf2; border-color: #3a4152; }
-.nav-arrow.disabled { color: #3f4756; }
-.nav-mid {
-  color: #b79aef; text-decoration: none; font-size: 0.85rem; font-weight: 600;
-  padding: 8px 16px; border-radius: 999px; background: #241a33; border: 1px solid #3a2a4f;
+
+/* ---- window chrome ---- */
+.win {
+  max-width: 1180px; margin: 0 auto; background: var(--win);
+  border: 1px solid; border-color: var(--hi) var(--lo) var(--lo) var(--hi);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+  transform-origin: 50% 0; animation: winOpen 0.28s cubic-bezier(0.2, 0.9, 0.3, 1.1) both;
 }
-.nav-mid:hover { background: #2d2140; }
-.sidenav {
-  position: fixed; left: 0; top: 0; bottom: 0; width: 210px; z-index: 70;
-  background: #131820; border-right: 1px solid #232b37;
-  padding: env(safe-area-inset-top, 0px) 10px env(safe-area-inset-bottom, 0px);
-  display: flex; flex-direction: column; gap: 4px; overflow: hidden;
-  transition: width 0.2s ease, transform 0.2s ease;
+@keyframes winOpen { from { transform: scale(0.985) translateY(6px); opacity: 0.3; } }
+.titlebar { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 6px 8px 6px 10px; }
+.brand { display: flex; align-items: center; gap: 8px; text-decoration: none; min-width: 0; }
+.brand img { height: 22px; width: auto; display: block; }
+.brand b { font-size: 14px; letter-spacing: 0.02em; white-space: nowrap; }
+.brand b em { color: var(--gold); font-style: normal; }
+.winctl { display: flex; gap: 3px; }
+.winctl i {
+  width: 16px; height: 14px; font-style: normal; font-size: 10px; line-height: 12px; text-align: center;
+  border: 1px solid; border-color: var(--hi) var(--lo) var(--lo) var(--hi);
 }
-.sidenav-head { display: flex; align-items: center; justify-content: space-between; padding: 18px 4px 12px 10px; }
-.sidenav-title { font-size: 0.75rem; color: #6b7686; text-transform: uppercase; letter-spacing: 0.08em; white-space: nowrap; }
-.sidenav-collapse {
-  flex: none; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; padding: 0;
-  background: #1c2330; border: 1px solid #2a3346; color: #b79aef; font-size: 1.05rem; line-height: 1;
-  display: flex; align-items: center; justify-content: center; transition: transform 0.2s ease;
+.tabs {
+  display: flex; flex-wrap: wrap; gap: 2px; padding: 4px 10px 0;
+  position: sticky; top: 0; z-index: 40; background: var(--win);
 }
-.sidenav-collapse:hover { background: #241a33; border-color: #7c5cbf; color: #d3c1fb; }
-.sidenav-item {
-  display: flex; align-items: center; gap: 12px; padding: 10px; border-radius: 10px;
-  color: #c5cfdb; text-decoration: none; font-size: 0.93rem; white-space: nowrap;
+.tab {
+  color: var(--mute); text-decoration: none; padding: 6px 14px 5px; font-weight: 700; font-size: 12px;
+  letter-spacing: 0.04em; border-color: transparent; border-bottom: 0; white-space: nowrap; transition: color 0.15s;
 }
-.sidenav-item:hover { background: #1c2330; color: #e7ecf2; }
-.sidenav-item.active { background: #241a33; color: #d3c1fb; box-shadow: inset 3px 0 0 #7c5cbf; }
-.sidenav-item .ico { flex: none; width: 24px; text-align: center; font-size: 1.15rem; line-height: 1; }
-.sidenav-item .ico.star { color: #f5c04a; }
-.sidenav-item .ico.low { color: #a4d007; display: flex; justify-content: center; }
-.sidenav-item .ico.low svg { width: 1.15rem; height: 1.15rem; }
-.sidenav-backdrop { position: fixed; inset: 0; background: rgba(8, 10, 14, 0.6); z-index: 65; display: none; }
-.menu-btn { display: none; }
-@media (min-width: 901px) {
-  body { padding-left: 230px; transition: padding-left 0.2s ease; }
-  html.nav-collapsed body { padding-left: 84px; }
-  html.nav-collapsed .sidenav { width: 64px; }
-  html.nav-collapsed .sidenav-head { justify-content: center; padding: 18px 0 12px; }
-  html.nav-collapsed .sidenav-title, html.nav-collapsed .sidenav-item .lbl { display: none; }
-  html.nav-collapsed .sidenav-item { justify-content: center; padding: 10px 0; }
-  html.nav-collapsed .sidenav-collapse { transform: rotate(180deg); }
+.tab:hover { color: var(--text); }
+.tab.active { color: var(--gold); background: var(--pane); border-color: var(--hi) var(--lo) transparent var(--hi); }
+.tab .cnt {
+  display: inline-block; min-width: 18px; margin-left: 5px; padding: 0 4px; background: #958831; color: #fff;
+  font-size: 10px; text-align: center; vertical-align: 1px;
 }
-@media (max-width: 900px) {
-  .sidenav { width: min(260px, 80vw); transform: translateX(-100%); }
-  .sidenav.open { transform: none; }
-  .sidenav-backdrop.open { display: block; }
-  .menu-btn {
-    display: flex; align-items: center; gap: 6px; cursor: pointer; font-family: inherit;
-    padding: 7px 13px; border-radius: 999px; font-size: 0.85rem; font-weight: 600;
-    background: #1c2330; border: 1px solid #2a3346; color: #e7ecf2;
-  }
-  .menu-btn:hover { border-color: #7c5cbf; }
+.tab .cnt:empty { display: none; }
+.tab .cnt.bump { animation: bump 0.45s ease-out; }
+@keyframes bump { 30% { transform: scale(1.5); background: var(--gold); color: var(--lo); } }
+.pane { background: var(--pane); padding: 12px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 12px; }
+.nav { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+.nav-arrow, .nav-mid, .btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 4px;
+  background: var(--win); color: var(--text); text-decoration: none; font-weight: 700; font-size: 12px;
+  padding: 4px 12px; min-height: 26px; cursor: pointer; white-space: nowrap;
 }
-.toast {
-  position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px));
-  transform: translateX(-50%) translateY(12px); background: #1c2330; color: #e7ecf2;
-  border: 1px solid #2a3346; padding: 10px 18px; border-radius: 999px; font-size: 0.85rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4); opacity: 0; transition: opacity 0.2s ease, transform 0.2s ease;
-  z-index: 200; pointer-events: none; max-width: calc(100vw - 32px); text-align: center;
+.nav-arrow:hover, .nav-mid:hover, .btn:hover { color: var(--gold); }
+.nav-arrow:active, .nav-mid:active, .btn:active { border-color: var(--lo) var(--hi) var(--hi) var(--lo); }
+.nav-arrow.disabled { color: var(--dim); cursor: default; }
+.global-search { display: flex; gap: 4px; flex: 0 1 320px; min-width: 0; margin: 0; }
+.search-box {
+  flex: 1; min-width: 0; width: 100%; background: var(--inset); color: var(--text);
+  font-family: inherit; font-size: 13px; padding: 4px 8px; min-height: 26px; border-radius: 0;
 }
-.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
-.meta { color: #8894a3; font-size: 0.8rem; margin-bottom: 20px; }
-h1 { font-size: 1.3rem; margin: 0; }
-.date-heading {
-  display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;
-  flex-wrap: wrap; margin: 4px 0 16px;
+.search-box:focus { outline: 1px dotted var(--gold); outline-offset: 1px; }
+.search-box::placeholder { color: var(--dim); }
+a:focus-visible, button:focus-visible, label:focus-within { outline: 1px dotted var(--gold); outline-offset: 1px; }
+
+/* segmented "loading" bar: fills once per page load, then folds away */
+.loadbar {
+  display: grid; grid-template-columns: repeat(24, 1fr); gap: 2px; padding: 2px; height: 12px; overflow: hidden;
+  border: 1px solid; border-color: var(--lo) var(--hi) var(--hi) var(--lo); background: var(--inset);
+  animation: lbFold 0.2s ease-in 0.7s forwards;
 }
-.date-hero { padding-left: 14px; border-left: 3px solid #7c5cbf; }
-.date-hero-eyebrow {
-  font-size: 0.72rem; color: #b79aef; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700;
+.loadbar i { background: var(--green); opacity: 0; animation: seg 0.02s linear forwards; animation-delay: calc(var(--s) * 18ms); }
+@keyframes seg { to { opacity: 1; } }
+@keyframes lbFold { to { height: 0; padding: 0; border-width: 0; opacity: 0; margin-bottom: -12px; } }
+
+/* status bar + deals ticker */
+.status { display: flex; align-items: center; gap: 12px; padding: 5px 10px; font-size: 11px; color: var(--mute); border-top: 1px solid var(--hi); }
+.status .led { width: 7px; height: 7px; background: var(--green); flex: none; animation: led 2.4s steps(1) infinite; }
+@keyframes led { 92% { background: var(--lo); } }
+.status .meta { flex: none; white-space: nowrap; margin: 0; font-size: 11px; }
+.ticker {
+  flex: 1; min-width: 0; overflow: hidden; white-space: nowrap;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
 }
-.date-hero-date { font-size: 1.6rem; font-weight: 700; margin: 2px 0 0; line-height: 1.25; }
-.date-hero-date .wd { font-size: 1rem; font-weight: 400; color: #8894a3; margin-left: 8px; }
-.date-hero-count { font-size: 0.82rem; color: #8894a3; margin-top: 2px; }
-.adult-toggle {
-  display: flex; align-items: center; gap: 6px; font-size: 0.82rem; color: #9db4d1;
-  cursor: pointer; user-select: none;
-}
-.adult-toggle-input { accent-color: #7c5cbf; cursor: pointer; }
-.hidden-count { color: #6b7686; }
+.ticker span { display: inline-block; padding-left: 100%; animation: tick 45s linear infinite; }
+.ticker:hover span { animation-play-state: paused; }
+.ticker em { font-style: normal; color: var(--green); }
+@keyframes tick { to { transform: translateX(-100%); } }
+
+/* ---- headings ---- */
+.meta { color: var(--mute); font-size: 12px; }
+h1 { font-size: 16px; margin: 0; color: var(--gold); }
+.date-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 8px 12px; flex-wrap: wrap; }
+.date-hero { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 12px; }
+.date-hero-date { font-size: 20px; margin: 0; line-height: 1.2; }
+.date-hero-date .wd { font-size: 13px; font-weight: 400; color: var(--mute); margin-left: 8px; }
+.date-hero-count { font-size: 12px; color: var(--mute); }
+.adult-toggle { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--mute); cursor: pointer; user-select: none; }
+.adult-toggle-input { accent-color: var(--gold); cursor: pointer; margin: 0; }
+.hidden-count { color: var(--dim); }
 body.show-adult .hidden-count { display: none; }
 .row[data-adult="1"] { display: none; }
-body.show-adult .row[data-adult="1"] { display: flex; }
-h2.section { font-size: 0.85rem; color: #8894a3; margin: 24px 0 8px; text-transform: uppercase; letter-spacing: 0.04em; }
-.card { background: #171d26; border: 1px solid #232b37; border-radius: 10px; overflow: visible; }
+body.show-adult .row[data-adult="1"] { display: grid; }
+h2.section {
+  font-size: 12px; color: var(--gold); margin: 0; padding: 6px 8px; background: var(--win);
+  border: 1px solid; border-color: var(--hi) var(--lo) var(--lo) var(--hi); border-bottom: 0;
+}
+h2.section + .card { margin-bottom: 12px; }
+.card { background: var(--inset); min-width: 0; }
+
+/* ---- a game row ---- */
 .row {
-  display: flex; gap: 14px; padding: 12px 14px; align-items: center;
-  border-bottom: 1px solid #1c2330; position: relative;
-  /* Rows with a discount/review line are naturally tall enough that the vertically-centered
-     badge clears the top-right star; a plain row (no discount, no reviews yet) is short
-     enough that they'd overlap. Fixing the height keeps every row's star in the same spot
-     regardless of what content that particular game happens to have. */
-  min-height: 118px;
+  display: grid; grid-template-columns: 128px minmax(0, 1fr) 190px 86px;
+  grid-template-areas: "media info buy wish"; align-items: center; gap: 4px 12px;
+  padding: 8px 10px; border-bottom: 1px solid var(--line); position: relative; transition: background 0.12s;
 }
-.row:first-child { border-top-left-radius: 10px; border-top-right-radius: 10px; }
-.row:last-child { border-bottom: none; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; }
-.row:hover { background: #1c2330; z-index: 20; }
-.wish-star {
-  position: absolute; top: 8px; right: 8px; z-index: 5;
-  width: 30px; height: 30px; border-radius: 50%; border: 1px solid #2a3346;
-  background: rgba(16, 20, 26, 0.75); backdrop-filter: blur(2px);
-  color: #9db4d1; font-size: 1.05rem; line-height: 1; cursor: pointer;
-  display: flex; align-items: center; justify-content: center; padding: 0;
-}
-.wish-star:hover { border-color: #7c5cbf; color: #d3c1fb; }
-.wish-star.filled { color: #f0c419; border-color: #a3841a; background: rgba(48, 40, 10, 0.55); }
-.wish-star svg { width: 16px; height: 16px; display: block; }
-.wish-star svg path { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linejoin: round; }
-.wish-star.filled svg path { fill: currentColor; stroke: none; }
-.row .media { flex: none; display: block; position: relative; }
+.row:last-child { border-bottom: 0; }
+.row:hover { background: var(--hover); box-shadow: inset 3px 0 0 var(--gold); }
+.row.enter { animation: rowIn 0.26s ease-out both; animation-delay: calc(var(--i) * 32ms + 260ms); }
+@keyframes rowIn { from { transform: translateX(-10px); opacity: 0; } }
+.row .media { grid-area: media; display: block; }
 .row img.cap {
-  width: 160px; height: 75px; object-fit: cover; border-radius: 6px; background: #232b37;
-  transition: transform 0.18s ease, box-shadow 0.18s ease; transform-origin: right center;
+  display: block; width: 128px; height: 60px; object-fit: cover; background: var(--win);
+  border: 1px solid var(--lo);
 }
-@media (hover: hover) and (pointer: fine) {
-  .row:hover img.cap {
-    transform: scale(2.1);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
-    position: relative; z-index: 30;
-  }
+.row .info { grid-area: info; min-width: 0; }
+.row .name { display: block; font-size: 14px; font-weight: 700; line-height: 1.3; text-decoration: none; overflow-wrap: anywhere; }
+.row .name:hover { color: var(--gold); }
+.row .date-line { color: var(--mute); font-size: 11px; margin-top: 2px; }
+.row .buy { grid-area: buy; display: flex; flex-direction: column; align-items: flex-end; gap: 3px; text-align: right; }
+.price-line { display: flex; align-items: stretch; font-variant-numeric: tabular-nums; }
+.disc-pct { background: var(--green-bg); color: var(--green); font-weight: 700; font-size: 12px; padding: 2px 6px; display: flex; align-items: center; }
+.disc-pct.hot { animation: hot 1.6s steps(2) infinite; }
+@keyframes hot { 50% { color: var(--gold); } }
+.disc-prices { background: rgba(0, 0, 0, 0.35); display: flex; align-items: center; gap: 6px; padding: 2px 7px; }
+.disc-orig { color: var(--dim); text-decoration: line-through; font-size: 11px; }
+.disc-final { color: var(--green); font-weight: 700; font-size: 13px; }
+.disc-final.plain { color: var(--text); }
+.disc-final.free { color: var(--green); }
+.disc-final.unknown { color: var(--mute); font-weight: 400; font-size: 12px; }
+.discount-end { color: var(--blue); font-size: 11px; }
+.review-line { font-size: 12px; margin-top: 3px; }
+.discount-end.placeholder, .review-line.placeholder { display: none; }
+.review-score { font-weight: 700; }
+.review-score.pos { color: var(--blue); }
+.review-score.mixed { color: var(--warn); }
+.review-score.neg { color: var(--bad); }
+.review-count { color: var(--dim); margin-left: 5px; }
+.badge { font-size: 11px; white-space: nowrap; }
+.badge.live { color: var(--dim); }
+.badge.upcoming { color: var(--warn); font-weight: 700; }
+.wish-star {
+  grid-area: wish; justify-self: end; display: inline-flex; align-items: center; gap: 4px; position: relative;
+  background: var(--win); color: var(--text); font-size: 12px; font-weight: 700; padding: 3px 8px; min-height: 26px;
+  cursor: pointer; white-space: nowrap;
 }
-.row .info { min-width: 0; flex: 1; }
-.row .name {
-  display: block; font-size: 1.15rem; font-weight: 600; line-height: 1.3;
-  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-  text-decoration: none; color: inherit;
-}
-.row .name:hover { text-decoration: underline; }
-.row .date-line { color: #8894a3; font-size: 0.8rem; margin-top: 3px; }
-.price-line { display: flex; align-items: stretch; margin-top: 4px; }
-.disc-pct {
-  background: #4c6b22; color: #a4d007; font-weight: 700; font-size: 0.78rem;
-  padding: 4px 6px; border-radius: 2px 0 0 2px; display: flex; align-items: center;
-}
-.disc-prices {
-  background: rgba(0, 0, 0, 0.5); display: flex; align-items: center; gap: 6px;
-  padding: 4px 8px; border-radius: 0 2px 2px 0;
-}
-.disc-orig { color: #8894a3; text-decoration: line-through; font-size: 0.78rem; }
-.disc-final { color: #a4d007; font-weight: 700; font-size: 0.9rem; }
-.disc-final.plain { color: #e7ecf2; font-weight: 600; }
-.disc-final.unknown { color: #8894a3; font-weight: 400; font-size: 0.85rem; }
-.discount-end { color: #66c0f4; font-size: 0.78rem; margin-top: 3px; }
-.review-line { font-size: 0.78rem; margin-top: 4px; }
-.discount-end.placeholder, .review-line.placeholder { visibility: hidden; }
-.review-score { font-weight: 600; }
-.review-score.pos { color: #5fd58a; }
-.review-score.mixed { color: #d4b95f; }
-.review-score.neg { color: #e2685f; }
-.review-count { color: #6b7686; margin-left: 5px; }
-.open-modal-backdrop {
-  display: none; position: fixed; inset: 0; background: rgba(8, 10, 14, 0.72);
-  backdrop-filter: blur(3px); align-items: center; justify-content: center; z-index: 100; padding: 16px;
-}
-.open-modal {
-  position: relative; background: linear-gradient(180deg, #1c2330, #171d26);
-  border: 1px solid #2a3346; border-radius: 16px; padding: 30px 22px 22px;
-  width: min(340px, 100%); display: flex; flex-direction: column; gap: 18px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55); animation: openModalIn 0.15s ease;
-}
-@keyframes openModalIn {
-  from { opacity: 0; transform: translateY(8px) scale(0.97); }
-  to { opacity: 1; transform: none; }
-}
-.open-modal-x {
-  position: absolute; top: 10px; right: 10px; width: 28px; height: 28px; border-radius: 8px;
-  background: none; border: none; color: #6b7686; font-size: 1rem; cursor: pointer; line-height: 1;
-}
-.open-modal-x:hover { background: #232b3d; color: #e7ecf2; }
-.open-modal-title { font-size: 1.05rem; font-weight: 600; text-align: center; }
-.open-modal-options { display: flex; gap: 12px; }
-.open-modal-option {
-  flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px;
-  padding: 18px 10px; border-radius: 12px; border: 1px solid #2a3346; background: #10141a;
-  color: #e7ecf2; cursor: pointer; transition: border-color 0.15s, transform 0.15s, background 0.15s;
-}
-.open-modal-option:hover { transform: translateY(-2px); }
-.open-modal-option[data-choice="web"]:hover { border-color: #4c6b22; background: rgba(76, 107, 34, 0.12); }
-.open-modal-option[data-choice="steam"]:hover { border-color: #66c0f4; background: rgba(102, 192, 244, 0.1); }
-.open-modal-icon {
-  width: 1.9rem; height: 1.9rem; font-size: 1.9rem; line-height: 1; color: #9db4d1;
-  display: flex; align-items: center; justify-content: center;
-}
-.open-modal-icon svg { width: 100%; height: 100%; display: block; }
-.open-modal-option[data-choice="web"]:hover .open-modal-icon { color: #a4d007; }
-.open-modal-option[data-choice="steam"]:hover .open-modal-icon { color: #66c0f4; }
-.open-modal-label { font-size: 0.85rem; color: #9db4d1; }
-.open-modal-remember { display: flex; align-items: center; justify-content: space-between; font-size: 0.85rem; color: #8894a3; }
-.switch { position: relative; width: 36px; height: 20px; display: inline-block; cursor: pointer; }
-.switch input { position: absolute; opacity: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
-.switch-track { position: absolute; inset: 0; background: #2a3346; border-radius: 999px; transition: background 0.15s; }
-.switch-track::after {
-  content: ""; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px;
-  background: #e7ecf2; border-radius: 50%; transition: transform 0.15s;
-}
-.switch input:checked ~ .switch-track { background: #4c6b22; }
-.switch input:checked ~ .switch-track::after { transform: translateX(16px); }
-.tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 7px; }
+.wish-star:hover { color: var(--gold); }
+.wish-star:active, .wish-star.filled { border-color: var(--lo) var(--hi) var(--hi) var(--lo); }
+.wish-star.filled { color: var(--gold); background: var(--inset); }
+.wish-star svg { width: 13px; height: 13px; display: block; flex: none; }
+.wish-star svg path { fill: none; stroke: currentColor; stroke-width: 2; stroke-linejoin: round; }
+.wish-star.filled svg path { fill: currentColor; stroke: none; }
+.wish-star .w-on, .wish-star.filled .w-off { display: none; }
+.wish-star.filled .w-on { display: inline; }
+.plus { position: absolute; left: 50%; top: -4px; color: var(--gold); font-weight: 700; pointer-events: none; animation: plus 0.7s ease-out forwards; }
+@keyframes plus { from { transform: translate(-50%, 0); } to { transform: translate(-50%, -22px); opacity: 0; } }
+.tags { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 5px; }
 .tag {
-  font-size: 0.78rem; padding: 3px 10px; border-radius: 999px; background: #241a33;
-  color: #b79aef; text-decoration: none;
+  font-size: 11px; padding: 1px 6px; background: var(--win); color: var(--text); text-decoration: none;
+  border: 1px solid; border-color: var(--hi) var(--lo) var(--lo) var(--hi); line-height: 1.5;
 }
-.tag:hover { background: #3a2a4f; color: #d3c1fb; }
-button.tag { border: none; font-family: inherit; cursor: pointer; }
+.tag:hover { color: var(--gold); }
+button.tag { font-family: inherit; cursor: pointer; }
 .tag-toggle { display: none; }
 .tag-extra { display: none; }
 .tag-toggle:checked ~ .tag-extra { display: contents; }
-.tag-more {
-  font-size: 0.78rem; padding: 3px 10px; border-radius: 999px; cursor: pointer;
-  background: transparent; color: #6b7686; border: 1px dashed #3a4152;
-}
-.tag-more:hover { color: #9db4d1; border-color: #5a6478; }
+.tag-more { font-size: 11px; padding: 1px 6px; cursor: pointer; background: var(--inset); color: var(--mute); line-height: 1.5; }
+.tag-more:hover { color: var(--gold); }
 .tag-more-close { display: none; }
 .tag-toggle:checked ~ .tag-more-open { display: none; }
 .tag-toggle:checked ~ .tag-more-close { display: inline-block; }
-@media (max-width: 600px) {
-  .row { flex-wrap: wrap; padding: 12px; }
-  .row .media { flex: 1 1 100%; order: 1; }
-  .row img.cap { width: 100%; height: auto; aspect-ratio: 16 / 7; }
-  .row .badge { order: 2; margin: 8px 0 0 auto; }
-  .row .info { flex: 1 1 100%; order: 3; margin-top: 8px; }
-  .row .name { white-space: normal; overflow: visible; text-overflow: clip; font-size: 1.05rem; }
-  .date-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+
+/* hover preview (mouse only) */
+.peek {
+  position: fixed; z-index: 90; width: 300px; padding: 6px; background: var(--win); pointer-events: none;
+  border: 1px solid; border-color: var(--hi) var(--lo) var(--lo) var(--hi); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  opacity: 0; transform: translateY(6px); transition: opacity 0.12s, transform 0.12s;
+}
+.peek.on { opacity: 1; transform: none; }
+.peek img { display: block; width: 100%; aspect-ratio: 460 / 215; object-fit: cover; background: var(--inset); }
+.peek .t { font-weight: 700; margin: 6px 2px 4px; }
+.peek .review-line { margin: 0 2px 4px; }
+.peek .tags { margin: 0 2px; }
+
+/* ---- home: list + deals pane ---- */
+.split { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 12px; align-items: start; }
+.split > * { min-width: 0; }
+.side { display: flex; flex-direction: column; gap: 12px; position: sticky; top: 44px; }
+.boxhead {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 8px; padding: 6px 8px;
+  background: var(--win); border-bottom: 1px solid var(--lo); color: var(--gold); font-weight: 700; font-size: 12px;
+}
+.boxhead a { color: var(--mute); font-weight: 400; text-decoration: none; }
+.boxhead a:hover { color: var(--gold); }
+.box { background: var(--inset); }
+.spot { overflow: hidden; }
+.spot-track { display: flex; transition: transform 0.45s cubic-bezier(0.6, 0, 0.2, 1); }
+.deal { flex: 0 0 100%; padding: 8px; display: flex; flex-direction: column; gap: 5px; text-decoration: none; min-width: 0; }
+.deal img { display: block; width: 100%; aspect-ratio: 460 / 215; object-fit: cover; border: 1px solid var(--lo); background: var(--win); }
+.deal .r { display: flex; justify-content: space-between; align-items: center; gap: 6px; }
+.deal b { font-size: 12px; overflow-wrap: anywhere; }
+.deal:hover b { color: var(--gold); }
+.deal .pct { color: var(--green); font-weight: 700; }
+.deal s { color: var(--dim); font-size: 11px; }
+.deal .sm { color: var(--mute); font-size: 11px; }
+.spot-timer { height: 2px; background: var(--gold); transform-origin: left; transform: scaleX(0); }
+.spot-timer.go { animation: timer 5s linear forwards; }
+@keyframes timer { to { transform: scaleX(1); } }
+.spot-dots { display: flex; gap: 4px; justify-content: center; padding: 0 8px 8px; }
+.spot-dots button { width: 11px; height: 11px; padding: 0; background: var(--win); cursor: pointer; border: 1px solid; border-color: var(--hi) var(--lo) var(--lo) var(--hi); }
+.spot-dots button[aria-current="true"] { background: var(--gold); }
+
+/* ---- toast + "open with" dialog ---- */
+.toast {
+  position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  transform: translateX(-50%) translateY(12px); background: var(--win); color: var(--text);
+  border: 1px solid; border-color: var(--hi) var(--lo) var(--lo) var(--hi);
+  padding: 8px 16px; font-size: 12px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  opacity: 0; transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 200; pointer-events: none; max-width: calc(100vw - 32px); text-align: center;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+.open-modal-backdrop { display: none; position: fixed; inset: 0; background: rgba(20, 24, 16, 0.6); align-items: center; justify-content: center; z-index: 100; padding: 16px; }
+.open-modal {
+  position: relative; background: var(--win); width: min(320px, 100%);
+  border: 1px solid; border-color: var(--hi) var(--lo) var(--lo) var(--hi); box-shadow: 0 16px 48px rgba(0, 0, 0, 0.55);
+  animation: openModalIn 0.15s ease;
+}
+@keyframes openModalIn { from { opacity: 0; transform: scale(0.97); } }
+.open-modal-title { font-size: 13px; font-weight: 700; padding: 6px 34px 6px 10px; }
+.open-modal-x {
+  position: absolute; top: 5px; right: 6px; width: 18px; height: 16px; padding: 0; font-size: 10px; line-height: 1;
+  background: var(--win); color: var(--text); cursor: pointer; border: 1px solid; border-color: var(--hi) var(--lo) var(--lo) var(--hi);
+}
+.open-modal-body { background: var(--pane); margin: 0 4px 4px; padding: 14px; display: flex; flex-direction: column; gap: 14px; }
+.open-modal-options { display: flex; gap: 10px; }
+.open-modal-option {
+  flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 14px 8px;
+  background: var(--win); color: var(--text); cursor: pointer;
+}
+.open-modal-option:hover { color: var(--gold); }
+.open-modal-option:active { border-color: var(--lo) var(--hi) var(--hi) var(--lo); }
+.open-modal-icon { width: 28px; height: 28px; font-size: 26px; line-height: 1; display: flex; align-items: center; justify-content: center; }
+.open-modal-icon svg { width: 100%; height: 100%; display: block; }
+.open-modal-label { font-size: 12px; font-weight: 700; }
+.open-modal-remember { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--mute); cursor: pointer; }
+.open-modal-remember input { accent-color: var(--gold); margin: 0; }
+
+/* ---- dates index ---- */
+.date-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 8px; }
+.date-card {
+  background: var(--win); padding: 10px; display: flex; flex-direction: column; gap: 6px;
+  text-decoration: none; color: inherit;
+}
+.date-card:hover { color: var(--gold); }
+.date-card:active { border-color: var(--lo) var(--hi) var(--hi) var(--lo); }
+.date-card.weekend { background: #545a3e; }
+.date-card-top { display: flex; flex-direction: column; gap: 2px; }
+.date-card-day { font-size: 22px; font-weight: 700; line-height: 1; }
+.date-card-md { font-size: 11px; color: var(--mute); }
+.date-card-count { font-size: 14px; font-weight: 700; color: var(--green); }
+.date-card-count span { font-size: 11px; color: var(--mute); font-weight: 400; }
+.date-month-divider { grid-column: 1 / -1; font-size: 12px; color: var(--gold); font-weight: 700; margin-top: 8px; padding-top: 10px; border-top: 1px solid var(--line); }
+.date-month-divider:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+
+/* ---- historical low: filters + pager ---- */
+.filter-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+.filter-chip { font-size: 12px; padding: 3px 9px; cursor: pointer; background: var(--win); color: var(--text); }
+.filter-chip:hover { color: var(--gold); }
+.filter-chip .n { color: var(--mute); font-size: 11px; margin-left: 5px; }
+.filter-chip.active { border-color: var(--lo) var(--hi) var(--hi) var(--lo); background: var(--inset); color: var(--gold); }
+.filter-chip.more { background: var(--inset); color: var(--mute); }
+.low-head { display: flex; align-items: baseline; gap: 10px; }
+.low-count { color: var(--mute); font-size: 12px; }
+.pager { display: flex; justify-content: center; align-items: center; gap: 4px; flex-wrap: wrap; }
+.pager button { min-width: 30px; height: 28px; padding: 0 8px; cursor: pointer; background: var(--win); color: var(--text); font-size: 12px; font-weight: 700; }
+.pager button:hover:not(:disabled) { color: var(--gold); }
+.pager button.current { border-color: var(--lo) var(--hi) var(--hi) var(--lo); background: var(--inset); color: var(--gold); }
+.pager button:disabled { color: var(--dim); cursor: default; }
+.pager .gap { color: var(--dim); padding: 0 2px; }
+.empty { color: var(--mute); padding: 32px 12px; text-align: center; }
+
+/* ---- narrow screens: every row stacks so nothing needs a sideways swipe ---- */
+@media (max-width: 1000px) {
+  .split { grid-template-columns: minmax(0, 1fr); }
+  .side { position: static; }
+}
+@media (max-width: 700px) {
+  body { padding: 8px 6px 24px; font-size: 14px; }
+  .winctl { display: none; }
+  .tabs { padding: 4px 4px 0; }
+  .tab { padding: 6px 9px 5px; }
+  .pane { padding: 8px; }
+  .toolbar { flex-direction: column; align-items: stretch; }
+  .nav { justify-content: space-between; }
+  .nav .nav-mid { flex: 1; }
+  .global-search { flex: 1 1 auto; }
+  .row {
+    grid-template-columns: 112px minmax(0, 1fr) auto;
+    grid-template-areas: "media info info" "buy buy wish";
+    padding: 10px 8px; gap: 8px 10px; align-items: start;
+  }
+  .row img.cap { width: 112px; height: 52px; }
+  .row .name { font-size: 14px; }
+  .row .buy { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 4px 10px; text-align: left; align-self: center; }
+  .wish-star { align-self: center; }
+  .status .meta { display: none; }
   .open-modal-options { flex-direction: column; }
 }
-.badge { flex: none; font-size: 0.92rem; font-weight: 600; padding: 6px 12px; border-radius: 999px; white-space: nowrap; }
-.badge.live { background: #16331f; color: #5fd58a; }
-.badge.upcoming { background: #33291a; color: #e0b25f; }
-.empty { color: #8894a3; padding: 40px 0; text-align: center; }
-.date-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
-.date-card {
-  background: #171d26; border: 1px solid #232b37; border-radius: 12px; padding: 14px;
-  display: flex; flex-direction: column; gap: 10px; text-decoration: none; color: inherit;
-  transition: border-color 0.15s, transform 0.15s;
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .loadbar { display: none; }
+  .ticker span { padding-left: 0; }
 }
-.date-card:hover { border-color: #4a5b7a; transform: translateY(-2px); }
-.date-card.weekend { background: #1a1620; border-color: #2e2438; }
-.date-card-top { display: flex; flex-direction: column; gap: 2px; }
-.date-card-day { font-size: 1.6rem; font-weight: 700; line-height: 1; }
-.date-card-md { font-size: 0.72rem; color: #8894a3; }
-.date-card-count { font-size: 1rem; font-weight: 600; color: #5fd58a; }
-.date-card-count span { font-size: 0.7rem; color: #8894a3; font-weight: 400; }
-.date-month-divider {
-  grid-column: 1 / -1; font-size: 0.85rem; color: #8894a3; font-weight: 600;
-  margin-top: 10px; padding-top: 14px; border-top: 1px solid #232b37;
-}
-.date-month-divider:first-child { margin-top: 0; padding-top: 0; border-top: none; }
-.search-box {
-  width: 100%; padding: 10px 14px; border-radius: 8px; border: 1px solid #2a3346;
-  background: #171d26; color: #e7ecf2; font-size: 0.95rem; margin-bottom: 8px;
-}
-.search-box:focus { outline: none; border-color: #4a5b7a; }
-.global-search { margin-bottom: 20px; }
-.global-search .search-box { margin-bottom: 0; }
-.filter-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: -8px 0 20px; }
-.filter-chip {
-  font-family: inherit; font-size: 0.8rem; padding: 4px 12px; border-radius: 999px; cursor: pointer;
-  background: #241a33; color: #b79aef; border: 1px solid transparent;
-}
-.filter-chip:hover { background: #3a2a4f; color: #d3c1fb; }
-.filter-chip .n { color: #7d6a9e; font-size: 0.72rem; margin-left: 5px; }
-.filter-chip.active { background: #7c5cbf; color: #fff; }
-.filter-chip.active .n { color: #e3d8fb; }
-.filter-chip.more { background: transparent; color: #6b7686; border: 1px dashed #3a4152; }
-.filter-chip.more:hover { color: #9db4d1; border-color: #5a6478; }
-.low-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px; }
-.low-count { color: #8894a3; font-size: 0.82rem; }
-.pager { display: flex; justify-content: center; align-items: center; gap: 6px; flex-wrap: wrap; margin: 20px 0 8px; }
-.pager button {
-  font-family: inherit; min-width: 34px; height: 34px; padding: 0 10px; border-radius: 999px; cursor: pointer;
-  background: #171d26; border: 1px solid #232b37; color: #9db4d1; font-size: 0.85rem;
-}
-.pager button:hover:not(:disabled) { background: #1c2330; color: #e7ecf2; border-color: #3a4152; }
-.pager button.current { background: #7c5cbf; border-color: #7c5cbf; color: #fff; }
-.pager button:disabled { color: #3f4756; cursor: default; }
-.pager .gap { color: #6b7686; padding: 0 2px; }
 """
 
 STYLE_HASH = hashlib.md5(STYLE_CSS.encode("utf-8")).hexdigest()[:8]
@@ -900,55 +944,46 @@ PAGE_SHELL = """<!doctype html>
 <link rel="icon" href="__ASSET_BASE__assets/logo.png">
 <link rel="stylesheet" href="__ASSET_BASE__assets/style.css?v=__CSS_VER__">
 __OG__
-<script>try { if (localStorage.getItem("navCollapsed") === "1") document.documentElement.classList.add("nav-collapsed"); } catch (e) {}</script>
 </head>
 <body>
 <script>try { if (localStorage.getItem("showAdultContent") === "1") document.body.className = "show-adult"; } catch (e) {}</script>
-<div class="sidenav-backdrop" id="sidenavBackdrop"></div>
-<nav class="sidenav" id="sidenav">
-  <div class="sidenav-head">
-    <span class="sidenav-title">選單</span>
-    <button type="button" class="sidenav-collapse" id="sidenavCollapse" aria-label="收合選單">‹</button>
+<div class="win">
+  <div class="titlebar">
+    <a class="brand" href="__HOME_HREF__"><img src="__ASSET_BASE__assets/logo.png" alt=""><b>Steam<em>美食家</em></b></a>
+    <div class="winctl" aria-hidden="true"><i>_</i><i>□</i><i>×</i></div>
   </div>
-  <a class="sidenav-item" href="__HOME_HREF__" title="回首頁"><span class="ico">🏠</span><span class="lbl">回首頁</span></a>
-  <a class="sidenav-item" href="__ASSET_BASE__wishlist.html" title="願望清單"><span class="ico star">★</span><span class="lbl">願望清單</span></a>
-  <a class="sidenav-item" href="__ASSET_BASE__historical-low.html" title="歷史新低"><span class="ico low"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="5.5" cy="7" r="3.3"/><circle cx="17.8" cy="16.2" r="3.3"/><path d="M19.5 2 L6.8 17.4" stroke-linecap="round"/><path d="M3 22 L4.35 15.33 L9.29 19.41 Z" fill="currentColor" stroke="none"/></svg></span><span class="lbl">歷史新低</span></a>
-</nav>
-<div class="wrap">
-  <div class="topbar">
-    <div class="topbar-left">
-      <button type="button" class="menu-btn" id="menuBtn" aria-label="開啟選單">☰ 選單</button>
-      <a class="brand" href="__HOME_HREF__"><img src="__ASSET_BASE__assets/logo.png" alt="__SITE_NAME__"></a>
+  <nav class="tabs" aria-label="分類">__TABS__</nav>
+  <div class="pane">
+    <div class="toolbar">
+      <div class="nav">__NAV__</div>
+      <form class="global-search" action="__ASSET_BASE__search.html" method="get" role="search">
+        <input type="text" name="q" id="globalSearch" class="search-box" placeholder="搜尋遊戲名稱…" autocomplete="off" aria-label="搜尋遊戲名稱">
+        <button type="submit" class="btn">搜尋</button>
+      </form>
     </div>
-    <div class="nav">__NAV__</div>
+    <div class="loadbar" aria-hidden="true">__LOADBAR__</div>
+    __BODY__
   </div>
-  <div class="meta">__META__</div>
-  <form class="global-search" action="__ASSET_BASE__search.html" method="get">
-    <input type="text" name="q" id="globalSearch" class="search-box" placeholder="搜尋名稱…" autocomplete="off">
-  </form>
-  __BODY__
+  <div class="status"><i class="led" aria-hidden="true"></i><span class="meta">__META__</span><div class="ticker"><span>__TICKER__</span></div></div>
 </div>
 
+<div class="peek" id="peek" aria-hidden="true"></div>
 <div class="open-modal-backdrop" id="openModalBackdrop">
-  <div class="open-modal">
+  <div class="open-modal" role="dialog" aria-labelledby="openModalTitle">
+    <div class="open-modal-title" id="openModalTitle">要用什麼開啟？</div>
     <button type="button" class="open-modal-x" id="openModalCancel" aria-label="關閉">✕</button>
-    <div class="open-modal-title">要用什麼開啟？</div>
-    <div class="open-modal-options">
-      <button type="button" class="open-modal-option" data-choice="web">
-        <span class="open-modal-icon">🌐</span>
-        <span class="open-modal-label">網頁</span>
-      </button>
-      <button type="button" class="open-modal-option" data-choice="steam">
-        <span class="open-modal-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.606 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.454 1.012H7.54zm11.415-9.303c0-1.662-1.353-3.015-3.015-3.015-1.665 0-3.015 1.353-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.253 0-2.265-1.014-2.265-2.265z"/></svg></span>
-        <span class="open-modal-label">Steam</span>
-      </button>
-    </div>
-    <div class="open-modal-remember">
-      <span>記住我的選擇</span>
-      <label class="switch">
-        <input type="checkbox" id="openModalRemember" checked>
-        <span class="switch-track"></span>
-      </label>
+    <div class="open-modal-body">
+      <div class="open-modal-options">
+        <button type="button" class="open-modal-option" data-choice="web">
+          <span class="open-modal-icon">🌐</span>
+          <span class="open-modal-label">網頁</span>
+        </button>
+        <button type="button" class="open-modal-option" data-choice="steam">
+          <span class="open-modal-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.606 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.454 1.012H7.54zm11.415-9.303c0-1.662-1.353-3.015-3.015-3.015-1.665 0-3.015 1.353-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.253 0-2.265-1.014-2.265-2.265z"/></svg></span>
+          <span class="open-modal-label">Steam</span>
+        </button>
+      </div>
+      <label class="open-modal-remember"><input type="checkbox" id="openModalRemember" checked>記住我的選擇</label>
     </div>
   </div>
 </div>
@@ -977,38 +1012,50 @@ function showToast(text) {
   clearTimeout(el._hideTimer);
   el._hideTimer = setTimeout(function () { el.classList.remove("show"); }, 2200);
 }
+var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 (function () {
-  // Desktop: a persistent sidebar that collapses to an icon rail (remembered per browser).
-  // Phone/narrow: there's no room for a permanent column, so it's a slide-over instead.
-  var root = document.documentElement;
-  var nav = document.getElementById("sidenav");
-  var backdrop = document.getElementById("sidenavBackdrop");
-  var collapseBtn = document.getElementById("sidenavCollapse");
-  var narrow = window.matchMedia("(max-width: 900px)");
-  function openOverlay() { nav.classList.add("open"); backdrop.classList.add("open"); }
-  function closeOverlay() { nav.classList.remove("open"); backdrop.classList.remove("open"); }
-  function syncLabel() {
-    collapseBtn.setAttribute("aria-label", narrow.matches ? "關閉選單"
-      : root.classList.contains("nav-collapsed") ? "展開選單" : "收合選單");
-  }
-  collapseBtn.addEventListener("click", function () {
-    if (narrow.matches) { closeOverlay(); return; }
-    var collapsed = root.classList.toggle("nav-collapsed");
-    try { localStorage.setItem("navCollapsed", collapsed ? "1" : "0"); } catch (e) {}
-    syncLabel();
-  });
-  document.getElementById("menuBtn").addEventListener("click", openOverlay);
-  backdrop.addEventListener("click", closeOverlay);
-  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeOverlay(); });
-  if (narrow.addEventListener) narrow.addEventListener("change", function () { closeOverlay(); syncLabel(); });
-  syncLabel();
-  var here = location.pathname.replace(/index\\.html$/, "");
-  nav.querySelectorAll(".sidenav-item").forEach(function (a) {
-    if (a.pathname.replace(/index\\.html$/, "") === here) a.classList.add("active");
+  // Rows slide in one after another on page load, like the old client filling its list.
+  // Only the first screenful animates - search/tag pages hold thousands of rows.
+  if (reduceMotion) return;
+  var n = 0;
+  document.querySelectorAll(".row").forEach(function (r) {
+    if (n >= 24 || r.offsetParent === null) return;
+    r.style.setProperty("--i", n++);
+    r.classList.add("enter");
+    r.addEventListener("animationend", function () { r.classList.remove("enter"); }, { once: true });
   });
 })();
 (function () {
-  // Wishlist lives entirely in localStorage (no account, no backend) - each star button
+  // Mouse-only hover preview: a bigger header image plus the row's review line and tags.
+  if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+  var peek = document.getElementById("peek"), cur = null;
+  document.addEventListener("mousemove", function (e) {
+    var row = e.target.closest(".row");
+    if (!row || e.target.closest(".wish-star, .tags")) { peek.classList.remove("on"); cur = null; return; }
+    if (row !== cur) {
+      cur = row;
+      var img = row.querySelector("img.cap"), name = row.querySelector(".name"), rev = row.querySelector(".review-line:not(.placeholder)");
+      var tags = Array.prototype.slice.call(row.querySelectorAll(".tags .tag"), 0, 10);
+      peek.innerHTML = "";
+      if (img && img.style.visibility !== "hidden") { var i = document.createElement("img"); i.src = img.currentSrc || img.src; i.alt = ""; peek.appendChild(i); }
+      var t = document.createElement("div"); t.className = "t"; t.textContent = name ? name.textContent : ""; peek.appendChild(t);
+      if (rev) peek.appendChild(rev.cloneNode(true));
+      if (tags.length) {
+        var box = document.createElement("div"); box.className = "tags";
+        tags.forEach(function (a) { var s = document.createElement("span"); s.className = "tag"; s.textContent = a.textContent; box.appendChild(s); });
+        peek.appendChild(box);
+      }
+    }
+    var x = e.clientX + 18, y = e.clientY + 14;
+    if (x + 310 > window.innerWidth) x = e.clientX - 318;
+    if (y + peek.offsetHeight + 10 > window.innerHeight) y = Math.max(8, e.clientY - peek.offsetHeight - 14);
+    peek.style.left = x + "px"; peek.style.top = y + "px";
+    peek.classList.add("on");
+  });
+  document.addEventListener("mouseleave", function () { peek.classList.remove("on"); cur = null; });
+})();
+(function () {
+  // Wishlist lives entirely in localStorage (no account, no backend) - each wish button
   // carries enough data-* attributes to reconstruct its own row, so the wishlist page can
   // render fully client-side without ever needing to fetch history.json.
   var KEY = "wishlist";
@@ -1025,6 +1072,13 @@ function showToast(text) {
       btn.classList.toggle("filled", on);
       btn.setAttribute("aria-label", on ? "移除願望清單" : "加入願望清單");
     });
+    var cnt = document.getElementById("wishCount");
+    if (cnt) cnt.textContent = Object.keys(w).length || "";
+  }
+  function bump() {
+    var cnt = document.getElementById("wishCount");
+    if (!cnt || reduceMotion) return;
+    cnt.classList.remove("bump"); void cnt.offsetWidth; cnt.classList.add("bump");
   }
   document.addEventListener("click", function (e) {
     var btn = e.target.closest(".wish-star");
@@ -1049,8 +1103,15 @@ function showToast(text) {
       };
       setWishlist(w);
       showToast("已將「" + name + "」加入願望清單");
+      if (!reduceMotion) {
+        var p = document.createElement("span");
+        p.className = "plus"; p.textContent = "+1";
+        btn.appendChild(p);
+        setTimeout(function () { p.remove(); }, 700);
+      }
     }
     syncStars();
+    bump();
     document.dispatchEvent(new Event("wishlistchange"));
   });
   syncStars();
@@ -1070,6 +1131,27 @@ function showToast(text) {
   });
 })();
 (function () {
+  // Historical-low spotlight on the home page: one deal at a time, advancing every 5s,
+  // paused while the pointer is over it.
+  var spot = document.getElementById("spot");
+  if (!spot) return;
+  var track = spot.querySelector(".spot-track"), timer = spot.querySelector(".spot-timer");
+  var dots = Array.prototype.slice.call(spot.querySelectorAll(".spot-dots button"));
+  var k = 0, iv = null;
+  function go(n) {
+    k = (n + dots.length) % dots.length;
+    track.style.transform = "translateX(-" + (k * 100) + "%)";
+    dots.forEach(function (d, i) { d.setAttribute("aria-current", i === k ? "true" : "false"); });
+    timer.classList.remove("go"); void timer.offsetWidth;
+    if (!reduceMotion) timer.classList.add("go");
+  }
+  function auto() { clearInterval(iv); if (!reduceMotion) iv = setInterval(function () { go(k + 1); }, 5000); }
+  dots.forEach(function (d, i) { d.addEventListener("click", function () { go(i); auto(); }); });
+  spot.addEventListener("mouseenter", function () { clearInterval(iv); timer.classList.remove("go"); });
+  spot.addEventListener("mouseleave", function () { go(k); auto(); });
+  go(0); auto();
+})();
+(function () {
   var KEY = "steamOpenPref";
   function getPref() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
   function setPref(v) { try { if (v) { localStorage.setItem(KEY, v); } else { localStorage.removeItem(KEY); } } catch (e) {} }
@@ -1087,6 +1169,7 @@ function showToast(text) {
 
   backdrop.addEventListener("click", function (e) { if (e.target === backdrop) closeModal(); });
   document.getElementById("openModalCancel").addEventListener("click", closeModal);
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeModal(); });
   backdrop.querySelectorAll("[data-choice]").forEach(function (btn) {
     btn.addEventListener("click", function () {
       var choice = btn.getAttribute("data-choice");
@@ -1123,7 +1206,6 @@ function showToast(text) {
 </html>
 """
 
-
 def render_page(
     title: str,
     base: str,
@@ -1133,6 +1215,8 @@ def render_page(
     og_description: str = "",
     og_image: str = "",
     canonical_url: str = "",
+    tab: str = "",
+    ticker: str = "",
 ) -> str:
     og_html = ""
     if canonical_url:
@@ -1158,6 +1242,79 @@ def render_page(
         .replace("__META__", meta)
         .replace("__BODY__", body_html)
         .replace("__OG__", og_html)
+        .replace("__TABS__", render_tabs(tab, base))
+        .replace("__LOADBAR__", LOADBAR_HTML)
+        .replace("__TICKER__", ticker)
+    )
+
+
+# The window's tab strip replaces the old sidebar. `current` is one of the keys below
+# (empty on pages that aren't a tab of their own, e.g. a tag page).
+TABS = [
+    ("home", "今日新作", "index.html"),
+    ("dates", "所有日期", "dates/index.html"),
+    ("low", "歷史新低", "historical-low.html"),
+    ("wish", "願望清單", "wishlist.html"),
+]
+LOADBAR_HTML = "".join(f'<i style="--s:{i}"></i>' for i in range(24))
+
+
+def render_tabs(current: str, base: str) -> str:
+    parts = []
+    for key, label, href in TABS:
+        cls = "tab active" if key == current else "tab"
+        aria = ' aria-current="page"' if key == current else ""
+        extra = '<span class="cnt" id="wishCount"></span>' if key == "wish" else ""
+        parts.append(f'<a class="{cls}" href="{base}{href}"{aria}>{label}{extra}</a>')
+    return "".join(parts)
+
+
+def render_ticker(low_games: list[dict]) -> str:
+    # Status-bar ticker: the most-reviewed historical lows, same order as that page.
+    items = [
+        f'{esc(g["name"])} <em>{esc(g.get("price_pct") or "")}</em> {esc(g.get("price_final") or "")}'
+        for g in low_games[:10]
+    ]
+    return "　　·　　".join(items)
+
+
+def render_spotlight(low_games: list[dict], base: str) -> str:
+    # Home page side pane: a few historical lows rotating one at a time (see the #spot
+    # script in PAGE_SHELL).
+    picks = [g for g in low_games if not g.get("is_adult")][:6]
+    if not picks:
+        return ""
+    deals = []
+    for g in picks:
+        web_url = esc(g["url"])
+        img = esc(g.get("header_image") or g.get("image") or "")
+        end = g.get("discount_end")
+        end_html = (
+            f'<span>{datetime.fromtimestamp(end, tz=LOCAL_TZ).strftime("%m/%d")} 截止</span>' if end else ""
+        )
+        review = esc(g.get("review_score_label") or "")
+        pct = g.get("review_percent")
+        review_html = f"{review} {pct}%" if review and pct is not None else review
+        first_tag = esc(g["tags"][0]) if g.get("tags") else ""
+        deals.append(
+            f'<a class="deal" href="{web_url}" data-web="{web_url}" data-steam="steam://store/{esc(g["appid"])}">'
+            f'<img src="{img}" loading="lazy" alt="">'
+            f'<span class="r"><b>{esc(g["name"])}</b><span class="pct">{esc(g.get("price_pct") or "")}</span></span>'
+            f'<span class="r"><span class="sm">{review_html}</span>'
+            f'<span>{esc(g.get("price_final") or "")} <s>{esc(g.get("price_original") or "")}</s></span></span>'
+            f'<span class="r sm"><span>{first_tag}</span>{end_html}</span>'
+            "</a>"
+        )
+    dots = "".join(
+        f'<button type="button" aria-label="第 {i + 1} 款：{esc(g["name"])}"></button>' for i, g in enumerate(picks)
+    )
+    return (
+        '<div class="box spot" id="spot">'
+        f'<div class="boxhead">歷史新低<a href="{base}historical-low.html">查看全部 ›</a></div>'
+        '<div class="spot-timer"></div>'
+        f'<div class="spot-track">{"".join(deals)}</div>'
+        f'<div class="spot-dots">{dots}</div>'
+        "</div>"
     )
 
 
@@ -1204,6 +1361,13 @@ def render_tags(appid: str, tags: list[str], base: str, links: bool = True) -> s
     )
 
 
+def _pct_value(pct: str) -> int:
+    try:
+        return int(str(pct).strip().rstrip("%"))
+    except ValueError:
+        return 0
+
+
 def render_price(g: dict) -> str:
     final = g.get("price_final")
     if not final:
@@ -1214,7 +1378,7 @@ def render_price(g: dict) -> str:
     if pct and original:
         html = (
             '<div class="price-line">'
-            f'<span class="disc-pct">{esc(pct)}</span>'
+            f'<span class="disc-pct{" hot" if _pct_value(pct) <= -50 else ""}">{esc(pct)}</span>'
             '<span class="disc-prices">'
             f'<span class="disc-orig">{esc(original)}</span>'
             f'<span class="{final_class}">{esc(final)}</span>'
@@ -1285,19 +1449,18 @@ def render_row(g: dict, base: str, show_date: bool = False, tag_links: bool = Tr
         f'data-image="{esc(zoom_image)}" data-status="{esc(g["status"])}" '
         f'data-badge="{esc(badge_label)}" data-price="{price_text}"'
     )
-    star_html = f'<button type="button" class="wish-star" {star_attrs} aria-label="加入願望清單">{WISH_STAR_SVG}</button>'
+    star_html = f'<button type="button" class="wish-star" {star_attrs} aria-label="加入願望清單">{WISH_BTN_HTML}</button>'
 
     return (
         f'<div class="row"{adult_attr}>'
         f'<a class="media" href="{web_url}" {open_attrs}>'
         f'<img class="cap" src="{esc(zoom_image)}" data-fallback="{esc(fallback_image)}" '
         f'onerror="imgFallback(this)" loading="lazy" alt=""></a>'
-        f"{star_html}"
         '<div class="info">'
         f'<a class="name" href="{web_url}" {open_attrs}>{esc(g["name"])}</a>'
-        f"{date_html}{render_price(g)}{review_html}"
-        f"{tags_html}</div>"
-        f"{badge}</div>"
+        f"{date_html}{review_html}{tags_html}</div>"
+        f'<div class="buy">{render_price(g)}{badge}</div>'
+        f"{star_html}</div>"
     )
 
 
@@ -1331,7 +1494,6 @@ def render_date_body(date_str: str, games: list[dict], base: str) -> str:
     dt = datetime.strptime(date_str, "%Y-%m-%d")
     hero = (
         '<div class="date-hero">'
-        '<div class="date-hero-eyebrow">NEW RELEASES</div>'
         f'<h1 class="date-hero-date">{dt.month}月{dt.day}日'
         f'<span class="wd">星期{WEEKDAY_ZH[dt.weekday()]}</span></h1>'
         f'<div class="date-hero-count">{len(games)} 款新遊戲</div>'
@@ -1500,7 +1662,15 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int, today: dat
     dates_desc = sorted(by_date, reverse=True)
     counts = {d: len(by_date[d]) for d in dates_desc}
     generated_at = datetime.now(tz=LOCAL_TZ).strftime("%Y-%m-%d %H:%M")
-    meta = f"Last synced {esc(generated_at)} · Showing the last {retention_days} days"
+    meta = f"已連線 · 上次同步 {esc(generated_at)} · 顯示最近 {retention_days} 天"
+    low_games = sorted(
+        history.get("historical_low", []),
+        key=lambda g: (-(g.get("review_count") or 0), g["name"]),
+    )
+    ticker = render_ticker([g for g in low_games if not g.get("is_adult")])
+
+    def page_html(**kw) -> str:  # every page shares the same status-bar ticker
+        return render_page(ticker=ticker, **kw)
 
     dates_dir = docs_dir / "dates"
     dates_dir.mkdir(parents=True, exist_ok=True)
@@ -1510,7 +1680,7 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int, today: dat
         style_path.write_text(STYLE_CSS, encoding="utf-8")
 
     for d in dates_desc:
-        page = render_page(
+        page = page_html(
             title=f"{d} 新遊戲 - {SITE_NAME}",
             base="../",
             nav_html=build_nav(dates_desc, d, "../"),
@@ -1546,15 +1716,16 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int, today: dat
         dates_index_rows = "".join(parts)
     else:
         dates_index_rows = '<div class="empty">尚無資料</div>'
-    dates_index_page = render_page(
+    dates_index_page = page_html(
         title=f"所有日期 - {SITE_NAME}",
         base="../",
-        nav_html='<a class="nav-mid" href="../index.html">← 回首頁</a>',
+        nav_html="",
         meta=meta,
         body_html=f'<h1>所有日期</h1><div class="date-grid">{dates_index_rows}</div>',
         og_description=f"瀏覽最近 {retention_days} 天內每日上架的新遊戲",
         og_image=f"{site_url}assets/logo.png",
         canonical_url=f"{site_url}dates/index.html",
+        tab="dates",
     )
     (dates_dir / "index.html").write_text(dates_index_page, encoding="utf-8")
 
@@ -1562,18 +1733,22 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int, today: dat
         # Home is always "today", not just whatever date happens to have the most recent
         # data - a stray game or two already filed under tomorrow (normal near midnight)
         # shouldn't make the homepage jump ahead of the actual current day.
-        home_page = render_page(
+        home_page = page_html(
             title=SITE_NAME,
             base="",
             nav_html=build_nav(dates_desc, today_str, ""),
             meta=meta,
-            body_html=render_date_body(today_str, by_date[today_str], ""),
+            body_html=(
+                f'<div class="split"><div class="main">{render_date_body(today_str, by_date[today_str], "")}</div>'
+                f'<aside class="side">{render_spotlight(low_games, "")}</aside></div>'
+            ),
             og_description=f"{today_str} 新上架 Steam 遊戲，共 {counts[today_str]} 款",
             og_image=_hero_image(by_date[today_str], site_url),
             canonical_url=site_url,
+            tab="home",
         )
     else:
-        home_page = render_page(
+        home_page = page_html(
             title=SITE_NAME,
             base="",
             nav_html="",
@@ -1582,6 +1757,7 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int, today: dat
             og_description="每日追蹤 Steam 新上架遊戲",
             og_image=f"{site_url}assets/logo.png",
             canonical_url=site_url,
+            tab="home",
         )
     (docs_dir / "index.html").write_text(home_page, encoding="utf-8")
 
@@ -1602,10 +1778,10 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int, today: dat
         slug = tag_slug(tag)
         slug_to_tag[slug] = tag
         glist_sorted = sorted(glist, key=lambda g: g["release_date"], reverse=True)
-        page = render_page(
+        page = page_html(
             title=f"#{tag} - {SITE_NAME}",
             base="../",
-            nav_html='<a class="nav-mid" href="../index.html">← 回首頁</a>',
+            nav_html="",
             meta=meta,
             body_html=f'<h1>#{esc(tag)}</h1><div class="card">'
             + "".join(render_row(g, "../", show_date=True) for g in glist_sorted)
@@ -1663,10 +1839,10 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int, today: dat
         f'<div class="card" id="searchResults">{search_rows}</div>'
         f"{search_script}"
     )
-    search_page = render_page(
+    search_page = page_html(
         title=f"搜尋 - {SITE_NAME}",
         base="",
-        nav_html='<a class="nav-mid" href="index.html">← 回首頁</a>',
+        nav_html="",
         meta=meta,
         body_html=search_body,
         og_description="搜尋所有已收錄的新上架 Steam 遊戲",
@@ -1697,7 +1873,7 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int, today: dat
     entries.sort(function (a, b) { return (b.addedAt || 0) - (a.addedAt || 0); });
     if (!entries.length) {
       container.className = "empty";
-      container.textContent = "還沒有加入任何願望清單，點遊戲卡片右上角的 ☆ 就可以加入";
+      container.textContent = "還沒有加入任何遊戲，按遊戲右邊的「☆ 願望」就可以加入";
       return;
     }
     container.className = "card";
@@ -1710,13 +1886,13 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int, today: dat
         '<div class="row">' +
         '<a class="media" href="' + esc(g.web) + '" ' + openAttrs + '>' +
         '<img class="cap" src="' + esc(g.image) + '" loading="lazy" alt=""></a>' +
+        '<div class="info"><a class="name" href="' + esc(g.web) + '" ' + openAttrs + '>' + esc(g.name) + '</a></div>' +
+        '<div class="buy"><div class="price-line"><span class="disc-final plain">' + esc(g.price || "價格未知") + '</span></div>' +
+        '<span class="' + badgeClass + '">' + badgeText + '</span></div>' +
         '<button type="button" class="wish-star filled" data-appid="' + esc(g.appid) +
         '" data-name="' + esc(g.name) + '" data-web="' + esc(g.web) + '" data-image="' + esc(g.image) +
         '" data-status="' + esc(g.status) + '" data-badge="' + esc(g.badge) + '" data-price="' + esc(g.price) +
-        '" aria-label="移除願望清單">__WISH_STAR_SVG__</button>' +
-        '<div class="info"><a class="name" href="' + esc(g.web) + '" ' + openAttrs + '>' + esc(g.name) + '</a>' +
-        '<div class="price-line"><span class="disc-final plain">' + esc(g.price || "價格未知") + '</span></div></div>' +
-        '<span class="' + badgeClass + '">' + badgeText + '</span>' +
+        '" aria-label="移除願望清單">__WISH_BTN_HTML__</button>' +
         '</div>'
       );
     }).join("");
@@ -1725,24 +1901,21 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int, today: dat
   document.addEventListener("wishlistchange", render);
 })();
 </script>"""
-    wishlist_script = wishlist_script.replace("__WISH_STAR_SVG__", WISH_STAR_SVG)
+    wishlist_script = wishlist_script.replace("__WISH_BTN_HTML__", WISH_BTN_HTML)
     wishlist_body = '<h1>願望清單</h1><div class="card" id="wishlistList"></div>' + wishlist_script
-    wishlist_page = render_page(
+    wishlist_page = page_html(
         title=f"願望清單 - {SITE_NAME}",
         base="",
-        nav_html='<a class="nav-mid" href="index.html">← 回首頁</a>',
+        nav_html="",
         meta=meta,
         body_html=wishlist_body,
         og_description="我收藏的 Steam 新遊戲願望清單",
         og_image=f"{site_url}assets/logo.png",
         canonical_url=f"{site_url}wishlist.html",
+        tab="wish",
     )
     (docs_dir / "wishlist.html").write_text(wishlist_page, encoding="utf-8")
 
-    low_games = sorted(
-        history.get("historical_low", []),
-        key=lambda g: (-(g.get("review_count") or 0), g["name"]),
-    )
     if low_games:
         low_body = (
             '<div class="filter-tags" id="lowTags"></div>'
@@ -1755,15 +1928,16 @@ def generate_site(history: dict, docs_dir: Path, retention_days: int, today: dat
         )
     else:
         low_body = '<h1>歷史新低</h1><div class="empty">目前沒有遊戲處於歷史新低價</div>'
-    low_page = render_page(
+    low_page = page_html(
         title=f"歷史新低 - {SITE_NAME}",
         base="",
-        nav_html='<a class="nav-mid" href="index.html">← 回首頁</a>',
+        nav_html="",
         meta=meta,
         body_html=low_body,
         og_description=f"目前有 {len(low_games)} 款遊戲在 Steam 創下歷史新低價",
         og_image=f"{site_url}assets/logo.png",
         canonical_url=f"{site_url}historical-low.html",
+        tab="low",
     )
     (docs_dir / "historical-low.html").write_text(low_page, encoding="utf-8")
 
