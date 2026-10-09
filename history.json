@@ -8962,7 +8962,7 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 87,
-      "review_count": 181
+      "review_count": 182
     },
     "3369150": {
       "appid": "3369150",
@@ -56394,7 +56394,7 @@
       "review_score": 6,
       "review_score_label": "大多好評",
       "review_percent": 71,
-      "review_count": 117
+      "review_count": 118
     },
     "3602640": {
       "appid": "3602640",
@@ -64265,7 +64265,7 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 82,
-      "review_count": 89
+      "review_count": 92
     },
     "3836120": {
       "appid": "3836120",
@@ -67948,7 +67948,7 @@
       "review_score": 7,
       "review_score_label": "好評",
       "review_percent": 100,
-      "review_count": 10
+      "review_count": 11
     },
     "5075110": {
       "appid": "5075110",
@@ -88878,13 +88878,13 @@
       "appid": "5252390",
       "name": "Arcane Library",
       "url": "https://store.steampowered.com/app/5252390/",
-      "release_date": "2026-09-30",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5252390/a4e333c834c37468034d373b45abff14defde3fb/capsule_231x87.jpg?t=1789521620",
-      "status": "upcoming",
+      "release_date": "2026-10-09",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5252390/a4e333c834c37468034d373b45abff14defde3fb/capsule_231x87.jpg?t=1791525818",
+      "status": "live",
       "price_pct": null,
       "price_original": null,
-      "price_final": null,
-      "release_epoch": null,
+      "price_final": "NT$ 25.00",
+      "release_epoch": 1791525819,
       "tags": [
         "時間管理",
         "放置",
@@ -88904,7 +88904,7 @@
         "單人",
         "工具"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5252390/eb335bf4013a210b5432f9d71ccf2511b7b80096/header.jpg?t=1789521620",
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5252390/eb335bf4013a210b5432f9d71ccf2511b7b80096/header.jpg?t=1791525818",
       "discount_end": null,
       "is_adult": false,
       "review_score": null,
@@ -90906,13 +90906,13 @@
       "appid": "839140",
       "name": "修仙界",
       "url": "https://store.steampowered.com/app/839140/",
-      "release_date": "2026-09-30",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/839140/4579394147f9b6216e2302786fb04675c9c5a017/capsule_231x87.jpg?t=1788991125",
-      "status": "upcoming",
+      "release_date": "2026-10-09",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/839140/4579394147f9b6216e2302786fb04675c9c5a017/capsule_231x87.jpg?t=1791524087",
+      "status": "live",
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": null,
+      "release_epoch": 1791524087,
       "tags": [
         "冒險",
         "模擬",
@@ -90932,7 +90932,7 @@
         "魔法",
         "多人"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/839140/a7934a87204c41dbc10746ee4f5811291ee66002/header.jpg?t=1788991125",
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/839140/a7934a87204c41dbc10746ee4f5811291ee66002/header.jpg?t=1791524087",
       "discount_end": null,
       "is_adult": false,
       "review_score": null,
@@ -111477,7 +111477,7 @@
       "review_score": 8,
       "review_score_label": "極度好評",
       "review_percent": 81,
-      "review_count": 12591
+      "review_count": 12615
     },
     "3236810": {
       "appid": "3236810",
@@ -122158,10 +122158,10 @@
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5176180/cf77643b09bb8dfe29b92c94504bc93f3105fe73/header.jpg?t=1791346199",
       "discount_end": 1792429258,
       "is_adult": false,
-      "review_score": null,
-      "review_score_label": null,
-      "review_percent": null,
-      "review_count": null
+      "review_score": 0,
+      "review_score_label": "2 篇使用者評論",
+      "review_percent": 100,
+      "review_count": 2
     },
     "5214500": {
       "appid": "5214500",
@@ -124427,7 +124427,7 @@
       "review_score": 7,
       "review_score_label": "好評",
       "review_percent": 94,
-      "review_count": 17
+      "review_count": 19
     },
     "5144300": {
       "appid": "5144300",
@@ -125513,7 +125513,7 @@
       "review_score": 9,
       "review_score_label": "壓倒性好評",
       "review_percent": 96,
-      "review_count": 728
+      "review_count": 771
     },
     "2333000": {
       "appid": "2333000",
@@ -127765,7 +127765,7 @@
       "price_pct": null,
       "price_original": null,
       "price_final": null,
-      "release_epoch": 1791525600,
+      "release_epoch": null,
       "tags": [
         "模擬",
         "策略",
@@ -127951,29 +127951,28 @@
       "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3744190/8cc4b374631e5595a33d0f44212d973b1b9230d9/header.jpg?t=1791500421",
       "discount_end": 1792342818,
       "is_adult": false,
-      "review_score": null,
-      "review_score_label": null,
-      "review_percent": null,
-      "review_count": null
+      "review_score": 0,
+      "review_score_label": "6 篇使用者評論",
+      "review_percent": 100,
+      "review_count": 6
     },
     "4096710": {
       "appid": "4096710",
       "name": "KRONITE VOID",
       "url": "https://store.steampowered.com/app/4096710/",
       "release_date": "2026-10-09",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4096710/284e7f3bed3bf6ab51d4fdf44022fb7514e52660/capsule_231x87.jpg?t=1791519768",
-      "status": "upcoming",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4096710/284e7f3bed3bf6ab51d4fdf44022fb7514e52660/capsule_231x87.jpg?t=1791524507",
+      "status": "live",
       "price_pct": null,
       "price_original": null,
       "price_final": "免費",
-      "release_epoch": 1791531000,
+      "release_epoch": 1791524506,
       "tags": [
         "策略",
         "資源管理",
         "放置",
         "免費遊玩",
         "獨立",
-        "搶先體驗",
         "遞增",
         "2D",
         "極簡主義",
@@ -127982,13 +127981,14 @@
         "管理",
         "異步多人",
         "單人",
+        "打寶",
+        "太空船",
         "玩家對戰",
         "科幻",
-        "太空船",
-        "工藝",
-        "打寶"
+        "搶先體驗",
+        "工藝"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4096710/831e2cec299b921412e654450da339c8475fc674/header.jpg?t=1791519768",
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4096710/831e2cec299b921412e654450da339c8475fc674/header.jpg?t=1791524507",
       "discount_end": null,
       "is_adult": false,
       "review_score": null,
@@ -128001,12 +128001,12 @@
       "name": "魔法少女勇者醬與淫獄迷宮",
       "url": "https://store.steampowered.com/app/4056370/",
       "release_date": "2026-10-09",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4056370/bc848dc97ee17589ff0e5e460074f8cd4696c53f/capsule_231x87.jpg?t=1790736892",
-      "status": "upcoming",
-      "price_pct": null,
-      "price_original": null,
-      "price_final": null,
-      "release_epoch": 1791525600,
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4056370/bc848dc97ee17589ff0e5e460074f8cd4696c53f/capsule_231x87.jpg?t=1791525730",
+      "status": "live",
+      "price_pct": "-20%",
+      "price_original": "NT$ 225.00",
+      "price_final": "NT$ 180.00",
+      "release_epoch": 1791525734,
       "tags": [
         "回合制戰術",
         "傳統類 Rogue",
@@ -128029,8 +128029,8 @@
         "程序生成",
         "模擬"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4056370/b47a1f3af015ef35db9f737f9c304f41fa04d239/header.jpg?t=1790736892",
-      "discount_end": null,
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4056370/b47a1f3af015ef35db9f737f9c304f41fa04d239/header.jpg?t=1791525730",
+      "discount_end": 1792688408,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -129964,12 +129964,12 @@
       "name": "Hazmat Simulator",
       "url": "https://store.steampowered.com/app/5236060/",
       "release_date": "2026-10-09",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5236060/058f5cff66e57ae27d7095e7f9b3ed95e74ff1b5/capsule_231x87.jpg?t=1791464326",
-      "status": "upcoming",
-      "price_pct": null,
-      "price_original": null,
-      "price_final": null,
-      "release_epoch": null,
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5236060/058f5cff66e57ae27d7095e7f9b3ed95e74ff1b5/capsule_231x87.jpg?t=1791525502",
+      "status": "live",
+      "price_pct": "-15%",
+      "price_original": "NT$ 164.00",
+      "price_final": "NT$ 139.00",
+      "release_epoch": 1791525046,
       "tags": [
         "模擬",
         "工作模擬",
@@ -129982,8 +129982,8 @@
         "多人",
         "恐怖"
       ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5236060/f0affd4dfd01a391c53a585ef23b822fbca24557/header.jpg?t=1791464326",
-      "discount_end": null,
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5236060/f0affd4dfd01a391c53a585ef23b822fbca24557/header.jpg?t=1791525502",
+      "discount_end": 1792083644,
       "is_adult": false,
       "review_score": null,
       "review_score_label": null,
@@ -132041,6 +132041,43 @@
       "review_score_label": null,
       "review_percent": null,
       "review_count": null
+    },
+    "5197160": {
+      "appid": "5197160",
+      "name": "Tower Survivors: Fortress",
+      "url": "https://store.steampowered.com/app/5197160/",
+      "release_date": "2026-10-09",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5197160/937c1c508cb15c804ef7ba63e2680aec4b68eb20/capsule_231x87.jpg?t=1791525067",
+      "status": "live",
+      "price_pct": "-16%",
+      "price_original": "NT$ 95.00",
+      "price_final": "NT$ 80.00",
+      "release_epoch": 1791525068,
+      "tags": [
+        "策略",
+        "塔防",
+        "自動對戰",
+        "輕度 Rogue",
+        "動作",
+        "逆彈幕",
+        "類 Rogue",
+        "像素風格",
+        "單人",
+        "動作類 Rogue",
+        "奇幻",
+        "獨立",
+        "中世紀",
+        "2D",
+        "休閒",
+        "程序生成"
+      ],
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5197160/2b9e29d778d069a881aabefcd909fe9c9b3a34ff/header.jpg?t=1791525067",
+      "discount_end": 1792688406,
+      "is_adult": false,
+      "review_score": null,
+      "review_score_label": null,
+      "review_percent": null,
+      "review_count": null
     }
   },
   "historical_low": [
@@ -132496,47 +132533,6 @@
       "review_count": 9813
     },
     {
-      "appid": "405640",
-      "name": "Pony Island",
-      "url": "https://store.steampowered.com/app/405640/",
-      "release_date": "2016-01-05",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/405640/capsule_231x87.jpg?t=1791477267",
-      "status": "live",
-      "price_pct": "-100%",
-      "price_original": "NT$ 118.00",
-      "price_final": "NT$ 0.00",
-      "release_epoch": 1451928942,
-      "tags": [
-        "解謎",
-        "獨立",
-        "心理恐怖",
-        "像素風格",
-        "駭客",
-        "單人",
-        "惡魔",
-        "恐怖",
-        "黑暗",
-        "試驗性",
-        "好評原聲帶",
-        "馬匹",
-        "劇情豐富",
-        "2D",
-        "搞笑",
-        "短片",
-        "氛圍",
-        "可愛",
-        "網路梗",
-        "鮮血"
-      ],
-      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/405640/header.jpg?t=1791477267",
-      "discount_end": null,
-      "is_adult": false,
-      "review_score": 9,
-      "review_score_label": "壓倒性好評",
-      "review_percent": 95,
-      "review_count": 14815
-    },
-    {
       "appid": "690830",
       "name": "Foundation",
       "url": "https://store.steampowered.com/app/690830/",
@@ -132576,6 +132572,47 @@
       "review_score_label": "極度好評",
       "review_percent": 86,
       "review_count": 23116
+    },
+    {
+      "appid": "405640",
+      "name": "Pony Island",
+      "url": "https://store.steampowered.com/app/405640/",
+      "release_date": "2016-01-05",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/405640/capsule_231x87.jpg?t=1791477267",
+      "status": "live",
+      "price_pct": "-100%",
+      "price_original": "NT$ 118.00",
+      "price_final": "NT$ 0.00",
+      "release_epoch": 1451928942,
+      "tags": [
+        "解謎",
+        "獨立",
+        "心理恐怖",
+        "像素風格",
+        "駭客",
+        "單人",
+        "惡魔",
+        "恐怖",
+        "黑暗",
+        "試驗性",
+        "好評原聲帶",
+        "馬匹",
+        "劇情豐富",
+        "2D",
+        "搞笑",
+        "短片",
+        "氛圍",
+        "可愛",
+        "網路梗",
+        "鮮血"
+      ],
+      "header_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/405640/header.jpg?t=1791477267",
+      "discount_end": null,
+      "is_adult": false,
+      "review_score": 9,
+      "review_score_label": "壓倒性好評",
+      "review_percent": 95,
+      "review_count": 14815
     }
   ]
 }
